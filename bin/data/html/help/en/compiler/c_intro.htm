@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>MIDletPascal 3.0 Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333399;
+}
+body {
+	background-color: #FFFFFF;
+}
+a:link {
+	color: #333399;
+}
+a:visited {
+	color: #333399;
+}
+a:hover {
+	color: #666666;
+}
+a:active {
+	color: #333399;
+}
+-->
+</style></head>
+
+<body>
+<p><font size=+2>
+
+<b>What's New in the MIDletPascal 3.x Compiler</b> \ Introduction
+
+</font></p>
+<table width="100%"  border="0">
+  <tr>
+    <td height="3" bgcolor="#EEEE00"></td>
+  </tr>
+</table><br>
+
+<p>Since Niksa Orlic (norlic) released the source code of MIDletPascal 2.02 in September 2009 under the GNU General Public License, after a successful negotiation of Sergey Naydenov (tronix286), an evolution of the original compiler has been developed by Artem (abcdef). He reverted back the compiler to a CLI stand-alone, continued working with VisualStudio, and named his releases as with three digits ("003", "005", "007", "009", etc).</p>
+
+<p>One of his first public release in the boolean.name forum, was the "007" compiler version, with mainly a new lexer that allowed a few more things than the original. The most important new features are:
+<ul><li>bigger array max size<li>smart string concatenation<li>shift operators<li>bytecode inlining</ul></p>
+
+<p>When <a href="../ide/i_intro.htm">the new 3.0 IDE</a> was started in October 2009, the "007" version was the most featured one, and Javier Santo Domingo (j-a-s-d) started adapting it. The changes made were: convertion to GNU GCC Compiler 3.4.5 (using the Code::Blocks 8.02 IDE) and all the changes in the code that the port required (all made by coditional define __GNUC__); convertion to a DLL interface which involved mostly a complete main.c rewrite; addition of a callback system to allow quicker and richer reporting to the IDE; convertion of the compiler messages to the "standard pascal-way" most of the pascal compilers use; and several bugfixes that includes most of the memory leaks problems and the "literal char" bug in the new lexer reported in the sourceforge project forums. This DLL version was used by MP 3.0 ALPHA 1 to MP 3.0 BETA 2.<br/>
+For the MP 3.0 BETA 3, the DLL 007 modified compiler was replaced by a modified version of the 009 stand-alone compiler (with preverifier included).<br/>
+The changes made to the 009 stand-alone version are mostly the same that the ones made to the 007 to create the DLL version, with the difference that the callback system was replaced by command-line parsing (which replaced at the same time the file-based parameter handling that the Artem's 009 version had).</p>
+
+<p>Since then Javier Santo Domingo (j-a-s-d) added:
+<ul><li>the infinite loop support - since 3.1</li>
+<li>exit keyword support - since 3.2</li>
+<li>C-style multiline comment support - since 3.2</li>
+<li>result keyword support - since 3.3</li>
+<li>project relative libraries support - since 3.4</li>
+<li>unsigned right shift operator - since 3.4</li>
+<li>negative integer constants support - since 3.5</li>
+<li>C-like double quoted strings support - since 3.5</li></ul></p>
+
+</body>
+</html>

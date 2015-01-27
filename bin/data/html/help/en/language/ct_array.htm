@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>MIDletPascal 3.0 Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333399;
+}
+body {
+	background-color: #FFFFFF;
+}
+a:link {
+	color: #333399;
+}
+a:visited {
+	color: #333399;
+}
+a:hover {
+	color: #666666;
+}
+a:active {
+	color: #333399;
+}
+-->
+</style></head>
+
+<body>
+<p><font size=+2>
+
+Array type
+	
+</font></p>
+<table width="100%"  border="0">
+  <tr>
+    <td height="3" bgcolor="#EEEE00"></td>
+  </tr>
+</table><br>
+<p>Array type is defined as follows:</p>
+
+<pre>
+  type chessFieldType = array[1..8, 1..8] of integer;
+</pre>
+
+<p>This statement has defined a new type that is a two-dimensional array size 8 x 8 fields. The fields in the array are integer type. You can define arrays inside the var statement:</p>
+
+<pre>
+  type chessFieldType = array[1..8, 1..8] of integer;
+  var chessField: chessFieldType;
+</pre>
+
+<p>is equal to</p>
+
+<pre>
+  var chessField: array[1..8, 1..8] of integer;
+</pre>
+
+<p>The following example counts the number of empty fields in the chess table:</p>
+
+<pre>
+  type chessFieldType = array[1..8, 1..8] of integer;
+  var chessField: chessFieldType;
+     i, j, count: integer;
+  begin
+    ...
+    { initialize the chess field to contain some elements }
+    ...
+    count := 0;
+    for i:=1 to 8 do
+      for j:=1 to 8 do
+        if chessField[i, j] = 0 then count := count + 1;
+  end.
+</pre>
+
+<p>MIDletPascal supports arrays of any dimension. You are free to use 1-dimensional, 2-dimensional, or even 10-dimensional arrays (although 10-dimensional arrays would eat up very much memory).</p>
+
+<p>When using arrays you must be careful not to access elements outside if the array. For example, the following code would cause the MIDlet to crash:</p>
+
+<pre>
+  var a:array[1..5] of integer;
+  begin
+    a[7] := 10; { a[7] does not exist, MIDlet will crash here }
+  end.
+</pre>
+
+
+</body>
+</html>

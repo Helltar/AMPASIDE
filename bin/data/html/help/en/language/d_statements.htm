@@ -1,0 +1,184 @@
+<html>
+<head>
+<title>MIDletPascal 3.0 Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333399;
+}
+body {
+	background-color: #FFFFFF;
+}
+a:link {
+	color: #333399;
+}
+a:visited {
+	color: #333399;
+}
+a:hover {
+	color: #666666;
+}
+a:active {
+	color: #333399;
+}
+-->
+</style></head>
+
+<body>
+<p><font size=+2>
+
+<b>The MIDletPascal Dialect</b> \ Statements
+
+</font></p>
+<table width="100%"  border="0">
+  <tr>
+    <td height="3" bgcolor="#EEEE00"></td>
+  </tr>
+</table><br>
+
+<p>The MIDletPascal statement can be any of the following:</p>
+<ul>
+	<li>for loop
+	<li>while loop
+	<li>repeat-until loop
+	<li>break statement
+	<li>if-then-else statement
+	<li>assignement operator
+	<li>routine call
+</ul>
+
+<a name="for"/>
+<p><b>For loop</b></p>
+
+<p>for loop has the following sytax:</p>
+
+<pre>
+for loopIndex := initialValueExpression to finalValueExpression do
+begin
+  <i>statements</i>
+end;
+</pre>
+
+<p>Instead of keyword to, keyword downto can be used to indicate that the loopIndex will be decreased by one in each loop iteration. </p>
+
+<p>The following code block will calculate the sum of the numbers 1 to 10:</p>
+
+<pre>
+  ...
+  for i:= 1 to 10 do
+  begin
+    sum := sum + i;
+  end;
+  ...
+</pre>
+
+<p>If there is only one statement within the loop, begin and end keywords may be omitted.</p>
+
+<a name="while"/>
+<p><b>While loop</b></p>
+
+<p>the loop has the following syntax:</p>
+
+<pre>
+while <i>condition</i> do
+begin
+  <i>statements</i>
+end;
+</pre>
+
+<p>For example, to wait for the user input we could write:</p>
+
+<pre>
+  ...
+  while (getKeyClicked = KE_NONE) do
+  begin
+    delay(100);
+  end;
+  ...
+</pre>
+
+<p>If there is only one statement within the loop, begin and end keywords may be omitted.</p>
+
+<a name="repeat"/>
+<p><b>Repeat-until loop</b></p>
+
+<p>repeat until loop has the following syntax:</p>
+
+<pre>
+repeat
+  <i>statements</i>;
+until <i>endingCondition</i>;
+</pre>
+
+<p>To wait until the user presses the key, we could write:</p>
+
+<pre>
+  ...
+  repeat
+    delay(100);
+    until (getKeyClicked &lt;&gt; KE_NONE);
+  ...
+</pre>
+
+<a name="break"/>
+<p><b>Break statement</b></p>
+
+<p>The break statement is used to exit from the innermost for, while or repeat loop.</p>
+
+<pre>
+  ...
+  repeat
+    for i := 1 to 10 do
+    begin
+      if doSomething(i) = -1 then break; // break from for-loop
+    end;
+
+  until getClickedCommand &lt;&gt; emptyCommand;
+  ...
+</pre>
+
+<a name="ite"/>
+<p><b>If-then-else statement</b></p>
+
+<p>If-then-else statement has the following sytax:</p>
+
+<pre>
+if <i>condition</i> then
+begin
+  <i>statements</i>; { condition true branch }<br>
+end
+[
+else
+begin
+  <i>statements</i>; { condition false branch }<br>
+end;
+]
+</pre>
+
+<p>The else branch may be omitted. If there is only one statement inside the branch, begin and end keywords may be omitted.</p>
+
+<a name="assign"/>
+<p><b>Assignment operator</b></p>
+
+<p>Assignment operator is used to assign values to variables and has the following syntax:</p>
+
+<pre>
+variable := value;
+</pre>
+
+<p>Value can be an expression, variable, function call or constant.</p>
+
+<a name="call"/>
+<p><b>Routine call</b></p>
+
+<p>Simply write the routine (procedure or function) name.</p>
+
+<pre>
+routine;
+</pre>
+
+</body>
+</html>

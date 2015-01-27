@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>MIDletPascal 3.0 Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333399;
+}
+body {
+	background-color: #FFFFFF;
+}
+a:link {
+	color: #333399;
+}
+a:visited {
+	color: #333399;
+}
+a:hover {
+	color: #666666;
+}
+a:active {
+	color: #333399;
+}
+-->
+</style></head>
+
+<body>
+<p><font size=+2>getStringWidth</font></p>
+<table width="100%"  border="0">
+  <tr>
+    <td height="3" bgcolor="#EEEE00"></td>
+  </tr>
+</table><br>
+
+<code>function getStringWidth(text: string): integer;</code>
+
+<p>Returns the width (in pixels) for showing the 'text' on display in the current font.</p>
+
+<pre>
+  var text: string;
+     width: integer;
+  begin
+    text  := 'Text to display';
+    width := getStringWidth(text);
+    drawText(text, (getWidth - width)/2, 0);
+    repaint;
+    delay(1000);
+  end.
+</pre>
+
+<p>See also: <a href="mr_getstringheight.htm">getStringHeight</a>, <a href="mr_getwidth.htm">getWidth</a>, <a href="mr_getheight.htm">getHeight</a>, <a href="mr_repaint.htm">repaint</a></p>
+
+</body>
+</html>

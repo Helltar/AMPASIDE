@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>MIDletPascal 3.0 Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333399;
+}
+body {
+	background-color: #FFFFFF;
+}
+a:link {
+	color: #333399;
+}
+a:visited {
+	color: #333399;
+}
+a:hover {
+	color: #666666;
+}
+a:active {
+	color: #333399;
+}
+-->
+</style></head>
+
+<body>
+<p><font size=+2>openResource</font></p>
+<table width="100%"  border="0">
+  <tr>
+    <td height="3" bgcolor="#EEEE00"></td>
+  </tr>
+</table><br>
+
+<code>function openResource(name: string): resource;</code>
+
+<p>The function opens the resource file located within the application's JAR file. To add the resource file into the JAR file, select the Project-&gt;Insert resource menu. </p>
+
+<pre>
+  var res   : resource;
+      byte  : integer;
+      line  : string;
+      index : integer;
+  begin
+      res := openResource('/data.txt');
+	
+      if (resourceAvailable(res)) then
+      begin
+          byte := readByte(res);
+	  line := readLine(res);
+		
+          closeResource(res);
+      end;
+      
+      showForm;
+      index := formAddString('Byte is: ' + chr(byte));
+      index := formAddString('Line is: ' + line);
+      delay(1000);
+  end. 
+</pre>
+
+<p>See also: <a href="mr_resourceavailable.htm">resourceAvailable</a>, 
+<a href="mr_closeresource.htm">closeResource</a>, 
+<a href="mr_readbyte.htm">readByte</a>, 
+<a href="mr_readline.htm">readLine</a></p>
+</body>
+</html>

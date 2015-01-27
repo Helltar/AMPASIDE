@@ -1,0 +1,340 @@
+object ProjectOptionsFrame: TProjectOptionsFrame
+  Left = 0
+  Height = 613
+  Top = 0
+  Width = 420
+  ClientHeight = 613
+  ClientWidth = 420
+  TabOrder = 0
+  DesignLeft = 732
+  DesignTop = 191
+  object gbManifest: TGroupBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 6
+    Height = 250
+    Top = 6
+    Width = 408
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Around = 6
+    Caption = 'MANIFEST.MF'
+    ClientHeight = 230
+    ClientWidth = 402
+    TabOrder = 0
+    object lblMName: TLabel
+      AnchorSideLeft.Control = gbManifest
+      AnchorSideTop.Control = gbManifest
+      Left = 6
+      Height = 15
+      Top = 6
+      Width = 77
+      BorderSpacing.Around = 6
+      Caption = 'MIDlet-Name:'
+      ParentColor = False
+    end
+    object edtMName: TEdit
+      AnchorSideLeft.Control = gbManifest
+      AnchorSideTop.Control = lblMName
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = gbManifest
+      AnchorSideRight.Side = asrBottom
+      Left = 6
+      Height = 23
+      Top = 27
+      Width = 390
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 6
+      OnChange = edtMNameChange
+      TabOrder = 0
+    end
+    object lblMVendor: TLabel
+      AnchorSideLeft.Control = gbManifest
+      AnchorSideTop.Control = edtMName
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 15
+      Top = 56
+      Width = 84
+      BorderSpacing.Around = 6
+      Caption = 'MIDlet-Vendor:'
+      ParentColor = False
+    end
+    object edtMVendor: TEdit
+      AnchorSideLeft.Control = gbManifest
+      AnchorSideTop.Control = lblMVendor
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = gbManifest
+      AnchorSideRight.Side = asrBottom
+      Left = 6
+      Height = 23
+      Top = 77
+      Width = 390
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 6
+      OnChange = edtMVendorChange
+      TabOrder = 1
+    end
+    object lblMDesc: TLabel
+      AnchorSideLeft.Control = gbManifest
+      AnchorSideTop.Control = edtMVendor
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 15
+      Top = 106
+      Width = 108
+      BorderSpacing.Around = 6
+      Caption = 'MIDlet-Description:'
+      ParentColor = False
+    end
+    object edtMDesc: TEdit
+      AnchorSideLeft.Control = gbManifest
+      AnchorSideTop.Control = lblMDesc
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = gbManifest
+      AnchorSideRight.Side = asrBottom
+      Left = 6
+      Height = 23
+      Top = 127
+      Width = 390
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 6
+      OnChange = edtMDescChange
+      TabOrder = 2
+    end
+    object lblMIcon: TLabel
+      AnchorSideLeft.Control = gbManifest
+      AnchorSideTop.Control = edtMDesc
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 15
+      Top = 156
+      Width = 68
+      BorderSpacing.Around = 6
+      Caption = 'MIDlet-Icon:'
+      ParentColor = False
+    end
+    object edtMIcon: TEdit
+      AnchorSideLeft.Control = gbManifest
+      AnchorSideTop.Control = lblMIcon
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = gbManifest
+      AnchorSideRight.Side = asrBottom
+      Left = 6
+      Height = 23
+      Top = 177
+      Width = 390
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 6
+      OnChange = edtMIconChange
+      TabOrder = 3
+    end
+  end
+  object gbVersions: TGroupBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = gbManifest
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = gbConfiguration
+    Left = 6
+    Height = 130
+    Top = 262
+    Width = 408
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Around = 6
+    Caption = 'Номера версий'
+    ClientHeight = 110
+    ClientWidth = 402
+    TabOrder = 1
+    object lblVMajor: TLabel
+      AnchorSideLeft.Control = gbVersions
+      AnchorSideTop.Control = gbVersions
+      Left = 6
+      Height = 15
+      Top = 6
+      Width = 53
+      BorderSpacing.Around = 6
+      Caption = 'Старшая:'
+      ParentColor = False
+    end
+    object sedtVMajor: TSpinEdit
+      AnchorSideLeft.Control = gbVersions
+      AnchorSideTop.Control = lblVMajor
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = sedtVMinor
+      Left = 6
+      Height = 23
+      Top = 27
+      Width = 54
+      BorderSpacing.Around = 6
+      MaxValue = 99
+      OnChange = sedtVMajorChange
+      TabOrder = 0
+      Value = 1
+    end
+    object lblVMinor: TLabel
+      AnchorSideLeft.Control = lblVMajor
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = gbVersions
+      Left = 83
+      Height = 15
+      Top = 6
+      Width = 58
+      BorderSpacing.Left = 18
+      BorderSpacing.Around = 6
+      Caption = 'Младшая:'
+      ParentColor = False
+    end
+    object sedtVMinor: TSpinEdit
+      AnchorSideLeft.Control = lblVMinor
+      AnchorSideTop.Control = lblVMinor
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = sedtVBuild
+      Left = 83
+      Height = 23
+      Top = 27
+      Width = 54
+      MaxValue = 99
+      OnChange = sedtVMinorChange
+      TabOrder = 1
+    end
+    object lblVBuild: TLabel
+      AnchorSideLeft.Control = lblVMinor
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = gbVersions
+      Left = 165
+      Height = 15
+      Top = 6
+      Width = 46
+      BorderSpacing.Left = 18
+      BorderSpacing.Around = 6
+      Caption = 'Сборка:'
+      ParentColor = False
+    end
+    object sedtVBuild: TSpinEdit
+      AnchorSideLeft.Control = lblVBuild
+      AnchorSideTop.Control = lblVBuild
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = lblVBuild
+      AnchorSideRight.Side = asrBottom
+      Left = 165
+      Height = 23
+      Top = 27
+      Width = 54
+      MaxValue = 99
+      OnChange = sedtVBuildChange
+      TabOrder = 2
+    end
+    object cbAutoIncBuildVer: TCheckBox
+      AnchorSideLeft.Control = gbVersions
+      AnchorSideTop.Control = sedtVMajor
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 21
+      Top = 56
+      Width = 219
+      BorderSpacing.Around = 6
+      Caption = 'Автом. наращивать номер сборки'
+      Checked = True
+      OnChange = cbAutoIncBuildVerChange
+      State = cbChecked
+      TabOrder = 3
+    end
+  end
+  object gbConfiguration: TGroupBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = gbVersions
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 6
+    Height = 160
+    Top = 398
+    Width = 408
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Around = 6
+    Caption = 'Конфигурация'
+    ClientHeight = 140
+    ClientWidth = 402
+    TabOrder = 2
+    object lblMType: TLabel
+      AnchorSideLeft.Control = gbConfiguration
+      AnchorSideTop.Control = gbConfiguration
+      Left = 6
+      Height = 15
+      Top = 6
+      Width = 69
+      BorderSpacing.Around = 6
+      Caption = 'MIDlet type:'
+      ParentColor = False
+    end
+    object cbbCanvasType: TComboBox
+      AnchorSideLeft.Control = gbConfiguration
+      AnchorSideTop.Control = lblMType
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = gbConfiguration
+      AnchorSideRight.Side = asrBottom
+      Left = 6
+      Height = 24
+      Top = 27
+      Width = 390
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 6
+      ItemHeight = 15
+      ItemIndex = 1
+      Items.Strings = (
+        'Classic MIDlet'
+        'MIDP2.0 Fullscreen'
+        'NokiaAPI Fullscreen'
+      )
+      OnChange = cbbCanvasTypeChange
+      Style = csDropDownList
+      TabOrder = 0
+      Text = 'MIDP2.0 Fullscreen'
+    end
+    object lblMathType: TLabel
+      AnchorSideLeft.Control = gbConfiguration
+      AnchorSideTop.Control = cbbCanvasType
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 15
+      Top = 57
+      Width = 80
+      BorderSpacing.Around = 6
+      Caption = 'Real-numbers:'
+      ParentColor = False
+    end
+    object cbbMathType: TComboBox
+      AnchorSideLeft.Control = gbConfiguration
+      AnchorSideTop.Control = lblMathType
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = gbConfiguration
+      AnchorSideRight.Side = asrBottom
+      Left = 6
+      Height = 24
+      Top = 78
+      Width = 390
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 6
+      ItemHeight = 15
+      ItemIndex = 0
+      Items.Strings = (
+        'Fixed-point'
+        'Floating-point'
+      )
+      OnChange = cbbMathTypeChange
+      Style = csDropDownList
+      TabOrder = 1
+      Text = 'Fixed-point'
+    end
+  end
+  object actlUpdateVers: TActionList
+    OnUpdate = actlUpdateVersUpdate
+    left = 277
+    top = 315
+  end
+end

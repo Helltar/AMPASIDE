@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>MIDletPascal 3.0 Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333399;
+}
+body {
+	background-color: #FFFFFF;
+}
+a:link {
+	color: #333399;
+}
+a:visited {
+	color: #333399;
+}
+a:hover {
+	color: #666666;
+}
+a:active {
+	color: #333399;
+}
+-->
+</style></head>
+
+<body>
+<p><font size=+2>getMinute</font></p>
+<table width="100%"  border="0">
+  <tr>
+    <td height="3" bgcolor="#EEEE00"></td>
+  </tr>
+</table><br>
+
+<code>function getMinute(time: integer): integer;</code>
+
+<p>Returns the minute for the given time (time is represented in seconds since midnight 1.1.1970 and can be retrieved by calling getCurrentTime function). The returned value is between 0 and 59.</p>
+
+<pre>
+  var time: integer;
+      text: string;
+  begin
+    time := getCurrentTime;
+    text := 'Current time is ' + getHour(time);
+    text := text + ':' + getMinute(time);
+    text := text + ':' + getSecond(time);
+    drawText(text, 0, 0);
+    repaint;
+    delay(1000); { wait 1 second before MIDlet terminates }
+  end.
+</pre>
+
+<p>See also: <a href="mr_getcurrenttime.htm">getCurrentTime</a>, <a href="mr_gethour.htm">getHour</a>, <a href="mr_getsecond.htm">getSecond</a></p>
+
+</body>
+</html>

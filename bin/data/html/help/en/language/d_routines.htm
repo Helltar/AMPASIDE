@@ -1,0 +1,175 @@
+<html>
+<head>
+<title>MIDletPascal 3.0 Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333399;
+}
+body {
+	background-color: #FFFFFF;
+}
+a:link {
+	color: #333399;
+}
+a:visited {
+	color: #333399;
+}
+a:hover {
+	color: #666666;
+}
+a:active {
+	color: #333399;
+}
+-->
+</style></head>
+
+<body>
+<p><font size=+2>
+
+<b>The MIDletPascal Dialect</b> \ Routines
+
+</font></p>
+<table width="100%"  border="0">
+  <tr>
+    <td height="3" bgcolor="#EEEE00"></td>
+  </tr>
+</table><br>
+
+<a name="procs"/>
+<b>Procedures</b>
+
+<p>Procedures are subprograms that do not return the value.</p>
+
+<p>The following sample illustrates declaration of two procedures; one of them takes no arguments, and another procedure takes 2 arguments:</p>
+
+<pre>
+  program procedureSample;
+  var n: integer; { this variable is visible in main 
+                    program block and in all functions 
+                    and procedures }
+
+  procedure noArgs;
+  begin
+    n := 5;
+  end;
+
+  procedure twoArgs(a: integer; b: string);
+  var len: integer; { this variable can be accessed only 
+                      from within the procedure and is 
+                      reinitialized every time that the 
+                      procedure is called }
+  begin
+    len := length(b);
+    n := a + len;
+  end;
+
+  begin
+    noArgs; { call the first procedure }
+    twoArgs(n, 'Some string'); { call the second procedure }
+  end.
+</pre>
+
+<a name="funcs"/>
+<b>Functions</b>
+
+<p>Functions are subprograms that return a value.</p>
+
+<p>Functions are similar to procedures, except that they can return values. The following sample illustrates the use of the functions in MIDletPascal:</p>
+
+<pre>
+  program functionSample;
+  var result: integer;
+
+  { this simple function always returns 5 }
+  function returnFive: integer;
+  begin
+    returnFive := 5;
+  end;
+
+  function multiply(a, b: integer): integer;
+  begin
+    multiply := a * b;
+  end;
+
+  begin
+    result := multiply(2, returnFive); { call the multiply function 
+                                         where on argument is value 
+                                         returned by calling the 
+                                         other function }
+  end.
+</pre>
+
+<p>Recursion is also allowed:</p>
+
+<pre>
+  program recursionSample;
+  var factorielOfFive: integer;
+  function factoriel(n: integer): integer;
+  begin
+    if n = 1 then 
+      factoriel := 1;
+    else
+      factoriel := n * factoriel(n-1);
+  end;
+
+  begin
+    factorielOfFive := factoriel(5);
+  end.
+</pre>
+
+<a name="forward"/>
+<b>Forward declarations</b>
+
+<p>MIDletPascal supports forward references. Consider the following program:</p>
+
+<pre>
+  procedure a (x: integer);
+  begin
+    ...
+    b(x);
+    ...
+  end;
+
+  procedure b(y: integer);
+  begin
+  ...
+    a(y);
+  ...
+  end;
+
+  begin
+    a(5);
+  end.
+</pre>
+<p>Procedure a calls procedure b, and procedure b calls procedure a. When procedure b call procedure a, everything is OK, because the procedure a appears before procedure b. But compiler will report an error in procedure a, because it calls procedure that has not been declared yet. To solve this problem, use the forward reference:</p>
+
+<pre>
+  procedure b(y:integer); forward; { the forward reference tells 
+                                     compiler that procedure 'b' will 
+                                     be defined somewhere in the program code }
+
+  procedure a (x: integer);
+  begin
+    ...
+    b(x);
+    ...
+  end;
+
+  procedure b(y: integer);
+  begin
+    ...
+    a(y);
+    ...
+  end;
+
+  begin
+    a(5);
+  end.
+</pre>
+
+</body>
+</html>

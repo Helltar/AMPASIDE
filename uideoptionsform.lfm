@@ -1,0 +1,47 @@
+object frmIDEOptions: TfrmIDEOptions
+  Left = 838
+  Height = 299
+  Top = 191
+  Width = 399
+  Caption = 'Параметры'
+  ClientHeight = 299
+  ClientWidth = 399
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '1.5'
+  object pgcMain: TPageControl
+    Left = 6
+    Height = 255
+    Top = 6
+    Width = 387
+    ActivePage = tsEditor
+    Align = alClient
+    BorderSpacing.Around = 6
+    TabIndex = 0
+    TabOrder = 0
+    object tsEditor: TTabSheet
+      Caption = 'Редактор'
+    end
+    object tsGeneral: TTabSheet
+      Caption = 'Общие'
+    end
+  end
+  object btnpnlMain: TButtonPanel
+    Left = 6
+    Height = 26
+    Top = 267
+    Width = 387
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 1
+    ShowButtons = [pbOK]
+    ShowBevel = False
+  end
+end

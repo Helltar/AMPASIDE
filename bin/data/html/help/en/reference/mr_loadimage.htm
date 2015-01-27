@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>MIDletPascal 3.0 Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333399;
+}
+body {
+	background-color: #FFFFFF;
+}
+a:link {
+	color: #333399;
+}
+a:visited {
+	color: #333399;
+}
+a:hover {
+	color: #666666;
+}
+a:active {
+	color: #333399;
+}
+-->
+</style></head>
+
+<body>
+<p><font size=+2>loadImage</font></p>
+<table width="100%"  border="0">
+  <tr>
+    <td height="3" bgcolor="#EEEE00"></td>
+  </tr>
+</table><br>
+
+<code>function loadImage(resource: string): image</code>
+
+<p>Loads the image from the resource and returns an 'image' object. To access the file inside the JAR archive (the file added as a resource into the MIDletPascal project), the 'resource' parameter must begin with '/' character. If the resource name is invalid, the application will fail.</p>
+
+<pre>
+  begin
+    drawImage(loadImage('/icon.png'), 0, 0);
+    repaint;
+    delay(1000); { wait 1 second before the MIDlet terminates }
+  end.
+</pre>
+
+<p>See also: <a href="mr_loadimage.htm">drawImage</a>, <a href="mr_getimagewidth.htm">getImageWidth</a>, <a href="mr_getimageheight.htm">getImageHeight</a></p>
+
+</body>
+</html>

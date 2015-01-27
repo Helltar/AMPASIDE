@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>MIDletPascal 3.0 Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333399;
+}
+body {
+	background-color: #FFFFFF;
+}
+a:link {
+	color: #333399;
+}
+a:visited {
+	color: #333399;
+}
+a:hover {
+	color: #666666;
+}
+a:active {
+	color: #333399;
+}
+-->
+</style></head>
+
+<body>
+<p><font size=+2>openPlayer</font></p>
+<table width="100%"  border="0">
+  <tr>
+    <td height="3" bgcolor="#EEEE00"></td>
+  </tr>
+</table><br>
+
+<code>function openPlayer(resource:string; mimetype:string):boolean;</code>
+
+<p>Opens a given resource file in the audio player. The resource is not played before 'startPlayer' is called. The function will return false if it did not succedd. 'mimetype' can be any of the following:<br>
+<ul>
+	<li> wave files: <code>audio/x-wav</code>
+	<li> au files: <code>audio/basic</code>
+	<li> MP3 files: <code>audio/mpeg</code>
+	<li> MIDI files: <code>audio/midi</code>
+</ul>
+Note that devices usually do not support all sound formats.
+</p>
+<p><b>Compatibility:</b> the music functions will work only on MIDP-2.0 compatible mobile phones. MIDlets with sound support will CRASH on MIDP-1.0 phones!</p>
+
+<pre>
+  begin
+	
+    if not openPlayer('/explosion.mid', 'audio/midi') then  halt;	
+    if not setPlayerCount(-1) then halt;
+    if not startPlayer then halt;
+
+    delay(5000);	
+  end. 
+</pre>
+
+</body>
+</html>

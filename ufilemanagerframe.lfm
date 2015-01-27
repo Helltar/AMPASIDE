@@ -1,0 +1,257 @@
+object FileManagerFrame: TFileManagerFrame
+  Left = 0
+  Height = 480
+  Top = 0
+  Width = 333
+  ClientHeight = 480
+  ClientWidth = 333
+  TabOrder = 0
+  DesignLeft = 1069
+  DesignTop = 211
+  object tvFileList: TTreeView
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = tlbManagerActions
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = splBottom
+    Left = 6
+    Height = 280
+    Top = 34
+    Width = 321
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoExpand = True
+    BorderSpacing.Around = 6
+    DefaultItemHeight = 18
+    Images = ilMain
+    PopupMenu = pmFileManager
+    ReadOnly = True
+    RightClickSelect = True
+    ScrollBars = ssAutoBoth
+    TabOrder = 0
+    OnChange = tvFileListChange
+    OnDblClick = tvFileListDblClick
+    Options = [tvoAutoExpand, tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoRightClickSelect, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+  end
+  object gbFileInfo: TGroupBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = splBottom
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 6
+    Height = 144
+    Top = 330
+    Width = 321
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Around = 6
+    ClientHeight = 138
+    ClientWidth = 315
+    TabOrder = 1
+    object lblFileName: TLabel
+      AnchorSideLeft.Control = imgPreview
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = gbFileInfo
+      Left = 140
+      Height = 1
+      Top = 6
+      Width = 1
+      BorderSpacing.Around = 6
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object lblFileSize: TLabel
+      AnchorSideLeft.Control = imgPreview
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = lblFileName
+      AnchorSideTop.Side = asrBottom
+      Left = 140
+      Height = 1
+      Top = 13
+      Width = 1
+      BorderSpacing.Around = 6
+      ParentColor = False
+    end
+    object lblImgWidth: TLabel
+      AnchorSideLeft.Control = imgPreview
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = lblFileSize
+      AnchorSideTop.Side = asrBottom
+      Left = 140
+      Height = 1
+      Top = 20
+      Width = 1
+      BorderSpacing.Around = 6
+      ParentColor = False
+    end
+    object lblImgHeight: TLabel
+      AnchorSideLeft.Control = imgPreview
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = lblImgWidth
+      AnchorSideTop.Side = asrBottom
+      Left = 140
+      Height = 1
+      Top = 27
+      Width = 1
+      BorderSpacing.Around = 6
+      ParentColor = False
+    end
+    object imgPreview: TImage
+      AnchorSideLeft.Control = gbFileInfo
+      AnchorSideTop.Control = gbFileInfo
+      AnchorSideBottom.Control = gbFileInfo
+      AnchorSideBottom.Side = asrBottom
+      Left = 6
+      Height = 128
+      Top = 6
+      Width = 128
+      BorderSpacing.Around = 6
+      Proportional = True
+    end
+  end
+  object splBottom: TSplitter
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Cursor = crVSplit
+    Left = 0
+    Height = 4
+    Top = 320
+    Width = 333
+    Align = alNone
+    Anchors = [akLeft, akRight]
+    ResizeAnchor = akBottom
+  end
+  object tlbManagerActions: TToolBar
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    Left = 6
+    Height = 22
+    Top = 6
+    Width = 47
+    Align = alNone
+    AutoSize = True
+    BorderSpacing.Around = 6
+    Caption = 'tlbManagerActions'
+    EdgeBorders = []
+    Images = ilMain
+    TabOrder = 3
+    Transparent = True
+    object tbbExpandCollapse: TToolButton
+      Left = 1
+      Top = 0
+      Action = actExpandCollapse
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object tbbUpdateFileList: TToolButton
+      Left = 24
+      Top = 0
+      Action = actUpdateFileList
+      ParentShowHint = False
+      ShowHint = True
+    end
+  end
+  object tfedtSearchFile: TTreeFilterEdit
+    AnchorSideLeft.Control = tlbManagerActions
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 59
+    Height = 23
+    Top = 6
+    Width = 268
+    ButtonWidth = 23
+    NumGlyphs = 1
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Around = 6
+    MaxLength = 0
+    TabOrder = 4
+    FilteredTreeview = tvFileList
+  end
+  object pmFileManager: TPopupMenu
+    Images = ilMain
+    left = 144
+    top = 56
+    object miOpenFile: TMenuItem
+      Action = actOpenFile
+    end
+    object miiRenameFile: TMenuItem
+      Action = actRenameFile
+    end
+    object MenuItem4: TMenuItem
+      Caption = '-'
+    end
+    object miCreateDir: TMenuItem
+      Action = actCreateDir
+    end
+    object miAddFiles: TMenuItem
+      Action = actAddFiles
+    end
+    object MenuItem2: TMenuItem
+      Caption = '-'
+    end
+    object miDeleteFile: TMenuItem
+      Action = actDeleteFile
+    end
+  end
+  object ilMain: TImageList
+    left = 48
+    top = 128
+  end
+  object actlMain: TActionList
+    Images = ilMain
+    left = 48
+    top = 56
+    object actOpenFile: TAction
+      Caption = 'Открыть'
+      Hint = 'Открыть'
+      OnExecute = actOpenFileExecute
+      OnUpdate = actOpenFileUpdate
+    end
+    object actRenameFile: TAction
+      Caption = 'Переименовать'
+      Hint = 'Переименовать'
+      OnExecute = actRenameFileExecute
+      OnUpdate = actOpenFileUpdate
+    end
+    object actCreateDir: TAction
+      Caption = 'Создать каталог'
+      OnExecute = actCreateDirExecute
+    end
+    object actAddFiles: TAction
+      Caption = 'Добавить файлы'
+      Hint = 'Добавить файлы'
+      OnExecute = actAddFilesExecute
+      OnUpdate = actOpenFileUpdate
+    end
+    object actDeleteFile: TAction
+      Caption = 'Удалить'
+      Hint = 'Удалить'
+      OnExecute = actDeleteFileExecute
+      OnUpdate = actOpenFileUpdate
+    end
+    object actExpandCollapse: TAction
+      Caption = 'Свернуть'
+      Hint = 'Свернуть'
+      OnExecute = actExpandCollapseExecute
+    end
+    object actUpdateFileList: TAction
+      Caption = 'Обновить список файлов'
+      Hint = 'Обновить список файлов'
+      OnExecute = actUpdateFileListExecute
+    end
+  end
+  object ilPreview: TImageList
+    Height = 64
+    Width = 64
+    left = 144
+    top = 128
+  end
+end

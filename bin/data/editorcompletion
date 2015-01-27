@@ -1,0 +1,234 @@
+procedure DrawArc(X, Y, Width, Height, StartAngle, ArcAngle: integer);
+procedure DrawEllipse(X, Y, Width, Height: integer);
+procedure DrawImage(Img: image; X, Y: integer);
+procedure DrawLine(X1, Y1, X2, Y2: integer);
+procedure DrawRect(X, Y, Width, Height: integer);
+procedure DrawRoundRect(X, Y, Width, Height, ArcWidth, ArcHeight: integer);
+procedure DrawText(S: string; X, Y: integer);
+procedure FillEllipse(X, Y, Width, Height: integer);
+procedure FillRect(X, Y, Width, Height: integer);
+procedure FillRoundRect(X, Y, Width, Height, ArcWidth, ArcHeight: integer);
+function GetColorBlue: integer;
+function GetColorGreen: integer;
+function GetColorRed: integer;
+function GetColorsNum: integer;
+function GetHeight: integer;
+function GetImageHeight(Img: image): integer;
+function GetImageWidth(Img: image): integer;
+function GetStringHeight(S: string): integer;
+function GetStringWidth(S: string): integer;
+function GetWidth: integer;
+function ImageFromCanvas(X, Y, Width, Height: integer): image;
+function ImageFromImage(Img: image; X, Y, Width, Height: integer): image;
+function IsColorDisplay: boolean;
+function LoadImage(FileName: string): image;
+procedure Plot(X, Y: integer);
+procedure Repaint;
+procedure SetClip(X, Y, Width, Height: integer);
+procedure SetColor(Red, Green, Blue: integer);
+procedure SetDefaultFont;
+procedure SetFont(FontFace, FontStyle, FontSize);
+const FONT_FACE_SYSTEM
+const FONT_FACE_MONOSPACE
+const FONT_FACE_PROPORTIONAL
+const FONT_STYLE_BOLD
+const FONT_STYLE_ITALIC
+const FONT_STYLE_UNDERLINED
+const FONT_SIZE_SMALL
+const FONT_SIZE_MEDIUM
+const FONT_SIZE_LARGE
+function GetKeyClicked: integer;
+function GetKeyPressed: integer;
+function KeyToAction(KeyCode: integer): integer;
+const KE_KEY0
+const KE_KEY1
+const KE_KEY2
+const KE_KEY3
+const KE_KEY4
+const KE_KEY5
+const KE_KEY6
+const KE_KEY7
+const KE_KEY8
+const KE_KEY9
+const KE_STAR
+const KE_POUND
+const KE_NONE
+const GA_NONE
+const GA_UP
+const GA_DOWN
+const GA_LEFT
+const GA_RIGHT
+const GA_FIRE
+const GA_GAMEA
+const GA_GAMEB
+const GA_GAMEC
+const GA_GAMED
+procedure Delay(Millis: integer);
+function GetCurrentTime: integer;
+function GetDay(Time: integer): integer;
+function GetHour(Time: integer): integer;
+function GetMinute(Time: integer): integer;
+function GetMonth(Time: integer): integer;
+function GetRelativeTimeMs: integer;
+function GetSecond(Time: integer): integer;
+function GetWeekDay(Time: integer): integer;
+function GetYear(Time: integer): integer;
+function GetYearDay(Time: integer): integer;
+function Abs(N: integer): integer;
+function Acos(Num: real): real;
+function Asin(Num: real): real;
+function Atan(Num: real): real;
+function Atan2(Y, X: real): real;
+function Cos(Num: real): real;
+function Exp(Num: real): real;
+function Frac(Num: real): real;
+function Log(Num: real): real;
+function Log10(Num: real): real;
+function Pow(A, B: real): real;
+function Rabs(Num:real): real;
+function Sin(Num: real): real;
+function Sqr(N: integer): integer;
+function Sqrt(Num: real): real;
+function Tan(Num: real): real;
+function ToDegrees(Num: real): real;
+function ToRadians(Num: real): real;
+function Trunc(Num: real): integer;
+function Copy(S: string; FromPos, Count: integer): string;
+function GetChar(S: string; Pos: integer): char;
+function IntegerToString(Value: integer): string;
+function Length(S: string): integer;
+function Locase(S: string): string;
+function Pos(S1, S2: string): integer;
+function SetChar(S: string; C: char; Pos: integer): string;
+function StringToInteger(S: string): integer;
+function StringToReal(S: string; Base: integer): real;
+function Upcase(S: string): string;
+procedure AddCommand(Cmd: Command);
+function ChoiceAppendString(ChoiceID: integer; ItemText: string): integer;
+function ChoiceAppendStringImage(ChoiceID: integer; ItemText: string; Img: image): integer;
+function ChoiceGetSelectedIndex(ChoiceID: integer): integer;
+function ChoiceIsSelected(ChoiceID: integer; ItemIndex: integer): boolean;
+procedure ClearForm;
+function CreateCommand(Label: string; CommandType, Priority: integer): command;
+const CM_SCREEN
+const CM_BACK
+const CM_CANCEL
+const CM_OK
+const CM_HELP
+const CM_STOP
+const CM_EXIT
+const CM_ITEM
+function EmptyCommand: command;
+function FormAddChoice(Label: string; ChoiceType: integer): integer;
+const CH_EXCLUSIVE
+const CH_MULTIPLE
+function FormAddDateField(Label: string, Type: integer): integer;
+const DF_DATE
+const DF_TIME
+const DF_DATE_TIME
+function FormAddGauge(Label: string; IsInteractive: boolean; MaxValue, InitialValue: integer): integer;
+function FormAddImage(Img: image): integer;
+function FormAddSpace: integer;
+function FormAddString(S: string): integer;
+function FormAddTextField(Prompt, DefaultValue: string; MaxSize, Constraints: integer): integer;
+const TF_ANY
+const TF_EMAIL
+const TF_NUMERIC
+const TF_PHONENUMBER
+const TF_URL
+const TF_PASSWORD
+function FormGetDate(Index: integer): integer;
+function FormGetText(TextFieldID: integer): string;
+function FormGetValue(GaugeID: integer): integer;
+procedure FormRemove(ID: integer);
+procedure FormSetDate(ID, DateTime: integer);
+procedure FormSetText(TextFieldID: integer; Text: string);
+procedure FormSetValue(GaugeID, Value:integer);
+function GetClickedCommand: command;
+function GetFormTitle: string;
+function GetTextBoxString: string;
+function MenuAppendString(Text: string): integer;
+function MenuAppendStringImage(Text: string; Img: image): integer;
+function MenuGetSelectedIndex: integer;
+function MenuIsSelected(Index: integer): boolean;
+procedure PlayAlertSound;
+procedure RemoveCommand(Cmd: command);
+procedure RemoveFormTitle;
+procedure SetFormTitle(Title: string);
+procedure SetTicker(S: string);
+procedure ShowAlert(Title, Message: string; Img: image; AlertType: alert);
+const ALERT_INFO
+const ALERT_WARNING
+const ALERT_ERROR
+const ALERT_ALARM
+const ALERT_CONFIRMATION
+procedure ShowCanvas;
+procedure ShowForm;
+procedure ShowMenu(Title: string; MenuType: integer);
+const CH_IMPLICIT
+const CH_EXCLUSIVE
+const CH_MULTIPLE
+procedure ShowTextBox(Title, InitialContents: string; MaxSize, Constraints: integer);
+function AddRecordStoreEntry(RS: RecordStore; Data: string): integer;
+procedure CloseRecordStore(RS: RecordStore);
+procedure CloseRSEnumeration(RSEnumIdx: integer);
+procedure DeleteRecordStore(Name: string);
+procedure DeleteRecordStoreEntry(RS: RecordStore; Index: integer);
+function EnumerateRecords(RS: recordStore): integer;
+function GetRecordStoreNextId(RS: RecordStore): integer;
+function GetRecordStoreSize(RS: RecordStore): integer;
+procedure ModifyRecordStoreEntry(RS: RecordStore; NewData: string; Index: integer);
+function NextRecord(RSEnumIdx: integer): string;
+function OpenRecordStore(Name: string): RecordStore;
+function ReadRecordStoreEntry(RS: RecordStore; index: Integer): string;
+procedure UpdateRSEnumeration(RSEnumIdx: integer);
+procedure AddHttpBody(HTTPConn: HTTP; Data: string);
+procedure AddHttpHeader(HTTPConn: HTTP; Name, Value: string);
+procedure CloseHttp(HTTPConn: HTTP);
+function GetHttpHeader(HTTPConn: HTTP; Name: string): string;
+function GetHttpResponse(HTTPConn: HTTP): string;
+function IsHttpOpen(HTTPConn: HTTP): boolean;
+function OpenHttp(HTTPConn: HTTP; URL: string): boolean;
+function SendHttpMessage(HTTPConn: HTTP): integer;
+procedure SetHttpMethod(HTTPConn: HTTP; Method: string);
+const GET
+const POST
+const HEAD
+function SmsIsSending: boolean;
+function SmsStartSend(Destination, Message: string): boolean;
+function SmsWasSuccessfull: boolean;
+function GetPlayerDuration: integer;
+function OpenPlayer(Res, MimeType: string): boolean;
+function SetPlayerCount(LoopCount:integer): boolean;
+function StartPlayer: boolean;
+procedure StopPlayer;
+mimetype audio/x-wav
+mimetype audio/basic
+mimetype audio/mpeg
+mimetype audio/midi
+procedure CloseResource(Res: resource);
+function OpenResource(Name: string): resource;
+function ReadByte(Res: resource): integer;
+function ReadLine(Res: resource): string;
+function ResourceAvailable(Res: resource): boolean;
+const EOF
+procedure Assert(Cond: boolean);
+function Chr(N: integer): char;
+procedure Debug(S: string);
+function GetProperty(PropertyName: string): string;
+procedure Halt;
+function IsMidletPaused: boolean;
+function Odd(N: integer): boolean;
+function Ord(C: char): integer;
+function Random(N: integer): integer;
+procedure Randomize;
+property microedition.platform
+property microedition.encoding
+property microedition.configuration
+property microedition.profiles
+property microedition.locale
+property microedition.io.file.FileConnection.version
+property microedition.pim.version
+property microedition.commports
+property wireless.messaging.sms.smsc
+property wireless.messaging.mms.mmsc

@@ -1,0 +1,6 @@
+*.lps
+*.res
+
+backup
+bin/ampaside*
+lib

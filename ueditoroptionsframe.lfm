@@ -1,0 +1,425 @@
+object EditorOptionsFrame: TEditorOptionsFrame
+  Left = 0
+  Height = 405
+  Top = 0
+  Width = 758
+  ClientHeight = 405
+  ClientWidth = 758
+  TabOrder = 0
+  DesignLeft = 630
+  DesignTop = 235
+  object gbFont: TGroupBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = splLeft
+    Left = 6
+    Height = 100
+    Top = 6
+    Width = 268
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Around = 6
+    Caption = 'Шрифт'
+    ClientHeight = 80
+    ClientWidth = 262
+    TabOrder = 0
+    object sedtFontSize: TSpinEdit
+      AnchorSideLeft.Control = gbFont
+      AnchorSideTop.Control = edtbtnSelectFont
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 23
+      Top = 35
+      Width = 50
+      BorderSpacing.Around = 6
+      OnChange = sedtFontSizeChange
+      TabOrder = 0
+    end
+    object lblFontSize: TLabel
+      AnchorSideLeft.Control = sedtFontSize
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = sedtFontSize
+      AnchorSideTop.Side = asrCenter
+      Left = 62
+      Height = 15
+      Top = 39
+      Width = 91
+      Caption = 'Размер шрифта'
+      ParentColor = False
+    end
+    object edtbtnSelectFont: TEditButton
+      AnchorSideLeft.Control = gbFont
+      AnchorSideTop.Control = gbFont
+      AnchorSideRight.Control = gbFont
+      AnchorSideRight.Side = asrBottom
+      Left = 6
+      Height = 23
+      Top = 6
+      Width = 250
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 6
+      ButtonCaption = '...'
+      ButtonWidth = 23
+      MaxLength = 0
+      NumGlyphs = 1
+      OnButtonClick = edtbtnSelectFontButtonClick
+      OnChange = edtbtnSelectFontChange
+      PasswordChar = #0
+      TabOrder = 1
+    end
+  end
+  object gbMix: TGroupBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = gbFont
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = splLeft
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 6
+    Height = 287
+    Top = 112
+    Width = 268
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Around = 6
+    Caption = 'Разное'
+    ClientHeight = 267
+    ClientWidth = 262
+    TabOrder = 1
+    object cbbRightEdge: TComboBox
+      AnchorSideLeft.Control = gbMix
+      AnchorSideTop.Control = gbMix
+      Left = 6
+      Height = 24
+      Top = 6
+      Width = 64
+      BorderSpacing.Around = 6
+      ItemHeight = 15
+      ItemIndex = 3
+      Items.Strings = (
+        '-1'
+        '76'
+        '80'
+        '100'
+        '120'
+        '160'
+      )
+      OnChange = cbbRightEdgeChange
+      Style = csDropDownList
+      TabOrder = 0
+      Text = '100'
+    end
+    object lblRightEdge: TLabel
+      AnchorSideLeft.Control = cbbRightEdge
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = cbbRightEdge
+      AnchorSideTop.Side = asrCenter
+      Left = 76
+      Height = 15
+      Top = 11
+      Width = 91
+      Caption = 'Правая граница'
+      ParentColor = False
+    end
+    object cbScrollPastEol: TCheckBox
+      AnchorSideLeft.Control = gbMix
+      AnchorSideTop.Control = cbbRightEdge
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 21
+      Top = 36
+      Width = 200
+      BorderSpacing.Around = 6
+      Caption = 'Прокручивать за конец строки'
+      OnChange = cbScrollPastEolChange
+      TabOrder = 1
+    end
+  end
+  object gbColors: TGroupBox
+    AnchorSideLeft.Control = splLeft
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 291
+    Height = 393
+    Top = 6
+    Width = 461
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Around = 6
+    Caption = 'Цвета'
+    ClientHeight = 373
+    ClientWidth = 455
+    TabOrder = 2
+    object lblEditorColor: TLabel
+      AnchorSideLeft.Control = clrbEditorColor
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = clrbEditorColor
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = clrbEditorColor
+      Left = 252
+      Height = 15
+      Top = 11
+      Width = 91
+      Caption = 'Цвет редактора'
+      ParentColor = False
+    end
+    object clrbEditorColor: TColorBox
+      AnchorSideLeft.Control = gbColors
+      AnchorSideTop.Control = gbColors
+      Left = 6
+      Height = 24
+      Top = 6
+      Width = 240
+      Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
+      BorderSpacing.Around = 6
+      ItemHeight = 15
+      OnChange = clrbEditorColorChange
+      TabOrder = 0
+    end
+    object lblRigthEdge: TLabel
+      AnchorSideLeft.Control = clrbRightEdgeColor
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = clrbRightEdgeColor
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = clrbRightEdgeColor
+      Left = 252
+      Height = 15
+      Top = 41
+      Width = 101
+      Caption = 'Линия отделения'
+      ParentColor = False
+    end
+    object clrbRightEdgeColor: TColorBox
+      AnchorSideLeft.Control = gbColors
+      AnchorSideTop.Control = clrbEditorColor
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 24
+      Top = 36
+      Width = 240
+      Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
+      BorderSpacing.Around = 6
+      ItemHeight = 15
+      OnChange = clrbRightEdgeColorChange
+      TabOrder = 1
+    end
+    object lblComment: TLabel
+      AnchorSideLeft.Control = clrbComment
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = clrbComment
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = clrbComment
+      Left = 252
+      Height = 15
+      Top = 71
+      Width = 81
+      Caption = 'Комментарий'
+      ParentColor = False
+    end
+    object clrbComment: TColorBox
+      AnchorSideLeft.Control = gbColors
+      AnchorSideTop.Control = clrbRightEdgeColor
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 24
+      Top = 66
+      Width = 240
+      Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
+      BorderSpacing.Around = 6
+      ItemHeight = 15
+      OnChange = clrbCommentChange
+      TabOrder = 2
+    end
+    object lblKey: TLabel
+      AnchorSideLeft.Control = clrbKey
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = clrbKey
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = clrbKey
+      Left = 252
+      Height = 15
+      Top = 101
+      Width = 153
+      Caption = 'Зарезервированное слово'
+      ParentColor = False
+    end
+    object clrbKey: TColorBox
+      AnchorSideLeft.Control = gbColors
+      AnchorSideTop.Control = clrbComment
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 24
+      Top = 96
+      Width = 240
+      Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
+      BorderSpacing.Around = 6
+      ItemHeight = 15
+      OnChange = clrbKeyChange
+      TabOrder = 3
+    end
+    object clrbNumber: TColorBox
+      AnchorSideLeft.Control = gbColors
+      AnchorSideTop.Control = clrbKey
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 24
+      Top = 126
+      Width = 240
+      Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
+      BorderSpacing.Around = 6
+      ItemHeight = 15
+      OnChange = clrbNumberChange
+      TabOrder = 4
+    end
+    object lblNumber: TLabel
+      AnchorSideLeft.Control = clrbNumber
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = clrbNumber
+      AnchorSideTop.Side = asrCenter
+      Left = 252
+      Height = 15
+      Top = 131
+      Width = 36
+      Caption = 'Число'
+      ParentColor = False
+    end
+    object clrbString: TColorBox
+      AnchorSideLeft.Control = gbColors
+      AnchorSideTop.Control = clrbNumber
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 24
+      Top = 156
+      Width = 240
+      Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
+      BorderSpacing.Around = 6
+      ItemHeight = 15
+      OnChange = clrbStringChange
+      TabOrder = 5
+    end
+    object lblString: TLabel
+      AnchorSideLeft.Control = clrbString
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = clrbString
+      AnchorSideTop.Side = asrCenter
+      Left = 252
+      Height = 15
+      Top = 161
+      Width = 41
+      Caption = 'Строка'
+      ParentColor = False
+    end
+    object clrbIdentifier: TColorBox
+      AnchorSideLeft.Control = gbColors
+      AnchorSideTop.Control = clrbString
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 24
+      Top = 186
+      Width = 240
+      Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
+      BorderSpacing.Around = 6
+      ItemHeight = 15
+      OnChange = clrbIdentifierChange
+      TabOrder = 6
+    end
+    object clrbSymbol: TColorBox
+      AnchorSideLeft.Control = gbColors
+      AnchorSideTop.Control = clrbIdentifier
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 24
+      Top = 216
+      Width = 240
+      Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
+      BorderSpacing.Around = 6
+      ItemHeight = 15
+      OnChange = clrbSymbolChange
+      TabOrder = 7
+    end
+    object lblIdentifier: TLabel
+      AnchorSideLeft.Control = clrbIdentifier
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = clrbIdentifier
+      AnchorSideTop.Side = asrCenter
+      Left = 252
+      Height = 15
+      Top = 191
+      Width = 93
+      Caption = 'Идентификатор'
+      ParentColor = False
+    end
+    object lblSymbol: TLabel
+      AnchorSideLeft.Control = clrbSymbol
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = clrbSymbol
+      AnchorSideTop.Side = asrCenter
+      Left = 252
+      Height = 15
+      Top = 221
+      Width = 46
+      Caption = 'Символ'
+      ParentColor = False
+    end
+    object clrbSelectedColor: TColorBox
+      AnchorSideLeft.Control = gbColors
+      AnchorSideTop.Control = clrbSymbol
+      AnchorSideTop.Side = asrBottom
+      Left = 6
+      Height = 24
+      Top = 246
+      Width = 240
+      Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
+      BorderSpacing.Around = 6
+      ItemHeight = 15
+      OnChange = clrbSelectedColorChange
+      TabOrder = 8
+    end
+    object lblSelectedColor: TLabel
+      AnchorSideLeft.Control = clrbSelectedColor
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = clrbSelectedColor
+      AnchorSideTop.Side = asrCenter
+      Left = 252
+      Height = 15
+      Top = 251
+      Width = 106
+      Caption = 'Выделение текста'
+      ParentColor = False
+    end
+    object edtbtnSchemeFile: TEditButton
+      AnchorSideLeft.Control = gbColors
+      AnchorSideTop.Control = clrbSelectedColor
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = gbColors
+      AnchorSideRight.Side = asrBottom
+      Left = 6
+      Height = 23
+      Top = 276
+      Width = 443
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 6
+      ButtonCaption = '...'
+      ButtonWidth = 23
+      MaxLength = 0
+      NumGlyphs = 1
+      OnButtonClick = edtbtnSchemeFileButtonClick
+      OnChange = edtbtnSchemeFileChange
+      PasswordChar = #0
+      ShowHint = True
+      TabOrder = 9
+    end
+  end
+  object splLeft: TSplitter
+    AnchorSideTop.Control = Owner
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 280
+    Height = 405
+    Top = 0
+    Width = 5
+    Align = alNone
+    Anchors = [akTop, akLeft, akBottom]
+  end
+end

@@ -1,0 +1,167 @@
+<?xml version="1.0" ?>
+<JediCodeFormatSettings>
+    <WriteVersion> 2.44 </WriteVersion>
+    <WriteDateTime> 42017.8111042361 </WriteDateTime>
+    <Description> format settings for use with AMPASIDE </Description>
+  <Obfuscate>
+      <Enabled> False </Enabled>
+      <Caps> 1 </Caps>
+      <RemoveComments> True </RemoveComments>
+      <RemoveWhiteSpace> True </RemoveWhiteSpace>
+      <RemoveIndent> True </RemoveIndent>
+      <RebreakLines> True </RebreakLines>
+  </Obfuscate>
+  <Clarify>
+      <OnceOffs> 0 </OnceOffs>
+      <Warnings> True </Warnings>
+      <WarnUnusedParams> False </WarnUnusedParams>
+      <IgnoreUnusedParams> Sender </IgnoreUnusedParams>
+      <FileExtensions> dpr,lpr,pas,pp </FileExtensions>
+  </Clarify>
+  <Indent>
+      <IndentationSpaces> 2 </IndentationSpaces>
+      <FirstLevelIndent> 0 </FirstLevelIndent>
+      <HasFirstLevelIndent> False </HasFirstLevelIndent>
+      <IndentBeginEnd> False </IndentBeginEnd>
+      <IndentbeginEndSpaces> 2 </IndentbeginEndSpaces>
+      <IndentLibraryProcs> True </IndentLibraryProcs>
+      <IndentProcedureBody> False </IndentProcedureBody>
+      <KeepCommentsWithCodeInGlobals> True </KeepCommentsWithCodeInGlobals>
+      <KeepCommentsWithCodeInProcs> True </KeepCommentsWithCodeInProcs>
+      <KeepCommentsWithCodeInClassDef> True </KeepCommentsWithCodeInClassDef>
+      <KeepCommentsWithCodeElsewhere> True </KeepCommentsWithCodeElsewhere>
+      <IndentElse> False </IndentElse>
+      <IndentCaseElse> True </IndentCaseElse>
+      <IndentNestedTypes> False </IndentNestedTypes>
+      <IndentVarAndConstInClass> False </IndentVarAndConstInClass>
+  </Indent>
+  <Spaces>
+      <TabsToSpaces> True </TabsToSpaces>
+      <SpacesToTabs> False </SpacesToTabs>
+      <SpacesPerTab> 2 </SpacesPerTab>
+      <SpacesForTab> 2 </SpacesForTab>
+      <FixSpacing> True </FixSpacing>
+      <SpaceBeforeClassHeritage> False </SpaceBeforeClassHeritage>
+      <SpacesBeforeColonVar> 0 </SpacesBeforeColonVar>
+      <SpacesBeforeColonConst> 0 </SpacesBeforeColonConst>
+      <SpacesBeforeColonParam> 0 </SpacesBeforeColonParam>
+      <SpacesBeforeColonFn> 0 </SpacesBeforeColonFn>
+      <SpacesBeforeColonClassVar> 0 </SpacesBeforeColonClassVar>
+      <SpacesBeforeColonRecordField> 0 </SpacesBeforeColonRecordField>
+      <SpacesBeforeColonCaseLabel> 0 </SpacesBeforeColonCaseLabel>
+      <SpacesBeforeColonLabel> 0 </SpacesBeforeColonLabel>
+      <SpacesBeforeColonInGeneric> 0 </SpacesBeforeColonInGeneric>
+      <MaxSpacesInCode> 2 </MaxSpacesInCode>
+      <UseMaxSpacesInCode> True </UseMaxSpacesInCode>
+      <SpaceForOperator> 0 </SpaceForOperator>
+      <SpaceBeforeOpenBracketsInFunctionDeclaration> False </SpaceBeforeOpenBracketsInFunctionDeclaration>
+      <SpaceBeforeOpenBracketsInFunctionCall> False </SpaceBeforeOpenBracketsInFunctionCall>
+      <SpaceBeforeOpenSquareBracketsInExpression> False </SpaceBeforeOpenSquareBracketsInExpression>
+      <SpaceAfterOpenBrackets> False </SpaceAfterOpenBrackets>
+      <SpaceBeforeCloseBrackets> False </SpaceBeforeCloseBrackets>
+      <MoveSpaceToBeforeColon> False </MoveSpaceToBeforeColon>
+  </Spaces>
+  <Returns>
+      <WhenRebreakLines> 0 </WhenRebreakLines>
+      <MaxLineLength> 90 </MaxLineLength>
+      <NumReturnsAfterFinalEnd> 1 </NumReturnsAfterFinalEnd>
+      <RemoveBadReturns> True </RemoveBadReturns>
+      <AddGoodReturns> True </AddGoodReturns>
+      <UsesOnePerLine> False </UsesOnePerLine>
+      <BreakAfterUses> False </BreakAfterUses>
+      <RemoveExpressionReturns> False </RemoveExpressionReturns>
+      <RemoveVarReturns> True </RemoveVarReturns>
+      <NoReturnsInProperty> True </NoReturnsInProperty>
+      <RemoveProcedureDefReturns> True </RemoveProcedureDefReturns>
+      <RemoveReturns> True </RemoveReturns>
+      <RemoveVarBlankLines> True </RemoveVarBlankLines>
+      <RemoveProcHeaderBlankLines> True </RemoveProcHeaderBlankLines>
+      <Block> 1 </Block>
+      <BlockBegin> 0 </BlockBegin>
+      <Label> 1 </Label>
+      <LabelBegin> 1 </LabelBegin>
+      <CaseLabel> 1 </CaseLabel>
+      <CaseBegin> 1 </CaseBegin>
+      <CaseElse> 0 </CaseElse>
+      <CaseElseBegin> 0 </CaseElseBegin>
+      <EndElse> 0 </EndElse>
+      <ElseIf> 1 </ElseIf>
+      <ElseBegin> 0 </ElseBegin>
+      <BeforeCompilerDirectUses> 1 </BeforeCompilerDirectUses>
+      <BeforeCompilerDirectStatements> 0 </BeforeCompilerDirectStatements>
+      <BeforeCompilerDirectGeneral> 1 </BeforeCompilerDirectGeneral>
+      <AfterCompilerDirectUses> 1 </AfterCompilerDirectUses>
+      <AfterCompilerDirectStatements> 0 </AfterCompilerDirectStatements>
+      <AfterCompilerDirectGeneral> 1 </AfterCompilerDirectGeneral>
+      <ReturnChars> 0 </ReturnChars>
+      <RemoveConsecutiveBlankLines> True </RemoveConsecutiveBlankLines>
+      <MaxConsecutiveBlankLines> 4 </MaxConsecutiveBlankLines>
+      <MaxBlankLinesInSection> 1 </MaxBlankLinesInSection>
+      <LinesBeforeProcedure> 1 </LinesBeforeProcedure>
+  </Returns>
+  <Comments>
+      <RemoveEmptyDoubleSlashComments> True </RemoveEmptyDoubleSlashComments>
+      <RemoveEmptyCurlyBraceComments> True </RemoveEmptyCurlyBraceComments>
+  </Comments>
+  <Capitalisation>
+      <Enabled> True </Enabled>
+      <ReservedWords> 1 </ReservedWords>
+      <Operators> 1 </Operators>
+      <Directives> 1 </Directives>
+      <Constants> 1 </Constants>
+      <Types> 1 </Types>
+  </Capitalisation>
+  <SpecificWordCaps>
+      <Enabled> True </Enabled>
+      <Words>  </Words>
+  </SpecificWordCaps>
+  <Asm>
+      <Caps> 0 </Caps>
+      <BreaksAfterLabel> 1 </BreaksAfterLabel>
+      <BreaksAfterLabelEnabled> True </BreaksAfterLabelEnabled>
+      <StatementIndentEnabled> True </StatementIndentEnabled>
+      <StatementIndent> 7 </StatementIndent>
+      <ParamsIndentEnabled> True </ParamsIndentEnabled>
+      <ParamsIndent> 15 </ParamsIndent>
+  </Asm>
+  <Align>
+      <AlignAssign> False </AlignAssign>
+      <AlignConst> False </AlignConst>
+      <AlignTypedef> False </AlignTypedef>
+      <AlignVars> False </AlignVars>
+      <AlignComment> False </AlignComment>
+      <AlignFields> False </AlignFields>
+      <InterfaceOnly> False </InterfaceOnly>
+      <MinColumn> 2 </MinColumn>
+      <MaxColumn> 60 </MaxColumn>
+      <MaxVariance> 5 </MaxVariance>
+      <MaxVarianceInterface> 5 </MaxVarianceInterface>
+      <MaxUnalignedStatements> 0 </MaxUnalignedStatements>
+  </Align>
+  <Replace>
+      <Enabled> False </Enabled>
+      <Words>  </Words>
+  </Replace>
+  <Uses>
+      <RemoveEnabled> False </RemoveEnabled>
+      <InsertInterfaceEnabled> False </InsertInterfaceEnabled>
+      <InsertImplementationEnabled> False </InsertImplementationEnabled>
+      <FindReplaceEnabled> False </FindReplaceEnabled>
+      <Remove>  </Remove>
+      <InsertInterface>  </InsertInterface>
+      <InsertImplementation>  </InsertImplementation>
+      <Find>  </Find>
+      <Replace>  </Replace>
+  </Uses>
+  <Transform>
+      <BeginEndStyle> 1 </BeginEndStyle>
+      <AddBlockEndSemicolon> True </AddBlockEndSemicolon>
+      <SortUsesInterface> False </SortUsesInterface>
+      <SortUsesImplmentation> False </SortUsesImplmentation>
+      <SortUsesProgram> False </SortUsesProgram>
+      <SortUsesBreakOnReturn> False </SortUsesBreakOnReturn>
+      <SortUsesBreakOnComment> False </SortUsesBreakOnComment>
+      <SortUsesSortOrder> 0 </SortUsesSortOrder>
+      <SortUsesNoComments> False </SortUsesNoComments>
+  </Transform>
+</JediCodeFormatSettings>

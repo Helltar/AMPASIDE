@@ -1,0 +1,85 @@
+object frmNewProj: TfrmNewProj
+  Left = 964
+  Height = 162
+  Top = 220
+  Width = 297
+  Caption = 'Новый проект'
+  ClientHeight = 162
+  ClientWidth = 297
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '1.5'
+  object lblName: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    Left = 6
+    Height = 15
+    Top = 6
+    Width = 59
+    BorderSpacing.Around = 6
+    Caption = 'Название:'
+    ParentColor = False
+  end
+  object edtName: TEdit
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = lblName
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 6
+    Height = 23
+    Top = 27
+    Width = 285
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Around = 6
+    TabOrder = 0
+  end
+  object lblPath: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = edtName
+    AnchorSideTop.Side = asrBottom
+    Left = 6
+    Height = 15
+    Top = 56
+    Width = 119
+    BorderSpacing.Around = 6
+    Caption = 'Каталог сохранения:'
+    ParentColor = False
+  end
+  object diredtPath: TDirectoryEdit
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = lblPath
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 6
+    Height = 23
+    Top = 77
+    Width = 285
+    ShowHidden = False
+    ButtonWidth = 23
+    NumGlyphs = 1
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Around = 6
+    MaxLength = 0
+    TabOrder = 1
+  end
+  object btnpnlMain: TButtonPanel
+    Left = 6
+    Height = 34
+    Top = 122
+    Width = 285
+    OKButton.Name = 'OKButton'
+    OKButton.DefaultCaption = True
+    OKButton.OnClick = OKButtonClick
+    HelpButton.Name = 'HelpButton'
+    HelpButton.DefaultCaption = True
+    CloseButton.Name = 'CloseButton'
+    CloseButton.DefaultCaption = True
+    CloseButton.OnClick = CloseButtonClick
+    CancelButton.Name = 'CancelButton'
+    CancelButton.DefaultCaption = True
+    TabOrder = 2
+    ShowButtons = [pbOK, pbClose]
+  end
+end

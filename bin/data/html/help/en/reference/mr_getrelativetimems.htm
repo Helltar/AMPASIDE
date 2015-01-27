@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>MIDletPascal 3.0 Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333399;
+}
+body {
+	background-color: #FFFFFF;
+}
+a:link {
+	color: #333399;
+}
+a:visited {
+	color: #333399;
+}
+a:hover {
+	color: #666666;
+}
+a:active {
+	color: #333399;
+}
+-->
+</style></head>
+
+<body>
+<p><font size=+2>getRelativeTimeMs</font></p>
+<table width="100%"  border="0">
+  <tr>
+    <td height="3" bgcolor="#EEEE00"></td>
+  </tr>
+</table><br>
+
+<code>function getRelativeTimeMs: integer;</code>
+
+<p>Return the current time in milliseconds. Note that the return value is 32-bit integer that can represent only 2^32 milliseconds, which is a little bit over 48 days. So every 48 days, this value is reset and starts counting from 0. Do not use this function to determine the current date, but it can be used for implementing timers in an application.</p>
+
+<p>Consider a simple game (such as Tetris, for example) that needs to move the block down each second. Also, the game should move the block left or right when the user presses the left/right key on the keypad. The main program loop could be implemented as follows:</p>
+
+<pre>
+  ...
+  lastSavedTime := getRelativeTimeMs; { initialize the timer }
+  repeat
+    { read and process the keypad input }
+    key := getKeyClicked;
+    if keyToAction(key) = GA_LEFT then moveLeft;
+    if keyToAction(key) = GA_RIGHT then moveRight;
+
+    { check if 1 second has passed }
+    if ((getRelativeTimeMs - lastSavedTime) &gt; 1000)
+    or (getRelativeTimeMs &lt; lastSavedTime)  { check if the timer is reset after 48 days }
+      then
+      begin
+        lastSavedTime := getRelativeTimeMs;
+        moveDown;
+      end;
+  until gameOver;
+  ...
+</pre>
+
+</body>
+</html>

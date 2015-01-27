@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>MIDletPascal 3.0 Documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #333399;
+}
+body {
+	background-color: #FFFFFF;
+}
+a:link {
+	color: #333399;
+}
+a:visited {
+	color: #333399;
+}
+a:hover {
+	color: #666666;
+}
+a:active {
+	color: #333399;
+}
+-->
+</style></head>
+
+<body>
+<p><font size=+2>
+setColor
+</font></p>
+<table width="100%"  border="0">
+  <tr>
+    <td height="3" bgcolor="#EEEE00"></td>
+  </tr>
+</table><br>
+
+<code>procedure setColor(red, green, blue:integer);</code>
+
+<p>Set the color to be used for drawing all the subsequent graphical elements. The 'red', 'green' and 'blue' components can take values between 0 and 255. For example, the black color representation is (0, 0, 0), bright red is (255, 0, 0), and white is (255, 255, 255).</p>
+
+<pre>
+  begin
+    setColor(0, 0, 255); { set the color to bright blue }
+    drawText('Hello world', 0, 0);
+    repaint;
+    delay(1000);
+  end.
+</pre>
+
+<p>See also: <a href="mr_getcolorred.htm">getColorRed</a>, <a href="mr_getcolorgreen.htm">getColorGreen</a>, <a href="mr_getcolorblue.htm">getColorBlue</a></p>
+</body>
+</html>
