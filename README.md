@@ -15,4 +15,4 @@ Advanced MIDletPascal IDE
 Лицензия
 --------
 
-[![GPLv3](http://www.gnu.org/graphics/gplv3-127x51.png)](https://github.com/Helltar/AMPASIDE/COPYING)
+[![GPLv3](http://www.gnu.org/graphics/gplv3-127x51.png)](https://github.com/Helltar/AMPASIDE/blob/master/COPYING)
