@@ -26,7 +26,7 @@ unit uAMPASCore;
 interface
 
 uses
-  Classes, Controls, Graphics, FileUtil, SysUtils, Forms, process, versionresource,
+  Classes, Controls, Graphics, FileUtil, SysUtils, process, versionresource,
   versiontypes {$IFDEF MSWINDOWS}, Windows  {$ENDIF};
 
 type
@@ -194,8 +194,6 @@ begin
   try
     try
       P.Execute;
-
-      Application.ProcessMessages;
 
       while P.Running do
       begin
