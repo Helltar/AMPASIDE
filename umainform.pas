@@ -496,8 +496,8 @@ end;
 
 procedure TfrmMain.pgcEditorCloseTabClicked(Sender: TObject);
 begin
-  if CheckFileModified(Sender as TTabSheet) then
-    CloseTab(Sender as TTabSheet);
+  if Sender is TTabSheet then
+    CloseTab(TTabSheet(Sender));
 end;
 
 procedure TfrmMain.synedtNotesChange(Sender: TObject);
@@ -511,7 +511,8 @@ end;
 
 procedure TfrmMain.CloseTab(ATabSheet: TTabSheet);
 begin
-  CodeEditor.CloseTabSheet(ATabSheet);
+  if CheckFileModified(ATabSheet) then
+    CodeEditor.CloseTabSheet(ATabSheet);
 end;
 
 function TfrmMain.CheckFileModified(ATabSheet: TTabSheet): boolean;
