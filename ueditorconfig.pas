@@ -175,13 +175,31 @@ begin
 end;
 
 function TEditorConfig.GetFontName: string;
+var
+  FName: string;
+
 begin
-  Result := MainConfig.ReadString('EDITOR', 'FontName', 'Dejavu Sans Mono');
+  {$IFDEF MSWINDOWS}
+  FName := 'Consolas';
+  {$ENDIF}
+  {$IFDEF UNIX}
+  FName := 'Dejavu Sans Mono';
+  {$ENDIF}
+  Result := MainConfig.ReadString('EDITOR', 'FontName', FName);
 end;
 
 function TEditorConfig.GetFontSize: integer;
+var
+  FSize: integer;
+
 begin
-  Result := MainConfig.ReadInteger('EDITOR', 'FontSize', 9);
+  {$IFDEF MSWINDOWS}
+  FSize := 10;
+  {$ENDIF}
+  {$IFDEF UNIX}
+  FSize := 9;
+  {$ENDIF}
+  Result := MainConfig.ReadInteger('EDITOR', 'FontSize', FSize);
 end;
 
 function TEditorConfig.GetIdentifierColor: TColor;
