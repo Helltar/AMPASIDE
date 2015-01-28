@@ -189,7 +189,7 @@ begin
 
   P := TProcess.Create(nil);
   P.CommandLine := CmdLine;
-  P.Options := [poUsePipes, poStderrToOutPut];
+  P.Options := [poUsePipes, poStderrToOutPut, poNoConsole];
 
   try
     try
