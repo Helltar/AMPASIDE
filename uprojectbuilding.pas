@@ -267,12 +267,12 @@ begin
 
   CmdLine :=
     MP3CC +
-    ' -s' + FileName +
-    ' -o' + ProjManager.ProjDirPreBuild +
-    ' -l' + APP_DIR_LIBS +
-    ' -p' + ProjManager.ProjDirLibs +
-    ' -m' + IntToStr(ProjConfig.MathType) +
-    ' -c' + IntToStr(ProjConfig.CanvasType);
+    ' -s "' + FileName + '"' +
+    ' -o "' + ExcludeTrailingPathDelimiter(ProjManager.ProjDirPreBuild) + '"' +
+    ' -l "' + ExcludeTrailingPathDelimiter(APP_DIR_LIBS) + '"' +
+    ' -p "' + ExcludeTrailingPathDelimiter(ProjManager.ProjDirLibs) + '"' +
+    ' -m ' + IntToStr(ProjConfig.MathType) +
+    ' -c ' + IntToStr(ProjConfig.CanvasType);
 
   PCompiler := ProcStart(CmdLine + ' -d');
 
@@ -399,16 +399,16 @@ begin
     Exit;
 
   JARFileName := ProjManager.JARFile;
-  CmdLine := FILE_ARCHIVER + ' a ' + JARFileName + ' ';
+  CmdLine := FILE_ARCHIVER + ' a "' + JARFileName + '" "';
 
   if FileExists(JARFileName) then
     DeleteFile(JARFileName);
 
   AddLogMsg('Начало архивации ' + ExtractFileName(JARFileName) + ' ...' + LE);
 
-  if ProcStart(CmdLine + ProjManager.ProjDirPreBuild + '*').Completed then
+  if ProcStart(CmdLine + ProjManager.ProjDirPreBuild + '*"').Completed then
   begin
-    if ProcStart(CmdLine + ProjManager.ProjDirRes + '*').Completed then
+    if ProcStart(CmdLine + ProjManager.ProjDirRes + '*"').Completed then
     begin
       if ProjConfig.AutoIncBuildVers then
         IncBuildVers;
