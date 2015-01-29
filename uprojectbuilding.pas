@@ -189,12 +189,13 @@ const
 begin
   Result := False;
 
-  if CheckFile(FW) then
-    CopyFile(FW, ProjManager.ProjDirPreBuild + CLASS_FW);
-
   if ProjManager.CreateProjDir(ProjManager.ProjDirHome) then
+  begin
+    if CheckFile(FW) then
+      CopyFile(FW, ProjManager.ProjDirPreBuild + CLASS_FW);
     if CompileFile(ProjManager.MainModule) then
       Result := True;
+  end;
 end;
 
 function TProjectBuilding.CompileFile(FileName: string): boolean;
