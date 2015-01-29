@@ -559,7 +559,7 @@ begin
   IDEConfig.FHeight := Height;
   IDEConfig.FWidth := Width;
 
-  IDEConfig.FSplBottom := splBottom.Top;
+  IDEConfig.FSplBottom := splBottom.Top + 21;
   IDEConfig.FSplLeft := splLeft.Left;
 
   IDEConfig.CompactViewMode := miCompactViewMode.Checked;
