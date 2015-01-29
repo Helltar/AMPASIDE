@@ -215,7 +215,7 @@ end;
 
 function TIDEConfig.GetEmulatorCmd: string;
 begin
-  Result := FMainConfig.ReadString('OTHER', 'EmulatorCmd', 'java -jar ' + EMULATOR + ' {$JAR_FILENAME}');
+  Result := FMainConfig.ReadString('OTHER', 'EmulatorCmd', 'java -jar ' + EMULATOR + ' "{$JAR_FILENAME}"');
 end;
 
 function TIDEConfig.GetFColor: TColor;
