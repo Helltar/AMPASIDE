@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 779
+  Left = 760
   Height = 529
-  Top = 200
+  Top = 199
   Width = 794
   AllowDropFiles = True
   Caption = 'AMPASIDE'
@@ -133,6 +133,7 @@ object frmMain: TfrmMain
     BorderSpacing.Around = 6
     Panels = <    
       item
+        Alignment = taCenter
         Width = 100
       end    
       item
