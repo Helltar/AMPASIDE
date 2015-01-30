@@ -101,18 +101,6 @@ begin
 end;
 
 function TProjectManager.CreateProjDir(const MainDir: string): boolean;
-
-  function MakeDir(DirName: string): boolean;
-  begin
-    Result := True;
-    if not DirectoryExists(DirName) then
-      if not CreateDir(DirName) then
-      begin
-        Result := False;
-        AddLogMsg('Ошибка создания каталога: ' + DirName, lmtErr);
-      end;
-  end;
-
 begin
   Result := False;
   if MakeDir(MainDir) then
