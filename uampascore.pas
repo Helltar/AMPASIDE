@@ -26,7 +26,7 @@ unit uAMPASCore;
 interface
 
 uses
-  Classes, Controls, Graphics, FileUtil, SysUtils, process, versionresource,
+  Classes, Controls, Graphics, SysUtils, FileUtil, process, versionresource,
   versiontypes {$IFDEF MSWINDOWS}, Windows  {$ENDIF};
 
 type
@@ -49,6 +49,7 @@ type
 const
   {$I ampasideconsts.inc}
 
+function CheckDir(const DirName: string): boolean;
 function CheckFile(const FileName: string): boolean;
 function GetCurrentUsername: string;
 function GetFileSize(const FileName: string): string;
@@ -56,7 +57,8 @@ function GetFileType(const FileName: string): TFileType;
 function GetProgramVersion: string;
 function IsProcRunning: boolean;
 function LoadImages(const APath: string; ImgList: TImageList): boolean;
-function ProcStart(const CmdLine: string): TProcFunc;
+function MakeDir(const DirName: string): boolean;
+function ProcStart(const CmdLine: string; UsePipes: boolean = True): TProcFunc;
 procedure AddLogMsg(const AValue: string; MsgType: TLogMsgType = lmtText);
 procedure CheckConfig(var FileName: string);
 procedure TerminateProc;
@@ -83,13 +85,8 @@ begin
     end;
   end
   else
-  begin
-    if not DirectoryIsWritable(ExtractFilePath(FileName)) then
-    begin
-      ErrMsg := 'Недостаточно прав для записи в каталог: ' + ExtractFilePath(FileName);
-      FileName := '';
-    end;
-  end;
+  if not CheckDir(ExtractFilePath(FileName)) then
+    FileName := '';
 
   if ErrMsg <> '' then
     AddLogMsg(ErrMsg, lmtErr);
@@ -144,6 +141,20 @@ begin
   end;
 end;
 
+function CheckDir(const DirName: string): boolean;
+begin
+  Result := False;
+  if DirectoryExists(DirName) then
+  begin
+    if DirectoryIsWritable(DirName) then
+      Result := True
+    else
+      AddLogMsg('Недостаточно прав для чтения каталога: ' + DirName, lmtErr);
+  end
+  else
+    AddLogMsg('Каталога не существует: ' + DirName, lmtErr);
+end;
+
 function GetCurrentUsername: string;
 begin
   {$IFDEF UNIX}
@@ -171,25 +182,19 @@ begin
     Result := IntToStr(IntSize div 1024) + ' KB';
 end;
 
-function ProcStart(const CmdLine: string): TProcFunc;
-const
-  READ_BYTES = 2048;
-
+function ProcStart(const CmdLine: string; UsePipes: boolean): TProcFunc;
 var
-  MemStream: TMemoryStream;
-  BytesRead: longint;
   P: TProcess;
-  NumBytes: longint;
 
 begin
   Result.Completed := False;
 
-  MemStream := TMemoryStream.Create;
-  BytesRead := 0;
-
   P := TProcess.Create(nil);
   P.CommandLine := CmdLine;
-  P.Options := [poUsePipes, poStderrToOutPut, poNoConsole];
+  P.Options := [poStderrToOutPut, poNoConsole];
+
+  if UsePipes then
+    P.Options := [poUsePipes] + P.Options;
 
   try
     try
@@ -200,29 +205,17 @@ begin
         ProcessRunning := True;
         if ProcessTerminate then
           P.Terminate(0);
-        //AddLogMsg('Процесс (PID: ' + IntToStr(P.ProcessID) + ') завершен', lmtOk);
         Sleep(1);
       end;
 
-      while True do
-      begin
-        MemStream.SetSize(BytesRead + READ_BYTES);
-        NumBytes := P.Output.Read((MemStream.Memory + BytesRead)^, READ_BYTES);
-        if NumBytes > 0 then
-          Inc(BytesRead, NumBytes)
-        else
-          Break;
-      end;
-
-      MemStream.SetSize(BytesRead);
-
-      with TStringList.Create do
-        try
-          LoadFromStream(MemStream);
-          Result.Output := Text;
-        finally
-          Free;
-        end;
+      if UsePipes then
+        with TStringList.Create do
+          try
+            LoadFromStream(P.Output);
+            Result.Output := Text;
+          finally
+            Free;
+          end;
 
       Result.Completed := True;
     except
@@ -232,13 +225,23 @@ begin
     ProcessRunning := False;
     ProcessTerminate := False;
     FreeAndNil(P);
-    FreeAndNil(MemStream);
   end;
 end;
 
 procedure TerminateProc;
 begin
   ProcessTerminate := True;
+end;
+
+function MakeDir(const DirName: string): boolean;
+begin
+  Result := True;
+  if not DirectoryExists(DirName) then
+    if not CreateDir(DirName) then
+    begin
+      Result := False;
+      AddLogMsg('Ошибка создания каталога: ' + DirName, lmtErr);
+    end;
 end;
 
 function LoadImages(const APath: string; ImgList: TImageList): boolean;
