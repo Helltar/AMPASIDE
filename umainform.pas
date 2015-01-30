@@ -602,8 +602,6 @@ begin
       ImgIndex := 8;
   end;
 
-  tvMsg.BeginUpdate;
-
   with TStringList.Create do
   begin
     try
@@ -611,19 +609,20 @@ begin
       Text := AValue;
       tvMsg.Items.Add(nil, FormatDateTime('[hh:mm:ss]: ', Now) + Strings[0]);
       for i := 1 to Count - 1 do
+      begin
         tvMsg.Items.AddChild(tvMsg.Items.GetLastNode, Strings[i]);
+        Application.ProcessMessages;
+        tvMsg.Items.GetLastSubNode.Selected := True;
+        Sleep(10);
+      end;
     finally
       Free;
     end;
   end;
 
+  tvMsg.Items.GetLastNode.Selected := True;
   tvMsg.Items.GetLastNode.ImageIndex := ImgIndex;
   tvMsg.Items.GetLastNode.SelectedIndex := ImgIndex;
-
-  tvMsg.Items.GetLastSubNode.Selected := True;
-  tvMsg.Items.GetLastNode.Selected := True;
-
-  tvMsg.EndUpdate;
 end;
 
 procedure TfrmMain.UpdateSettings;
@@ -717,7 +716,6 @@ begin
   CodeEditor.SaveCurrentFile;
 
   with TProjectBuilding.Create do
-  begin
     try
       case Mode of
         pbmRun: Run;
@@ -729,7 +727,6 @@ begin
     finally
       Free;
     end;
-  end;
 end;
 
 procedure TfrmMain.EnableProjUIControls;
