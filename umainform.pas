@@ -257,7 +257,7 @@ end;
 
 procedure TfrmMain.actRunUpdate(Sender: TObject);
 begin
-  TAction(Sender).Enabled := ProjManager.ProjectOpen;
+  TAction(Sender).Enabled := ProjManager.ProjectOpen and not IsProcRunning;
 end;
 
 procedure TfrmMain.actUpdateStatusBarExecute(Sender: TObject);
