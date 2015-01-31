@@ -31,16 +31,30 @@ uses
 
 type
 
+  { TLogMsgType }
+
+  TLogMsgType = (lmtText, lmtOk, lmtErr);
+
+  { TLogThread }
+
+  TLogThread = class(TThread)
+  private
+    FMsgType: TLogMsgType;
+    FText: string;
+    procedure AddMsg;
+  protected
+    procedure Execute; override;
+  public
+    property Text: string read FText write FText;
+    property MsgType: TLogMsgType read FMsgType write FMsgType;
+  end;
+
   { TProcFunc }
 
   TProcFunc = record
     Completed: boolean;
     Output: string;
   end;
-
-  { TLogMsgType }
-
-  TLogMsgType = (lmtText, lmtOk, lmtErr);
 
   { TFileType }
 
@@ -336,8 +350,27 @@ begin
 end;
 
 procedure AddLogMsg(const AValue: string; MsgType: TLogMsgType);
+var
+  LogThread: TLogThread;
+
 begin
-  frmMain.AddLogMsg(AValue, MsgType);
+  LogThread := TLogThread.Create(True);
+  LogThread.FreeOnTerminate := True;
+  LogThread.Text := AValue;
+  LogThread.MsgType := MsgType;
+  LogThread.Start;
+end;
+
+{ TLogThread }
+
+procedure TLogThread.AddMsg;
+begin
+  frmMain.AddLogMsg(FText, FMsgType);
+end;
+
+procedure TLogThread.Execute;
+begin
+  Synchronize(@AddMsg);
 end;
 
 end.
