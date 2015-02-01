@@ -39,6 +39,7 @@ type
     function CreateManifest(const APath: string): boolean;
     function DeleteCharacters(const AValue: string): string;
     function IsErr(const AValue: string): boolean;
+    function PreBuild: boolean;
   public
     function Build: boolean;
     function CompileMainModule: boolean;
@@ -297,6 +298,35 @@ begin
     Result := True;
 end;
 
+function TProjectBuilding.PreBuild: boolean;
+const
+  FW_Class = APP_DIR_STUBS + CLASS_FW;
+
+var
+  PreBuildDir, ManifestDir: string;
+
+begin
+  Result := False;
+  if ProjManager.CreateProjDir(ProjManager.ProjDirHome) then
+  begin
+    PreBuildDir := ProjManager.ProjDirPreBuild;
+    if CheckDir(PreBuildDir) then
+    begin
+      { TODO : if }
+      DeleteDirectory(PreBuildDir, False);
+      if MakeDir(PreBuildDir) then
+      begin
+        if CheckFile(FW_Class) then
+          CopyFile(FW_Class, PreBuildDir + CLASS_FW);
+        ManifestDir := PreBuildDir + 'META-INF' + DIR_SEP;
+        if MakeDir(ManifestDir) then
+          if CreateManifest(ManifestDir) then
+            Result := True;
+      end;
+    end;
+  end;
+end;
+
 function TProjectBuilding.Build: boolean;
 
   procedure IncBuildVers;
@@ -329,27 +359,12 @@ function TProjectBuilding.Build: boolean;
   end;
 
 var
-  PreBuildDir, ManifestDir: string;
   CmdLine, JARFileName: string;
 
 begin
   Result := False;
 
-  PreBuildDir := ProjManager.ProjDirPreBuild;
-  ManifestDir := PreBuildDir + 'META-INF' + DIR_SEP;
-
-  if not CheckDir(PreBuildDir) then
-    Exit;
-
-  { TODO : if }
-  DeleteDirectory(PreBuildDir, False);
-
-  if not MakeDir(PreBuildDir) then
-    Exit;
-
-  MakeDir(ManifestDir);
-
-  if not CreateManifest(ManifestDir) then
+  if not PreBuild then
     Exit;
 
   if not CompileMainModule then
@@ -384,19 +399,11 @@ begin
 end;
 
 function TProjectBuilding.CompileMainModule: boolean;
-const
-  FW_Class = APP_DIR_STUBS + CLASS_FW;
-
 begin
   Result := False;
-
   if ProjManager.CreateProjDir(ProjManager.ProjDirHome) then
   begin
-    if CheckFile(FW_Class) then
-      CopyFile(FW_Class, ProjManager.ProjDirPreBuild + CLASS_FW);
-
     AddLogMsg('Компиляция ' + ExtractFileName(ProjManager.MainModule) + '...');
-
     if CompileFile(ProjManager.MainModule) then
       Result := True;
   end;
@@ -406,8 +413,6 @@ procedure TProjectBuilding.Run;
 begin
   if Build then
   begin
-    { TODO : костыль }
-    Sleep(10);
     AddLogMsg('Emulator: запуск ' + ExtractFileName(ProjManager.JARFile) + '...');
     if ProcStart(IDEConfig.DirectiveReplace(IDEConfig.EmulatorCmd), False).Completed then
       AddLogMsg('Работа эмулятора завершена');
