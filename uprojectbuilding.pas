@@ -359,7 +359,12 @@ begin
   CmdLine := FILE_ARCHIVER + ' a "' + JARFileName + '" "';
 
   if FileExists(JARFileName) then
-    DeleteFile(JARFileName);
+    if not DeleteFile(JARFileName) then
+    begin
+      AddLogMsg('Не удалось удалить ' + ExtractFileName(JARFileName) +
+        ' возможно файл занят другим процессом', lmtErr);
+      Exit;
+    end;
 
   AddLogMsg('Начало архивации ' + ExtractFileName(JARFileName) + '...' + LE);
 
@@ -367,7 +372,7 @@ begin
   begin
     if ProcStart(CmdLine + ProjManager.ProjDirRes + '*"', False).Completed then
     begin
-      if ProjConfig. AutoIncBuildVers then
+      if ProjConfig.AutoIncBuildVers then
         IncBuildVers;
       AddLogMsg(
         'Проект успешно собран' + LE +
