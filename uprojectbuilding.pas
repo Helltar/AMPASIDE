@@ -34,7 +34,6 @@ type
 
   TProjectBuilding = class
   private
-    FAutoIncBuildVers: boolean;
     function CompileFile(FileName: string): boolean;
     function CreateManifest(const APath: string): boolean;
     function DeleteCharacters(const AValue: string): string;
@@ -237,13 +236,16 @@ var
   end;
 
 var
-  CmdLine: string;
+  CmdLine, OrigName: string;
 
 begin
   Result := False;
 
-  if not CheckFile(FileName) then
+  if not FileExists(FileName) then
+  begin
+    AddLogMsg('Не удалось найти: ' + ExtractFileNameOnly(FileName), lmtErr);
     Exit;
+  end;
 
   CmdLine :=
     MP3CC +
@@ -259,6 +261,8 @@ begin
   if not PCompiler.Completed then
     Exit;
 
+  OrigName := ExtractFileName(FileName);
+
   with TRegExpr.Create do
   begin
     try
@@ -267,7 +271,8 @@ begin
       begin
         repeat
           FileName := ProjManager.ProjDirSrc + Match[1] + EXT_MODULE;
-          CompileFile(FileName);
+          if not CompileFile(FileName) then
+            Exit;
         until not ExecNext;
       end;
     finally
@@ -275,6 +280,7 @@ begin
     end;
   end;
 
+  AddLogMsg('Идет компиляция ' + OrigName + '...');
   PCompiler := ProcStart(CmdLine);
 
   if PCompiler.Completed then
@@ -367,33 +373,34 @@ begin
   if not PreBuild then
     Exit;
 
-  if not CompileMainModule then
-    Exit;
-
-  JARFileName := ProjManager.JARFile;
-  CmdLine := FILE_ARCHIVER + ' a "' + JARFileName + '" "';
-
-  if FileExists(JARFileName) then
-    if not DeleteFile(JARFileName) then
-    begin
-      AddLogMsg('Не удалось удалить ' + ExtractFileName(JARFileName) +
-        ' возможно файл занят другим процессом', lmtErr);
-      Exit;
-    end;
-
-  AddLogMsg('Начало архивации ' + ExtractFileName(JARFileName) + '...' + LE);
-
-  if ProcStart(CmdLine + ProjManager.ProjDirPreBuild + '*"', False).Completed then
+  if CompileMainModule then
   begin
-    if ProcStart(CmdLine + ProjManager.ProjDirRes + '*"', False).Completed then
+
+    JARFileName := ProjManager.JARFile;
+    CmdLine := FILE_ARCHIVER + ' a "' + JARFileName + '" "';
+
+    if FileExists(JARFileName) then
+      if not DeleteFile(JARFileName) then
+      begin
+        AddLogMsg('Не удалось удалить ' + ExtractFileName(JARFileName) +
+          ' возможно файл занят другим процессом', lmtErr);
+        Exit;
+      end;
+
+    AddLogMsg('Начало архивации ' + ExtractFileName(JARFileName) + '...' + LE);
+
+    if ProcStart(CmdLine + ProjManager.ProjDirPreBuild + '*"', False).Completed then
     begin
-      if ProjConfig.AutoIncBuildVers then
-        IncBuildVers;
-      AddLogMsg(
-        'Проект успешно собран' + LE +
-        'Версия: ' + ProjManager.MIDletVersion + LE +
-        'Размер: ' + GetFileSize(JARFileName), lmtOk);
-      Result := True;
+      if ProcStart(CmdLine + ProjManager.ProjDirRes + '*"', False).Completed then
+      begin
+        if ProjConfig.AutoIncBuildVers then
+          IncBuildVers;
+        AddLogMsg(
+          'Проект успешно собран' + LE +
+          'Версия: ' + ProjManager.MIDletVersion + LE +
+          'Размер: ' + GetFileSize(JARFileName), lmtOk);
+        Result := True;
+      end;
     end;
   end;
 end;
@@ -402,11 +409,8 @@ function TProjectBuilding.CompileMainModule: boolean;
 begin
   Result := False;
   if ProjManager.CreateProjDir(ProjManager.ProjDirHome) then
-  begin
-    AddLogMsg('Компиляция ' + ExtractFileName(ProjManager.MainModule) + '...');
     if CompileFile(ProjManager.MainModule) then
       Result := True;
-  end;
 end;
 
 procedure TProjectBuilding.Run;
