@@ -245,12 +245,14 @@ var
 
 begin
   if IsProcRunning then
-  begin
-    MessageDlg('Запущен процесс', 'Пожалуйста, дождитесь завершения или завершите процесс вручную',
-      mtWarning, [mbOK], 0);
-    CanClose := False;
-    Exit;
-  end;
+    case MessageDlg('Запущен процесс', 'Прервать выполнение?', mtWarning, [mbYes, mbCancel], 0) of
+      mrYes: TerminateProc;
+      mrCancel:
+      begin
+        CanClose := False;
+        Exit;
+      end;
+    end;
 
   if pgcEditor.PageCount > 0 then
   begin
