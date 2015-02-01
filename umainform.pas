@@ -620,9 +620,8 @@ begin
       for i := 1 to Count - 1 do
       begin
         tvMsg.Items.AddChild(tvMsg.Items.GetLastNode, Strings[i]);
-        Application.ProcessMessages;
+        Application.ProcessMessages; // не нужно
         tvMsg.Items.GetLastSubNode.Selected := True;
-        Sleep(10);
       end;
     finally
       Free;
@@ -854,4 +853,5 @@ begin
 end;
 
 end.
+
 
