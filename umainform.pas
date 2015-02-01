@@ -291,7 +291,6 @@ begin
   begin
     try
       Title := 'Сохранить модуль как ...';
-      Filter := APP_NAME + ' Module|*' + EXT_MODULE;
       FileName := IDEConfig.ModulePrefix;
       if ProjManager.ProjectOpen then
         InitialDir := ProjManager.ProjDirSrc;
