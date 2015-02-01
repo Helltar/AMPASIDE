@@ -26,14 +26,13 @@ unit uProjectOptionsFrame;
 interface
 
 uses
-  Forms, Spin, StdCtrls, ActnList, Classes;
+  Forms, Spin, StdCtrls;
 
 type
 
   { TProjectOptionsFrame }
 
   TProjectOptionsFrame = class(TFrame)
-    actlUpdateVers: TActionList;
     cbAutoIncBuildVer: TCheckBox;
     cbbCanvasType: TComboBox;
     cbbMathType: TComboBox;
@@ -56,7 +55,6 @@ type
     sedtVMajor: TSpinEdit;
     sedtVMinor: TSpinEdit;
     sedtVBuild: TSpinEdit;
-    procedure actlUpdateVersUpdate(AAction: TBasicAction; var Handled: boolean);
     procedure cbAutoIncBuildVerChange(Sender: TObject);
     procedure cbbCanvasTypeChange(Sender: TObject);
     procedure cbbMathTypeChange(Sender: TObject);
@@ -72,7 +70,7 @@ type
   public
     { public declarations }
     procedure GetSettings;
-    procedure UpdateVers;
+    procedure UpdVers;
   end;
 
 implementation
@@ -87,11 +85,6 @@ uses
 procedure TProjectOptionsFrame.cbAutoIncBuildVerChange(Sender: TObject);
 begin
   ProjConfig.AutoIncBuildVers := cbAutoIncBuildVer.Checked;
-end;
-
-procedure TProjectOptionsFrame.actlUpdateVersUpdate(AAction: TBasicAction; var Handled: boolean);
-begin
-  UpdateVers;
 end;
 
 procedure TProjectOptionsFrame.cbbCanvasTypeChange(Sender: TObject);
@@ -139,6 +132,13 @@ begin
   ProjConfig.VersMinor := sedtVMinor.Value;
 end;
 
+procedure TProjectOptionsFrame.UpdVers;
+begin
+  sedtVMajor.Value := ProjConfig.VersMajor;
+  sedtVMinor.Value := ProjConfig.VersMinor;
+  sedtVBuild.Value := ProjConfig.VersBuild;
+end;
+
 procedure TProjectOptionsFrame.GetSettings;
 begin
   cbAutoIncBuildVer.Checked := ProjConfig.AutoIncBuildVers;
@@ -148,16 +148,7 @@ begin
   edtMIcon.Text := ProjConfig.MIDletIcon;
   edtMName.Text := ProjConfig.MIDletName;
   edtMVendor.Text := ProjConfig.MIDletVendor;
-end;
-
-procedure TProjectOptionsFrame.UpdateVers;
-begin
-  if Assigned(ProjConfig) then
-  begin
-    sedtVMajor.Value := ProjConfig.VersMajor;
-    sedtVMinor.Value := ProjConfig.VersMinor;
-    sedtVBuild.Value := ProjConfig.VersBuild;
-  end;
+  UpdVers;
 end;
 
 end.

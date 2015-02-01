@@ -47,7 +47,7 @@ type
     actCodeInsUserName: TAction;
     actExportAsHTML: TAction;
     actCompactViewMode: TAction;
-    actKillProc: TAction;
+    actTerminateProc: TAction;
     actJCFCurrentTab: TAction;
     actRun: TAction;
     actCompile: TAction;
@@ -112,7 +112,7 @@ type
     tbbCloseEditorTab: TToolButton;
     tbbBuild: TToolButton;
     ToolButton1: TToolButton;
-    tbbKillProc: TToolButton;
+    tbbTerminateProc: TToolButton;
     tbbDivider3: TToolButton;
     tsLogMsg: TTabSheet;
     tsNotes: TTabSheet;
@@ -133,14 +133,14 @@ type
     procedure actFileSaveUpdate(Sender: TObject);
     procedure actExportAsHTMLExecute(Sender: TObject);
     procedure actJCFCurrentTabExecute(Sender: TObject);
-    procedure actKillProcExecute(Sender: TObject);
+    procedure actTerminateProcExecute(Sender: TObject);
     procedure actlProjActionsUpdate(AAction: TBasicAction; var Handled: boolean);
     procedure actRunExecute(Sender: TObject);
     procedure actRunUpdate(Sender: TObject);
     procedure actCompactViewModeExecute(Sender: TObject);
     procedure actUpdateStatusBarExecute(Sender: TObject);
     procedure actUpdateStatusBarUpdate(Sender: TObject);
-    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure BuildingThreadTerminate(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -244,6 +244,14 @@ var
   i: integer;
 
 begin
+  if IsProcRunning then
+  begin
+    MessageDlg('Запущен процесс', 'Пожалуйста, дождитесь завершения или завершите процесс вручную',
+      mtWarning, [mbOK], 0);
+    CanClose := False;
+    Exit;
+  end;
+
   if pgcEditor.PageCount > 0 then
   begin
     for i := 0 to pgcEditor.PageCount - 1 do
@@ -257,7 +265,7 @@ end;
 
 procedure TfrmMain.actRunUpdate(Sender: TObject);
 begin
-  TAction(Sender).Enabled := ProjManager.ProjectOpen and not IsProcRunning;
+  TAction(Sender).Enabled := ProjManager.ProjectOpen; // and not IsProcRunning;
 end;
 
 procedure TfrmMain.actUpdateStatusBarExecute(Sender: TObject);
@@ -270,9 +278,9 @@ begin
   UpdateStatusBar;
 end;
 
-procedure TfrmMain.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+procedure TfrmMain.BuildingThreadTerminate(Sender: TObject);
 begin
-  TerminateProc;
+  ProjectOptionsFrame.UpdVers;
 end;
 
 procedure TfrmMain.actCreateModuleExecute(Sender: TObject);
@@ -398,14 +406,14 @@ begin
   end;
 end;
 
-procedure TfrmMain.actKillProcExecute(Sender: TObject);
+procedure TfrmMain.actTerminateProcExecute(Sender: TObject);
 begin
   TerminateProc;
 end;
 
 procedure TfrmMain.actlProjActionsUpdate(AAction: TBasicAction; var Handled: boolean);
 begin
-  actKillProc.Enabled := IsProcRunning;
+  actTerminateProc.Enabled := IsProcRunning;
 end;
 
 procedure TfrmMain.actRunExecute(Sender: TObject);
@@ -706,27 +714,28 @@ begin
     actBuild.ImageIndex := 0;
     actBuildAndroid.ImageIndex := 1;
     actCompile.ImageIndex := 2;
-    actKillProc.ImageIndex := 3;
+    actTerminateProc.ImageIndex := 3;
     actRun.ImageIndex := 4;
   end;
 end;
 
 procedure TfrmMain.ProjLaunchMode(Mode: TPBuildingMode);
+var
+  BuildingThread: TBuildingThread;
+
 begin
   CodeEditor.SaveCurrentFile;
 
-  with TProjectBuilding.Create do
-    try
-      case Mode of
-        pbmRun: Run;
-        pbmCompile: CompileMainModule;
-        pbmBuild: Build;
-        else
-          CompileMainModule;
-      end;
-    finally
-      Free;
-    end;
+  BuildingThread := TBuildingThread.Create(True);
+  BuildingThread.OnTerminate := @BuildingThreadTerminate;
+
+  case Mode of
+    pbmCompile: BuildingThread.Mode := 0;
+    pbmBuild: BuildingThread.Mode := 1;
+    pbmRun: BuildingThread.Mode := 2;
+  end;
+
+  BuildingThread.Start;
 end;
 
 procedure TfrmMain.EnableProjUIControls;

@@ -1,13 +1,13 @@
 object ProjectOptionsFrame: TProjectOptionsFrame
   Left = 0
-  Height = 613
+  Height = 587
   Top = 0
-  Width = 420
-  ClientHeight = 613
-  ClientWidth = 420
+  Width = 357
+  ClientHeight = 587
+  ClientWidth = 357
   TabOrder = 0
-  DesignLeft = 732
-  DesignTop = 191
+  DesignLeft = 1098
+  DesignTop = 185
   object gbManifest: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -16,12 +16,12 @@ object ProjectOptionsFrame: TProjectOptionsFrame
     Left = 6
     Height = 250
     Top = 6
-    Width = 408
+    Width = 345
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
     Caption = 'MANIFEST.MF'
     ClientHeight = 230
-    ClientWidth = 402
+    ClientWidth = 339
     TabOrder = 0
     object lblMName: TLabel
       AnchorSideLeft.Control = gbManifest
@@ -43,7 +43,7 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 23
       Top = 27
-      Width = 390
+      Width = 327
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       OnChange = edtMNameChange
@@ -70,7 +70,7 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 23
       Top = 77
-      Width = 390
+      Width = 327
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       OnChange = edtMVendorChange
@@ -97,7 +97,7 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 23
       Top = 127
-      Width = 390
+      Width = 327
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       OnChange = edtMDescChange
@@ -124,7 +124,7 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 23
       Top = 177
-      Width = 390
+      Width = 327
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       OnChange = edtMIconChange
@@ -141,12 +141,12 @@ object ProjectOptionsFrame: TProjectOptionsFrame
     Left = 6
     Height = 130
     Top = 262
-    Width = 408
+    Width = 345
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
     Caption = 'Номера версий'
     ClientHeight = 110
-    ClientWidth = 402
+    ClientWidth = 339
     TabOrder = 1
     object lblVMajor: TLabel
       AnchorSideLeft.Control = gbVersions
@@ -254,12 +254,12 @@ object ProjectOptionsFrame: TProjectOptionsFrame
     Left = 6
     Height = 160
     Top = 398
-    Width = 408
+    Width = 345
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
     Caption = 'Конфигурация'
     ClientHeight = 140
-    ClientWidth = 402
+    ClientWidth = 339
     TabOrder = 2
     object lblMType: TLabel
       AnchorSideLeft.Control = gbConfiguration
@@ -281,7 +281,7 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 24
       Top = 27
-      Width = 390
+      Width = 327
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       ItemHeight = 15
@@ -317,7 +317,7 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 24
       Top = 78
-      Width = 390
+      Width = 327
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       ItemHeight = 15
@@ -331,10 +331,5 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       TabOrder = 1
       Text = 'Fixed-point'
     end
-  end
-  object actlUpdateVers: TActionList
-    OnUpdate = actlUpdateVersUpdate
-    left = 277
-    top = 315
   end
 end

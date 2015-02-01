@@ -1,14 +1,13 @@
 object frmMain: TfrmMain
-  Left = 760
-  Height = 529
-  Top = 199
-  Width = 794
+  Left = 582
+  Height = 557
+  Top = 144
+  Width = 862
   AllowDropFiles = True
   Caption = 'AMPASIDE'
-  ClientHeight = 508
-  ClientWidth = 794
+  ClientHeight = 536
+  ClientWidth = 862
   Menu = mmMain
-  OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -23,7 +22,7 @@ object frmMain: TfrmMain
     Left = 322
     Height = 26
     Top = 6
-    Width = 466
+    Width = 534
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
@@ -108,9 +107,9 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = stbEditor
     Left = 322
-    Height = 232
+    Height = 260
     Top = 38
-    Width = 466
+    Width = 534
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     TabOrder = 1
@@ -125,8 +124,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = splBottom
     Left = 322
     Height = 20
-    Top = 276
-    Width = 466
+    Top = 304
+    Width = 534
     Action = actUpdateStatusBar
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
@@ -155,8 +154,8 @@ object frmMain: TfrmMain
     Cursor = crVSplit
     Left = 322
     Height = 5
-    Top = 302
-    Width = 472
+    Top = 330
+    Width = 540
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -172,8 +171,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Side = asrBottom
     Left = 322
     Height = 189
-    Top = 313
-    Width = 466
+    Top = 341
+    Width = 534
     ActivePage = tsLogMsg
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
@@ -182,12 +181,12 @@ object frmMain: TfrmMain
     object tsLogMsg: TTabSheet
       Caption = 'Сообщения'
       ClientHeight = 159
-      ClientWidth = 458
+      ClientWidth = 526
       object tvMsg: TTreeView
         Left = 6
         Height = 147
         Top = 6
-        Width = 446
+        Width = 514
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
@@ -725,7 +724,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 251
-    Height = 464
+    Height = 492
     Top = 38
     Width = 65
     Align = alNone
@@ -770,11 +769,11 @@ object frmMain: TfrmMain
       Caption = 'ToolButton1'
       Style = tbsDivider
     end
-    object tbbKillProc: TToolButton
+    object tbbTerminateProc: TToolButton
       Cursor = crHandPoint
       Left = 1
       Top = 197
-      Action = actKillProc
+      Action = actTerminateProc
       ParentShowHint = False
       ShowHint = True
     end
@@ -784,7 +783,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 240
-    Height = 508
+    Height = 536
     Top = 0
     Width = 5
     Align = alNone
@@ -797,7 +796,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 496
+    Height = 524
     Top = 6
     Width = 228
     ActivePage = tsProjFiles
@@ -1032,10 +1031,10 @@ object frmMain: TfrmMain
       OnUpdate = actRunUpdate
       ShortCut = 8312
     end
-    object actKillProc: TAction
+    object actTerminateProc: TAction
       Caption = 'Завершить процесс'
       Hint = 'Завершить процесс'
-      OnExecute = actKillProcExecute
+      OnExecute = actTerminateProcExecute
     end
     object actBuildAndroid: TAction
       Caption = 'Получить APK'

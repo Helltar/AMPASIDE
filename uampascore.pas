@@ -26,7 +26,7 @@ unit uAMPASCore;
 interface
 
 uses
-  Classes, Controls, Graphics, SysUtils, FileUtil, process, versionresource,
+  Classes, Controls, Graphics, SysUtils, FileUtil, Forms, process, versionresource,
   versiontypes {$IFDEF MSWINDOWS}, Windows  {$ENDIF};
 
 type
@@ -370,7 +370,8 @@ end;
 
 procedure TLogThread.Execute;
 begin
-  Synchronize(@AddMsg);
+  if not Application.Terminated then
+    Synchronize(@AddMsg);
 end;
 
 end.

@@ -26,17 +26,37 @@ unit uProjectBuilding;
 interface
 
 uses
-  Classes, FileUtil, RegExpr, SysUtils, Forms;
+  Classes, FileUtil, RegExpr, SysUtils;
 
 type
 
   { TProjectBuilding }
 
   TProjectBuilding = class
+  private
+    FAutoIncBuildVers: boolean;
+    function CompileFile(FileName: string): boolean;
+    function CreateManifest(const APath: string): boolean;
+    function DeleteCharacters(const AValue: string): string;
+    function IsErr(const AValue: string): boolean;
   public
-    procedure Build;
-    procedure CompileMainModule;
+    function Build: boolean;
+    function CompileMainModule: boolean;
     procedure Run;
+  end;
+
+  { TBuildingThread }
+
+  TBuildingThread = class(TThread)
+  private
+    FMode: integer;
+    ProjBuilding: TProjectBuilding;
+  protected
+    procedure Execute; override;
+  public
+    constructor Create(CreateSuspended: boolean);
+    destructor Destroy; override;
+    property Mode: integer read FMode write FMode;
   end;
 
 implementation
@@ -47,73 +67,34 @@ uses
   uProjectConfig,
   uIDEConfig;
 
-type
+{ TBuildingThread }
 
-  { TLogMsg }
+constructor TBuildingThread.Create(CreateSuspended: boolean);
+begin
+  ProjBuilding := TProjectBuilding.Create;
+  FreeOnTerminate := True;
+  inherited Create(CreateSuspended);
+end;
 
-  TLogMsg = record
-    Text: string;
-    MsgType: TLogMsgType;
-  end;
+destructor TBuildingThread.Destroy;
+begin
+  FreeAndNil(ProjBuilding);
+  inherited Destroy;
+end;
 
-  { TBaseThread }
+procedure TBuildingThread.Execute;
+begin
+  with ProjBuilding do
+    case FMode of
+      0: CompileMainModule;
+      1: Build;
+      2: Run;
+    end;
+end;
 
-  TBaseThread = class(TThread)
-  private
-    LogMsg: TLogMsg;
-    procedure ShowMsg;
-  public
-    procedure AddLog(const AValue: string; MsgType: TLogMsgType = lmtText);
-  end;
+{ TProjectBuilding }
 
-  { TCompileThread }
-
-  TCompileThread = class(TBaseThread)
-  private
-    FModuleName: string;
-    procedure CompileFile(FileName: string);
-  protected
-    procedure Execute; override;
-  public
-    constructor Create(CreateSuspended: boolean);
-    destructor Destroy; override;
-    property ModuleName: string read FModuleName write FModuleName;
-  end;
-
-  { TBuildThread }
-
-  TBuildThread = class(TBaseThread)
-  private
-    procedure Build;
-  protected
-    procedure Execute; override;
-  public
-    WaitForCompile: PRtlEvent;
-    constructor Create(CreateSuspended: boolean);
-    destructor Destroy; override;
-  end;
-
-  { TRunThread }
-
-  TRunThread = class(TBaseThread)
-  private
-    procedure RunEmu;
-  protected
-    procedure Execute; override;
-  public
-    WaitForBuild: PRtlEvent;
-    constructor Create(CreateSuspended: boolean);
-    destructor Destroy; override;
-  end;
-
-var
-  CompileThread: TCompileThread;
-  BuildThread: TBuildThread;
-  RunThread: TRunThread;
-  CompileCompleted, BuildCompleted: boolean;
-  BuildStart, RunStart: boolean;
-
-function CreateManifest(const APath: string): boolean;
+function TProjectBuilding.CreateManifest(const APath: string): boolean;
 var
   FileName: string;
   mName, mVendor, mVersion, mIcon: string;
@@ -172,7 +153,7 @@ begin
   end;
 end;
 
-function DeleteCharacters(const AValue: string): string;
+function TProjectBuilding.DeleteCharacters(const AValue: string): string;
 var
   i: integer;
 
@@ -195,72 +176,7 @@ begin
   end;
 end;
 
-function IsErr(const AValue: string): boolean;
-begin
-  Result := False;
-  if Pos('[Pascal Error]', AValue) > 0 then
-    Result := True;
-end;
-
-procedure IncBuildVers;
-begin
-  with ProjConfig do
-  begin
-    VersBuild := VersBuild + 1;
-
-    // >= 100 не работает (Nokia)
-    if VersBuild > 99 then
-    begin
-      VersBuild := 0;
-      VersMinor := VersMinor + 1;
-    end;
-
-    if VersMinor > 99 then
-    begin
-      VersMinor := 0;
-      VersMajor := VersMajor + 1;
-    end;
-  end;
-end;
-
-{ TBaseThread }
-
-procedure TBaseThread.ShowMsg;
-begin
-  AddLogMsg(LogMsg.Text, LogMsg.MsgType);
-end;
-
-procedure TBaseThread.AddLog(const AValue: string; MsgType: TLogMsgType);
-begin
-  if not Application.Terminated then
-  begin
-    LogMsg.Text := AValue;
-    LogMsg.MsgType := MsgType;
-    Synchronize(@ShowMsg);
-  end;
-end;
-
-{ TCompileThread }
-
-constructor TCompileThread.Create(CreateSuspended: boolean);
-begin
-  FreeOnTerminate := True;
-  inherited Create(CreateSuspended);
-end;
-
-destructor TCompileThread.Destroy;
-begin
-  if BuildStart then
-    RtlEventSetEvent(BuildThread.WaitForCompile);
-  inherited Destroy;
-end;
-
-procedure TCompileThread.Execute;
-begin
-  CompileFile(FModuleName);
-end;
-
-procedure TCompileThread.CompileFile(FileName: string);
+function TProjectBuilding.CompileFile(FileName: string): boolean;
 var
   PCompiler: TProcFunc;
 
@@ -323,7 +239,7 @@ var
   CmdLine: string;
 
 begin
-  CompileCompleted := False;
+  Result := False;
 
   if not CheckFile(FileName) then
     Exit;
@@ -366,46 +282,78 @@ begin
     CopyLib;
     if not IsErr(PCompiler.Output) then
     begin
-      AddLog(DeleteCharacters(PCompiler.Output) + 'Завершено', lmtOk);
-      CompileCompleted := True;
+      AddLogMsg(DeleteCharacters(PCompiler.Output) + 'Завершено', lmtOk);
+      Result := True;
     end
     else
-      AddLog(DeleteCharacters(PCompiler.Output), lmtErr);
+      AddLogMsg(DeleteCharacters(PCompiler.Output), lmtErr);
   end;
 end;
 
-{ TBuildThread }
-
-constructor TBuildThread.Create(CreateSuspended: boolean);
+function TProjectBuilding.IsErr(const AValue: string): boolean;
 begin
-  FreeOnTerminate := True;
-  BuildStart := True;
-  inherited Create(CreateSuspended);
+  Result := False;
+  if Pos('[Pascal Error]', AValue) > 0 then
+    Result := True;
 end;
 
-destructor TBuildThread.Destroy;
-begin
-  BuildStart := False;
-  if RunStart then
-    RtlEventSetEvent(RunThread.WaitForBuild);
-  RTLeventdestroy(WaitForCompile);
-  inherited Destroy;
-end;
+function TProjectBuilding.Build: boolean;
 
-procedure TBuildThread.Execute;
-begin
-  WaitForCompile := RTLEventCreate;
-  RtlEventWaitFor(WaitForCompile);
-  if CompileCompleted then
-    Build;
-end;
+  procedure IncBuildVers;
+  var
+    vMajor, vMinor, vBuild: integer;
 
-procedure TBuildThread.Build;
+  begin
+    vMajor := ProjConfig.VersMajor;
+    vMinor := ProjConfig.VersMinor;
+    vBuild := ProjConfig.VersBuild;
+
+    Inc(vBuild);
+
+    // >= 100 не работает (Nokia)
+    if vBuild > 99 then
+    begin
+      vBuild := 0;
+      Inc(vMinor);
+    end;
+
+    if vMinor > 99 then
+    begin
+      vMinor := 0;
+      Inc(vMajor);
+    end;
+
+    ProjConfig.VersMajor := vMajor;
+    ProjConfig.VersMinor := vMinor;
+    ProjConfig.VersBuild := vBuild;
+  end;
+
 var
+  PreBuildDir, ManifestDir: string;
   CmdLine, JARFileName: string;
 
 begin
-  BuildCompleted := False;
+  Result := False;
+
+  PreBuildDir := ProjManager.ProjDirPreBuild;
+  ManifestDir := PreBuildDir + 'META-INF' + DIR_SEP;
+
+  if not CheckDir(PreBuildDir) then
+    Exit;
+
+  { TODO : if }
+  DeleteDirectory(PreBuildDir, False);
+
+  if not MakeDir(PreBuildDir) then
+    Exit;
+
+  MakeDir(ManifestDir);
+
+  if not CreateManifest(ManifestDir) then
+    Exit;
+
+  if not CompileMainModule then
+    Exit;
 
   JARFileName := ProjManager.JARFile;
   CmdLine := FILE_ARCHIVER + ' a "' + JARFileName + '" "';
@@ -413,84 +361,29 @@ begin
   if FileExists(JARFileName) then
     DeleteFile(JARFileName);
 
-  AddLog('Начало архивации ' + ExtractFileName(JARFileName) + '...' + LE);
+  AddLogMsg('Начало архивации ' + ExtractFileName(JARFileName) + '...' + LE);
 
   if ProcStart(CmdLine + ProjManager.ProjDirPreBuild + '*"', False).Completed then
   begin
     if ProcStart(CmdLine + ProjManager.ProjDirRes + '*"', False).Completed then
     begin
-      if ProjConfig.AutoIncBuildVers then
+      if ProjConfig. AutoIncBuildVers then
         IncBuildVers;
-      AddLog(
+      AddLogMsg(
         'Проект успешно собран' + LE +
         'Версия: ' + ProjManager.MIDletVersion + LE +
         'Размер: ' + GetFileSize(JARFileName), lmtOk);
-      BuildCompleted := True;
+      Result := True;
     end;
   end;
 end;
 
-{ TRunThread }
-
-constructor TRunThread.Create(CreateSuspended: boolean);
-begin
-  FreeOnTerminate := True;
-  RunStart := True;
-  inherited Create(CreateSuspended);
-end;
-
-destructor TRunThread.Destroy;
-begin
-  RunStart := False;
-  RTLeventdestroy(WaitForBuild);
-  inherited Destroy;
-end;
-
-procedure TRunThread.Execute;
-begin
-  WaitForBuild := RTLEventCreate;
-  RtlEventWaitFor(WaitForBuild);
-  if BuildCompleted then
-    RunEmu;
-end;
-
-procedure TRunThread.RunEmu;
-begin
-  AddLog('Emulator: запуск ' + ExtractFileName(ProjManager.JARFile) + '...');
-  if ProcStart(IDEConfig.DirectiveReplace(IDEConfig.EmulatorCmd), False).Completed then
-    AddLog('Работа эмулятора завершена');
-end;
-
-{ TProjectBuilding }
-
-procedure TProjectBuilding.Build;
-var
-  PreBuildDir, ManifestDir: string;
-
-begin
-  BuildCompleted := False;
-
-  PreBuildDir := ProjManager.ProjDirPreBuild;
-  ManifestDir := PreBuildDir + 'META-INF' + DIR_SEP;
-
-  if CheckDir(PreBuildDir) then
-    { TODO : if }
-    if DeleteDirectory(PreBuildDir, False) then
-      if MakeDir(PreBuildDir) then
-        if MakeDir(ManifestDir) then
-          if CreateManifest(ManifestDir) then
-          begin
-            CompileMainModule;
-            BuildThread := TBuildThread.Create(False);
-          end;
-end;
-
-procedure TProjectBuilding.CompileMainModule;
+function TProjectBuilding.CompileMainModule: boolean;
 const
   FW_Class = APP_DIR_STUBS + CLASS_FW;
 
 begin
-  CompileCompleted := False;
+  Result := False;
 
   if ProjManager.CreateProjDir(ProjManager.ProjDirHome) then
   begin
@@ -499,16 +392,21 @@ begin
 
     AddLogMsg('Компиляция ' + ExtractFileName(ProjManager.MainModule) + '...');
 
-    CompileThread := TCompileThread.Create(True);
-    CompileThread.ModuleName := ProjManager.MainModule;
-    CompileThread.Start;
+    if CompileFile(ProjManager.MainModule) then
+      Result := True;
   end;
 end;
 
 procedure TProjectBuilding.Run;
 begin
-  Build;
-  RunThread := TRunThread.Create(False);
+  if Build then
+  begin
+    { TODO : костыль }
+    Sleep(10);
+    AddLogMsg('Emulator: запуск ' + ExtractFileName(ProjManager.JARFile) + '...');
+    if ProcStart(IDEConfig.DirectiveReplace(IDEConfig.EmulatorCmd), False).Completed then
+      AddLogMsg('Работа эмулятора завершена');
+  end;
 end;
 
 end.
