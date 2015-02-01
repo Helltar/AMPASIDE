@@ -26,7 +26,7 @@ unit uAboutForm;
 interface
 
 uses
-  ButtonPanel, Graphics, ExtCtrls, Forms, StdCtrls, LCLIntf, Classes;
+  ButtonPanel, Graphics, ExtCtrls, Forms, StdCtrls, LCLIntf;
 
 type
 
@@ -35,8 +35,6 @@ type
   TfrmAbout = class(TForm)
     btnpnlMain: TButtonPanel;
     imgLogo: TImage;
-    lblGitHub: TLabel;
-    lblVK: TLabel;
     lblGitHubURL: TLabel;
     lblVKURL: TLabel;
     memAbout: TMemo;
@@ -64,7 +62,7 @@ procedure TfrmAbout.FormCreate(Sender: TObject);
 begin
   Caption := 'О проекте ' + APP_NAME;
 
-  Height := 290;
+  Height := 252;
   Width := 340;
 
   Constraints.MinHeight := Height;
@@ -74,7 +72,7 @@ begin
   lblVKURL.Caption := 'http://vk.com/ampaside';
 
   memAbout.Lines.Text :=
-    'Advanced MIDletPascal IDE' + LE + LE +
+    'Advanced MIDletPascal IDE' + LE +
     'Автор: Helltar' + LE +
     'Версия: ' + GetProgramVersion + LE +
     'Лицензия: GPLv3 (см. COPYING)';
