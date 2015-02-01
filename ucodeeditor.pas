@@ -444,7 +444,7 @@ begin
   if not CheckFile(FileName) then
     Exit;
 
-  Proc := ProcStart(JCF + ' ' + FileName + ' -backup -y -config=' + JCF_SETTINGS);
+  Proc := ProcStart(JCF + ' "' + FileName + '" -backup -y -config=' + JCF_SETTINGS);
 
   if Proc.Completed then
   begin
