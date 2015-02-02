@@ -37,7 +37,7 @@ EMULATOR = APP_DIR_TOOLS + 'microemulator.jar';
     CPU = 'x86_64';
   {$ENDIF}
 
-  {$IFDEF i386}
+  {$IFDEF CPUI386}
     CPU = 'i386';
   {$ENDIF}
 
