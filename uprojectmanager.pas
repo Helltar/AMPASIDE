@@ -195,7 +195,7 @@ function TProjectManager.CreateProject(APath, AName: string): boolean;
         Add(EditorConfig.EditorHeaders);
         Add('program ' + ModuleName + ';');
         Add('begin');
-        Add('  DrawText(''Hello, Linux!'', 0, 0);');
+        Add('  DrawText(''Hello, World!'', 0, 0);');
         Add('  Repaint;');
         Add('  Delay(5000);');
         Add('end.');
