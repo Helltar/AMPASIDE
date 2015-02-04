@@ -187,13 +187,13 @@ uses
   uEditorConfig,
   uFileManagerFrame,
   uIDEConfig,
+  uIDEDirectivesForm,
   uIDEOptionsForm,
   uNewProjForm,
-  uProjectConfig,
-  uProjectOptionsFrame,
   uProjectBuilding,
+  uProjectConfig,
   uProjectManager,
-  uIDEDirectivesForm;
+  uProjectOptionsFrame;
 
 var
   FileManagerFrame: TFileManagerFrame;
@@ -267,7 +267,7 @@ end;
 
 procedure TfrmMain.actRunUpdate(Sender: TObject);
 begin
-  TAction(Sender).Enabled := ProjManager.ProjectOpen; // and not IsProcRunning;
+  TAction(Sender).Enabled := ProjManager.ProjectOpen;
 end;
 
 procedure TfrmMain.actUpdateStatusBarExecute(Sender: TObject);

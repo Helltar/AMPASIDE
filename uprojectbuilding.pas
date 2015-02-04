@@ -373,34 +373,33 @@ begin
   if not PreBuild then
     Exit;
 
-  if CompileMainModule then
-  begin
+  if not CompileMainModule then
+    Exit;
 
-    JARFileName := ProjManager.JARFile;
-    CmdLine := FILE_ARCHIVER + ' a "' + JARFileName + '" "';
+  JARFileName := ProjManager.JARFile;
+  CmdLine := FILE_ARCHIVER + ' a "' + JARFileName + '" "';
 
-    if FileExists(JARFileName) then
-      if not DeleteFile(JARFileName) then
-      begin
-        AddLogMsg('Не удалось удалить ' + ExtractFileName(JARFileName) +
-          ' возможно файл занят другим процессом', lmtErr);
-        Exit;
-      end;
-
-    AddLogMsg('Начало архивации ' + ExtractFileName(JARFileName) + '...' + LE);
-
-    if ProcStart(CmdLine + ProjManager.ProjDirPreBuild + '*"', False).Completed then
+  if FileExists(JARFileName) then
+    if not DeleteFile(JARFileName) then
     begin
-      if ProcStart(CmdLine + ProjManager.ProjDirRes + '*"', False).Completed then
-      begin
-        if ProjConfig.AutoIncBuildVers then
-          IncBuildVers;
-        AddLogMsg(
-          'Проект успешно собран' + LE +
-          'Версия: ' + ProjManager.MIDletVersion + LE +
-          'Размер: ' + GetFileSize(JARFileName), lmtOk);
-        Result := True;
-      end;
+      AddLogMsg('Не удалось удалить ' + ExtractFileName(JARFileName) +
+        ' возможно файл занят другим процессом', lmtErr);
+      Exit;
+    end;
+
+  AddLogMsg('Начало архивации ' + ExtractFileName(JARFileName) + '...' + LE);
+
+  if ProcStart(CmdLine + ProjManager.ProjDirPreBuild + '*"', False).Completed then
+  begin
+    if ProcStart(CmdLine + ProjManager.ProjDirRes + '*"', False).Completed then
+    begin
+      if ProjConfig.AutoIncBuildVers then
+        IncBuildVers;
+      AddLogMsg(
+        'Проект успешно собран' + LE +
+        'Версия: ' + ProjManager.MIDletVersion + LE +
+        'Размер: ' + GetFileSize(JARFileName), lmtOk);
+      Result := True;
     end;
   end;
 end;

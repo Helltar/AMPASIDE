@@ -1,7 +1,7 @@
 object frmAbout: TfrmAbout
-  Left = 973
+  Left = 804
   Height = 246
-  Top = 188
+  Top = 279
   Width = 340
   Caption = 'About'
   ClientHeight = 246

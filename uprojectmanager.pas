@@ -197,7 +197,7 @@ function TProjectManager.CreateProject(APath, AName: string): boolean;
         Add('begin');
         Add('  DrawText(''Hello, World!'', 0, 0);');
         Add('  Repaint;');
-        Add('  Delay(5000);');
+        Add('  Delay(9000);');
         Add('end.');
         SaveToFile(FileName);
       finally

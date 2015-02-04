@@ -125,18 +125,22 @@
       <Unit2>
         <Filename Value="uampascore.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uAMPASCore"/>
       </Unit2>
       <Unit3>
         <Filename Value="ucodeeditor.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uCodeEditor"/>
       </Unit3>
       <Unit4>
         <Filename Value="uprojectmanager.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uProjectManager"/>
       </Unit4>
       <Unit5>
         <Filename Value="uprojectbuilding.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uProjectBuilding"/>
       </Unit5>
       <Unit6>
         <Filename Value="unewprojform.pas"/>
@@ -144,6 +148,7 @@
         <ComponentName Value="frmNewProj"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uNewProjForm"/>
       </Unit6>
       <Unit7>
         <Filename Value="uprojectoptionsframe.pas"/>
@@ -169,6 +174,7 @@
         <ComponentName Value="frmAbout"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uAboutForm"/>
       </Unit10>
       <Unit11>
         <Filename Value="ucodeeditordm.pas"/>
@@ -180,6 +186,7 @@
       <Unit12>
         <Filename Value="uprojectconfig.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uProjectConfig"/>
       </Unit12>
       <Unit13>
         <Filename Value="ueditoroptionsframe.pas"/>
@@ -187,6 +194,7 @@
         <ComponentName Value="EditorOptionsFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
+        <UnitName Value="uEditorOptionsFrame"/>
       </Unit13>
       <Unit14>
         <Filename Value="uideoptionsform.pas"/>
@@ -205,6 +213,7 @@
       <Unit16>
         <Filename Value="ueditorconfig.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uEditorConfig"/>
       </Unit16>
       <Unit17>
         <Filename Value="ampasideconsts.inc"/>
@@ -220,6 +229,7 @@
       <Unit19>
         <Filename Value="ufilemanager.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uFileManager"/>
       </Unit19>
     </Units>
   </ProjectOptions>
@@ -241,7 +251,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="5">
+    <Exceptions Count="6">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -257,6 +267,9 @@
       <Item5>
         <Name Value="EFCreateError"/>
       </Item5>
+      <Item6>
+        <Name Value="EInOutError"/>
+      </Item6>
     </Exceptions>
   </Debugging>
 </CONFIG>

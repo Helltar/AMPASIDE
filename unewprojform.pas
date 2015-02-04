@@ -26,8 +26,7 @@ unit uNewProjForm;
 interface
 
 uses
-  ButtonPanel, Controls, Dialogs, EditBtn, FileUtil, SysUtils, Forms, StdCtrls,
-  ExtCtrls;
+  ButtonPanel, Controls, Dialogs, EditBtn, FileUtil, SysUtils, Forms, StdCtrls;
 
 type
 
