@@ -22,7 +22,7 @@ sudo apt-get install libqt4pas-dev
 Скачайте [последний релиз](https://github.com/Helltar/AMPASIDE/releases/latest), распакуйте наприм. в *~/programs/ampaside/*, дайте права на исполнение:
 ``` bash
 cd ~/programs/ampaside/
-chmod +x ampaside tools/microemulator.jar tools/linux_x86_64/* # linux_i386
+chmod +x ampaside tools/linux_x86_64/* # linux_i386
 ```
 
 Для запуска эмулятора должна быть установлена **JRE**:
