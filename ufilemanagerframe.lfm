@@ -224,6 +224,7 @@ object FileManagerFrame: TFileManagerFrame
     object actCreateDir: TAction
       Caption = 'Создать каталог'
       OnExecute = actCreateDirExecute
+      OnUpdate = actOpenFileUpdate
     end
     object actAddFiles: TAction
       Caption = 'Добавить файлы'
