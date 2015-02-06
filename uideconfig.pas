@@ -95,6 +95,13 @@ type
     property ModulePrefix: string read GetModulePrefix write SetModulePrefix;
   end;
 
+const
+  D_APP_NAME = '{$APP_NAME}';
+  D_APP_VERSION = '{$APP_VERSION}';
+  D_DATE_TIME = '{$DATE_TIME}';
+  D_JAR_FILENAME = '{$JAR_FILENAME}';
+  D_USERNAME = '{$USERNAME}';
+
 var
   IDEConfig: TIDEConfig;
 
@@ -120,12 +127,11 @@ end;
 function TIDEConfig.DirectiveReplace(const AValue: string): string;
 begin
   Result := AValue;
-  { TODO : в константы }
-  Result := StringReplace(Result, '{$APP_NAME}', APP_NAME, [rfReplaceAll]);
-  Result := StringReplace(Result, '{$APP_VERSION}', APP_VERSION, [rfReplaceAll]);
-  Result := StringReplace(Result, '{$DATE_TIME}', FormatDateTime('dd.mm.yyyy hh:mm:ss', Now), [rfReplaceAll]);
-  Result := StringReplace(Result, '{$JAR_FILENAME}', ProjManager.JARFile, [rfReplaceAll]);
-  Result := StringReplace(Result, '{$USERNAME}', GetCurrentUsername, [rfReplaceAll]);
+  Result := StringReplace(Result, D_APP_NAME, APP_NAME, [rfReplaceAll]);
+  Result := StringReplace(Result, D_APP_VERSION, APP_VERSION, [rfReplaceAll]);
+  Result := StringReplace(Result, D_DATE_TIME, FormatDateTime('dd.mm.yyyy hh:mm:ss', Now), [rfReplaceAll]);
+  Result := StringReplace(Result, D_JAR_FILENAME, ProjManager.JARFile, [rfReplaceAll]);
+  Result := StringReplace(Result, D_USERNAME, GetCurrentUsername, [rfReplaceAll]);
 end;
 
 procedure TIDEConfig.SetEmulatorCmd(AValue: string);
@@ -215,7 +221,7 @@ end;
 
 function TIDEConfig.GetEmulatorCmd: string;
 begin
-  Result := FMainConfig.ReadString('OTHER', 'EmulatorCmd', 'java -jar ' + EMULATOR + ' "{$JAR_FILENAME}"');
+  Result := FMainConfig.ReadString('OTHER', 'EmulatorCmd', 'java -jar ' + EMULATOR + ' "' + D_JAR_FILENAME + '"');
 end;
 
 function TIDEConfig.GetFColor: TColor;

@@ -159,8 +159,8 @@ begin
     try
       if not FileExists(EDITOR_HEADERS) then
         SetEditorHeadersText(
-          '// Author:  {$USERNAME}' + LE +
-          '// Created: {$DATE_TIME}'
+          '// Author:  ' + D_USERNAME + LE +
+          '// Created: ' + D_DATE_TIME
           );
       try
         LoadFromFile(EDITOR_HEADERS);

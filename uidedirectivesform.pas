@@ -26,7 +26,7 @@ unit uIDEDirectivesForm;
 interface
 
 uses
-  Forms, ButtonPanel, Menus, SynEdit, SynHighlighterPas, Classes;
+  Forms, ButtonPanel, Menus, SynEdit, SynHighlighterPas;
 
 type
 
@@ -51,7 +51,6 @@ implementation
 
 uses
   uAMPASCore,
-  uProjectManager,
   uEditorConfig,
   uIDEConfig;
 
@@ -70,23 +69,19 @@ begin
   synedtDirectives.Font.Name := EditorConfig.FontName;
   synedtDirectives.Font.Size := EditorConfig.FontSize;
 
-  JARFileName := IDEConfig.DirectiveReplace('{$JAR_FILENAME}');
+  JARFileName := IDEConfig.DirectiveReplace(D_JAR_FILENAME);
 
-  if ProjManager.JARFile = '' then
-  {$IFDEF UNIX}
-    JARFileName := '/home/user/development/myproject/bin/myproject.jar';
-  {$ENDIF}
-  {$IFDEF MSWINDOWS}
-  JARFileName := 'C:\development\myproject\bin\myproject.jar';
-  {$ENDIF}
+  if JARFileName = '' then
+    JARFileName := 'прямой путь к бинарнику';
 
-  { TODO : в константы }
-  synedtDirectives.Text := (
-    '{$APP_NAME} - ' + IDEConfig.DirectiveReplace('{$APP_NAME}') + LE +
-    '{$APP_VERSION} - ' + IDEConfig.DirectiveReplace('{$APP_VERSION}') + LE +
-    '{$DATE_TIME} - ' + IDEConfig.DirectiveReplace('{$DATE_TIME}') + LE +
-    '{$JAR_FILENAME} - ' + JARFileName + LE +
-    '{$USERNAME} - ' + IDEConfig.DirectiveReplace('{$USERNAME}'));
+  with IDEConfig do
+    synedtDirectives.Text := (
+      D_APP_NAME + ' - ' + DirectiveReplace(D_APP_NAME) + LE +
+      D_APP_VERSION + ' - ' + DirectiveReplace(D_APP_VERSION) + LE +
+      D_DATE_TIME + ' - ' + DirectiveReplace(D_DATE_TIME) + LE +
+      D_JAR_FILENAME + ' - ' + JARFileName + LE +
+      D_USERNAME + ' - ' + DirectiveReplace(D_USERNAME)
+      );
 end;
 
 procedure TfrmIDEDirectives.miCopyClick(Sender: TObject);
