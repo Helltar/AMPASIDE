@@ -106,12 +106,12 @@ begin
 
   if LoadImages('filemanager', ilMain) then
   begin
-    actAddFiles.ImageIndex := 0;
-    actCreateDir.ImageIndex := 14;
-    actDeleteFile.ImageIndex := 4;
+    //actAddFiles.ImageIndex := 0;
+    //actCreateDir.ImageIndex := 14;
+    //actDeleteFile.ImageIndex := 4;
     actExpandCollapse.ImageIndex := 2;
-    actOpenFile.ImageIndex := 7;
-    actRenameFile.ImageIndex := 9;
+    //actOpenFile.ImageIndex := 7;
+    //actRenameFile.ImageIndex := 9;
     actUpdateFileList.ImageIndex := 13;
   end;
 
