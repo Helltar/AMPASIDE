@@ -5,6 +5,8 @@ Advanced MIDletPascal IDE
 
 Среда разработки использующая компилятор языка программирования [MIDletPascal](http://ru.wikipedia.org/wiki/MIDletPascal).
 
+<p align="center"><img src="http://helltar.ho.ua/trash/ampaside_0.9.3v2.png" alt="ampaside-0.9" /></p>
+
 Установка
 ---------
 
