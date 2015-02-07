@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 536
-  Height = 571
-  Top = 187
-  Width = 827
+  Left = 522
+  Height = 553
+  Top = 206
+  Width = 838
   AllowDropFiles = True
   Caption = 'AMPASIDE'
-  ClientHeight = 550
-  ClientWidth = 827
+  ClientHeight = 532
+  ClientWidth = 838
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -22,7 +22,7 @@ object frmMain: TfrmMain
     Left = 322
     Height = 26
     Top = 6
-    Width = 499
+    Width = 510
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
@@ -107,9 +107,9 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = stbEditor
     Left = 322
-    Height = 274
+    Height = 256
     Top = 38
-    Width = 499
+    Width = 510
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     TabOrder = 1
@@ -124,8 +124,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = splBottom
     Left = 322
     Height = 20
-    Top = 318
-    Width = 499
+    Top = 300
+    Width = 510
     Action = actUpdateStatusBar
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
@@ -154,8 +154,8 @@ object frmMain: TfrmMain
     Cursor = crVSplit
     Left = 322
     Height = 5
-    Top = 344
-    Width = 505
+    Top = 326
+    Width = 516
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -171,8 +171,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Side = asrBottom
     Left = 322
     Height = 189
-    Top = 355
-    Width = 499
+    Top = 337
+    Width = 510
     ActivePage = tsLogMsg
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
@@ -181,12 +181,12 @@ object frmMain: TfrmMain
     object tsLogMsg: TTabSheet
       Caption = 'Сообщения'
       ClientHeight = 159
-      ClientWidth = 491
+      ClientWidth = 502
       object tvMsg: TTreeView
         Left = 6
         Height = 147
         Top = 6
-        Width = 479
+        Width = 490
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
@@ -724,7 +724,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 251
-    Height = 506
+    Height = 488
     Top = 38
     Width = 65
     Align = alNone
@@ -783,7 +783,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 240
-    Height = 550
+    Height = 532
     Top = 0
     Width = 5
     Align = alNone
@@ -796,7 +796,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 538
+    Height = 520
     Top = 6
     Width = 228
     ActivePage = tsProjFiles
