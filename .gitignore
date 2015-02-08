@@ -1,6 +1,6 @@
 *.lps
 *.res
 
-backup
 bin/ampaside*
-lib
+src/backup
+src/lib
