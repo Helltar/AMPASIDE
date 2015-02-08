@@ -99,9 +99,9 @@ type
     splLeft: TSplitter;
     stbEditor: TStatusBar;
     synedtNotes: TSynEdit;
-    tbb64Run: TToolButton;
-    tbb64Compile: TToolButton;
-    tbb64Build: TToolButton;
+    tbbRun64: TToolButton;
+    tbbCompile64: TToolButton;
+    tbbBuild64: TToolButton;
     tbbCreateModule: TToolButton;
     tbbDivider1: TToolButton;
     tbbOpenFile: TToolButton;
@@ -111,9 +111,10 @@ type
     tbbDivider2: TToolButton;
     tbbCloseEditorTab: TToolButton;
     tbbBuild: TToolButton;
-    ToolButton1: TToolButton;
-    tbbTerminateProc: TToolButton;
+    tbbDivider4: TToolButton;
+    tbbTermProc64: TToolButton;
     tbbDivider3: TToolButton;
+    tbbTermProc: TToolButton;
     tsLogMsg: TTabSheet;
     tsNotes: TTabSheet;
     tsProjFiles: TTabSheet;
@@ -670,6 +671,7 @@ begin
   tbbRun.Visible := False;
   tbbCompile.Visible := False;
   tbbBuild.Visible := False;
+  tbbTermProc.Visible := False;
 
   {$IFDEF MSWINDOWS}
   tbbDivider3.Visible := True;
@@ -707,6 +709,7 @@ begin
     tbbBuild.ImageIndex := 1;
     tbbCompile.ImageIndex := 3;
     tbbRun.ImageIndex := 14;
+    tbbTermProc.ImageIndex := 17;
   end;
 
   if LoadImages('actions', ilProjActions) then
@@ -773,6 +776,7 @@ begin
   tbbRun.Visible := not IsChecked;
   tbbCompile.Visible := not IsChecked;
   tbbBuild.Visible := not IsChecked;
+  tbbTermProc.Visible := not IsChecked;
 
   if IsChecked then
   begin

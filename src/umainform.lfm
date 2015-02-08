@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 522
-  Height = 553
-  Top = 206
-  Width = 838
+  Left = 517
+  Height = 573
+  Top = 178
+  Width = 842
   AllowDropFiles = True
   Caption = 'AMPASIDE'
-  ClientHeight = 532
-  ClientWidth = 838
+  ClientHeight = 552
+  ClientWidth = 842
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -22,7 +22,7 @@ object frmMain: TfrmMain
     Left = 322
     Height = 26
     Top = 6
-    Width = 510
+    Width = 514
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
@@ -68,7 +68,7 @@ object frmMain: TfrmMain
       Style = tbsDivider
     end
     object tbbCloseEditorTab: TToolButton
-      Left = 154
+      Left = 177
       Top = 0
       Action = actCloseActiveTab
       ParentShowHint = False
@@ -78,24 +78,37 @@ object frmMain: TfrmMain
       Left = 80
       Top = 0
       Action = actRun
+      ParentShowHint = False
+      ShowHint = True
     end
     object tbbCompile: TToolButton
       Left = 103
       Top = 0
       Action = actCompile
+      ParentShowHint = False
+      ShowHint = True
     end
     object tbbBuild: TToolButton
       Left = 126
       Top = 0
       Action = actBuild
+      ParentShowHint = False
+      ShowHint = True
     end
     object tbbDivider3: TToolButton
-      Left = 149
+      Left = 172
       Height = 22
       Top = 0
       Width = 5
       Caption = 'tbbDivider3'
       Style = tbsDivider
+    end
+    object tbbTermProc: TToolButton
+      Left = 149
+      Top = 0
+      Action = actTerminateProc
+      ParentShowHint = False
+      ShowHint = True
     end
   end
   object pgcEditor: TPageControl
@@ -107,9 +120,9 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = stbEditor
     Left = 322
-    Height = 256
+    Height = 276
     Top = 38
-    Width = 510
+    Width = 514
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     TabOrder = 1
@@ -124,8 +137,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = splBottom
     Left = 322
     Height = 20
-    Top = 300
-    Width = 510
+    Top = 320
+    Width = 514
     Action = actUpdateStatusBar
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
@@ -154,8 +167,8 @@ object frmMain: TfrmMain
     Cursor = crVSplit
     Left = 322
     Height = 5
-    Top = 326
-    Width = 516
+    Top = 346
+    Width = 520
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -171,8 +184,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Side = asrBottom
     Left = 322
     Height = 189
-    Top = 337
-    Width = 510
+    Top = 357
+    Width = 514
     ActivePage = tsLogMsg
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
@@ -181,12 +194,12 @@ object frmMain: TfrmMain
     object tsLogMsg: TTabSheet
       Caption = 'Сообщения'
       ClientHeight = 159
-      ClientWidth = 502
+      ClientWidth = 506
       object tvMsg: TTreeView
         Left = 6
         Height = 147
         Top = 6
-        Width = 490
+        Width = 494
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
@@ -724,7 +737,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 251
-    Height = 488
+    Height = 508
     Top = 38
     Width = 65
     Align = alNone
@@ -737,7 +750,7 @@ object frmMain: TfrmMain
     EdgeBorders = []
     Images = ilProjActions
     TabOrder = 5
-    object tbb64Run: TToolButton
+    object tbbRun64: TToolButton
       Cursor = crHandPoint
       Left = 1
       Top = 0
@@ -745,7 +758,7 @@ object frmMain: TfrmMain
       ParentShowHint = False
       ShowHint = True
     end
-    object tbb64Compile: TToolButton
+    object tbbCompile64: TToolButton
       Cursor = crHandPoint
       Left = 1
       Top = 64
@@ -753,7 +766,7 @@ object frmMain: TfrmMain
       ParentShowHint = False
       ShowHint = True
     end
-    object tbb64Build: TToolButton
+    object tbbBuild64: TToolButton
       Cursor = crHandPoint
       Left = 1
       Top = 128
@@ -761,15 +774,15 @@ object frmMain: TfrmMain
       ParentShowHint = False
       ShowHint = True
     end
-    object ToolButton1: TToolButton
+    object tbbDivider4: TToolButton
       Left = 1
       Height = 5
       Top = 192
       Width = 64
-      Caption = 'ToolButton1'
+      Caption = 'tbbDivider4'
       Style = tbsDivider
     end
-    object tbbTerminateProc: TToolButton
+    object tbbTermProc64: TToolButton
       Cursor = crHandPoint
       Left = 1
       Top = 197
@@ -783,7 +796,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 240
-    Height = 532
+    Height = 552
     Top = 0
     Width = 5
     Align = alNone
@@ -796,7 +809,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 520
+    Height = 540
     Top = 6
     Width = 228
     ActivePage = tsProjFiles
