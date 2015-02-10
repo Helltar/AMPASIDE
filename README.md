@@ -29,7 +29,7 @@ cd ~/programs/ampaside/
 chmod +x ampaside tools/linux_x86_64/* # linux_i386
 ```
 
-Для запуска эмулятора должна быть установлена **JRE**:
+Для запуска эмулятора должна быть установлена **JRE >= 1.5**:
 ```
 java -version
 ```
