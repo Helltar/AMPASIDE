@@ -21,7 +21,9 @@ sudo apt-get install libqt4pas-dev
 
 (при необходимости под **GTK** вы можете собрать из исходников)
 
-Скачайте [последний релиз](https://github.com/Helltar/AMPASIDE/releases/latest), распакуйте наприм. в *~/programs/ampaside/*, дайте права на исполнение:
+Скачайте [последний релиз](https://github.com/Helltar/AMPASIDE/releases/latest), распакуйте наприм. в *~/programs/ampaside/*.
+
+Дайте права на исполнение:
 ``` bash
 cd ~/programs/ampaside/
 chmod +x ampaside tools/linux_x86_64/* # linux_i386
