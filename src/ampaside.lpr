@@ -2,30 +2,13 @@ program ampaside;
 
 {$mode objfpc}{$H+}
 
-uses {$IFDEF UNIX} //{$IFDEF UseCThreads}
-  cthreads, {$ENDIF} //{$ENDIF}
+uses
+  {$IFDEF UNIX}
+  cthreads,
+  {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms,
-  lazcontrols,
-  //--------------
-  uAboutForm,
-  uAMPASCore,
-  uCodeEditor,
-  uCodeEditorDM,
-  uFileManagerFrame,
-  uIDEConfig,
-  uMainForm,
-  uNewProjForm,
-  uProjectOptionsFrame,
-  uProjectBuilding,
-  uProjectConfig,
-  uProjectManager,
-  uEditorOptionsFrame,
-  uIDEOptionsForm,
-  uGeneralOptionsFrame,
-  uEditorConfig,
-  uIDEDirectivesForm,
-  uFileManager;
+  uMainForm;
 
 {$R *.res}
 
