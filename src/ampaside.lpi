@@ -27,7 +27,7 @@
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
-            <Filename Value="bin/ampaside"/>
+            <Filename Value="../bin/ampaside"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
@@ -64,7 +64,7 @@
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
-            <Filename Value="bin/ampaside"/>
+            <Filename Value="../bin/ampaside"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
@@ -125,7 +125,6 @@
       <Unit2>
         <Filename Value="uampascore.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uAMPASCore"/>
       </Unit2>
       <Unit3>
         <Filename Value="ucodeeditor.pas"/>
@@ -160,12 +159,10 @@
         <ComponentName Value="FileManagerFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <UnitName Value="uFileManagerFrame"/>
       </Unit8>
       <Unit9>
         <Filename Value="uideconfig.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uIDEConfig"/>
       </Unit9>
       <Unit10>
         <Filename Value="uaboutform.pas"/>
@@ -220,19 +217,17 @@
         <ComponentName Value="frmIDEDirectives"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uIDEDirectivesForm"/>
       </Unit18>
       <Unit19>
         <Filename Value="ufilemanager.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uFileManager"/>
       </Unit19>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="bin/ampaside"/>
+      <Filename Value="../bin/ampaside"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
