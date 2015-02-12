@@ -109,7 +109,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="20">
+    <Units Count="21">
       <Unit0>
         <Filename Value="ampaside.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -125,6 +125,7 @@
       <Unit2>
         <Filename Value="uampascore.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uAMPASCore"/>
       </Unit2>
       <Unit3>
         <Filename Value="ucodeeditor.pas"/>
@@ -145,6 +146,7 @@
         <ComponentName Value="frmNewProj"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uNewProjForm"/>
       </Unit6>
       <Unit7>
         <Filename Value="uprojectoptionsframe.pas"/>
@@ -163,6 +165,7 @@
       <Unit9>
         <Filename Value="uideconfig.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uIDEConfig"/>
       </Unit9>
       <Unit10>
         <Filename Value="uaboutform.pas"/>
@@ -221,7 +224,13 @@
       <Unit19>
         <Filename Value="ufilemanager.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uFileManager"/>
       </Unit19>
+      <Unit20>
+        <Filename Value="uandroidbuilding.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uAndroidBuilding"/>
+      </Unit20>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
