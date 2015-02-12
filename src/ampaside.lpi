@@ -115,64 +115,45 @@
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="umainform.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmMain"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uMainForm"/>
-      </Unit1>
-      <Unit2>
         <Filename Value="uampascore.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uAMPASCore"/>
-      </Unit2>
-      <Unit3>
+      </Unit1>
+      <Unit2>
         <Filename Value="ucodeeditor.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uCodeEditor"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="uprojectmanager.pas"/>
+        <IsPartOfProject Value="True"/>
       </Unit3>
       <Unit4>
-        <Filename Value="uprojectmanager.pas"/>
+        <Filename Value="uprojectbuilding.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit4>
       <Unit5>
-        <Filename Value="uprojectbuilding.pas"/>
+        <Filename Value="uideconfig.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit5>
       <Unit6>
-        <Filename Value="unewprojform.pas"/>
+        <Filename Value="uprojectconfig.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmNewProj"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uNewProjForm"/>
       </Unit6>
       <Unit7>
-        <Filename Value="uprojectoptionsframe.pas"/>
+        <Filename Value="ueditorconfig.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="ProjectOptionsFrame"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Frame"/>
       </Unit7>
       <Unit8>
-        <Filename Value="ufilemanagerframe.pas"/>
+        <Filename Value="ampasideconsts.inc"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="FileManagerFrame"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Frame"/>
       </Unit8>
       <Unit9>
-        <Filename Value="uideconfig.pas"/>
+        <Filename Value="ufilemanager.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uIDEConfig"/>
       </Unit9>
       <Unit10>
-        <Filename Value="uaboutform.pas"/>
+        <Filename Value="uandroidbuilding.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmAbout"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
       </Unit10>
       <Unit11>
         <Filename Value="ucodeeditordm.pas"/>
@@ -182,54 +163,67 @@
         <ResourceBaseClass Value="DataModule"/>
       </Unit11>
       <Unit12>
-        <Filename Value="uprojectconfig.pas"/>
+        <Filename Value="umainform.pas"/>
         <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
       </Unit12>
       <Unit13>
-        <Filename Value="ueditoroptionsframe.pas"/>
+        <Filename Value="unewprojform.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="EditorOptionsFrame"/>
+        <ComponentName Value="frmNewProj"/>
         <HasResources Value="True"/>
-        <ResourceBaseClass Value="Frame"/>
+        <ResourceBaseClass Value="Form"/>
       </Unit13>
       <Unit14>
+        <Filename Value="uaboutform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAbout"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit14>
+      <Unit15>
         <Filename Value="uideoptionsform.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmIDEOptions"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-      </Unit14>
-      <Unit15>
-        <Filename Value="ugeneraloptionsframe.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="GeneralOptionsFrame"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Frame"/>
       </Unit15>
       <Unit16>
-        <Filename Value="ueditorconfig.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit16>
-      <Unit17>
-        <Filename Value="ampasideconsts.inc"/>
-        <IsPartOfProject Value="True"/>
-      </Unit17>
-      <Unit18>
         <Filename Value="uidedirectivesform.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmIDEDirectives"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="frames/ueditoroptionsframe.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="EditorOptionsFrame"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="frames/ufilemanagerframe.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FileManagerFrame"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
       </Unit18>
       <Unit19>
-        <Filename Value="ufilemanager.pas"/>
+        <Filename Value="frames/ugeneraloptionsframe.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uFileManager"/>
+        <ComponentName Value="GeneralOptionsFrame"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
       </Unit19>
       <Unit20>
-        <Filename Value="uandroidbuilding.pas"/>
+        <Filename Value="frames/uprojectoptionsframe.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uAndroidBuilding"/>
+        <ComponentName Value="ProjectOptionsFrame"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
       </Unit20>
     </Units>
   </ProjectOptions>
