@@ -218,7 +218,8 @@ begin
       begin
         ProcessRunning := True;
         if ProcessTerminate then
-          P.Terminate(0);
+          if P.Terminate(0) then
+            AddLogMsg('Процесс (PID: ' + IntToStr(P.ProcessID) + ') завершен');
         Sleep(1);
       end;
 
