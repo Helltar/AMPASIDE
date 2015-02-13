@@ -1,6 +1,11 @@
-*.lps
-*.res
-
 bin/ampaside*
-src/backup
-src/lib
+
+bin/data/ampaside
+bin/data/ant.log
+bin/data/editorheaders
+
+src/*.lps
+src/*.res
+
+src/**/backup
+src/**/lib
