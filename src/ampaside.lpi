@@ -31,6 +31,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
+            <OtherUnitFiles Value="frames"/>
             <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>
@@ -68,6 +69,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
+            <OtherUnitFiles Value="frames"/>
             <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
@@ -121,7 +123,6 @@
       <Unit2>
         <Filename Value="ucodeeditor.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uCodeEditor"/>
       </Unit2>
       <Unit3>
         <Filename Value="uprojectmanager.pas"/>
@@ -168,6 +169,7 @@
         <ComponentName Value="frmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uMainForm"/>
       </Unit12>
       <Unit13>
         <Filename Value="unewprojform.pas"/>
@@ -189,6 +191,7 @@
         <ComponentName Value="frmIDEOptions"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uIDEOptionsForm"/>
       </Unit15>
       <Unit16>
         <Filename Value="uidedirectivesform.pas"/>
@@ -234,6 +237,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="frames"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
