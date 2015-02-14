@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 517
-  Height = 573
-  Top = 178
-  Width = 842
+  Left = 635
+  Height = 589
+  Top = 184
+  Width = 836
   AllowDropFiles = True
   Caption = 'AMPASIDE'
-  ClientHeight = 552
-  ClientWidth = 842
+  ClientHeight = 568
+  ClientWidth = 836
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -22,7 +22,7 @@ object frmMain: TfrmMain
     Left = 322
     Height = 26
     Top = 6
-    Width = 514
+    Width = 508
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
@@ -120,9 +120,9 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = stbEditor
     Left = 322
-    Height = 276
+    Height = 292
     Top = 38
-    Width = 514
+    Width = 508
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     TabOrder = 1
@@ -137,8 +137,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = splBottom
     Left = 322
     Height = 20
-    Top = 320
-    Width = 514
+    Top = 336
+    Width = 508
     Action = actUpdateStatusBar
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
@@ -167,8 +167,8 @@ object frmMain: TfrmMain
     Cursor = crVSplit
     Left = 322
     Height = 5
-    Top = 346
-    Width = 520
+    Top = 362
+    Width = 514
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -184,22 +184,22 @@ object frmMain: TfrmMain
     AnchorSideBottom.Side = asrBottom
     Left = 322
     Height = 189
-    Top = 357
-    Width = 514
-    ActivePage = tsLogMsg
+    Top = 373
+    Width = 508
+    ActivePage = tsNotes
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 4
     object tsLogMsg: TTabSheet
       Caption = 'Сообщения'
       ClientHeight = 159
-      ClientWidth = 506
+      ClientWidth = 499
       object tvMsg: TTreeView
         Left = 6
         Height = 147
         Top = 6
-        Width = 494
+        Width = 487
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
@@ -214,12 +214,12 @@ object frmMain: TfrmMain
     object tsNotes: TTabSheet
       Caption = 'Заметки'
       ClientHeight = 159
-      ClientWidth = 477
+      ClientWidth = 500
       inline synedtNotes: TSynEdit
         Left = 6
         Height = 147
         Top = 6
-        Width = 465
+        Width = 488
         Align = alClient
         BorderSpacing.Around = 6
         Font.Height = -12
@@ -737,7 +737,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 251
-    Height = 508
+    Height = 524
     Top = 38
     Width = 65
     Align = alNone
@@ -785,10 +785,26 @@ object frmMain: TfrmMain
     object tbbTermProc64: TToolButton
       Cursor = crHandPoint
       Left = 1
-      Top = 197
+      Top = 266
       Action = actTerminateProc
       ParentShowHint = False
       ShowHint = True
+    end
+    object tbbBuildAndroid64: TToolButton
+      Cursor = crHandPoint
+      Left = 1
+      Top = 197
+      Action = actBuildAndroid
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object tbbDivider5: TToolButton
+      Left = 1
+      Height = 5
+      Top = 261
+      Width = 64
+      Caption = 'tbbDivider5'
+      Style = tbsDivider
     end
   end
   object splLeft: TSplitter
@@ -796,7 +812,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 240
-    Height = 552
+    Height = 568
     Top = 0
     Width = 5
     Align = alNone
@@ -809,7 +825,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 540
+    Height = 556
     Top = 6
     Width = 228
     ActivePage = tsProjFiles
@@ -1050,8 +1066,9 @@ object frmMain: TfrmMain
       OnExecute = actTerminateProcExecute
     end
     object actBuildAndroid: TAction
-      Caption = 'Получить APK'
-      Hint = 'Получить APK'
+      Caption = 'Собрать APK'
+      Hint = 'Собрать APK'
+      OnExecute = actBuildAndroidExecute
       OnUpdate = actRunUpdate
     end
   end

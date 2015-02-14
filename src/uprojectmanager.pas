@@ -37,14 +37,18 @@ type
     FConfigFile: string;
     FMainModule: string;
     FNotesFile: string;
+    FProjDirAndroid: string;
     FProjDirBin: string;
     FProjDirHome: string;
+    FProjDirJavaME: string;
     FProjDirLibs: string;
     FProjDirPreBuild: string;
     FProjDirRes: string;
     FProjDirSrc: string;
     FProjectOpen: boolean;
-    function GetJARFile: string;
+    function GetApkFile: string;
+    function GetJadFile: string;
+    function GetJarFile: string;
     function GetMIDletVersion: string;
   public
     constructor Create;
@@ -58,13 +62,17 @@ type
     property ProjectOpen: boolean read FProjectOpen;
     property MIDletVersion: string read GetMIDletVersion;
 
+    property ApkFile: string read GetApkFile;
     property ConfigFile: string read FConfigFile;
-    property JARFile: string read GetJARFile;
+    property JadFile: string read GetJadFile;
+    property JarFile: string read GetJarFile;
     property MainModule: string read FMainModule;
     property NotesFile: string read FNotesFile;
 
+    property ProjDirAndroid: string read FProjDirAndroid;
     property ProjDirBin: string read FProjDirBin;
     property ProjDirHome: string read FProjDirHome;
+    property ProjDirJavaME: string read FProjDirJavaME;
     property ProjDirLibs: string read FProjDirLibs;
     property ProjDirPreBuild: string read FProjDirPreBuild;
     property ProjDirRes: string read FProjDirRes;
@@ -105,11 +113,13 @@ begin
   Result := False;
   if MakeDir(MainDir) then
     if MakeDir(MainDir + PROJ_DIR_BIN) then
-      if MakeDir(MainDir + PROJ_DIR_LIBS) then
-        if MakeDir(MainDir + PROJ_DIR_PRE_BUILD) then
-          if MakeDir(MainDir + PROJ_DIR_RES) then
-            if MakeDir(MainDir + PROJ_DIR_SRC) then
-              Result := True;
+      if MakeDir(MainDir + PROJ_DIR_BIN + DIR_SEP + PROJ_DIR_ANDROID) then
+        if MakeDir(MainDir + PROJ_DIR_BIN + DIR_SEP + PROJ_DIR_JAVAME) then
+          if MakeDir(MainDir + PROJ_DIR_LIBS) then
+            if MakeDir(MainDir + PROJ_DIR_PRE_BUILD) then
+              if MakeDir(MainDir + PROJ_DIR_RES) then
+                if MakeDir(MainDir + PROJ_DIR_SRC) then
+                  Result := True;
 end;
 
 function TProjectManager.CreateModule(const FileName: string): string;
@@ -144,10 +154,22 @@ begin
   end;
 end;
 
-function TProjectManager.GetJARFile: string;
+function TProjectManager.GetJarFile: string;
 begin
   if ProjConfig.MIDletName <> '' then
-    Result := FProjDirHome + PROJ_DIR_BIN + DIR_SEP + ProjConfig.MIDletName + EXT_JAR;
+    Result := FProjDirJavaME + ProjConfig.MIDletName + EXT_JAR;
+end;
+
+function TProjectManager.GetApkFile: string;
+begin
+  if ProjConfig.MIDletName <> '' then
+    Result := FProjDirAndroid + ProjConfig.MIDletName + EXT_APK;
+end;
+
+function TProjectManager.GetJadFile: string;
+begin
+  if ProjConfig.MIDletName <> '' then
+    Result := FProjDirJavaME + ProjConfig.MIDletName + EXT_JAD;
 end;
 
 function TProjectManager.CreateProject(APath, AName: string): boolean;
@@ -195,7 +217,7 @@ function TProjectManager.CreateProject(APath, AName: string): boolean;
         Add(EditorConfig.EditorHeaders);
         Add('program ' + ModuleName + ';');
         Add('begin');
-        Add('  DrawText(''Hello, World!'', 0, 0);');
+        Add('  DrawText(''Hello, World!'', 30, 70);');
         Add('  Repaint;');
         Add('  Delay(9000);');
         Add('end.');
@@ -226,12 +248,14 @@ begin
   FConfigFile := APath + AName + EXT_PROJECT;
   FMainModule := APath + PROJ_DIR_SRC + DIR_SEP + AName;
   FNotesFile := APath + AName;
+  FProjDirRes := APath + PROJ_DIR_RES + DIR_SEP;
 
   if CreateProjDir(APath) then
   begin
     CreateConfigFile(FConfigFile);
     CreateMainModule(FMainModule);
     CreateNotesFile(FNotesFile);
+    CopyFile(APP_DIR_IMG + 'icon.png', FProjDirRes + 'icon.png');
     Result := True;
   end;
 end;
@@ -253,6 +277,8 @@ begin
   FConfigFile := FileName;
   FNotesFile := FProjDirHome + ExtractFileNameOnly(FileName) + EXT_NOTES;
   FProjDirBin := FProjDirHome + PROJ_DIR_BIN + DIR_SEP;
+  FProjDirAndroid := FProjDirBin + PROJ_DIR_ANDROID + DIR_SEP;
+  FProjDirJavaME := FProjDirBin + PROJ_DIR_JAVAME + DIR_SEP;
   FProjDirLibs := FProjDirHome + PROJ_DIR_LIBS + DIR_SEP;
   FProjDirPreBuild := FProjDirHome + PROJ_DIR_PRE_BUILD + DIR_SEP;
   FProjDirRes := FProjDirHome + PROJ_DIR_RES + DIR_SEP;

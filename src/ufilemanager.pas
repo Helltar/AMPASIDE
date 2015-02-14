@@ -26,7 +26,7 @@ unit uFileManager;
 interface
 
 uses
-  SysUtils, FileUtil, ComCtrls, Controls, Dialogs, LCLIntf, LCLProc;
+  SysUtils, FileUtil, ComCtrls, Controls, Dialogs, LCLIntf, LazUTF8;
 
 type
 

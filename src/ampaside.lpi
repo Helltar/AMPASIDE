@@ -119,6 +119,7 @@
       <Unit1>
         <Filename Value="uampascore.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uAMPASCore"/>
       </Unit1>
       <Unit2>
         <Filename Value="ucodeeditor.pas"/>
@@ -127,10 +128,12 @@
       <Unit3>
         <Filename Value="uprojectmanager.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uProjectManager"/>
       </Unit3>
       <Unit4>
         <Filename Value="uprojectbuilding.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uProjectBuilding"/>
       </Unit4>
       <Unit5>
         <Filename Value="uideconfig.pas"/>
@@ -155,6 +158,7 @@
       <Unit10>
         <Filename Value="uandroidbuilding.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uAndroidBuilding"/>
       </Unit10>
       <Unit11>
         <Filename Value="ucodeeditordm.pas"/>
@@ -191,7 +195,6 @@
         <ComponentName Value="frmIDEOptions"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uIDEOptionsForm"/>
       </Unit15>
       <Unit16>
         <Filename Value="uidedirectivesform.pas"/>

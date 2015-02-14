@@ -115,6 +115,8 @@ type
     tbbTermProc64: TToolButton;
     tbbDivider3: TToolButton;
     tbbTermProc: TToolButton;
+    tbbDivider5: TToolButton;
+    tbbBuildAndroid64: TToolButton;
     tsLogMsg: TTabSheet;
     tsNotes: TTabSheet;
     tsProjFiles: TTabSheet;
@@ -122,6 +124,7 @@ type
     tlbMain: TToolBar;
     tlbRCB: TToolBar;
     tvMsg: TTreeView;
+    procedure actBuildAndroidExecute(Sender: TObject);
     procedure actBuildExecute(Sender: TObject);
     procedure actCloseActiveTabExecute(Sender: TObject);
     procedure actCloseActiveTabUpdate(Sender: TObject);
@@ -184,6 +187,7 @@ implementation
 
 uses
   uAboutForm,
+  uAndroidBuilding,
   uCodeEditor,
   uEditorConfig,
   uFileManagerFrame,
@@ -268,7 +272,7 @@ end;
 
 procedure TfrmMain.actRunUpdate(Sender: TObject);
 begin
-  TAction(Sender).Enabled := ProjManager.ProjectOpen;
+  TAction(Sender).Enabled := ProjManager.ProjectOpen and not IsProcRunning;
 end;
 
 procedure TfrmMain.actUpdateStatusBarExecute(Sender: TObject);
@@ -326,6 +330,15 @@ end;
 procedure TfrmMain.actBuildExecute(Sender: TObject);
 begin
   ProjLaunchMode(pbmBuild);
+end;
+
+procedure TfrmMain.actBuildAndroidExecute(Sender: TObject);
+begin
+  with TAndroidBuildingThread.Create(True) do
+  begin
+    AntBuildFile := APP_DIR_ANDROID + 'build.xml';
+    Start;
+  end;
 end;
 
 procedure TfrmMain.actCloseActiveTabUpdate(Sender: TObject);

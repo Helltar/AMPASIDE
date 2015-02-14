@@ -39,6 +39,7 @@ type
     function DeleteCharacters(const AValue: string): string;
     function IsErr(const AValue: string): boolean;
     function PreBuild: boolean;
+    procedure CreateJAD;
   public
     function Build: boolean;
     function CompileMainModule: boolean;
@@ -119,11 +120,12 @@ begin
   begin
     try
       Add('Manifest-Version: 1.0');
+      Add('Created-By: ' + APP_NAME + ' ' + GetProgramVersion);
       Add('MIDlet-1: ' + mName + ', ' + mIcon + ', FW');
       Add('MIDlet-Name: ' + mName);
       Add('MIDlet-Version: ' + mVersion);
       Add('MIDlet-Vendor: ' + mVendor);
-      Add('MicroEdition-Configuration: CLDC-1.0');
+      Add('MicroEdition-Configuration: CLDC-1.1');
 
       if ProjConfig.CanvasType <= 0 then
         Add('MicroEdition-Profile: MIDP-1.0')
@@ -327,8 +329,35 @@ begin
         ManifestDir := PreBuildDir + 'META-INF' + DIR_SEP;
         if MakeDir(ManifestDir) then
           if CreateManifest(ManifestDir) then
+          begin
+            CreateJAD;
             Result := True;
+          end;
       end;
+    end;
+  end;
+end;
+
+procedure TProjectBuilding.CreateJAD;
+var
+  JADFile: string;
+
+begin
+  JADFile := ProjManager.JadFile;
+
+  CopyFile(ProjManager.ProjDirPreBuild + 'META-INF' + DIR_SEP + 'MANIFEST.MF', JADFile);
+
+  with TStringList.Create do
+  begin
+    try
+      LoadFromFile(JADFile);
+      Delete(0);
+      Delete(0);
+      Add('MIDlet-Jar-URL: ' + ExtractFileName(ProjManager.JARFile));
+      Add('MIDlet-Jar-Size: ' + IntToStr(FileSize(ProjManager.JARFile)));
+      SaveToFile(JADFile);
+    finally
+      Free;
     end;
   end;
 end;
@@ -376,7 +405,7 @@ begin
   if not CompileMainModule then
     Exit;
 
-  JARFileName := ProjManager.JARFile;
+  JARFileName := ProjManager.JarFile;
   CmdLine := FILE_ARCHIVER + ' a "' + JARFileName + '" "';
 
   if FileExists(JARFileName) then
@@ -398,7 +427,8 @@ begin
       AddLogMsg(
         'Проект успешно собран' + LE +
         'Версия: ' + ProjManager.MIDletVersion + LE +
-        'Размер: ' + GetFileSize(JARFileName), lmtOk);
+        'Размер: ' + GetFileSize(JARFileName) + LE +
+        'Платформа: JavaME', lmtOk);
       Result := True;
     end;
   end;
@@ -416,7 +446,7 @@ procedure TProjectBuilding.Run;
 begin
   if Build then
   begin
-    AddLogMsg('Emulator: запуск ' + ExtractFileName(ProjManager.JARFile) + '...');
+    AddLogMsg('Emulator: запуск ' + ExtractFileName(ProjManager.JarFile) + '...');
     if ProcStart(IDEConfig.DirectiveReplace(IDEConfig.EmulatorCmd), False).Completed then
       AddLogMsg('Работа эмулятора завершена');
   end;
