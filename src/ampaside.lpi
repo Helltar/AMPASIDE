@@ -31,7 +31,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="frames"/>
+            <OtherUnitFiles Value="frames;forms"/>
             <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>
@@ -69,7 +69,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="frames"/>
+            <OtherUnitFiles Value="frames;forms"/>
             <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
@@ -128,12 +128,10 @@
       <Unit3>
         <Filename Value="uprojectmanager.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uProjectManager"/>
       </Unit3>
       <Unit4>
         <Filename Value="uprojectbuilding.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uProjectBuilding"/>
       </Unit4>
       <Unit5>
         <Filename Value="uideconfig.pas"/>
@@ -158,78 +156,77 @@
       <Unit10>
         <Filename Value="uandroidbuilding.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uAndroidBuilding"/>
       </Unit10>
       <Unit11>
-        <Filename Value="ucodeeditordm.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="dmCodeEditor"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="DataModule"/>
-      </Unit11>
-      <Unit12>
-        <Filename Value="umainform.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmMain"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uMainForm"/>
-      </Unit12>
-      <Unit13>
-        <Filename Value="unewprojform.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmNewProj"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-      </Unit13>
-      <Unit14>
-        <Filename Value="uaboutform.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmAbout"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-      </Unit14>
-      <Unit15>
-        <Filename Value="uideoptionsform.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmIDEOptions"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-      </Unit15>
-      <Unit16>
-        <Filename Value="uidedirectivesform.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmIDEDirectives"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-      </Unit16>
-      <Unit17>
         <Filename Value="frames/ueditoroptionsframe.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="EditorOptionsFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-      </Unit17>
-      <Unit18>
+      </Unit11>
+      <Unit12>
         <Filename Value="frames/ufilemanagerframe.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FileManagerFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-      </Unit18>
-      <Unit19>
+      </Unit12>
+      <Unit13>
         <Filename Value="frames/ugeneraloptionsframe.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="GeneralOptionsFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-      </Unit19>
-      <Unit20>
+      </Unit13>
+      <Unit14>
         <Filename Value="frames/uprojectoptionsframe.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ProjectOptionsFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="forms/uaboutform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmAbout"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="forms/ucodeeditordm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dmCodeEditor"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="forms/uidedirectivesform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmIDEDirectives"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="forms/uideoptionsform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmIDEOptions"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="forms/umainform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmMain"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uMainForm"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="forms/unewprojform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmNewProj"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
       </Unit20>
     </Units>
   </ProjectOptions>
@@ -240,7 +237,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="frames"/>
+      <OtherUnitFiles Value="frames;forms"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
