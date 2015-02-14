@@ -447,7 +447,7 @@ end;
 
 procedure TfrmMain.miOpenDocsClick(Sender: TObject);
 begin
-  OpenDocument(APP_DIR_DATA + 'html' + DIR_SEP + 'help' + DIR_SEP + 'en' + DIR_SEP + 'index.htm');
+  OpenDocument(APP_DIR_HELP + 'en' + DIR_SEP + 'index.htm');
 end;
 
 procedure TfrmMain.miTutorialOnlineClick(Sender: TObject);
@@ -457,17 +457,17 @@ end;
 
 procedure TfrmMain.miAsciiClick(Sender: TObject);
 begin
-  OpenDocument(APP_DIR_DATA + 'html' + DIR_SEP + 'ascii.html');
+  OpenDocument(APP_DIR_HELP + 'ascii.html');
 end;
 
 procedure TfrmMain.miKeyCodesClick(Sender: TObject);
 begin
-  OpenDocument(APP_DIR_DATA + 'html' + DIR_SEP + 'keycodes.html');
+  OpenDocument(APP_DIR_HELP + 'keycodes.html');
 end;
 
 procedure TfrmMain.miHTTPListClick(Sender: TObject);
 begin
-  OpenDocument(APP_DIR_DATA + 'html' + DIR_SEP + 'httplist.html');
+  OpenDocument(APP_DIR_HELP + 'httplist.html');
 end;
 
 procedure TfrmMain.miIDESettingsClick(Sender: TObject);

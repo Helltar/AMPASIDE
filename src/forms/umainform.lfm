@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 749
+  Left = 523
   Height = 589
-  Top = 191
+  Top = 189
   Width = 836
   AllowDropFiles = True
   Caption = 'AMPASIDE'
@@ -186,20 +186,20 @@ object frmMain: TfrmMain
     Height = 189
     Top = 373
     Width = 508
-    ActivePage = tsNotes
+    ActivePage = tsLogMsg
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 4
     object tsLogMsg: TTabSheet
       Caption = 'Сообщения'
       ClientHeight = 159
-      ClientWidth = 499
+      ClientWidth = 500
       object tvMsg: TTreeView
         Left = 6
         Height = 147
         Top = 6
-        Width = 487
+        Width = 488
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6

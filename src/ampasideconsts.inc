@@ -5,6 +5,7 @@ APP_NAME = 'AMPASIDE';
 APP_VERSION = '0.9';
 
 APP_DIR_DATA = 'data' + DIR_SEP;
+APP_DIR_HELP = APP_DIR_DATA + 'help' + DIR_SEP;
 APP_DIR_IMG = 'img' + DIR_SEP;
 APP_DIR_LIBS = 'libs' + DIR_SEP;
 APP_DIR_STUBS = 'stubs' + DIR_SEP;
