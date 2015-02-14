@@ -215,10 +215,16 @@ function TProjectManager.CreateProject(APath, AName: string): boolean;
     begin
       try
         Add(EditorConfig.EditorHeaders);
-        Add('program ' + ModuleName + ';');
+        Add('program ' + ModuleName + ';' + LE);
+        Add('var');
+        Add('  s: string;');
+        Add('  x, y: integer;' + LE);
         Add('begin');
-        Add('  DrawText(''Hello, World!'', 30, 70);');
-        Add('  Repaint;');
+        Add('  s := ''Hello, World!'';');
+        Add('  x := (GetWidth - GetStringWidth(s)) div 2;');
+        Add('  y := (GetHeight - GetStringHeight(s)) div 2;' + LE);
+        Add('  DrawText(s, x, y);');
+        Add('  Repaint;' + LE);
         Add('  Delay(9000);');
         Add('end.');
         SaveToFile(FileName);
