@@ -191,24 +191,24 @@ begin
   if not CreateBuildFile(ProjBuildFile) then
     Exit;
 
-  if not MakeDir(APP_DIR_TMP) then
+  if not MakeDir(GetAppPath + APP_DIR_TMP) then
     Exit;
 
   if not CreateAndroidManifest(
-    APP_DIR_TMP + 'AndroidManifest.xml',
+    GetAppPath + APP_DIR_TMP + 'AndroidManifest.xml',
     'org.microemu.android.' + mName,
     ProjConfig.VersMajor, ProjManager.MIDletVersion) then
     Exit;
 
   if not CreateStringsFile(
-    APP_DIR_TMP + 'strings.xml', mName, 'FW', mName + EXT_JAD) then
+    GetAppPath + APP_DIR_TMP + 'strings.xml', mName, 'FW', mName + EXT_JAD) then
     Exit;
 
   ApkFileNameOnly := mName + EXT_APK;
 
   AddLogMsg('Apache Ant: идет сборка, это займет около минуты...');
 
-  P := ProcStart('ant -buildfile ' + ProjBuildFile);
+  P := ProcStart('ant', '-buildfile ' + ProjBuildFile);
 
   if not P.Completed then
     Exit;
@@ -217,7 +217,7 @@ begin
   begin
     try
       Text := P.Output;
-      SaveToFile(ANT_LOG);
+      SaveToFile(GetAppPath + ANT_LOG);
     finally
       Free;
     end;
@@ -239,8 +239,8 @@ begin
       ErrMsg, lmtOk);
 
     DeleteFile(ProjBuildFile);
-    DeleteDirectory(APP_DIR_ANDROID + 'src' + DIR_SEP + 'org' + DIR_SEP + 'microemu' + DIR_SEP + 'android' + DIR_SEP + mName, False);
-    DeleteDirectory(APP_DIR_TMP, False);
+    DeleteDirectory(GetAppPath + APP_DIR_ANDROID + 'src' + DIR_SEP + 'org' + DIR_SEP + 'microemu' + DIR_SEP + 'android' + DIR_SEP + mName, False);
+    DeleteDirectory(GetAppPath + APP_DIR_TMP, False);
   end
   else
   if Pos('BUILD FAILED', P.Output) > 0 then

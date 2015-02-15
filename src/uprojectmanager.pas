@@ -261,7 +261,7 @@ begin
     CreateConfigFile(FConfigFile);
     CreateMainModule(FMainModule);
     CreateNotesFile(FNotesFile);
-    CopyFile(APP_DIR_IMG + 'icon.png', FProjDirRes + 'icon.png');
+    CopyFile(GetAppPath + APP_DIR_IMG + 'icon.png', FProjDirRes + 'icon.png');
     Result := True;
   end;
 end;

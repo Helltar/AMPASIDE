@@ -180,7 +180,7 @@ end;
 
 function TProjectBuilding.CompileFile(FileName: string): boolean;
 var
-  PCompiler: TProcFunc;
+  P: TProcFunc;
 
   procedure CopyClass;
   var
@@ -191,9 +191,9 @@ var
     begin
       try
         Expression := '\^2(.*?)' + EXT_CLASS;
-        if Exec(PCompiler.Output) then
+        if Exec(P.Output) then
           repeat
-            StubFileName := APP_DIR_STUBS + Match[1] + EXT_CLASS;
+            StubFileName := GetAppPath + APP_DIR_STUBS + Match[1] + EXT_CLASS;
             if CheckFile(StubFileName) then
               CopyFile(StubFileName, ProjManager.ProjDirPreBuild + ExtractFileName(StubFileName));
           until not ExecNext;
@@ -215,7 +215,7 @@ var
     begin
       try
         Expression := '\^1(.*?)' + LE;
-        if Exec(PCompiler.Output) then
+        if Exec(P.Output) then
           repeat
             LibFileName := ProjManager.ProjDirLibs + LibPrefix + Match[1] + EXT_CLASS;
             NewLibFileName := ProjManager.ProjDirPreBuild + ExtractFileName(LibFileName);
@@ -226,7 +226,7 @@ var
             end
             else
             begin
-              LibFileName := APP_DIR_LIBS + ExtractFileName(LibFileName);
+              LibFileName := GetAppPath + APP_DIR_LIBS + ExtractFileName(LibFileName);
               if CheckFile(LibFileName) then
                 CopyFile(LibFileName, NewLibFileName);
             end;
@@ -238,7 +238,8 @@ var
   end;
 
 var
-  CmdLine, OrigName: string;
+  MPCompiler, CmdParameters: string;
+  OrigName: string;
 
 begin
   Result := False;
@@ -249,18 +250,18 @@ begin
     Exit;
   end;
 
-  CmdLine :=
-    MP3CC +
+  MPCompiler := GetAppPath + MP3CC;
+  CmdParameters :=
     ' -s "' + FileName + '"' +
     ' -o "' + ExcludeTrailingPathDelimiter(ProjManager.ProjDirPreBuild) + '"' +
-    ' -l "' + ExcludeTrailingPathDelimiter(APP_DIR_LIBS) + '"' +
+    ' -l "' + ExcludeTrailingPathDelimiter(GetAppPath + APP_DIR_LIBS) + '"' +
     ' -p "' + ExcludeTrailingPathDelimiter(ProjManager.ProjDirLibs) + '"' +
     ' -m ' + IntToStr(ProjConfig.MathType) +
     ' -c ' + IntToStr(ProjConfig.CanvasType);
 
-  PCompiler := ProcStart(CmdLine + ' -d');
+  P := ProcStart(MPCompiler, CmdParameters + ' -d');
 
-  if not PCompiler.Completed then
+  if not P.Completed then
     Exit;
 
   OrigName := ExtractFileName(FileName);
@@ -269,7 +270,7 @@ begin
   begin
     try
       Expression := '\^0(.*?)' + LE;
-      if Exec(PCompiler.Output) then
+      if Exec(P.Output) then
       begin
         repeat
           FileName := ProjManager.ProjDirSrc + Match[1] + EXT_MODULE;
@@ -283,19 +284,19 @@ begin
   end;
 
   AddLogMsg('Идет компиляция ' + OrigName + '...');
-  PCompiler := ProcStart(CmdLine);
+  P := ProcStart(MPCompiler, CmdParameters);
 
-  if PCompiler.Completed then
+  if P.Completed then
   begin
     CopyClass;
     CopyLib;
-    if not IsErr(PCompiler.Output) then
+    if not IsErr(P.Output) then
     begin
-      AddLogMsg(DeleteCharacters(PCompiler.Output) + 'Завершено', lmtOk);
+      AddLogMsg(DeleteCharacters(P.Output) + 'Завершено', lmtOk);
       Result := True;
     end
     else
-      AddLogMsg(DeleteCharacters(PCompiler.Output), lmtErr);
+      AddLogMsg(DeleteCharacters(P.Output), lmtErr);
   end;
 end;
 
@@ -307,11 +308,9 @@ begin
 end;
 
 function TProjectBuilding.PreBuild: boolean;
-const
-  FW_Class = APP_DIR_STUBS + CLASS_FW;
-
 var
   PreBuildDir, ManifestDir: string;
+  FW_Class: string;
 
 begin
   Result := False;
@@ -324,6 +323,7 @@ begin
       DeleteDirectory(PreBuildDir, False);
       if MakeDir(PreBuildDir) then
       begin
+        FW_Class := GetAppPath + APP_DIR_STUBS + CLASS_FW;
         if CheckFile(FW_Class) then
           CopyFile(FW_Class, PreBuildDir + CLASS_FW);
         ManifestDir := PreBuildDir + 'META-INF' + DIR_SEP;
@@ -394,7 +394,8 @@ function TProjectBuilding.Build: boolean;
   end;
 
 var
-  CmdLine, JARFileName: string;
+  FileArchiver, CmdParameters: string;
+  JARFileName: string;
 
 begin
   Result := False;
@@ -406,7 +407,6 @@ begin
     Exit;
 
   JARFileName := ProjManager.JarFile;
-  CmdLine := FILE_ARCHIVER + ' a "' + JARFileName + '" "';
 
   if FileExists(JARFileName) then
     if not DeleteFile(JARFileName) then
@@ -418,9 +418,12 @@ begin
 
   AddLogMsg('Начало архивации ' + ExtractFileName(JARFileName) + '...' + LE);
 
-  if ProcStart(CmdLine + ProjManager.ProjDirPreBuild + '*"', False).Completed then
+  FileArchiver := GetAppPath + FILE_ARCHIVER;
+  CmdParameters := 'a "' + JARFileName + '" "';
+
+  if ProcStart(FileArchiver, CmdParameters + ProjManager.ProjDirPreBuild + '*"', False).Completed then
   begin
-    if ProcStart(CmdLine + ProjManager.ProjDirRes + '*"', False).Completed then
+    if ProcStart(FileArchiver, CmdParameters + ProjManager.ProjDirRes + '*"', False).Completed then
     begin
       if ProjConfig.AutoIncBuildVers then
         IncBuildVers;
@@ -447,7 +450,7 @@ begin
   if Build then
   begin
     AddLogMsg('Emulator: запуск ' + ExtractFileName(ProjManager.JarFile) + '...');
-    if ProcStart(IDEConfig.DirectiveReplace(IDEConfig.EmulatorCmd), False).Completed then
+    if ProcStart('', IDEConfig.DirectiveReplace(IDEConfig.EmulatorCmd), False).Completed then
       AddLogMsg('Работа эмулятора завершена');
   end;
 end;

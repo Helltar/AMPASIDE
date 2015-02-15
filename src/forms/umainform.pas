@@ -221,7 +221,7 @@ begin
   Constraints.MinHeight := 360;
   Constraints.MinWidth := 640;
 
-  FileName := APP_CONFIG;
+  FileName := GetAppPath + APP_CONFIG;
   CheckConfig(FileName);
   IDEConfig := TIDEConfig.Create(FileName);
 
@@ -336,7 +336,7 @@ procedure TfrmMain.actBuildAndroidExecute(Sender: TObject);
 begin
   with TAndroidBuildingThread.Create(True) do
   begin
-    AntBuildFile := APP_DIR_ANDROID + 'build.xml';
+    AntBuildFile := GetAppPath + APP_DIR_ANDROID + 'build.xml';
     Start;
   end;
 end;
@@ -447,7 +447,7 @@ end;
 
 procedure TfrmMain.miOpenDocsClick(Sender: TObject);
 begin
-  OpenDocument(APP_DIR_HELP + 'en' + DIR_SEP + 'index.htm');
+  OpenDocument(GetAppPath + APP_DIR_HELP + 'en' + DIR_SEP + 'index.htm');
 end;
 
 procedure TfrmMain.miTutorialOnlineClick(Sender: TObject);
@@ -457,17 +457,17 @@ end;
 
 procedure TfrmMain.miAsciiClick(Sender: TObject);
 begin
-  OpenDocument(APP_DIR_HELP + 'ascii.html');
+  OpenDocument(GetAppPath + APP_DIR_HELP + 'ascii.html');
 end;
 
 procedure TfrmMain.miKeyCodesClick(Sender: TObject);
 begin
-  OpenDocument(APP_DIR_HELP + 'keycodes.html');
+  OpenDocument(GetAppPath + APP_DIR_HELP + 'keycodes.html');
 end;
 
 procedure TfrmMain.miHTTPListClick(Sender: TObject);
 begin
-  OpenDocument(APP_DIR_HELP + 'httplist.html');
+  OpenDocument(GetAppPath + APP_DIR_HELP + 'httplist.html');
 end;
 
 procedure TfrmMain.miIDESettingsClick(Sender: TObject);

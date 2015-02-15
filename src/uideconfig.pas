@@ -221,7 +221,7 @@ end;
 
 function TIDEConfig.GetEmulatorCmd: string;
 begin
-  Result := FMainConfig.ReadString('OTHER', 'EmulatorCmd', 'java -jar ' + EMULATOR + ' "' + D_JAR_FILENAME + '"');
+  Result := FMainConfig.ReadString('OTHER', 'EmulatorCmd', 'java -jar "' + GetAppPath + EMULATOR + '" "' + D_JAR_FILENAME + '"');
 end;
 
 function TIDEConfig.GetFColor: TColor;
@@ -236,7 +236,7 @@ end;
 
 function TIDEConfig.GetColorSchemeFile: string;
 begin
-  Result := FMainConfig.ReadString('EDITOR', 'ColorSchemeFile', APP_DIR_DATA + 'editorcolorscheme');
+  Result := FMainConfig.ReadString('EDITOR', 'ColorSchemeFile', GetAppPath + APP_DIR_DATA + 'editorcolorscheme');
 end;
 
 function TIDEConfig.GetFHeight: integer;

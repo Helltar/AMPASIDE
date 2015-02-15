@@ -96,7 +96,7 @@ begin
 
   CompletionList := TStringList.Create;
   try
-    CompletionList.LoadFromFile(EDITOR_COMPLETION);
+    CompletionList.LoadFromFile(GetAppPath + EDITOR_COMPLETION);
   except
     AddLogMsg('Не удалось загрузить файл автодополнения: ' + EDITOR_COMPLETION, lmtErr);
   end;
@@ -435,7 +435,7 @@ procedure TCodeEditor.JCFormat;
 var
   AEditor: TSynEdit;
   FileName: string;
-  Proc: TProcFunc;
+  P: TProcFunc;
   XY: TPoint;
 
 begin
@@ -444,13 +444,13 @@ begin
   if not CheckFile(FileName) then
     Exit;
 
-  Proc := ProcStart(JCF + ' "' + FileName + '" -backup -y -config=' + JCF_SETTINGS);
+  P := ProcStart(GetAppPath + JCF, '"' + FileName + '" -backup -y -config=' + GetAppPath + JCF_SETTINGS);
 
-  if Proc.Completed then
+  if P.Completed then
   begin
-    Proc.Output := StringReplace(Proc.Output, FileName, ExtractFileName(FileName), [rfReplaceAll]);
-    if Pos('Aborted due to error', Proc.Output) > 0 then
-      AddLogMsg(Proc.Output, lmtErr)
+    P.Output := StringReplace(P.Output, FileName, ExtractFileName(FileName), [rfReplaceAll]);
+    if Pos('Aborted due to error', P.Output) > 0 then
+      AddLogMsg(P.Output, lmtErr)
     else
     begin
       with TStringList.Create do
@@ -462,7 +462,7 @@ begin
             XY.X := Length(AEditor.Lines.Strings[AEditor.Lines.Count - 1]) + 1;
             XY.Y := AEditor.Lines.Count;
             AEditor.TextBetweenPoints[Point(1, 1), XY] := Text;
-            AddLogMsg(Proc.Output);
+            AddLogMsg(P.Output);
           except
             AddLogMsg('При форматировании кода возникла ошибка', lmtErr);
           end;

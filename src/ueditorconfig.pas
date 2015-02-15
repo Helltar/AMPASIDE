@@ -157,13 +157,13 @@ begin
   with TStringList.Create do
   begin
     try
-      if not FileExists(EDITOR_HEADERS) then
+      if not FileExists(GetAppPath + EDITOR_HEADERS) then
         SetEditorHeadersText(
           '// Author:  ' + D_USERNAME + LE +
           '// Created: ' + D_DATE_TIME
           );
       try
-        LoadFromFile(EDITOR_HEADERS);
+        LoadFromFile(GetAppPath + EDITOR_HEADERS);
         Result := Text;
       except
         AddLogMsg('Ошибка при загрузке файла: ' + EDITOR_HEADERS, lmtErr);
@@ -269,7 +269,7 @@ begin
     try
       try
         Text := AValue;
-        SaveToFile(EDITOR_HEADERS);
+        SaveToFile(GetAppPath + EDITOR_HEADERS);
       except
         AddLogMsg('Ошибка при сохранении файла: ' + EDITOR_HEADERS, lmtErr);
       end;

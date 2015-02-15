@@ -124,6 +124,7 @@
       <Unit2>
         <Filename Value="ucodeeditor.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uCodeEditor"/>
       </Unit2>
       <Unit3>
         <Filename Value="uprojectmanager.pas"/>
@@ -132,10 +133,12 @@
       <Unit4>
         <Filename Value="uprojectbuilding.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uProjectBuilding"/>
       </Unit4>
       <Unit5>
         <Filename Value="uideconfig.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uIDEConfig"/>
       </Unit5>
       <Unit6>
         <Filename Value="uprojectconfig.pas"/>
@@ -156,6 +159,7 @@
       <Unit10>
         <Filename Value="uandroidbuilding.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uAndroidBuilding"/>
       </Unit10>
       <Unit11>
         <Filename Value="frames/ueditoroptionsframe.pas"/>

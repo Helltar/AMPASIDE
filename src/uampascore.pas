@@ -65,14 +65,15 @@ const
 
 function CheckDir(const DirName: string): boolean;
 function CheckFile(const FileName: string): boolean;
+function GetAppPath: string;
 function GetCurrentUsername: string;
 function GetFileSize(const FileName: string): string;
 function GetFileType(const FileName: string): TFileType;
 function GetProgramVersion: string;
 function IsProcRunning: boolean;
-function LoadImages(const APath: string; ImgList: TImageList): boolean;
+function LoadImages(APath: string; ImgList: TImageList): boolean;
 function MakeDir(const DirName: string): boolean;
-function ProcStart(const CmdLine: string; UsePipes: boolean = True): TProcFunc;
+function ProcStart(const AExecutable, AParameters: string; UsePipes: boolean = True): TProcFunc;
 procedure AddLogMsg(const AValue: string; MsgType: TLogMsgType = lmtText);
 procedure CheckConfig(var FileName: string);
 procedure TerminateProc;
@@ -196,7 +197,7 @@ begin
     Result := IntToStr(IntSize div 1024) + ' KB';
 end;
 
-function ProcStart(const CmdLine: string; UsePipes: boolean): TProcFunc;
+function ProcStart(const AExecutable, AParameters: string; UsePipes: boolean): TProcFunc;
 var
   P: TProcess;
 
@@ -204,11 +205,18 @@ begin
   Result.Completed := False;
 
   P := TProcess.Create(nil);
-  P.CommandLine := CmdLine;
+
+  //P.Executable := AExecutable;
+  //P.Parameters.Add(AParameters);
+  if AExecutable <> '' then
+    P.CommandLine := '"' + AExecutable + '" ' + AParameters
+  else
+    P.CommandLine := AParameters;
+
   P.Options := [poStderrToOutPut, poNoConsole];
 
   if UsePipes then
-    P.Options := [poUsePipes] + P.Options;
+    P.Options := P.Options + [poUsePipes];
 
   try
     try
@@ -259,7 +267,7 @@ begin
     end;
 end;
 
-function LoadImages(const APath: string; ImgList: TImageList): boolean;
+function LoadImages(APath: string; ImgList: TImageList): boolean;
 var
   StrList: TStringList;
   Img: TPortableNetworkGraphic;
@@ -271,7 +279,9 @@ begin
 
   StrList := TStringList.Create;
   Img := TPortableNetworkGraphic.Create;
-  FileName := APP_DIR_IMG + APath + DIR_SEP + 'img_list';
+
+  APath := GetAppPath + APP_DIR_IMG + APath + DIR_SEP;
+  FileName := APath + 'img_list';
 
   try
     try
@@ -282,7 +292,7 @@ begin
 
     for i := 0 to StrList.Count - 1 do
     begin
-      FileName := APP_DIR_IMG + APath + DIR_SEP + StrList.Strings[i] + '.png';
+      FileName := APath + StrList.Strings[i] + '.png';
       if CheckFile(FileName) then
       begin
         try
@@ -348,6 +358,11 @@ begin
   else
   if InAr(HTMLExt) then
     Result := ftHTML;
+end;
+
+function GetAppPath: string;
+begin
+  Result := ExtractFilePath(ParamStr(0));
 end;
 
 procedure AddLogMsg(const AValue: string; MsgType: TLogMsgType);
