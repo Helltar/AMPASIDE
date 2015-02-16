@@ -39,8 +39,6 @@ type
   protected
     procedure Execute; override;
   public
-    constructor Create(CreateSuspended: boolean);
-    destructor Destroy; override;
     property AntBuildFile: string write FAntBuildFile;
   end;
 
@@ -118,18 +116,41 @@ begin
   end;
 end;
 
+function CreateBuildFile(const FileName, JadName, ApkName, Outdir: string): boolean;
+var
+  sList: TStringList;
+
+begin
+  Result := False;
+  sList := TStringList.Create;
+  try
+    sList.Add('<project name="microemu-android" default="package-apk">' + LE);
+    sList.Add('    <property name="midlet.jad" value="' + JadName + '" />');
+    sList.Add('    <property name="midlet.package" value="' + ApkName + '" />');
+    sList.Add('    <property name="outdir" value="' + Outdir + '" />');
+    with TStringList.Create do
+      try
+        try
+          LoadFromFile(FileName);
+          sList.Add(Text);
+        except
+          AddLogMsg('Не удалось загрузить: ' + FileName, lmtErr);
+        end;
+      finally
+        Free;
+      end;
+    try
+      sList.SaveToFile(FileName);
+      Result := True;
+    except
+      AddLogMsg('Не удалось сохранить: ' + FileName, lmtErr);
+    end;
+  finally
+    FreeAndNil(sList);
+  end;
+end;
+
 { TAndroidBuildingThread }
-
-constructor TAndroidBuildingThread.Create(CreateSuspended: boolean);
-begin
-  FreeOnTerminate := True;
-  inherited Create(CreateSuspended);
-end;
-
-destructor TAndroidBuildingThread.Destroy;
-begin
-  inherited Destroy;
-end;
 
 procedure TAndroidBuildingThread.Execute;
 begin
@@ -137,82 +158,51 @@ begin
 end;
 
 procedure TAndroidBuildingThread.ApkBuild(const AntBuildFile: string);
+var
+  ApkName, MIDletName: string;
+  ProjBuildFile: string;
 
-  function CreateBuildFile(FileName: string): boolean;
-  var
-    sList: TStringList;
-
+  function PreApkBuild: boolean;
   begin
     Result := False;
-    sList := TStringList.Create;
-    try
-      sList.Add('<project name="microemu-android" default="package-apk">' + LE);
-      sList.Add('    <property name="midlet.jad" value="' + ProjManager.JadFile + '" />');
-      sList.Add('    <property name="midlet.package" value="' + ProjConfig.MIDletName + EXT_APK + '" />');
-      sList.Add('    <property name="outdir" value="' + ProjManager.ProjDirPreBuild + '" />');
-      with TStringList.Create do
-        try
-          try
-            LoadFromFile(FileName);
-            sList.Add(Text);
-          except
-            AddLogMsg('Не удалось загрузить: ' + FileName, lmtErr);
-          end;
-        finally
-          Free;
-        end;
-      try
-        sList.SaveToFile(FileName);
-        Result := True;
-      except
-        AddLogMsg('Не удалось сохранить: ' + FileName, lmtErr);
-      end;
-    finally
-      FreeAndNil(sList);
-    end;
+    if CheckFile(AntBuildFile) then
+      if MakeDir(GetAppPath + APP_DIR_TMP) then
+        if CopyFile(AntBuildFile, ProjBuildFile) then
+          if CreateBuildFile(ProjBuildFile, ProjManager.JadFile, ApkName, ProjManager.ProjDirPreBuild) then
+            if CreateAndroidManifest(GetAppPath + APP_DIR_TMP + 'AndroidManifest.xml',
+              'org.microemu.android.' + MIDletName, ProjConfig.VersMajor, ProjManager.MIDletVersion) then
+              if CreateStringsFile(GetAppPath + APP_DIR_TMP + 'strings.xml', MIDletName, 'FW', MIDletName + EXT_JAD) then
+                Result := True;
+  end;
+
+  procedure DelTempFiles;
+  begin
+    DeleteFile(ProjBuildFile); // tools/android/build.myMIDlet.xml
+    DeleteDirectory(GetAppPath + APP_DIR_ANDROID + // tools/android/src/org/microemu/android/myMIDlet/
+      'src' + DIR_SEP + 'org' + DIR_SEP + 'microemu' + DIR_SEP + 'android' + DIR_SEP + MIDletName, False);
+    DeleteDirectory(GetAppPath + APP_DIR_TMP, False);
   end;
 
 var
-  ApkFileName, ApkFileNameOnly: string;
-  ErrMsg: string;
-  mName: string;
+  ApkFileName: string;
   P: TProcFunc;
-  ProjBuildFile: string;
 
 begin
-  mName := ProjConfig.MIDletName;
-  ProjBuildFile := ExtractFilePath(AntBuildFile) + 'build.' + mName + '.xml';
+  MIDletName := ProjConfig.MIDletName;
+  ProjBuildFile := ExtractFilePath(AntBuildFile) + 'build.' + MIDletName + '.xml';
+  ApkName := MIDletName + EXT_APK;
 
-  if CheckFile(AntBuildFile) then
-    CopyFile(AntBuildFile, ProjBuildFile)
-  else
+  if not PreApkBuild then
     Exit;
 
-  if not CreateBuildFile(ProjBuildFile) then
-    Exit;
+  AddLogMsg('Apache Ant (' + ApkName + '), идет сборка, это займет около минуты...');
 
-  if not MakeDir(GetAppPath + APP_DIR_TMP) then
-    Exit;
-
-  if not CreateAndroidManifest(
-    GetAppPath + APP_DIR_TMP + 'AndroidManifest.xml',
-    'org.microemu.android.' + mName,
-    ProjConfig.VersMajor, ProjManager.MIDletVersion) then
-    Exit;
-
-  if not CreateStringsFile(
-    GetAppPath + APP_DIR_TMP + 'strings.xml', mName, 'FW', mName + EXT_JAD) then
-    Exit;
-
-  ApkFileNameOnly := mName + EXT_APK;
-
-  AddLogMsg('Apache Ant: идет сборка, это займет около минуты...');
-
-  P := ProcStart('ant', '-buildfile ' + ProjBuildFile);
+  P := ProcStart('ant -buildfile ' + ProjBuildFile);
 
   if not P.Completed then
     Exit;
 
+  // ant.log
   with TStringList.Create do
   begin
     try
@@ -225,22 +215,18 @@ begin
 
   if Pos('BUILD SUCCESSFUL', P.Output) > 0 then
   begin
-    ApkFileName := ProjManager.ProjDirPreBuild + ApkFileNameOnly;
+    ApkFileName := ProjManager.ProjDirPreBuild + ApkName;
 
-    if RenameFile(ApkFileName, ProjManager.ProjDirAndroid + ApkFileNameOnly) then
-      ApkFileName := ProjManager.ApkFile
-    else
-      ErrMsg := 'Файл: ' + ApkFileName;
+    // pre-build/myMIDlet.apk -> bin/android/
+    if RenameFile(ApkFileName, ProjManager.ProjDirAndroid + ApkName) then
+      ApkFileName := ProjManager.ApkFile;
 
     AddLogMsg('Проект успешно собран' + LE +
       'Версия: ' + ProjManager.MIDletVersion + LE +
       'Размер: ' + GetFileSize(ApkFileName) + LE +
-      'Платформа: Android' + LE +
-      ErrMsg, lmtOk);
+      'Платформа: Android', lmtOk);
 
-    DeleteFile(ProjBuildFile);
-    DeleteDirectory(GetAppPath + APP_DIR_ANDROID + 'src' + DIR_SEP + 'org' + DIR_SEP + 'microemu' + DIR_SEP + 'android' + DIR_SEP + mName, False);
-    DeleteDirectory(GetAppPath + APP_DIR_TMP, False);
+    DelTempFiles;
   end
   else
   if Pos('BUILD FAILED', P.Output) > 0 then

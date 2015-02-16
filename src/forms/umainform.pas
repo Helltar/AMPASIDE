@@ -337,6 +337,7 @@ begin
   with TAndroidBuildingThread.Create(True) do
   begin
     AntBuildFile := GetAppPath + APP_DIR_ANDROID + 'build.xml';
+    FreeOnTerminate := True;
     Start;
   end;
 end;
@@ -373,7 +374,7 @@ begin
       Filter :=
         'Все файлы *|*|' +
         APP_NAME + ' Project|*' + EXT_PROJECT + '|' +
-        APP_NAME + ' Module|*' + EXT_MODULE;
+        'Pascal Source Code|*' + EXT_MODULE;
       Options := [ofAllowMultiSelect, ofEnableSizing, ofViewDetail];
       if Execute then
         for i := 0 to Files.Count - 1 do

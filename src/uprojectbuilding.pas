@@ -72,9 +72,9 @@ uses
 
 constructor TBuildingThread.Create(CreateSuspended: boolean);
 begin
-  ProjBuilding := TProjectBuilding.Create;
-  FreeOnTerminate := True;
   inherited Create(CreateSuspended);
+  FreeOnTerminate := True;
+  ProjBuilding := TProjectBuilding.Create;
 end;
 
 destructor TBuildingThread.Destroy;
@@ -450,7 +450,7 @@ begin
   if Build then
   begin
     AddLogMsg('Emulator: запуск ' + ExtractFileName(ProjManager.JarFile) + '...');
-    if ProcStart('', IDEConfig.DirectiveReplace(IDEConfig.EmulatorCmd), False).Completed then
+    if ProcStart(IDEConfig.DirectiveReplace(IDEConfig.EmulatorCmd), False).Completed then
       AddLogMsg('Работа эмулятора завершена');
   end;
 end;

@@ -74,6 +74,7 @@ function IsProcRunning: boolean;
 function LoadImages(APath: string; ImgList: TImageList): boolean;
 function MakeDir(const DirName: string): boolean;
 function ProcStart(const AExecutable, AParameters: string; UsePipes: boolean = True): TProcFunc;
+function ProcStart(const AParameters: string; UsePipes: boolean = True): TProcFunc;
 procedure AddLogMsg(const AValue: string; MsgType: TLogMsgType = lmtText);
 procedure CheckConfig(var FileName: string);
 procedure TerminateProc;
@@ -208,6 +209,7 @@ begin
 
   //P.Executable := AExecutable;
   //P.Parameters.Add(AParameters);
+
   if AExecutable <> '' then
     P.CommandLine := '"' + AExecutable + '" ' + AParameters
   else
@@ -249,6 +251,11 @@ begin
     ProcessTerminate := False;
     FreeAndNil(P);
   end;
+end;
+
+function ProcStart(const AParameters: string; UsePipes: boolean): TProcFunc;
+begin
+  Result := ProcStart('', AParameters, UsePipes);
 end;
 
 procedure TerminateProc;

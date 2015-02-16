@@ -138,7 +138,6 @@
       <Unit5>
         <Filename Value="uideconfig.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uIDEConfig"/>
       </Unit5>
       <Unit6>
         <Filename Value="uprojectconfig.pas"/>

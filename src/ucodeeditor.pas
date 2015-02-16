@@ -49,7 +49,7 @@ type
     function GetCurrentEditor: TSynEdit;
     function GetHighlighterFromName(const FileName: string): TSynCustomHighlighter;
     procedure DelCompletionKey(var AValue: TStringList);
-    procedure EditorCompletionCodeCompletion(var Value: string; SourceValue: string; var SourceStart, SourceEnd: TPoint; KeyChar: TUTF8Char; Shift: TShiftState);
+    procedure EditorCompletionCodeCompletion(var AValue: string; SourceValue: string; var SourceStart, SourceEnd: TPoint; KeyChar: TUTF8Char; Shift: TShiftState);
   public
     constructor Create(AOwner: TPageControl);
     destructor Destroy; override;
@@ -272,27 +272,27 @@ begin
   Result := True;
 end;
 
-procedure TCodeEditor.EditorCompletionCodeCompletion(var Value: string; SourceValue: string; var SourceStart, SourceEnd: TPoint; KeyChar: TUTF8Char; Shift: TShiftState);
+procedure TCodeEditor.EditorCompletionCodeCompletion(var AValue: string; SourceValue: string; var SourceStart, SourceEnd: TPoint; KeyChar: TUTF8Char; Shift: TShiftState);
 begin
   with TRegExpr.Create do
   begin
     try
       Expression := '\w*\(';
-      if Exec(Value) then
+      if Exec(AValue) then
       begin
-        Value := Match[0];
+        AValue := Match[0];
         EditorCompletion.AddCharAtCursor(')');
       end
       else
       begin
         Expression := '(\w*):';
-        if Exec(Value) then
-          Value := Match[1]
+        if Exec(AValue) then
+          AValue := Match[1]
         else
         begin
           Expression := '(\w*);';
-          if Exec(Value) then
-            Value := Match[1];
+          if Exec(AValue) then
+            AValue := Match[1];
         end;
       end;
     finally
@@ -306,17 +306,15 @@ var
   i: integer;
 
 begin
-  for i := 0 to AValue.Count - 1 do
+  with TRegExpr.Create do
   begin
-    with TRegExpr.Create do
-    begin
-      try
-        Expression := '\s(.*?)$';
+    try
+      Expression := '\s(.*?)$';
+      for i := 0 to AValue.Count - 1 do
         if Exec(AValue.Strings[i]) then
           AValue.Strings[i] := Match[1];
-      finally
-        Free;
-      end;
+    finally
+      Free;
     end;
   end;
 end;
