@@ -85,7 +85,7 @@ uses
   uMainForm;
 
 var
-  ProcessTerminate, ProcessRunning: boolean;
+  IsProcTerminate, IsProcessRunning: boolean;
 
 procedure CheckConfig(var FileName: string);
 var
@@ -226,8 +226,8 @@ begin
 
       while P.Running do
       begin
-        ProcessRunning := True;
-        if ProcessTerminate then
+        IsProcessRunning := True;
+        if IsProcTerminate then
           if P.Terminate(0) then
             AddLogMsg('Процесс (PID: ' + IntToStr(P.ProcessID) + ') завершен');
         Sleep(1);
@@ -247,8 +247,8 @@ begin
       AddLogMsg('Ошибка при запуске процесса: ' + CmdLine, lmtErr);
     end;
   finally
-    ProcessRunning := False;
-    ProcessTerminate := False;
+    IsProcessRunning := False;
+    IsProcTerminate := False;
     FreeAndNil(P);
   end;
 end;
@@ -260,7 +260,7 @@ end;
 
 procedure TerminateProc;
 begin
-  ProcessTerminate := True;
+  IsProcTerminate := True;
 end;
 
 function MakeDir(const DirName: string): boolean;
@@ -276,7 +276,7 @@ end;
 
 function LoadImages(APath: string; ImgList: TImageList): boolean;
 var
-  StrList: TStringList;
+  sList: TStringList;
   Img: TPortableNetworkGraphic;
   FileName: string;
   i: integer;
@@ -284,7 +284,7 @@ var
 begin
   Result := False;
 
-  StrList := TStringList.Create;
+  sList := TStringList.Create;
   Img := TPortableNetworkGraphic.Create;
 
   APath := GetAppPath + APP_DIR_IMG + APath + DIR_SEP;
@@ -292,14 +292,14 @@ begin
 
   try
     try
-      StrList.LoadFromFile(FileName);
+      sList.LoadFromFile(FileName);
     except
       AddLogMsg('Не удалось получить список изображений: ' + FileName, lmtErr);
     end;
 
-    for i := 0 to StrList.Count - 1 do
+    for i := 0 to sList.Count - 1 do
     begin
-      FileName := APath + StrList.Strings[i] + '.png';
+      FileName := APath + sList.Strings[i] + '.png';
       if CheckFile(FileName) then
       begin
         try
@@ -314,13 +314,13 @@ begin
     Result := True;
   finally
     FreeAndNil(Img);
-    FreeAndNil(StrList);
+    FreeAndNil(sList);
   end;
 end;
 
 function IsProcRunning: boolean;
 begin
-  Result := ProcessRunning;
+  Result := IsProcessRunning;
 end;
 
 function GetFileType(const FileName: string): TFileType;

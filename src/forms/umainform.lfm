@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 502
+  Left = 509
   Height = 559
-  Top = 200
-  Width = 816
+  Top = 195
+  Width = 827
   AllowDropFiles = True
   Caption = 'AMPASIDE'
   ClientHeight = 538
-  ClientWidth = 816
+  ClientWidth = 827
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -22,7 +22,7 @@ object frmMain: TfrmMain
     Left = 322
     Height = 26
     Top = 6
-    Width = 488
+    Width = 499
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
@@ -122,7 +122,7 @@ object frmMain: TfrmMain
     Left = 322
     Height = 262
     Top = 38
-    Width = 488
+    Width = 499
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     TabOrder = 1
@@ -138,7 +138,7 @@ object frmMain: TfrmMain
     Left = 322
     Height = 20
     Top = 306
-    Width = 488
+    Width = 499
     Action = actUpdateStatusBar
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
@@ -168,7 +168,7 @@ object frmMain: TfrmMain
     Left = 322
     Height = 5
     Top = 332
-    Width = 494
+    Width = 505
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -185,7 +185,7 @@ object frmMain: TfrmMain
     Left = 322
     Height = 189
     Top = 343
-    Width = 488
+    Width = 499
     ActivePage = tsLogMsg
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
@@ -194,12 +194,12 @@ object frmMain: TfrmMain
     object tsLogMsg: TTabSheet
       Caption = 'Сообщения'
       ClientHeight = 159
-      ClientWidth = 480
+      ClientWidth = 491
       object tvMsg: TTreeView
         Left = 6
         Height = 147
         Top = 6
-        Width = 468
+        Width = 479
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
@@ -214,12 +214,12 @@ object frmMain: TfrmMain
     object tsNotes: TTabSheet
       Caption = 'Заметки'
       ClientHeight = 159
-      ClientWidth = 500
+      ClientWidth = 480
       inline synedtNotes: TSynEdit
         Left = 6
         Height = 147
         Top = 6
-        Width = 488
+        Width = 468
         Align = alClient
         BorderSpacing.Around = 6
         Font.Height = -12

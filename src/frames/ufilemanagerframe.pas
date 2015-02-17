@@ -76,8 +76,8 @@ type
     procedure tvFileListMouseEnter(Sender: TObject);
     procedure tvFileListMouseLeave(Sender: TObject);
   private
-    FIsMouseEnter: boolean;
     { private declarations }
+    FIsMouseEnter: boolean;
   public
     { public declarations }
     constructor Create(TheOwner: TComponent); override;

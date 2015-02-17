@@ -1,13 +1,13 @@
 object FileManagerFrame: TFileManagerFrame
   Left = 0
-  Height = 504
+  Height = 451
   Top = 0
   Width = 292
-  ClientHeight = 504
+  ClientHeight = 451
   ClientWidth = 292
   TabOrder = 0
-  DesignLeft = 988
-  DesignTop = 173
+  DesignLeft = 1029
+  DesignTop = 204
   object tvFileList: TTreeView
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = tlbManagerActions
@@ -16,7 +16,7 @@ object FileManagerFrame: TFileManagerFrame
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = splBottom
     Left = 6
-    Height = 301
+    Height = 248
     Top = 34
     Width = 280
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -45,7 +45,7 @@ object FileManagerFrame: TFileManagerFrame
     AnchorSideBottom.Side = asrBottom
     Left = 6
     Height = 147
-    Top = 351
+    Top = 298
     Width = 280
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
@@ -123,7 +123,7 @@ object FileManagerFrame: TFileManagerFrame
     Cursor = crVSplit
     Left = 0
     Height = 4
-    Top = 341
+    Top = 288
     Width = 292
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]

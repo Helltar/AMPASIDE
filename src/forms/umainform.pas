@@ -26,14 +26,11 @@ unit uMainForm;
 interface
 
 uses
-  Classes, ComCtrls, Controls, Forms, Dialogs, ExtCtrls, ActnList, FileUtil,
-  LCLIntf, Menus, SynEdit, SysUtils, uAMPASCore;
+  Classes, ComCtrls, Controls, Forms, Dialogs, ExtCtrls, ActnList, FileUtil, LCLIntf, Menus, SynEdit, SysUtils,
+  //--------
+  uAMPASCore;
 
 type
-
-  { TPBuildingMode }
-
-  TPBuildingMode = (pbmRun, pbmCompile, pbmBuild);
 
   { TfrmMain }
 
@@ -170,7 +167,8 @@ type
     procedure GetSettings;
     procedure InitControls;
     procedure LoadControlsImages;
-    procedure ProjLaunchMode(Mode: TPBuildingMode);
+    type TProjBuildMode = (pbmRun, pbmCompile, pbmBuild);
+    procedure ProjLaunchMode(ProjBuildMode: TProjBuildMode);
     procedure SetSettings;
     procedure UpdateStatusBar;
   public
@@ -288,7 +286,7 @@ end;
 
 procedure TfrmMain.BuildingThreadTerminate(Sender: TObject);
 begin
-  ProjectOptionsFrame.UpdVers;
+  ProjectOptionsFrame.UpdateVers;
 end;
 
 procedure TfrmMain.actCreateModuleExecute(Sender: TObject);
@@ -687,10 +685,10 @@ begin
   synedtNotes.Font.Size := EditorConfig.FontSize;
   synedtNotes.Lines.Add('Недоступно, нет открытого проекта');
 
+  tbbBuild.Visible := False;
+  tbbCompile.Visible := False;
   tbbDivider2.Visible := False;
   tbbRun.Visible := False;
-  tbbCompile.Visible := False;
-  tbbBuild.Visible := False;
   tbbTermProc.Visible := False;
 
   {$IFDEF MSWINDOWS}
@@ -722,9 +720,9 @@ begin
 
     miAbout.ImageIndex := 8;
     miCreateProject.ImageIndex := 13;
+    miDocumentation.ImageIndex := 0;
     miExit.ImageIndex := 6;
     miJavaLibs.ImageIndex := 9;
-    miDocumentation.ImageIndex := 0;
 
     tbbBuild.ImageIndex := 1;
     tbbCompile.ImageIndex := 3;
@@ -737,12 +735,12 @@ begin
     actBuild.ImageIndex := 0;
     actBuildAndroid.ImageIndex := 1;
     actCompile.ImageIndex := 2;
-    actTerminateProc.ImageIndex := 3;
     actRun.ImageIndex := 4;
+    actTerminateProc.ImageIndex := 3;
   end;
 end;
 
-procedure TfrmMain.ProjLaunchMode(Mode: TPBuildingMode);
+procedure TfrmMain.ProjLaunchMode(ProjBuildMode: TProjBuildMode);
 var
   BuildingThread: TBuildingThread;
 
@@ -752,7 +750,7 @@ begin
   BuildingThread := TBuildingThread.Create(True);
   BuildingThread.OnTerminate := @BuildingThreadTerminate;
 
-  case Mode of
+  case ProjBuildMode of
     pbmCompile: BuildingThread.Mode := 0;
     pbmBuild: BuildingThread.Mode := 1;
     pbmRun: BuildingThread.Mode := 2;
@@ -785,80 +783,42 @@ var
 
 begin
   IsChecked := miCompactViewMode.Checked;
-
   miCompactViewMode.Checked := not IsChecked;
 
   pgcProject.Visible := IsChecked;
   splLeft.Visible := IsChecked;
   tlbRCB.Visible := IsChecked;
-
+  tbbBuild.Visible := not IsChecked;
+  tbbCompile.Visible := not IsChecked;
   tbbDivider2.Visible := not IsChecked;
   tbbRun.Visible := not IsChecked;
-  tbbCompile.Visible := not IsChecked;
-  tbbBuild.Visible := not IsChecked;
   tbbTermProc.Visible := not IsChecked;
 
   if IsChecked then
   begin
-    tlbMain.Align := alNone;
-    tlbMain.Anchors := [akTop, akLeft, akRight];
-    tlbMain.AnchorSideLeft.Control := tlbRCB;
-    tlbMain.AnchorSideLeft.Side := asrBottom;
-    tlbMain.AnchorSideRight.Control := Self;
-    tlbMain.AnchorSideRight.Side := asrBottom;
-    tlbMain.AnchorSideTop.Control := Self;
-
-    pgcEditor.Align := alNone;
-    pgcEditor.Anchors := [akTop, akLeft, akRight, akBottom];
-    pgcEditor.AnchorSideBottom.Control := stbEditor;
     pgcEditor.AnchorSideLeft.Control := tlbRCB;
     pgcEditor.AnchorSideLeft.Side := asrBottom;
-    pgcEditor.AnchorSideRight.Control := Self;
-    pgcEditor.AnchorSideRight.Side := asrBottom;
-    pgcEditor.AnchorSideTop.Control := tlbMain;
-    pgcEditor.AnchorSideTop.Side := asrBottom;
-
-    stbEditor.Align := alNone;
-    stbEditor.Anchors := [akLeft, akRight, akBottom];
-    stbEditor.AnchorSideBottom.Control := splBottom;
-    stbEditor.AnchorSideLeft.Control := tlbRCB;
-    stbEditor.AnchorSideLeft.Side := asrBottom;
-    stbEditor.AnchorSideRight.Control := Self;
-    stbEditor.AnchorSideRight.Side := asrBottom;
-
-    splBottom.Align := alNone;
-    splBottom.Anchors := [akLeft, akRight, akBottom];
-    splBottom.AnchorSideLeft.Control := tlbRCB;
-    splBottom.AnchorSideLeft.Side := asrBottom;
-    splBottom.AnchorSideRight.Control := Self;
-    splBottom.AnchorSideRight.Side := asrBottom;
-
-    pgcMsgNotes.Anchors := [akTop, akLeft, akRight, akBottom];
     pgcMsgNotes.AnchorSideLeft.Control := tlbRCB;
     pgcMsgNotes.AnchorSideLeft.Side := asrBottom;
-    pgcMsgNotes.AnchorSideTop.Control := splBottom;
-    pgcMsgNotes.AnchorSideTop.Side := asrBottom;
-    pgcMsgNotes.AnchorSideRight.Control := Self;
-    pgcMsgNotes.AnchorSideRight.Side := asrBottom;
-    pgcMsgNotes.AnchorSideBottom.Control := Self;
-    pgcMsgNotes.AnchorSideBottom.Side := asrBottom;
+    splBottom.AnchorSideLeft.Control := tlbRCB;
+    splBottom.AnchorSideLeft.Side := asrBottom;
+    stbEditor.AnchorSideLeft.Control := tlbRCB;
+    stbEditor.AnchorSideLeft.Side := asrBottom;
+    tlbMain.AnchorSideLeft.Control := tlbRCB;
+    tlbMain.AnchorSideLeft.Side := asrBottom;
   end
   else
   begin
-    tlbMain.AnchorSideLeft.Control := Self;
-    tlbMain.AnchorSideLeft.Side := asrLeft;
-
     pgcEditor.AnchorSideLeft.Control := Self;
     pgcEditor.AnchorSideLeft.Side := asrLeft;
-
-    stbEditor.AnchorSideLeft.Control := Self;
-    stbEditor.AnchorSideLeft.Side := asrLeft;
-
-    splBottom.AnchorSideLeft.Control := Self;
-    splBottom.AnchorSideLeft.Side := asrLeft;
-
     pgcMsgNotes.AnchorSideLeft.Control := Self;
     pgcMsgNotes.AnchorSideLeft.Side := asrLeft;
+    splBottom.AnchorSideLeft.Control := Self;
+    splBottom.AnchorSideLeft.Side := asrLeft;
+    stbEditor.AnchorSideLeft.Control := Self;
+    stbEditor.AnchorSideLeft.Side := asrLeft;
+    tlbMain.AnchorSideLeft.Control := Self;
+    tlbMain.AnchorSideLeft.Side := asrLeft;
   end;
 end;
 
