@@ -150,6 +150,7 @@ begin
   case ANode.Index of
     0: Result := ExtractFileDir(ProjManager.ProjDirSrc) + Result;
     1: Result := ExtractFileDir(ProjManager.ProjDirRes) + Result;
+    2: Result := ExtractFileDir(ProjManager.ProjDirLibs) + Result;
   end;
 end;
 
@@ -266,6 +267,10 @@ begin
     AddFilesFromDir(ProjManager.ProjDirRes, Items.Add(nil, 'Ресурсы'));
     Items.GetLastNode.ImageIndex := 10;
     Items.GetLastNode.SelectedIndex := 10;
+
+    AddFilesFromDir(ProjManager.ProjDirLibs, Items.Add(nil, 'Библиотеки'));
+    Items.GetLastNode.ImageIndex := 15;
+    Items.GetLastNode.SelectedIndex := 15;
 
     Items.Item[0].Selected := True;
     Items.Item[1].Selected := True;
