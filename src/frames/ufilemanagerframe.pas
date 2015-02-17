@@ -73,26 +73,25 @@ type
     procedure actUpdateFileListExecute(Sender: TObject);
     procedure tvFileListChange(Sender: TObject; Node: TTreeNode);
     procedure tvFileListDblClick(Sender: TObject);
+    procedure tvFileListMouseEnter(Sender: TObject);
+    procedure tvFileListMouseLeave(Sender: TObject);
   private
+    FIsMouseEnter: boolean;
     { private declarations }
   public
     { public declarations }
     constructor Create(TheOwner: TComponent); override;
     destructor Destroy; override;
-    procedure UpdateFileList;
     procedure UpdateImgPreview;
+    property IsMouseEnter: boolean read FIsMouseEnter;
   end;
 
 implementation
 
 uses
   uAMPASCore,
-  uIDEConfig,
   uFileManager,
-  uProjectManager;
-
-var
-  FileManager: TFileManager;
+  uIDEConfig;
 
 {$R *.lfm}
 
@@ -192,7 +191,7 @@ end;
 
 procedure TFileManagerFrame.actUpdateFileListExecute(Sender: TObject);
 begin
-  UpdateFileList;
+  FileManager.UpdateFileList;
 end;
 
 procedure TFileManagerFrame.tvFileListChange(Sender: TObject; Node: TTreeNode);
@@ -248,24 +247,14 @@ begin
   FileManager.OpenFile(FileManager.SelectedFileName);
 end;
 
-procedure TFileManagerFrame.UpdateFileList;
+procedure TFileManagerFrame.tvFileListMouseEnter(Sender: TObject);
 begin
-  tvFileList.Items.Clear;
+  FIsMouseEnter := True;
+end;
 
-  tvFileList.BeginUpdate;
-
-  FileManager.AddFilesFromDir(ProjManager.ProjDirSrc, tvFileList.Items.Add(nil, 'Модули'));
-  tvFileList.Items.GetLastNode.ImageIndex := 6;
-  tvFileList.Items.GetLastNode.SelectedIndex := 6;
-
-  FileManager.AddFilesFromDir(ProjManager.ProjDirRes, tvFileList.Items.Add(nil, 'Ресурсы'));
-  tvFileList.Items.GetLastNode.ImageIndex := 10;
-  tvFileList.Items.GetLastNode.SelectedIndex := 10;
-
-  tvFileList.Items.Item[0].Selected := True;
-  tvFileList.Items.Item[1].Selected := True;
-
-  tvFileList.EndUpdate;
+procedure TFileManagerFrame.tvFileListMouseLeave(Sender: TObject);
+begin
+  FIsMouseEnter := False;
 end;
 
 procedure TFileManagerFrame.UpdateImgPreview;

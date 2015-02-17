@@ -1,13 +1,13 @@
 object FileManagerFrame: TFileManagerFrame
   Left = 0
-  Height = 458
+  Height = 504
   Top = 0
-  Width = 304
-  ClientHeight = 458
-  ClientWidth = 304
+  Width = 292
+  ClientHeight = 504
+  ClientWidth = 292
   TabOrder = 0
-  DesignLeft = 860
-  DesignTop = 223
+  DesignLeft = 988
+  DesignTop = 173
   object tvFileList: TTreeView
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = tlbManagerActions
@@ -16,9 +16,9 @@ object FileManagerFrame: TFileManagerFrame
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = splBottom
     Left = 6
-    Height = 255
+    Height = 301
     Top = 34
-    Width = 292
+    Width = 280
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoExpand = True
     BorderSpacing.Around = 6
@@ -31,6 +31,8 @@ object FileManagerFrame: TFileManagerFrame
     TabOrder = 0
     OnChange = tvFileListChange
     OnDblClick = tvFileListDblClick
+    OnMouseEnter = tvFileListMouseEnter
+    OnMouseLeave = tvFileListMouseLeave
     Options = [tvoAutoExpand, tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoRightClickSelect, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
   end
   object gbFileInfo: TGroupBox
@@ -43,12 +45,12 @@ object FileManagerFrame: TFileManagerFrame
     AnchorSideBottom.Side = asrBottom
     Left = 6
     Height = 147
-    Top = 305
-    Width = 292
+    Top = 351
+    Width = 280
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
-    ClientHeight = 143
-    ClientWidth = 288
+    ClientHeight = 141
+    ClientWidth = 274
     TabOrder = 1
     object lblFileName: TLabel
       AnchorSideLeft.Control = imgPreview
@@ -121,8 +123,8 @@ object FileManagerFrame: TFileManagerFrame
     Cursor = crVSplit
     Left = 0
     Height = 4
-    Top = 295
-    Width = 304
+    Top = 341
+    Width = 292
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -164,9 +166,9 @@ object FileManagerFrame: TFileManagerFrame
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 59
-    Height = 21
+    Height = 23
     Top = 6
-    Width = 239
+    Width = 227
     ButtonWidth = 23
     NumGlyphs = 1
     Anchors = [akTop, akLeft, akRight]

@@ -50,14 +50,19 @@ type
     function IsDirectory(const DirName: string): boolean;
     function SelectedFileName: string;
 
+    procedure AddFile(const FileName: string);
     procedure AddFilesFromDir(const DirName: string; ParentNode: TTreeNode);
     procedure OpenFile(const FileName: string);
+    procedure UpdateFileList;
 
     procedure ShowAddFilesDialog;
     procedure ShowDeleteDialog;
     procedure ShowNewDirDialog;
     procedure ShowRenFileDialog;
   end;
+
+var
+  FileManager: TFileManager;
 
 implementation
 
@@ -81,6 +86,28 @@ end;
 function TFileManager.SelectedFileName: string;
 begin
   Result := GetFileName(GetSelectedNode);
+end;
+
+procedure TFileManager.AddFile(const FileName: string);
+var
+  DestFileName: string;
+
+begin
+  if not Assigned(GetSelectedNode) then
+    Exit;
+
+  DestFileName := GetPath + ExtractFileName(FileName);
+
+  if FileExists(DestFileName) then
+    case MessageDlg('Подтвердите действие', 'Перезаписать файл "' + ExtractFileName(DestFileName) + '"?',
+        mtInformation, [mbYes, mbNo], 0) of
+      mrNo: Exit;
+    end;
+
+  if CopyFile(FileName, DestFileName) then
+    AddChildNode(GetParentNode, ExtractFileName(FileName))
+  else
+    AddLogMsg('Не удалось скопировать файл: ' + FileName);
 end;
 
 function TFileManager.IsDirectory(const DirName: string): boolean;
@@ -224,28 +251,43 @@ begin
     OpenDocument(FileName);
 end;
 
+procedure TFileManager.UpdateFileList;
+begin
+  with FOwner do
+  begin
+    Items.Clear;
+
+    BeginUpdate;
+
+    AddFilesFromDir(ProjManager.ProjDirSrc, Items.Add(nil, 'Модули'));
+    Items.GetLastNode.ImageIndex := 6;
+    Items.GetLastNode.SelectedIndex := 6;
+
+    AddFilesFromDir(ProjManager.ProjDirRes, Items.Add(nil, 'Ресурсы'));
+    Items.GetLastNode.ImageIndex := 10;
+    Items.GetLastNode.SelectedIndex := 10;
+
+    Items.Item[0].Selected := True;
+    Items.Item[1].Selected := True;
+
+    EndUpdate;
+  end;
+end;
+
 procedure TFileManager.ShowAddFilesDialog;
 var
-  Path: string;
   i: integer;
 
 begin
-  Path := GetPath;
-
   with TOpenDialog.Create(nil) do
   begin
     try
-      Title := 'Добавить файлы в "' + GetDirNameOnly(Path) + '"';
+      Title := 'Добавить файлы в "' + GetDirNameOnly(GetPath) + '"';
       Filter := 'Все файлы *|*';
       Options := [ofAllowMultiSelect, ofEnableSizing, ofViewDetail];
       if Execute then
-      begin
         for i := 0 to Files.Count - 1 do
-          if CopyFile(Files.Strings[i], Path + ExtractFileName(Files.Strings[i])) then
-            AddChildNode(GetParentNode, ExtractFileName(Files.Strings[i]))
-          else
-            AddLogMsg('Не удалось скопировать файл: ' + Files.Strings[i]);
-      end;
+          AddFile(Files.Strings[i]);
     finally
       Free;
     end;

@@ -190,6 +190,7 @@ uses
   uAndroidBuilding,
   uCodeEditor,
   uEditorConfig,
+  uFileManager,
   uFileManagerFrame,
   uIDEConfig,
   uIDEDirectivesForm,
@@ -443,7 +444,12 @@ var
 
 begin
   for i := 0 to High(FileNames) do
-    LoadFile(FileNames[i]);
+  begin
+    if FileManagerFrame.IsMouseEnter then
+      FileManager.AddFile(FileNames[i])
+    else
+      LoadFile(FileNames[i]);
+  end;
 end;
 
 procedure TfrmMain.miOpenDocsClick(Sender: TObject);
@@ -759,7 +765,7 @@ procedure TfrmMain.EnableProjUIControls;
 begin
   Caption := APP_NAME + ' ' + GetProgramVersion + ' - ' + ProjConfig.MIDletName;
 
-  FileManagerFrame.UpdateFileList;
+  FileManager.UpdateFileList;
   FileManagerFrame.Enabled := True;
 
   ProjectOptionsFrame.GetSettings;
