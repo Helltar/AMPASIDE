@@ -135,12 +135,21 @@ var
   synHighlightCaret: TSynEditMarkupHighlightAllCaret;
   synSyncEdit: TSynPluginSyncroEdit;
   tsEditor: TTabSheet;
+  i: integer;
 
 begin
   Result := False;
 
   if not CheckFile(FileName) then
     Exit;
+
+  if IsEditorActive then
+    for i := 0 to FOwner.PageCount - 1 do
+      if FileName = FileNameList[FOwner.Pages[i].Tag] then
+      begin
+        FOwner.ActivePage := FOwner.Pages[i];
+        Exit;
+      end;
 
   tsEditor := TTabSheet.Create(FOwner);
   synEditor := TSynEdit.Create(tsEditor);
@@ -491,4 +500,3 @@ begin
 end;
 
 end.
-
