@@ -34,7 +34,7 @@ EXT_CLASS = '.class';
 EXT_JAD = '.jad';
 EXT_JAR = '.jar';
 EXT_MODULE = '.pas';
-EXT_NOTES = '.atxt';
+EXT_NOTES = '.txt';
 EXT_PROJECT = '.aproj';
 
 EMULATOR = APP_DIR_TOOLS + 'microemulator.jar';
