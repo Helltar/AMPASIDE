@@ -246,7 +246,7 @@ end;
 
 procedure TFileManager.OpenFile(const FileName: string);
 begin
-  if ExtractFileExt(FileName) = EXT_MODULE then
+  if FileIsText(FileName) then
     CodeEditor.LoadFile(FileName)
   else
     OpenDocument(FileName);
