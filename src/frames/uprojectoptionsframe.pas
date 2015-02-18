@@ -26,13 +26,14 @@ unit uProjectOptionsFrame;
 interface
 
 uses
-  Forms, Spin, StdCtrls;
+  Forms, Spin, StdCtrls, Classes;
 
 type
 
   { TProjectOptionsFrame }
 
   TProjectOptionsFrame = class(TFrame)
+    btnMoarMoarMoar111: TButton;
     cbAutoIncBuildVer: TCheckBox;
     cbbCanvasType: TComboBox;
     cbbMathType: TComboBox;
@@ -55,6 +56,7 @@ type
     sedtVMajor: TSpinEdit;
     sedtVMinor: TSpinEdit;
     sedtVBuild: TSpinEdit;
+    procedure btnMoarMoarMoar111Click(Sender: TObject);
     procedure cbAutoIncBuildVerChange(Sender: TObject);
     procedure cbbCanvasTypeChange(Sender: TObject);
     procedure cbbMathTypeChange(Sender: TObject);
@@ -70,12 +72,13 @@ type
   public
     { public declarations }
     procedure GetSettings;
-    procedure UpdVers;
+    procedure UpdateVers;
   end;
 
 implementation
 
 uses
+  uManifestMfForm,
   uProjectConfig;
 
 {$R *.lfm}
@@ -85,6 +88,16 @@ uses
 procedure TProjectOptionsFrame.cbAutoIncBuildVerChange(Sender: TObject);
 begin
   ProjConfig.AutoIncBuildVers := cbAutoIncBuildVer.Checked;
+end;
+
+procedure TProjectOptionsFrame.btnMoarMoarMoar111Click(Sender: TObject);
+begin
+  with TfrmManifestMf.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
 end;
 
 procedure TProjectOptionsFrame.cbbCanvasTypeChange(Sender: TObject);
@@ -132,7 +145,7 @@ begin
   ProjConfig.VersMinor := sedtVMinor.Value;
 end;
 
-procedure TProjectOptionsFrame.UpdVers;
+procedure TProjectOptionsFrame.UpdateVers;
 begin
   sedtVMajor.Value := ProjConfig.VersMajor;
   sedtVMinor.Value := ProjConfig.VersMinor;
@@ -148,7 +161,7 @@ begin
   edtMIcon.Text := ProjConfig.MIDletIcon;
   edtMName.Text := ProjConfig.MIDletName;
   edtMVendor.Text := ProjConfig.MIDletVendor;
-  UpdVers;
+  UpdateVers;
 end;
 
 end.

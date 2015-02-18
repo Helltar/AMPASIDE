@@ -195,6 +195,9 @@ function TProjectManager.CreateProject(APath, AName: string): boolean;
       MIDletDescription := '';
       MIDletInfoURL := '';
       MIDletDeleteConfirm := '';
+      MIDletInstallNotify := '';
+      //MnfExtraOptions := '';
+      MnfExtraOptionsEnabled := False;
 
       VersMajor := 1;
       VersMinor := 0;

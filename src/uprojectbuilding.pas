@@ -35,7 +35,7 @@ type
   TProjectBuilding = class
   private
     function CompileFile(FileName: string): boolean;
-    function CreateManifest(const APath: string): boolean;
+    function CreateManifest(const FileName: string): boolean;
     function DeleteCharacters(const AValue: string): string;
     function IsErr(const AValue: string): boolean;
     function PreBuild: boolean;
@@ -95,42 +95,32 @@ end;
 
 { TProjectBuilding }
 
-function TProjectBuilding.CreateManifest(const APath: string): boolean;
+function TProjectBuilding.CreateManifest(const FileName: string): boolean;
 var
-  FileName: string;
-  mName, mVendor, mVersion, mIcon: string;
-  mDeleteConfirm, mDescription, mInfoURL: string;
+  ManifestExtraOptions: string;
+  mName, mDeleteConfirm, mDescription, mInfoURL: string;
 
 begin
   Result := False;
 
   with ProjConfig do
   begin
+    ManifestExtraOptions := MnfExtraOptions;
     mDeleteConfirm := MIDletDeleteConfirm;
     mDescription := MIDletDescription;
-    mIcon := MIDletIcon;
     mInfoURL := MIDletInfoURL;
     mName := MIDletName;
-    mVendor := MIDletVendor;
   end;
-
-  mVersion := ProjManager.MIDletVersion;
 
   with TStringList.Create do
   begin
     try
       Add('Manifest-Version: 1.0');
       Add('Created-By: ' + APP_NAME + ' ' + GetProgramVersion);
-      Add('MIDlet-1: ' + mName + ', ' + mIcon + ', FW');
+      Add('MIDlet-1: ' + mName + ', ' + ProjConfig.MIDletIcon + ', FW');
       Add('MIDlet-Name: ' + mName);
-      Add('MIDlet-Version: ' + mVersion);
-      Add('MIDlet-Vendor: ' + mVendor);
-      Add('MicroEdition-Configuration: CLDC-1.1');
-
-      if ProjConfig.CanvasType <= 0 then
-        Add('MicroEdition-Profile: MIDP-1.0')
-      else
-        Add('MicroEdition-Profile: MIDP-2.0');
+      Add('MIDlet-Version: ' + ProjManager.MIDletVersion);
+      Add('MIDlet-Vendor: ' + ProjConfig.MIDletVendor);
 
       if mDescription <> '' then
         Add('MIDlet-Description: ' + mDescription);
@@ -141,8 +131,16 @@ begin
       if mDeleteConfirm <> '' then
         Add('MIDlet-Delete-Confirm: ' + mDeleteConfirm);
 
-      FileName := APath + 'MANIFEST.MF';
+      Add('MicroEdition-Configuration: CLDC-1.1');
 
+      if ProjConfig.CanvasType <= 0 then
+        Add('MicroEdition-Profile: MIDP-1.0')
+      else
+        Add('MicroEdition-Profile: MIDP-2.0');
+
+      if ProjConfig.MnfExtraOptionsEnabled then
+        if ManifestExtraOptions <> '' then
+          Add(ManifestExtraOptions);
       try
         SaveToFile(FileName);
         Result := True;
@@ -328,7 +326,7 @@ begin
           CopyFile(FW_Class, PreBuildDir + CLASS_FW);
         ManifestDir := PreBuildDir + 'META-INF' + DIR_SEP;
         if MakeDir(ManifestDir) then
-          if CreateManifest(ManifestDir) then
+          if CreateManifest(ManifestDir + 'MANIFEST.MF') then
           begin
             CreateJAD;
             Result := True;
@@ -340,26 +338,26 @@ end;
 
 procedure TProjectBuilding.CreateJAD;
 var
-  JADFile: string;
+  JadFile: string;
 
 begin
-  JADFile := ProjManager.JadFile;
-
-  CopyFile(ProjManager.ProjDirPreBuild + 'META-INF' + DIR_SEP + 'MANIFEST.MF', JADFile);
-
-  with TStringList.Create do
-  begin
-    try
-      LoadFromFile(JADFile);
-      Delete(0);
-      Delete(0);
-      Add('MIDlet-Jar-URL: ' + ExtractFileName(ProjManager.JARFile));
-      Add('MIDlet-Jar-Size: ' + IntToStr(FileSize(ProjManager.JARFile)));
-      SaveToFile(JADFile);
-    finally
-      Free;
+  JadFile := ProjManager.JadFile;
+  if CopyFile(ProjManager.ProjDirPreBuild + 'META-INF' + DIR_SEP + 'MANIFEST.MF', JadFile) then
+    with TStringList.Create do
+    begin
+      try
+        LoadFromFile(JadFile);
+        Delete(0);
+        Delete(0);
+        if ProjConfig.MIDletInstallNotify <> '' then
+          Add('MIDlet-Install-Notify: ' + ProjConfig.MIDletInstallNotify);
+        Add('MIDlet-Jar-URL: ' + ExtractFileName(ProjManager.JARFile));
+        Add('MIDlet-Jar-Size: ' + IntToStr(FileSize(ProjManager.JARFile)));
+        SaveToFile(JadFile);
+      finally
+        Free;
+      end;
     end;
-  end;
 end;
 
 function TProjectBuilding.Build: boolean;

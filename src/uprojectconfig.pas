@@ -26,7 +26,7 @@ unit uProjectConfig;
 interface
 
 uses
-  SysUtils, IniFiles;
+  Classes, SysUtils, FileUtil, IniFiles;
 
 type
 
@@ -38,14 +38,18 @@ type
     function GetAutoIncBuildVers: boolean;
     function GetCanvasType: integer;
     function GetConfigFileName: string;
+    function GetExtraOptionsFileName: string;
     function GetMainModuleName: string;
     function GetMathType: integer;
     function GetMIDletDeleteConfirm: string;
     function GetMIDletDescription: string;
     function GetMIDletIcon: string;
     function GetMIDletInfoURL: string;
+    function GetMIDletInstallNotify: string;
     function GetMIDletName: string;
     function GetMIDletVendor: string;
+    function GetMnfExtraOptions: string;
+    function GetMnfExtraOptionsEnabled: boolean;
     function GetVersBuild: integer;
     function GetVersMajor: integer;
     function GetVersMinor: integer;
@@ -58,8 +62,11 @@ type
     procedure SetMIDletDescription(AValue: string);
     procedure SetMIDletIcon(AValue: string);
     procedure SetMIDletInfoURL(AValue: string);
+    procedure SetMIDletInstallNotify(AValue: string);
     procedure SetMIDletName(AValue: string);
     procedure SetMIDletVendor(AValue: string);
+    procedure SetMnfExtraOptions(AValue: string);
+    procedure SetMnfExtraOptionsEnabled(AValue: boolean);
     procedure SetVersBuild(AValue: integer);
     procedure SetVersMajor(AValue: integer);
     procedure SetVersMinor(AValue: integer);
@@ -77,8 +84,11 @@ type
     property MIDletDescription: string read GetMIDletDescription write SetMIDletDescription;
     property MIDletIcon: string read GetMIDletIcon write SetMIDletIcon;
     property MIDletInfoURL: string read GetMIDletInfoURL write SetMIDletInfoURL;
+    property MIDletInstallNotify: string read GetMIDletInstallNotify write SetMIDletInstallNotify;
     property MIDletName: string read GetMIDletName write SetMIDletName;
     property MIDletVendor: string read GetMIDletVendor write SetMIDletVendor;
+    property MnfExtraOptions: string read GetMnfExtraOptions write SetMnfExtraOptions;
+    property MnfExtraOptionsEnabled: boolean read GetMnfExtraOptionsEnabled write SetMnfExtraOptionsEnabled;
 
     property AutoIncBuildVers: boolean read GetAutoIncBuildVers write SetAutoIncBuildVers;
     property VersBuild: integer read GetVersBuild write SetVersBuild;
@@ -152,6 +162,11 @@ begin
   Result := ProjIniFile.ReadString('MANIFEST', 'MIDletInfoURL', '');
 end;
 
+function TProjectConfig.GetMIDletInstallNotify: string;
+begin
+  Result := ProjIniFile.ReadString('MANIFEST', 'MIDletInstallNotify', '');
+end;
+
 function TProjectConfig.GetMIDletName: string;
 begin
   Result := ProjIniFile.ReadString('MANIFEST', 'MIDletName', '');
@@ -160,6 +175,23 @@ end;
 function TProjectConfig.GetMIDletVendor: string;
 begin
   Result := ProjIniFile.ReadString('MANIFEST', 'MIDletVendor', GetCurrentUserName);
+end;
+
+function TProjectConfig.GetMnfExtraOptions: string;
+begin
+  if FileExists(GetExtraOptionsFileName) then
+    with TStringList.Create do
+      try
+        LoadFromFile(GetExtraOptionsFileName);
+        Result := Text;
+      finally
+        Free;
+      end;
+end;
+
+function TProjectConfig.GetMnfExtraOptionsEnabled: boolean;
+begin
+  Result := ProjIniFile.ReadBool('MANIFEST', 'ExtraOptionsEnabled', False);
 end;
 
 function TProjectConfig.GetVersBuild: integer;
@@ -223,6 +255,11 @@ begin
   ProjIniFile.WriteString('MANIFEST', 'MIDletInfoURL', AValue);
 end;
 
+procedure TProjectConfig.SetMIDletInstallNotify(AValue: string);
+begin
+  ProjIniFile.WriteString('MANIFEST', 'MIDletInstallNotify', AValue);
+end;
+
 procedure TProjectConfig.SetMIDletName(AValue: string);
 begin
   ProjIniFile.WriteString('MANIFEST', 'MIDletName', AValue);
@@ -231,6 +268,22 @@ end;
 procedure TProjectConfig.SetMIDletVendor(AValue: string);
 begin
   ProjIniFile.WriteString('MANIFEST', 'MIDletVendor', AValue);
+end;
+
+procedure TProjectConfig.SetMnfExtraOptions(AValue: string);
+begin
+  with TStringList.Create do
+    try
+      Text := AValue;
+      SaveToFile(GetExtraOptionsFileName);
+    finally
+      Free;
+    end;
+end;
+
+procedure TProjectConfig.SetMnfExtraOptionsEnabled(AValue: boolean);
+begin
+  ProjIniFile.WriteBool('MANIFEST', 'ExtraOptionsEnabled', AValue);
 end;
 
 procedure TProjectConfig.SetVersBuild(AValue: integer);
@@ -246,6 +299,11 @@ end;
 procedure TProjectConfig.SetVersMinor(AValue: integer);
 begin
   ProjIniFile.WriteInteger('VERSIONS', 'VersMinor', AValue);
+end;
+
+function TProjectConfig.GetExtraOptionsFileName: string;
+begin
+  Result := ExtractFilePath(GetConfigFileName) + ExtractFileNameOnly(GetConfigFileName) + '.mf';
 end;
 
 end.
