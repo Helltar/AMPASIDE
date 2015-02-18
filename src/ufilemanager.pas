@@ -246,10 +246,14 @@ end;
 
 procedure TFileManager.OpenFile(const FileName: string);
 begin
-  if FileIsText(FileName) then
-    CodeEditor.LoadFile(FileName)
-  else
-    OpenDocument(FileName);
+  if not IsDirectory(FileName) then
+    if FileIsText(FileName) then
+    begin
+      CodeEditor.LoadFile(FileName);
+      Exit;
+    end;
+
+  OpenDocument(FileName);
 end;
 
 procedure TFileManager.UpdateFileList;
