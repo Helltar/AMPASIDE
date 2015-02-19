@@ -19,6 +19,8 @@ along with AMPASIDE.  If not, see <http://www.gnu.org/licenses/>.
 
 -------------------------------------------------------------------------------}
 
+{ TODO : => XMLWrite, etc... }
+
 unit uAndroidBuilding;
 
 {$mode objfpc}{$H+}
@@ -49,9 +51,7 @@ uses
   uProjectConfig,
   uProjectManager;
 
-{ TODO : => XMLWrite, etc... --------------------------------------------------}
-
-function CreateAndroidManifest(const FileName, Package: string; CodeVers: integer; const NameVers: string): boolean;
+function CreateAndroidManifest(const FileName, Package, NameVers: string; CodeVers: integer): boolean;
 begin
   Result := False;
   with TStringList.Create do
@@ -170,15 +170,15 @@ var
         if CopyFile(AntBuildFile, ProjBuildFile) then
           if CreateBuildFile(ProjBuildFile, ProjManager.JadFile, ApkName, ProjManager.ProjDirPreBuild) then
             if CreateAndroidManifest(GetAppPath + APP_DIR_TMP + 'AndroidManifest.xml',
-              'org.microemu.android.' + MIDletName, ProjConfig.VersMajor, ProjManager.MIDletVersion) then
+              'org.microemu.android.' + MIDletName, ProjManager.MIDletVersion, ProjConfig.VersMajor) then
               if CreateStringsFile(GetAppPath + APP_DIR_TMP + 'strings.xml', MIDletName, 'FW', MIDletName + EXT_JAD) then
                 Result := True;
   end;
 
   procedure DelTempFiles;
   begin
-    DeleteFile(ProjBuildFile); // tools/android/build.myMIDlet.xml
-    DeleteDirectory(GetAppPath + APP_DIR_ANDROID + // tools/android/src/org/microemu/android/myMIDlet/
+    DeleteFile(ProjBuildFile); // "tools/android/build.myMIDlet.xml"
+    DeleteDirectory(GetAppPath + APP_DIR_ANDROID + // "tools/android/src/org/microemu/android/myMIDlet/" (R.java)
       'src' + DIR_SEP + 'org' + DIR_SEP + 'microemu' + DIR_SEP + 'android' + DIR_SEP + MIDletName, False);
     DeleteDirectory(GetAppPath + APP_DIR_TMP, False);
   end;
@@ -217,7 +217,7 @@ begin
   begin
     ApkFileName := ProjManager.ProjDirPreBuild + ApkName;
 
-    // pre-build/myMIDlet.apk -> bin/android/
+    // "pre-build/myMIDlet.apk" -> "bin/android/"
     if RenameFile(ApkFileName, ProjManager.ProjDirAndroid + ApkName) then
       ApkFileName := ProjManager.ApkFile;
 
