@@ -54,6 +54,7 @@ type
     actlMain: TActionList;
     ilMain: TImageList;
     ilProjActions: TImageList;
+    miExamples: TMenuItem;
     miOpenDocs: TMenuItem;
     miTutorialOnline: TMenuItem;
     miOther: TMenuItem;
@@ -721,6 +722,7 @@ begin
     miAbout.ImageIndex := 8;
     miCreateProject.ImageIndex := 13;
     miDocumentation.ImageIndex := 0;
+    miExamples.ImageIndex := 18;
     miExit.ImageIndex := 6;
     miJavaLibs.ImageIndex := 9;
 
