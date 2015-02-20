@@ -5,8 +5,6 @@ Advanced MIDletPascal IDE
 
 Среда разработки использующая компилятор языка программирования [MIDletPascal](http://ru.wikipedia.org/wiki/MIDletPascal).
 
-<p align="center"><img src="http://helltar.ho.ua/trash/ampaside_0.9.3v2.png" alt="ampaside-0.9" /></p>
-
 Установка
 ---------
 
@@ -26,10 +24,10 @@ sudo apt-get install libqt4pas-dev
 Дайте права на исполнение:
 ``` bash
 cd ~/programs/ampaside/
-chmod +x ampaside tools/linux_x86_64/* # linux_i386
+chmod +x ampaside tools/linux_x86_64/*
 ```
 
-Для запуска эмулятора должна быть установлена **JRE >= 1.5**:
+Для запуска эмулятора должна быть установлена **JRE**:
 ```
 java -version
 ```
