@@ -155,6 +155,9 @@ end;
 
 function TFileManager.GetFileName(ANode: TTreeNode): string;
 begin
+  if not Assigned(ANode) then
+    Exit;
+
   Result := ANode.Text;
 
   while ANode.Parent <> nil do
@@ -355,7 +358,7 @@ end;
 
 procedure TFileManager.ShowNewDirDialog;
 var
-  DirName: string;
+  DirName: string = '';
 
 begin
   if InputQuery('Создание каталога', 'Введите название:', DirName) then
