@@ -40,21 +40,17 @@ type
     function GetSelectedNode: TTreeNode;
     function TreeViewAddChild(ParentNode: TTreeNode; const NodeName: string): TTreeNode;
     procedure AddChildNode(ParentNode: TTreeNode; const NodeName: string; IsDir: boolean = False);
+    procedure AddFilesFromDir(const DirName: string; ParentNode: TTreeNode);
     procedure DeleteSelectedNode;
   public
     constructor Create(AOwner: TTreeView);
-    destructor Destroy; override;
-
     function GetDirNameOnly(const FileName: string): string;
     function GetPath: string;
     function IsDirectory(const DirName: string): boolean;
     function SelectedFileName: string;
-
     procedure AddFile(const FileName: string);
-    procedure AddFilesFromDir(const DirName: string; ParentNode: TTreeNode);
     procedure OpenFile(const FileName: string);
     procedure UpdateFileList;
-
     procedure ShowAddFilesDialog;
     procedure ShowDeleteDialog;
     procedure ShowNewDirDialog;
@@ -78,11 +74,6 @@ begin
   FOwner := AOwner;
 end;
 
-destructor TFileManager.Destroy;
-begin
-  inherited Destroy;
-end;
-
 function TFileManager.SelectedFileName: string;
 begin
   Result := GetFileName(GetSelectedNode);
@@ -92,22 +83,49 @@ procedure TFileManager.AddFile(const FileName: string);
 var
   DestFileName: string;
 
+  procedure AddDir(DirName: string);
+  begin
+    if DirectoryExists(DestFileName) then
+      case MessageDlg('Подтвердите действие', 'Перезаписать каталог "' + ExtractFileName(DestFileName) + '"?',
+          mtInformation, [mbYes, mbNo], 0) of
+        mrYes:
+          if not DeleteDirectory(DestFileName, False) then
+          begin
+            AddLogMsg('Ошибка при удалении каталога: ' + DestFileName);
+            Exit;
+          end;
+        mrNo: Exit;
+      end;
+
+    if CopyDirTree(DirName, DestFileName) then
+      AddChildNode(GetParentNode, ExtractFileName(DirName))
+    else
+      AddLogMsg('Не удалось скопировать каталог: ' + DirName, lmtErr);
+  end;
+
 begin
   if not Assigned(GetSelectedNode) then
     Exit;
 
   DestFileName := GetPath + ExtractFileName(FileName);
 
-  if FileExists(DestFileName) then
-    case MessageDlg('Подтвердите действие', 'Перезаписать файл "' + ExtractFileName(DestFileName) + '"?',
-        mtInformation, [mbYes, mbNo], 0) of
-      mrNo: Exit;
-    end;
-
-  if CopyFile(FileName, DestFileName) then
-    AddChildNode(GetParentNode, ExtractFileName(FileName))
+  if IsDirectory(FileName) then
+    AddDir(FileName)
   else
-    AddLogMsg('Не удалось скопировать файл: ' + FileName);
+  begin
+    if FileExists(DestFileName) then
+      case MessageDlg('Подтвердите действие', 'Перезаписать файл "' + ExtractFileName(DestFileName) + '"?',
+          mtInformation, [mbYes, mbNo], 0) of
+        mrNo: Exit;
+      end;
+
+    if CopyFile(FileName, DestFileName) then
+      AddChildNode(GetParentNode, ExtractFileName(FileName))
+    else
+      AddLogMsg('Не удалось скопировать файл: ' + FileName, lmtErr);
+  end;
+
+  UpdateFileList;
 end;
 
 function TFileManager.IsDirectory(const DirName: string): boolean;
@@ -307,35 +325,32 @@ procedure TFileManager.ShowDeleteDialog;
 var
   FileName: string;
 
-begin
-  FileName := SelectedFileName;
-
-  if IsDirectory(FileName) then
+  procedure ShowDelDirDialog;
   begin
     case MessageDlg('Подтвердите действие', 'Удалить каталог "' + GetDirNameOnly(GetPath) + '"?',
         mtInformation, [mbYes, mbNo], 0) of
       mrYes:
-      begin
         if DeleteDirectory(FileName, False) then
           DeleteSelectedNode
         else
           MessageDlg('Ошибка', 'Не удалось удалить каталог: ' + FileName, mtError, [mbOK], 0);
-      end;
     end;
-  end
+  end;
+
+begin
+  FileName := SelectedFileName;
+
+  if IsDirectory(FileName) then
+    ShowDelDirDialog
   else
-  begin
     case MessageDlg('Подтвердите действие', 'Удалить файл "' + ExtractFileName(FileName) + '"?',
         mtInformation, [mbYes, mbNo], 0) of
       mrYes:
-      begin
         if DeleteFile(FileName) then
           DeleteSelectedNode
         else
           MessageDlg('Ошибка', 'Не удалось удалить файл: ' + FileName, mtError, [mbOK], 0);
-      end;
     end;
-  end;
 end;
 
 procedure TFileManager.ShowNewDirDialog;
