@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 505
+  Left = 463
   Height = 559
-  Top = 171
+  Top = 188
   Width = 827
   AllowDropFiles = True
   Caption = 'AMPASIDE'

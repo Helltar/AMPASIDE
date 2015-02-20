@@ -1,13 +1,13 @@
 object FileManagerFrame: TFileManagerFrame
   Left = 0
-  Height = 451
+  Height = 432
   Top = 0
-  Width = 292
-  ClientHeight = 451
-  ClientWidth = 292
+  Width = 283
+  ClientHeight = 432
+  ClientWidth = 283
   TabOrder = 0
-  DesignLeft = 1029
-  DesignTop = 204
+  DesignLeft = 1044
+  DesignTop = 208
   object tvFileList: TTreeView
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = tlbManagerActions
@@ -16,9 +16,9 @@ object FileManagerFrame: TFileManagerFrame
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = splBottom
     Left = 6
-    Height = 248
+    Height = 229
     Top = 34
-    Width = 280
+    Width = 271
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoExpand = True
     BorderSpacing.Around = 6
@@ -45,12 +45,12 @@ object FileManagerFrame: TFileManagerFrame
     AnchorSideBottom.Side = asrBottom
     Left = 6
     Height = 147
-    Top = 298
-    Width = 280
+    Top = 279
+    Width = 271
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     ClientHeight = 141
-    ClientWidth = 274
+    ClientWidth = 265
     TabOrder = 1
     object lblFileName: TLabel
       AnchorSideLeft.Control = imgPreview
@@ -123,8 +123,8 @@ object FileManagerFrame: TFileManagerFrame
     Cursor = crVSplit
     Left = 0
     Height = 4
-    Top = 288
-    Width = 292
+    Top = 269
+    Width = 283
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -168,7 +168,7 @@ object FileManagerFrame: TFileManagerFrame
     Left = 59
     Height = 23
     Top = 6
-    Width = 227
+    Width = 218
     ButtonWidth = 23
     NumGlyphs = 1
     Anchors = [akTop, akLeft, akRight]

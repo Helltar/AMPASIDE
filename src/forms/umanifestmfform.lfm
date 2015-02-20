@@ -1,11 +1,11 @@
 object frmManifestMf: TfrmManifestMf
-  Left = 963
-  Height = 418
-  Top = 182
-  Width = 369
+  Left = 994
+  Height = 390
+  Top = 209
+  Width = 393
   Caption = 'MANIFEST.MF'
-  ClientHeight = 418
-  ClientWidth = 369
+  ClientHeight = 390
+  ClientWidth = 393
   OnCreate = FormCreate
   Position = poScreenCenter
   LCLVersion = '1.5'
@@ -29,7 +29,7 @@ object frmManifestMf: TfrmManifestMf
     Left = 6
     Height = 23
     Top = 27
-    Width = 357
+    Width = 381
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
     OnChange = edtlMInfoURLChange
@@ -56,7 +56,7 @@ object frmManifestMf: TfrmManifestMf
     Left = 6
     Height = 23
     Top = 77
-    Width = 357
+    Width = 381
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
     OnChange = edtMDelConfirmChange
@@ -83,7 +83,7 @@ object frmManifestMf: TfrmManifestMf
     Left = 6
     Height = 23
     Top = 127
-    Width = 357
+    Width = 381
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
     OnChange = edtMInstallNotifyChange
@@ -92,8 +92,8 @@ object frmManifestMf: TfrmManifestMf
   object btnpnlMain: TButtonPanel
     Left = 6
     Height = 34
-    Top = 378
-    Width = 357
+    Top = 350
+    Width = 381
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
     OKButton.OnClick = OKButtonClick
@@ -127,9 +127,9 @@ object frmManifestMf: TfrmManifestMf
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = btnpnlMain
     Left = 6
-    Height = 189
+    Height = 161
     Top = 183
-    Width = 357
+    Width = 381
     BorderSpacing.Around = 6
     Anchors = [akTop, akLeft, akRight, akBottom]
     Font.Height = -12
@@ -663,7 +663,7 @@ object frmManifestMf: TfrmManifestMf
     Entity = False
     DollarVariables = False
     ActiveDot = False
-    left = 160
-    top = 248
+    left = 144
+    top = 224
   end
 end

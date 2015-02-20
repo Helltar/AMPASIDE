@@ -132,22 +132,18 @@
       <Unit4>
         <Filename Value="uprojectbuilding.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uProjectBuilding"/>
       </Unit4>
       <Unit5>
         <Filename Value="uideconfig.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uIDEConfig"/>
       </Unit5>
       <Unit6>
         <Filename Value="uprojectconfig.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uProjectConfig"/>
       </Unit6>
       <Unit7>
         <Filename Value="ueditorconfig.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uEditorConfig"/>
       </Unit7>
       <Unit8>
         <Filename Value="ampasideconsts.inc"/>
@@ -156,10 +152,12 @@
       <Unit9>
         <Filename Value="ufilemanager.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uFileManager"/>
       </Unit9>
       <Unit10>
         <Filename Value="uandroidbuilding.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uAndroidBuilding"/>
       </Unit10>
       <Unit11>
         <Filename Value="frames/ueditoroptionsframe.pas"/>
@@ -174,6 +172,7 @@
         <ComponentName Value="FileManagerFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
+        <UnitName Value="uFileManagerFrame"/>
       </Unit12>
       <Unit13>
         <Filename Value="frames/ugeneraloptionsframe.pas"/>
@@ -188,7 +187,6 @@
         <ComponentName Value="ProjectOptionsFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <UnitName Value="uProjectOptionsFrame"/>
       </Unit14>
       <Unit15>
         <Filename Value="forms/uaboutform.pas"/>
@@ -224,6 +222,7 @@
         <ComponentName Value="frmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uMainForm"/>
       </Unit19>
       <Unit20>
         <Filename Value="forms/unewprojform.pas"/>
@@ -238,7 +237,6 @@
         <ComponentName Value="frmManifestMf"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uManifestMfForm"/>
       </Unit21>
     </Units>
   </ProjectOptions>
@@ -261,7 +259,7 @@
     </Linking>
   </CompilerOptions>
   <Debugging>
-    <Exceptions Count="6">
+    <Exceptions Count="7">
       <Item1>
         <Name Value="EAbort"/>
       </Item1>
@@ -280,6 +278,9 @@
       <Item6>
         <Name Value="EInOutError"/>
       </Item6>
+      <Item7>
+        <Name Value="RunError(201)"/>
+      </Item7>
     </Exceptions>
   </Debugging>
 </CONFIG>

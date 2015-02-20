@@ -443,12 +443,10 @@ var
 
 begin
   for i := 0 to High(FileNames) do
-  begin
     if FileManagerFrame.IsMouseEnter then
       FileManager.AddFile(FileNames[i])
     else
       LoadFile(FileNames[i]);
-  end;
 end;
 
 procedure TfrmMain.miOpenDocsClick(Sender: TObject);
