@@ -141,6 +141,9 @@ begin
       if ProjConfig.MnfExtraOptionsEnabled then
         if ManifestExtraOptions <> '' then
           Add(ManifestExtraOptions);
+
+      Text := DelEmptyLines(Text);
+
       try
         SaveToFile(FileName);
         Result := True;
@@ -342,17 +345,24 @@ var
 
 begin
   JadFile := ProjManager.JadFile;
+
   if CopyFile(ProjManager.ProjDirPreBuild + 'META-INF' + DIR_SEP + 'MANIFEST.MF', JadFile) then
     with TStringList.Create do
     begin
       try
         LoadFromFile(JadFile);
+
         Delete(0);
         Delete(0);
+
         if ProjConfig.MIDletInstallNotify <> '' then
           Add('MIDlet-Install-Notify: ' + ProjConfig.MIDletInstallNotify);
+
         Add('MIDlet-Jar-URL: ' + ExtractFileName(ProjManager.JARFile));
         Add('MIDlet-Jar-Size: ' + IntToStr(FileSize(ProjManager.JARFile)));
+
+        Text := DelEmptyLines(Text);
+
         SaveToFile(JadFile);
       finally
         Free;
