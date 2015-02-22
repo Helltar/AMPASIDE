@@ -72,8 +72,8 @@ end;
 
 procedure TfrmManifestMf.FormCreate(Sender: TObject);
 begin
-  Height := 420;
-  Width := 500;
+  Height := 380;
+  Width := 420;
 
   cbExtraOptions.Checked := ProjConfig.MnfExtraOptionsEnabled;
   edtlMInfoURL.Text := ProjConfig.MIDletInfoURL;
