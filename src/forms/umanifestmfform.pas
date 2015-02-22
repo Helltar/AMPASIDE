@@ -26,7 +26,7 @@ unit uManifestMfForm;
 interface
 
 uses
-  Forms, StdCtrls, ButtonPanel, SynEdit, SynHighlighterAny;
+  Forms, StdCtrls, ButtonPanel, SynEdit, SynHighlighterAny, Classes;
 
 type
 
@@ -41,15 +41,14 @@ type
     lblMInfoURL: TLabel;
     lblMDelConfirm: TLabel;
     lblMInstallNotify: TLabel;
-    synAnyHighlighter: TSynAnySyn;
-    synedtExtraOptions: TSynEdit;
+    memExtraOptions: TMemo;
     procedure cbExtraOptionsChange(Sender: TObject);
     procedure edtlMInfoURLChange(Sender: TObject);
     procedure edtMDelConfirmChange(Sender: TObject);
     procedure edtMInstallNotifyChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure memExtraOptionsChange(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
-    procedure synedtExtraOptionsChange(Sender: TObject);
   private
     { private declarations }
   public
@@ -71,11 +70,6 @@ begin
   Close;
 end;
 
-procedure TfrmManifestMf.synedtExtraOptionsChange(Sender: TObject);
-begin
-  ProjConfig.MnfExtraOptions := synedtExtraOptions.Text;
-end;
-
 procedure TfrmManifestMf.FormCreate(Sender: TObject);
 begin
   Height := 420;
@@ -86,16 +80,21 @@ begin
   edtMDelConfirm.Text := ProjConfig.MIDletDeleteConfirm;
   edtMInstallNotify.Text := ProjConfig.MIDletInstallNotify;
 
-  synedtExtraOptions.Enabled := ProjConfig.MnfExtraOptionsEnabled;
-  synedtExtraOptions.Font.Name := EditorConfig.FontName;
-  synedtExtraOptions.Font.Size := EditorConfig.FontSize;
-  synedtExtraOptions.Text := ProjConfig.MnfExtraOptions;
+  memExtraOptions.Enabled := ProjConfig.MnfExtraOptionsEnabled;
+  memExtraOptions.Font.Name := EditorConfig.FontName;
+  memExtraOptions.Font.Size := EditorConfig.FontSize;
+  memExtraOptions.Text := ProjConfig.MnfExtraOptions;
+end;
+
+procedure TfrmManifestMf.memExtraOptionsChange(Sender: TObject);
+begin
+  ProjConfig.MnfExtraOptions := memExtraOptions.Text;
 end;
 
 procedure TfrmManifestMf.cbExtraOptionsChange(Sender: TObject);
 begin
   ProjConfig.MnfExtraOptionsEnabled := cbExtraOptions.Checked;
-  synedtExtraOptions.Enabled := cbExtraOptions.Checked;
+  memExtraOptions.Enabled := cbExtraOptions.Checked;
 end;
 
 procedure TfrmManifestMf.edtlMInfoURLChange(Sender: TObject);
