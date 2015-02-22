@@ -65,6 +65,7 @@ const
 
 function CheckDir(const DirName: string): boolean;
 function CheckFile(const FileName: string): boolean;
+function DelEmptyLines(const AValue: string): string;
 function GetAppPath: string;
 function GetCurrentUsername: string;
 function GetFileSize(const FileName: string): string;
@@ -261,6 +262,23 @@ end;
 procedure TerminateProc;
 begin
   IsProcTerminate := True;
+end;
+
+function DelEmptyLines(const AValue: string): string;
+var
+  i: integer;
+
+begin
+  with TStringList.Create do
+    try
+      Text := AValue;
+      for i := Count - 1 downto 0 do
+        if Strings[i] = '' then
+          Delete(i);
+      Result := Text;
+    finally
+      Free;
+    end;
 end;
 
 function MakeDir(const DirName: string): boolean;
