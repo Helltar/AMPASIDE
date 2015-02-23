@@ -37,7 +37,7 @@ type
   TAndroidBuildingThread = class(TThread)
   private
     FAntBuildFile: string;
-    procedure ApkBuild(const AntBuildFile: string);
+    procedure BuildAPK(const AntBuildFile: string);
   protected
     procedure Execute; override;
   public
@@ -48,6 +48,7 @@ implementation
 
 uses
   uAMPASCore,
+  uProjectBuilding,
   uProjectConfig,
   uProjectManager;
 
@@ -154,17 +155,26 @@ end;
 
 procedure TAndroidBuildingThread.Execute;
 begin
-  ApkBuild(FAntBuildFile);
+  BuildAPK(FAntBuildFile);
 end;
 
-procedure TAndroidBuildingThread.ApkBuild(const AntBuildFile: string);
+procedure TAndroidBuildingThread.BuildAPK(const AntBuildFile: string);
 var
   ApkName, MIDletName: string;
   ProjBuildFile: string;
 
-  function PreApkBuild: boolean;
+  function PreBuildAct: boolean;
   begin
     Result := False;
+
+    with TProjectBuilding.Create do
+      try
+        if not Build then
+          Exit;
+      finally
+        Free;
+      end;
+
     if CheckFile(AntBuildFile) then
       if MakeDir(GetAppPath + APP_DIR_TMP) then
         if CopyFile(AntBuildFile, ProjBuildFile) then
@@ -177,9 +187,10 @@ var
 
   procedure DelTempFiles;
   begin
-    DeleteFile(ProjBuildFile); // "tools/android/build.myMIDlet.xml"
-    DeleteDirectory(GetAppPath + APP_DIR_ANDROID + // "tools/android/src/org/microemu/android/myMIDlet/" (R.java)
-      'src' + DIR_SEP + 'org' + DIR_SEP + 'microemu' + DIR_SEP + 'android' + DIR_SEP + MIDletName, False);
+    // tools/android/build.myMIDlet.xml
+    DeleteFile(ProjBuildFile);
+    // tools/android/src/org/microemu/android/myMIDlet (R.java)
+    DeleteDirectory(GetAppPath + APP_DIR_ANDROID + 'src' + DIR_SEP + 'org' + DIR_SEP + 'microemu' + DIR_SEP + 'android' + DIR_SEP + MIDletName, False);
     DeleteDirectory(GetAppPath + APP_DIR_TMP, False);
   end;
 
@@ -192,7 +203,7 @@ begin
   ProjBuildFile := ExtractFilePath(AntBuildFile) + 'build.' + MIDletName + '.xml';
   ApkName := MIDletName + EXT_APK;
 
-  if not PreApkBuild then
+  if not PreBuildAct then
     Exit;
 
   AddLogMsg('Apache Ant (' + ApkName + '), идет сборка, это займет около минуты...');
@@ -217,7 +228,7 @@ begin
   begin
     ApkFileName := ProjManager.ProjDirPreBuild + ApkName;
 
-    // "pre-build/myMIDlet.apk" -> "bin/android/"
+    // pre-build/myMIDlet.apk -> bin/android/myMIDlet.apk
     if RenameFile(ApkFileName, ProjManager.ProjDirAndroid + ApkName) then
       ApkFileName := ProjManager.ApkFile;
 
