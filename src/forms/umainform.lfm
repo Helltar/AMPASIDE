@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 463
-  Height = 559
-  Top = 188
-  Width = 827
+  Left = 377
+  Height = 545
+  Top = 186
+  Width = 794
   AllowDropFiles = True
   Caption = 'AMPASIDE'
-  ClientHeight = 538
-  ClientWidth = 827
+  ClientHeight = 524
+  ClientWidth = 794
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -22,7 +22,7 @@ object frmMain: TfrmMain
     Left = 322
     Height = 26
     Top = 6
-    Width = 499
+    Width = 466
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
@@ -120,9 +120,9 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = stbEditor
     Left = 322
-    Height = 262
+    Height = 248
     Top = 38
-    Width = 499
+    Width = 466
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     TabOrder = 1
@@ -137,8 +137,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = splBottom
     Left = 322
     Height = 20
-    Top = 306
-    Width = 499
+    Top = 292
+    Width = 466
     Action = actUpdateStatusBar
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
@@ -167,8 +167,8 @@ object frmMain: TfrmMain
     Cursor = crVSplit
     Left = 322
     Height = 5
-    Top = 332
-    Width = 505
+    Top = 318
+    Width = 472
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -184,8 +184,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Side = asrBottom
     Left = 322
     Height = 189
-    Top = 343
-    Width = 499
+    Top = 329
+    Width = 466
     ActivePage = tsLogMsg
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
@@ -194,12 +194,12 @@ object frmMain: TfrmMain
     object tsLogMsg: TTabSheet
       Caption = 'Сообщения'
       ClientHeight = 159
-      ClientWidth = 491
+      ClientWidth = 458
       object tvMsg: TTreeView
         Left = 6
         Height = 147
         Top = 6
-        Width = 479
+        Width = 446
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
@@ -662,7 +662,6 @@ object frmMain: TfrmMain
         VisibleSpecialChars = [vscSpace, vscTabAtLast]
         RightEdge = -1
         ScrollBars = ssAutoBoth
-        SelectedColor.FrameEdges = sfeAround
         SelectedColor.BackPriority = 50
         SelectedColor.ForePriority = 50
         SelectedColor.FramePriority = 50
@@ -670,23 +669,17 @@ object frmMain: TfrmMain
         SelectedColor.ItalicPriority = 50
         SelectedColor.UnderlinePriority = 50
         SelectedColor.StrikeOutPriority = 50
-        IncrementColor.FrameEdges = sfeAround
-        HighlightAllColor.FrameEdges = sfeAround
         BracketHighlightStyle = sbhsBoth
         BracketMatchColor.Background = clNone
         BracketMatchColor.Foreground = clNone
-        BracketMatchColor.FrameEdges = sfeAround
         BracketMatchColor.Style = [fsBold]
         FoldedCodeColor.Background = clNone
         FoldedCodeColor.Foreground = clGray
         FoldedCodeColor.FrameColor = clGray
-        FoldedCodeColor.FrameEdges = sfeAround
         MouseLinkColor.Background = clNone
         MouseLinkColor.Foreground = clBlue
-        MouseLinkColor.FrameEdges = sfeAround
         LineHighlightColor.Background = clNone
         LineHighlightColor.Foreground = clNone
-        LineHighlightColor.FrameEdges = sfeAround
         OnChange = synedtNotesChange
         inline SynLeftGutterPartList1: TSynGutterPartList
           object SynGutterMarks1: TSynGutterMarks
@@ -698,7 +691,6 @@ object frmMain: TfrmMain
             MouseActions = <>
             MarkupInfo.Background = clBtnFace
             MarkupInfo.Foreground = clNone
-            MarkupInfo.FrameEdges = sfeAround
             DigitCount = 2
             ShowOnlyLineNumbersMultiplesOf = 1
             ZeroStart = False
@@ -715,13 +707,11 @@ object frmMain: TfrmMain
             MouseActions = <>
             MarkupInfo.Background = clWhite
             MarkupInfo.Foreground = clGray
-            MarkupInfo.FrameEdges = sfeAround
           end
           object SynGutterCodeFolding1: TSynGutterCodeFolding
             MouseActions = <>
             MarkupInfo.Background = clNone
             MarkupInfo.Foreground = clGray
-            MarkupInfo.FrameEdges = sfeAround
             MouseActionsExpanded = <>
             MouseActionsCollapsed = <>
           end
@@ -737,7 +727,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 251
-    Height = 494
+    Height = 480
     Top = 38
     Width = 65
     Align = alNone
@@ -812,7 +802,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 240
-    Height = 538
+    Height = 524
     Top = 0
     Width = 5
     Align = alNone
@@ -825,7 +815,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 526
+    Height = 512
     Top = 6
     Width = 228
     ActivePage = tsProjFiles
@@ -985,9 +975,6 @@ object frmMain: TfrmMain
     end
     object miInfo: TMenuItem
       Caption = 'Справка'
-      object miExamples: TMenuItem
-        Caption = 'Примеры'
-      end
       object miDocumentation: TMenuItem
         Caption = 'Документация'
         object miOpenDocs: TMenuItem
@@ -1002,6 +989,10 @@ object frmMain: TfrmMain
       object miJavaLibs: TMenuItem
         Caption = 'Java библиотеки'
         OnClick = miJavaLibsClick
+      end
+      object miExamples: TMenuItem
+        Caption = 'Примеры'
+        OnClick = miExamplesClick
       end
       object miOther: TMenuItem
         Caption = 'Разное'

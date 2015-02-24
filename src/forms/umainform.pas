@@ -147,6 +147,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormDropFiles(Sender: TObject; const FileNames: array of string);
+    procedure miExamplesClick(Sender: TObject);
     procedure miOpenDocsClick(Sender: TObject);
     procedure miTutorialOnlineClick(Sender: TObject);
     procedure miAsciiClick(Sender: TObject);
@@ -447,6 +448,11 @@ begin
       FileManager.AddFile(FileNames[i])
     else
       LoadFile(FileNames[i]);
+end;
+
+procedure TfrmMain.miExamplesClick(Sender: TObject);
+begin
+  OpenDocument(GetAppPath + 'examples');
 end;
 
 procedure TfrmMain.miOpenDocsClick(Sender: TObject);
