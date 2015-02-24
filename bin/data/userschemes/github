@@ -1,7 +1,7 @@
 [EDITOR]
 EditorColor=clWhite
 RightEdgeColor=$00EEEEEE
-SelectedColor=$00A5750C
+SelectedColor=$00906716
 
 [Assembler]
 Background=536870911
@@ -59,12 +59,12 @@ StyleMask=0
 
 [String]
 Background=536870911
-Foreground=20703
+Foreground=9516568
 Style=0
 StyleMask=0
 
 [Symbol]
 Background=536870911
-Foreground=128
+Foreground=64
 Style=0
 StyleMask=0
