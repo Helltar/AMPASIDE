@@ -8,7 +8,6 @@
       <Title Value="ampaside"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
-      <Icon Value="0"/>
     </General>
     <i18n>
       <EnableI18N LFM="False"/>
@@ -119,15 +118,16 @@
       <Unit1>
         <Filename Value="uampascore.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uAMPASCore"/>
       </Unit1>
       <Unit2>
         <Filename Value="ucodeeditor.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uCodeEditor"/>
       </Unit2>
       <Unit3>
         <Filename Value="uprojectmanager.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uProjectManager"/>
       </Unit3>
       <Unit4>
         <Filename Value="uprojectbuilding.pas"/>
@@ -152,7 +152,6 @@
       <Unit9>
         <Filename Value="ufilemanager.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uFileManager"/>
       </Unit9>
       <Unit10>
         <Filename Value="uandroidbuilding.pas"/>
@@ -172,7 +171,6 @@
         <ComponentName Value="FileManagerFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <UnitName Value="uFileManagerFrame"/>
       </Unit12>
       <Unit13>
         <Filename Value="frames/ugeneraloptionsframe.pas"/>
