@@ -213,6 +213,7 @@ var
 procedure TfrmMain.FormCreate(Sender: TObject);
 var
   FileName: string;
+  i: integer;
 
 begin
   Caption := APP_NAME + ' ' + GetProgramVersion;
@@ -234,6 +235,10 @@ begin
   ProjManager := TProjectManager.Create;
 
   InitControls;
+
+  if Paramcount <> 0 then
+    for i := 1 to Paramcount do
+      CodeEditor.LoadFile(ParamStr(i));
 end;
 
 procedure TfrmMain.FormDestroy(Sender: TObject);
@@ -843,4 +848,3 @@ begin
 end;
 
 end.
-
