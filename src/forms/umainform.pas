@@ -338,7 +338,7 @@ begin
   with TAndroidBuildingThread.Create(True) do
   begin
     AntBuildFile := GetAppPath + APP_DIR_ANDROID + 'build.xml';
-    FreeOnTerminate := True;
+    OnTerminate := @BuildingThreadTerminate;
     Start;
   end;
 end;

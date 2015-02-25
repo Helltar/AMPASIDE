@@ -26,7 +26,7 @@ unit uManifestMfForm;
 interface
 
 uses
-  Forms, StdCtrls, ButtonPanel, SynEdit, SynHighlighterAny, Classes;
+  Forms, StdCtrls, ButtonPanel;
 
 type
 

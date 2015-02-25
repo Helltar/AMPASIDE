@@ -19,7 +19,7 @@ along with AMPASIDE.  If not, see <http://www.gnu.org/licenses/>.
 
 -------------------------------------------------------------------------------}
 
-{ TODO : => XMLWrite, etc... }
+{ TODO : --> XMLWrite, etc... }
 
 unit uAndroidBuilding;
 
@@ -37,10 +37,14 @@ type
   TAndroidBuildingThread = class(TThread)
   private
     FAntBuildFile: string;
+    function CreateAndroidManifest(const FileName, Package, NameVers: string; CodeVers: integer): boolean;
+    function CreateBuildFile(const FileName, JadName, ApkName, Outdir: string): boolean;
+    function CreateStringsFile(const FileName, AppName, MainClass, JadName: string): boolean;
     procedure BuildAPK(const AntBuildFile: string);
   protected
     procedure Execute; override;
   public
+    constructor Create(CreateSuspended: boolean);
     property AntBuildFile: string write FAntBuildFile;
   end;
 
@@ -52,7 +56,20 @@ uses
   uProjectConfig,
   uProjectManager;
 
-function CreateAndroidManifest(const FileName, Package, NameVers: string; CodeVers: integer): boolean;
+{ TAndroidBuildingThread }
+
+constructor TAndroidBuildingThread.Create(CreateSuspended: boolean);
+begin
+  inherited Create(CreateSuspended);
+  FreeOnTerminate := True;
+end;
+
+procedure TAndroidBuildingThread.Execute;
+begin
+  BuildAPK(FAntBuildFile);
+end;
+
+function TAndroidBuildingThread.CreateAndroidManifest(const FileName, Package, NameVers: string; CodeVers: integer): boolean;
 begin
   Result := False;
   with TStringList.Create do
@@ -93,7 +110,7 @@ begin
   end;
 end;
 
-function CreateStringsFile(const FileName, AppName, MainClass, JadName: string): boolean;
+function TAndroidBuildingThread.CreateStringsFile(const FileName, AppName, MainClass, JadName: string): boolean;
 begin
   Result := False;
   with TStringList.Create do
@@ -117,7 +134,7 @@ begin
   end;
 end;
 
-function CreateBuildFile(const FileName, JadName, ApkName, Outdir: string): boolean;
+function TAndroidBuildingThread.CreateBuildFile(const FileName, JadName, ApkName, Outdir: string): boolean;
 var
   sList: TStringList;
 
@@ -149,13 +166,6 @@ begin
   finally
     FreeAndNil(sList);
   end;
-end;
-
-{ TAndroidBuildingThread }
-
-procedure TAndroidBuildingThread.Execute;
-begin
-  BuildAPK(FAntBuildFile);
 end;
 
 procedure TAndroidBuildingThread.BuildAPK(const AntBuildFile: string);

@@ -34,13 +34,15 @@ type
 
   TProjectBuilding = class
   private
+    ManifestFileName: string;
     function CompileFile(FileName: string): boolean;
     function CreateManifest(const FileName: string): boolean;
     function DeleteCharacters(const AValue: string): string;
     function IsErr(const AValue: string): boolean;
     function PreBuild: boolean;
-    procedure CreateJAD;
+    procedure CreateJad;
   public
+    constructor Create;
     function Build: boolean;
     function CompileMainModule: boolean;
     procedure Run;
@@ -94,6 +96,11 @@ begin
 end;
 
 { TProjectBuilding }
+
+constructor TProjectBuilding.Create;
+begin
+  ManifestFileName := ProjManager.ProjDirPreBuild + 'META-INF' + DIR_SEP + 'MANIFEST.MF';
+end;
 
 function TProjectBuilding.CreateManifest(const FileName: string): boolean;
 var
@@ -247,7 +254,8 @@ begin
 
   if not FileExists(FileName) then
   begin
-    AddLogMsg('Не удалось найти библиотеку/модуль: "' + ExtractFileNameOnly(FileName) + '"', lmtErr);
+    AddLogMsg('Не удалось найти библиотеку/модуль: "' +
+      ExtractFileNameOnly(FileName) + '"', lmtErr);
     Exit;
   end;
 
@@ -310,8 +318,7 @@ end;
 
 function TProjectBuilding.PreBuild: boolean;
 var
-  PreBuildDir, ManifestDir: string;
-  FW_Class: string;
+  PreBuildDir, FW_Class: string;
 
 begin
   Result := False;
@@ -326,48 +333,46 @@ begin
       begin
         FW_Class := GetAppPath + APP_DIR_STUBS + CLASS_FW;
         if CheckFile(FW_Class) then
-          CopyFile(FW_Class, PreBuildDir + CLASS_FW);
-        ManifestDir := PreBuildDir + 'META-INF' + DIR_SEP;
-        if MakeDir(ManifestDir) then
-          if CreateManifest(ManifestDir + 'MANIFEST.MF') then
-          begin
-            CreateJAD;
-            Result := True;
-          end;
+          if CopyFile(FW_Class, PreBuildDir + CLASS_FW) then
+            if MakeDir(ExtractFilePath(ManifestFileName)) then
+              if CreateManifest(ManifestFileName) then
+                Result := True;
       end;
     end;
   end;
 end;
 
-procedure TProjectBuilding.CreateJAD;
+procedure TProjectBuilding.CreateJad;
 var
   JadFile: string;
 
 begin
   JadFile := ProjManager.JadFile;
 
-  if CopyFile(ProjManager.ProjDirPreBuild + 'META-INF' + DIR_SEP + 'MANIFEST.MF', JadFile) then
-    with TStringList.Create do
-    begin
-      try
-        LoadFromFile(JadFile);
+  if not CopyFile(ManifestFileName, JadFile) then
+    Exit;
 
-        Delete(0);
-        Delete(0);
+  with TStringList.Create do
+  begin
+    try
+      LoadFromFile(JadFile);
 
-        if ProjConfig.MIDletInstallNotify <> '' then
-          Add('MIDlet-Install-Notify: ' + ProjConfig.MIDletInstallNotify);
+      Delete(0);
+      Delete(0);
 
-        Add('MIDlet-Jar-URL: ' + ExtractFileName(ProjManager.JARFile));
-        Add('MIDlet-Jar-Size: ' + IntToStr(FileSize(ProjManager.JARFile)));
+      if ProjConfig.MIDletInstallNotify <> '' then
+        Add('MIDlet-Install-Notify: ' + ProjConfig.MIDletInstallNotify);
 
-        Text := DelEmptyLines(Text);
+      Add('MIDlet-Jar-URL: ' + ExtractFileName(ProjManager.JARFile));
+      Add('MIDlet-Jar-Size: ' + IntToStr(FileSize(ProjManager.JARFile)));
 
-        SaveToFile(JadFile);
-      finally
-        Free;
-      end;
+      Text := DelEmptyLines(Text);
+
+      SaveToFile(JadFile);
+    finally
+      Free;
     end;
+  end;
 end;
 
 function TProjectBuilding.Build: boolean;
@@ -433,13 +438,17 @@ begin
   begin
     if ProcStart(FileArchiver, CmdParameters + ProjManager.ProjDirRes + '*"', False).Completed then
     begin
+      CreateJad;
+
       if ProjConfig.AutoIncBuildVers then
         IncBuildVers;
+
       AddLogMsg(
         'Проект успешно собран' + LE +
         'Версия: ' + ProjManager.MIDletVersion + LE +
         'Размер: ' + GetFileSize(JARFileName) + LE +
         'Платформа: JavaME', lmtOk);
+
       Result := True;
     end;
   end;
@@ -455,12 +464,13 @@ end;
 
 procedure TProjectBuilding.Run;
 begin
-  if Build then
-  begin
-    AddLogMsg('Emulator: запуск ' + ExtractFileName(ProjManager.JarFile) + '...');
-    if ProcStart(IDEConfig.DirectiveReplace(IDEConfig.EmulatorCmd), False).Completed then
-      AddLogMsg('Работа эмулятора завершена');
-  end;
+  if not Build then
+    Exit;
+
+  AddLogMsg('Emulator: запуск ' + ExtractFileName(ProjManager.JarFile) + '...');
+
+  if ProcStart(IDEConfig.DirectiveReplace(IDEConfig.EmulatorCmd), False).Completed then
+    AddLogMsg('Работа эмулятора завершена');
 end;
 
 end.
