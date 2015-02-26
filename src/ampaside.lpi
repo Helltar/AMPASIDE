@@ -8,6 +8,7 @@
       <Title Value="ampaside"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
+      <Icon Value="-1"/>
     </General>
     <i18n>
       <EnableI18N LFM="False"/>
@@ -118,24 +119,25 @@
       <Unit1>
         <Filename Value="uampascore.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uAMPASCore"/>
       </Unit1>
       <Unit2>
         <Filename Value="ucodeeditor.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uCodeEditor"/>
       </Unit2>
       <Unit3>
         <Filename Value="uprojectmanager.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uProjectManager"/>
       </Unit3>
       <Unit4>
         <Filename Value="uprojectbuilding.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uProjectBuilding"/>
       </Unit4>
       <Unit5>
         <Filename Value="uideconfig.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uIDEConfig"/>
       </Unit5>
       <Unit6>
         <Filename Value="uprojectconfig.pas"/>
@@ -144,6 +146,7 @@
       <Unit7>
         <Filename Value="ueditorconfig.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uEditorConfig"/>
       </Unit7>
       <Unit8>
         <Filename Value="ampasideconsts.inc"/>
@@ -156,7 +159,6 @@
       <Unit10>
         <Filename Value="uandroidbuilding.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uAndroidBuilding"/>
       </Unit10>
       <Unit11>
         <Filename Value="frames/ueditoroptionsframe.pas"/>
@@ -201,11 +203,12 @@
         <ResourceBaseClass Value="DataModule"/>
       </Unit16>
       <Unit17>
-        <Filename Value="forms/uidedirectivesform.pas"/>
+        <Filename Value="forms/uidemacrosform.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmIDEDirectives"/>
+        <ComponentName Value="frmIDEMacros"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uIDEMacrosForm"/>
       </Unit17>
       <Unit18>
         <Filename Value="forms/uideoptionsform.pas"/>

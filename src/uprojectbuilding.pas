@@ -469,7 +469,7 @@ begin
 
   AddLogMsg('Emulator: запуск ' + ExtractFileName(ProjManager.JarFile) + '...');
 
-  if ProcStart(IDEConfig.DirectiveReplace(IDEConfig.EmulatorCmd), False).Completed then
+  if ProcStart(IDEConfig.MacrosReplace(IDEConfig.EmulatorCmd), False).Completed then
     AddLogMsg('Работа эмулятора завершена');
 end;
 

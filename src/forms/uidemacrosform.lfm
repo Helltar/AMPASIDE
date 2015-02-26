@@ -1,19 +1,19 @@
-object frmIDEDirectives: TfrmIDEDirectives
-  Left = 885
-  Height = 236
-  Top = 251
-  Width = 459
-  Caption = 'Директивы'
-  ClientHeight = 236
-  ClientWidth = 459
+object frmIDEMacros: TfrmIDEMacros
+  Left = 681
+  Height = 229
+  Top = 240
+  Width = 392
+  Caption = 'IDE Macros'
+  ClientHeight = 229
+  ClientWidth = 392
   OnCreate = FormCreate
   Position = poScreenCenter
   LCLVersion = '1.5'
-  inline synedtDirectives: TSynEdit
+  inline synedtMacro: TSynEdit
     Left = 6
-    Height = 184
+    Height = 177
     Top = 6
-    Width = 447
+    Width = 380
     Align = alClient
     BorderSpacing.Around = 6
     Font.Height = -12
@@ -458,7 +458,6 @@ object frmIDEDirectives: TfrmIDEDirectives
     ReadOnly = True
     RightEdge = -1
     ScrollBars = ssAutoBoth
-    SelectedColor.FrameEdges = sfeAround
     SelectedColor.BackPriority = 50
     SelectedColor.ForePriority = 50
     SelectedColor.FramePriority = 50
@@ -466,23 +465,17 @@ object frmIDEDirectives: TfrmIDEDirectives
     SelectedColor.ItalicPriority = 50
     SelectedColor.UnderlinePriority = 50
     SelectedColor.StrikeOutPriority = 50
-    IncrementColor.FrameEdges = sfeAround
-    HighlightAllColor.FrameEdges = sfeAround
     BracketHighlightStyle = sbhsBoth
     BracketMatchColor.Background = clNone
     BracketMatchColor.Foreground = clNone
-    BracketMatchColor.FrameEdges = sfeAround
     BracketMatchColor.Style = [fsBold]
     FoldedCodeColor.Background = clNone
     FoldedCodeColor.Foreground = clGray
     FoldedCodeColor.FrameColor = clGray
-    FoldedCodeColor.FrameEdges = sfeAround
     MouseLinkColor.Background = clNone
     MouseLinkColor.Foreground = clBlue
-    MouseLinkColor.FrameEdges = sfeAround
     LineHighlightColor.Background = clNone
     LineHighlightColor.Foreground = clNone
-    LineHighlightColor.FrameEdges = sfeAround
     inline SynLeftGutterPartList1: TSynGutterPartList
       object SynGutterMarks1: TSynGutterMarks
         Width = 24
@@ -493,7 +486,6 @@ object frmIDEDirectives: TfrmIDEDirectives
         MouseActions = <>
         MarkupInfo.Background = clBtnFace
         MarkupInfo.Foreground = clNone
-        MarkupInfo.FrameEdges = sfeAround
         DigitCount = 2
         ShowOnlyLineNumbersMultiplesOf = 1
         ZeroStart = False
@@ -510,13 +502,11 @@ object frmIDEDirectives: TfrmIDEDirectives
         MouseActions = <>
         MarkupInfo.Background = clWhite
         MarkupInfo.Foreground = clGray
-        MarkupInfo.FrameEdges = sfeAround
       end
       object SynGutterCodeFolding1: TSynGutterCodeFolding
         MouseActions = <>
         MarkupInfo.Background = clNone
         MarkupInfo.Foreground = clGray
-        MarkupInfo.FrameEdges = sfeAround
         MouseActionsExpanded = <>
         MouseActionsCollapsed = <>
       end
@@ -525,8 +515,8 @@ object frmIDEDirectives: TfrmIDEDirectives
   object btnpnlMain: TButtonPanel
     Left = 6
     Height = 34
-    Top = 196
-    Width = 447
+    Top = 189
+    Width = 380
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
     OKButton.OnClick = OKButtonClick
@@ -541,18 +531,9 @@ object frmIDEDirectives: TfrmIDEDirectives
   end
   object synPasHighlighter: TSynPasSyn
     Enabled = False
-    AsmAttri.FrameEdges = sfeAround
-    CommentAttri.FrameEdges = sfeAround
-    IDEDirectiveAttri.FrameEdges = sfeAround
-    IdentifierAttri.FrameEdges = sfeAround
-    KeyAttri.FrameEdges = sfeAround
-    NumberAttri.FrameEdges = sfeAround
-    SpaceAttri.FrameEdges = sfeAround
-    StringAttri.FrameEdges = sfeAround
-    SymbolAttri.FrameEdges = sfeAround
-    CaseLabelAttri.FrameEdges = sfeAround
+    CommentAttri.Foreground = clGray
+    CommentAttri.Style = []
     DirectiveAttri.Foreground = clTeal
-    DirectiveAttri.FrameEdges = sfeAround
     DirectiveAttri.Style = []
     CompilerMode = pcmDelphi
     NestedComments = False
@@ -563,7 +544,7 @@ object frmIDEDirectives: TfrmIDEDirectives
     left = 112
     top = 48
     object miCopy: TMenuItem
-      Caption = 'Копировать'
+      Caption = 'Копиров&ать'
       ShortCut = 16451
       OnClick = miCopyClick
     end

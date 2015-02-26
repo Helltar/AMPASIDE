@@ -149,15 +149,15 @@ end;
 
 function TEditorConfig.GetEditorHeaders: string;
 begin
-  Result := IDEConfig.DirectiveReplace(GetEditorHeadersText);
+  Result := IDEConfig.MacrosReplace(GetEditorHeadersText);
 end;
 
 function TEditorConfig.GetEditorHeadersText: string;
 begin
   if not FileExists(GetAppPath + EDITOR_HEADERS) then
     SetEditorHeadersText(
-      '// Author:  ' + D_USERNAME + LE +
-      '// Created: ' + D_DATE_TIME);
+      '// Author:  ' + M_USERNAME + LE +
+      '// Created: ' + M_DATE_TIME);
   with TStringList.Create do
   begin
     try

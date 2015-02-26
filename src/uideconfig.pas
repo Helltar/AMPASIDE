@@ -69,7 +69,7 @@ type
     constructor Create(FileName: string);
     destructor Destroy; override;
 
-    function DirectiveReplace(const AValue: string): string;
+    function MacrosReplace(const AValue: string): string;
 
     property MainConfig: TIniFile read FMainConfig;
 
@@ -96,11 +96,14 @@ type
   end;
 
 const
-  D_APP_NAME = '{$APP_NAME}';
-  D_APP_VERSION = '{$APP_VERSION}';
-  D_DATE_TIME = '{$DATE_TIME}';
-  D_JAR_FILENAME = '{$JAR_FILENAME}';
-  D_USERNAME = '{$USERNAME}';
+  M_APK_FILENAME = '$(APK_FILENAME)';
+  M_APP_NAME = '$(APP_NAME)';
+  M_APP_VERSION = '$(APP_VERSION)';
+  M_DATE_TIME = '$(DATE_TIME)';
+  M_JAD_FILENAME = '$(JAD_FILENAME)';
+  M_JAR_FILENAME = '$(JAR_FILENAME)';
+  M_PROJ_PATH = '$(PROJ_PATH)';
+  M_USERNAME = '$(USERNAME)';
 
 var
   IDEConfig: TIDEConfig;
@@ -124,14 +127,17 @@ begin
   inherited Destroy;
 end;
 
-function TIDEConfig.DirectiveReplace(const AValue: string): string;
+function TIDEConfig.MacrosReplace(const AValue: string): string;
 begin
   Result := AValue;
-  Result := StringReplace(Result, D_APP_NAME, APP_NAME, [rfReplaceAll]);
-  Result := StringReplace(Result, D_APP_VERSION, APP_VERSION, [rfReplaceAll]);
-  Result := StringReplace(Result, D_DATE_TIME, FormatDateTime('dd.mm.yyyy hh:mm:ss', Now), [rfReplaceAll]);
-  Result := StringReplace(Result, D_JAR_FILENAME, ProjManager.JARFile, [rfReplaceAll]);
-  Result := StringReplace(Result, D_USERNAME, GetCurrentUsername, [rfReplaceAll]);
+  Result := StringReplace(Result, M_APK_FILENAME, ProjManager.ApkFile, [rfReplaceAll]);
+  Result := StringReplace(Result, M_APP_NAME, APP_NAME, [rfReplaceAll]);
+  Result := StringReplace(Result, M_APP_VERSION, APP_VERSION, [rfReplaceAll]);
+  Result := StringReplace(Result, M_DATE_TIME, FormatDateTime('dd.mm.yyyy hh:mm:ss', Now), [rfReplaceAll]);
+  Result := StringReplace(Result, M_JAD_FILENAME, ProjManager.JadFile, [rfReplaceAll]);
+  Result := StringReplace(Result, M_JAR_FILENAME, ProjManager.JarFile, [rfReplaceAll]);
+  Result := StringReplace(Result, M_PROJ_PATH, ProjManager.ProjDirHome, [rfReplaceAll]);
+  Result := StringReplace(Result, M_USERNAME, GetCurrentUsername, [rfReplaceAll]);
 end;
 
 procedure TIDEConfig.SetEmulatorCmd(AValue: string);
@@ -221,7 +227,7 @@ end;
 
 function TIDEConfig.GetEmulatorCmd: string;
 begin
-  Result := FMainConfig.ReadString('OTHER', 'EmulatorCmd', 'java -jar "' + GetAppPath + EMULATOR + '" "' + D_JAR_FILENAME + '"');
+  Result := FMainConfig.ReadString('OTHER', 'EmulatorCmd', 'java -jar "' + GetAppPath + EMULATOR + '" "' + M_JAR_FILENAME + '"');
 end;
 
 function TIDEConfig.GetFColor: TColor;

@@ -63,7 +63,7 @@ type
     miHTTPList: TMenuItem;
     miSettings: TMenuItem;
     miIDESettings: TMenuItem;
-    miDirectives: TMenuItem;
+    miIDEMacro: TMenuItem;
     MenuItem5: TMenuItem;
     miView: TMenuItem;
     miCompactViewMode: TMenuItem;
@@ -154,7 +154,7 @@ type
     procedure miKeyCodesClick(Sender: TObject);
     procedure miHTTPListClick(Sender: TObject);
     procedure miIDESettingsClick(Sender: TObject);
-    procedure miDirectivesClick(Sender: TObject);
+    procedure miIDEMacroClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miCreateProjectClick(Sender: TObject);
     procedure miExitClick(Sender: TObject);
@@ -193,7 +193,7 @@ uses
   uFileManager,
   uFileManagerFrame,
   uIDEConfig,
-  uIDEDirectivesForm,
+  uIDEMacrosForm,
   uIDEOptionsForm,
   uNewProjForm,
   uProjectBuilding,
@@ -495,9 +495,9 @@ begin
     end;
 end;
 
-procedure TfrmMain.miDirectivesClick(Sender: TObject);
+procedure TfrmMain.miIDEMacroClick(Sender: TObject);
 begin
-  with TfrmIDEDirectives.Create(Self) do
+  with TfrmIDEMacros.Create(Self) do
     try
       ShowModal;
     finally
@@ -848,3 +848,4 @@ begin
 end;
 
 end.
+
