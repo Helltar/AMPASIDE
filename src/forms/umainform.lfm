@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 432
+  Left = 415
   Height = 524
-  Top = 207
+  Top = 200
   Width = 830
   AllowDropFiles = True
   Caption = 'AMPASIDE'
@@ -977,14 +977,7 @@ object frmMain: TfrmMain
       Caption = 'Справка'
       object miDocumentation: TMenuItem
         Caption = 'Документация'
-        object miOpenDocs: TMenuItem
-          Caption = 'Открыть документацию'
-          OnClick = miOpenDocsClick
-        end
-        object miTutorialOnline: TMenuItem
-          Caption = 'Сборка учебников ...'
-          OnClick = miTutorialOnlineClick
-        end
+        OnClick = miDocumentationClick
       end
       object miJavaLibs: TMenuItem
         Caption = 'Java библиотеки'
@@ -993,21 +986,6 @@ object frmMain: TfrmMain
       object miExamples: TMenuItem
         Caption = 'Примеры'
         OnClick = miExamplesClick
-      end
-      object miOther: TMenuItem
-        Caption = 'Разное'
-        object miAscii: TMenuItem
-          Caption = 'Таблица ASCII кодов'
-          OnClick = miAsciiClick
-        end
-        object miKeyCodes: TMenuItem
-          Caption = 'Таблица скан-кодов клавиш'
-          OnClick = miKeyCodesClick
-        end
-        object miHTTPList: TMenuItem
-          Caption = 'Коды HTTP ответов'
-          OnClick = miHTTPListClick
-        end
       end
       object MenuItem14: TMenuItem
         Caption = '-'

@@ -127,17 +127,14 @@
       <Unit3>
         <Filename Value="uprojectmanager.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uProjectManager"/>
       </Unit3>
       <Unit4>
         <Filename Value="uprojectbuilding.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uProjectBuilding"/>
       </Unit4>
       <Unit5>
         <Filename Value="uideconfig.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uIDEConfig"/>
       </Unit5>
       <Unit6>
         <Filename Value="uprojectconfig.pas"/>
@@ -146,7 +143,6 @@
       <Unit7>
         <Filename Value="ueditorconfig.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uEditorConfig"/>
       </Unit7>
       <Unit8>
         <Filename Value="ampasideconsts.inc"/>
@@ -208,7 +204,6 @@
         <ComponentName Value="frmIDEMacros"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uIDEMacrosForm"/>
       </Unit17>
       <Unit18>
         <Filename Value="forms/uideoptionsform.pas"/>

@@ -55,12 +55,6 @@ type
     ilMain: TImageList;
     ilProjActions: TImageList;
     miExamples: TMenuItem;
-    miOpenDocs: TMenuItem;
-    miTutorialOnline: TMenuItem;
-    miOther: TMenuItem;
-    miAscii: TMenuItem;
-    miKeyCodes: TMenuItem;
-    miHTTPList: TMenuItem;
     miSettings: TMenuItem;
     miIDESettings: TMenuItem;
     miIDEMacro: TMenuItem;
@@ -147,12 +141,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormDropFiles(Sender: TObject; const FileNames: array of string);
+    procedure miDocumentationClick(Sender: TObject);
     procedure miExamplesClick(Sender: TObject);
-    procedure miOpenDocsClick(Sender: TObject);
-    procedure miTutorialOnlineClick(Sender: TObject);
-    procedure miAsciiClick(Sender: TObject);
-    procedure miKeyCodesClick(Sender: TObject);
-    procedure miHTTPListClick(Sender: TObject);
     procedure miIDESettingsClick(Sender: TObject);
     procedure miIDEMacroClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
@@ -455,34 +445,14 @@ begin
       LoadFile(FileNames[i]);
 end;
 
-procedure TfrmMain.miExamplesClick(Sender: TObject);
-begin
-  OpenDocument(GetAppPath + 'examples');
-end;
-
-procedure TfrmMain.miOpenDocsClick(Sender: TObject);
-begin
-  OpenDocument(GetAppPath + APP_DIR_HELP + 'en' + DIR_SEP + 'index.htm');
-end;
-
-procedure TfrmMain.miTutorialOnlineClick(Sender: TObject);
+procedure TfrmMain.miDocumentationClick(Sender: TObject);
 begin
   OpenURL(URL_TUTORIAL);
 end;
 
-procedure TfrmMain.miAsciiClick(Sender: TObject);
+procedure TfrmMain.miExamplesClick(Sender: TObject);
 begin
-  OpenDocument(GetAppPath + APP_DIR_HELP + 'ascii.html');
-end;
-
-procedure TfrmMain.miKeyCodesClick(Sender: TObject);
-begin
-  OpenDocument(GetAppPath + APP_DIR_HELP + 'keycodes.html');
-end;
-
-procedure TfrmMain.miHTTPListClick(Sender: TObject);
-begin
-  OpenDocument(GetAppPath + APP_DIR_HELP + 'httplist.html');
+  OpenDocument(GetAppPath + 'examples');
 end;
 
 procedure TfrmMain.miIDESettingsClick(Sender: TObject);
