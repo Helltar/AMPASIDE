@@ -124,8 +124,6 @@ begin
     else
       AddLogMsg('Не удалось скопировать файл: ' + FileName, lmtErr);
   end;
-
-  UpdateFileList;
 end;
 
 function TFileManager.IsDirectory(const DirName: string): boolean;
