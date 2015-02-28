@@ -1,19 +1,19 @@
 object frmIDEMacros: TfrmIDEMacros
-  Left = 681
-  Height = 229
-  Top = 240
-  Width = 392
+  Left = 954
+  Height = 220
+  Top = 207
+  Width = 382
   Caption = 'IDE Macros'
-  ClientHeight = 229
-  ClientWidth = 392
+  ClientHeight = 220
+  ClientWidth = 382
   OnCreate = FormCreate
   Position = poScreenCenter
   LCLVersion = '1.5'
-  inline synedtMacro: TSynEdit
+  inline synedtMacros: TSynEdit
     Left = 6
-    Height = 177
+    Height = 168
     Top = 6
-    Width = 380
+    Width = 370
     Align = alClient
     BorderSpacing.Around = 6
     Font.Height = -12
@@ -515,8 +515,8 @@ object frmIDEMacros: TfrmIDEMacros
   object btnpnlMain: TButtonPanel
     Left = 6
     Height = 34
-    Top = 189
-    Width = 380
+    Top = 180
+    Width = 370
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
     OKButton.OnClick = OKButtonClick
@@ -528,6 +528,7 @@ object frmIDEMacros: TfrmIDEMacros
     CancelButton.DefaultCaption = True
     TabOrder = 1
     ShowButtons = [pbOK]
+    ShowBevel = False
   end
   object synPasHighlighter: TSynPasSyn
     Enabled = False

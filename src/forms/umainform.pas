@@ -26,9 +26,8 @@ unit uMainForm;
 interface
 
 uses
-  Classes, ComCtrls, Controls, Forms, Dialogs, ExtCtrls, ActnList, FileUtil, LCLIntf, Menus, SynEdit, SysUtils,
-  //--------
-  uAMPASCore;
+  Classes, ComCtrls, Controls, Forms, Dialogs, ExtCtrls, ActnList, FileUtil,
+  LCLIntf, Menus, SynEdit, SysUtils, uAMPASCore;
 
 type
 
@@ -57,7 +56,7 @@ type
     miExamples: TMenuItem;
     miSettings: TMenuItem;
     miIDESettings: TMenuItem;
-    miIDEMacro: TMenuItem;
+    miIDEMacros: TMenuItem;
     MenuItem5: TMenuItem;
     miView: TMenuItem;
     miCompactViewMode: TMenuItem;
@@ -144,7 +143,7 @@ type
     procedure miDocumentationClick(Sender: TObject);
     procedure miExamplesClick(Sender: TObject);
     procedure miIDESettingsClick(Sender: TObject);
-    procedure miIDEMacroClick(Sender: TObject);
+    procedure miIDEMacrosClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miCreateProjectClick(Sender: TObject);
     procedure miExitClick(Sender: TObject);
@@ -465,7 +464,7 @@ begin
     end;
 end;
 
-procedure TfrmMain.miIDEMacroClick(Sender: TObject);
+procedure TfrmMain.miIDEMacrosClick(Sender: TObject);
 begin
   with TfrmIDEMacros.Create(Self) do
     try

@@ -36,7 +36,7 @@ type
     btnpnlMain: TButtonPanel;
     miCopy: TMenuItem;
     pmMain: TPopupMenu;
-    synedtMacro: TSynEdit;
+    synedtMacros: TSynEdit;
     synPasHighlighter: TSynPasSyn;
     procedure FormCreate(Sender: TObject);
     procedure miCopyClick(Sender: TObject);
@@ -68,8 +68,8 @@ begin
   Height := 320;
   Width := 700;
 
-  synedtMacro.Font.Name := EditorConfig.FontName;
-  synedtMacro.Font.Size := EditorConfig.FontSize;
+  synedtMacros.Font.Name := EditorConfig.FontName;
+  synedtMacros.Font.Size := EditorConfig.FontSize;
 
   APKFileName := IDEConfig.MacrosReplace(M_APK_FILENAME);
   JADFileName := IDEConfig.MacrosReplace(M_JAD_FILENAME);
@@ -86,15 +86,15 @@ begin
     JARFileName := 'абсолютный путь к .jar';
 
   if ProjPath = '' then
-    ProjPath := 'абсолютный путь к каталогу проекта + "' + LE + '"';
+    ProjPath := 'абсолютный путь к домашнему каталогу проекта ' + DIR_SEP;
 
   with IDEConfig do
-    synedtMacro.Text := (
+    synedtMacros.Text := (
       '//--------- IDE ---------' + LE + LE +
       M_APP_NAME + ' - ' + MacrosReplace(M_APP_NAME) + LE +
       M_APP_VERSION + ' - ' + MacrosReplace(M_APP_VERSION) + LE + LE +
       '//--------- Проект ---------' + LE + LE +
-      M_PROJ_PATH + ' - ' + MacrosReplace(M_PROJ_PATH) + LE +
+      M_PROJ_PATH + ' - ' + ProjPath + LE +
       M_APK_FILENAME + ' - ' + APKFileName + LE +
       M_JAD_FILENAME + ' - ' + JADFileName + LE +
       M_JAR_FILENAME + ' - ' + JARFileName + LE + LE +
@@ -106,7 +106,7 @@ end;
 
 procedure TfrmIDEMacros.miCopyClick(Sender: TObject);
 begin
-  synedtMacro.CopyToClipboard;
+  synedtMacros.CopyToClipboard;
 end;
 
 procedure TfrmIDEMacros.OKButtonClick(Sender: TObject);
