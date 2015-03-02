@@ -8,21 +8,8 @@ Advanced MIDletPascal IDE
 Установка
 ---------
 
-### Linux
-
-Выпускаемые версии на **Qt**, установите [Free Pascal Qt4 Binding](http://users.telenet.be/Jan.Van.hijfte/qtforfpc/fpcqt4.html):
-
-``` bash
-# yum, zypper, etc...
-sudo apt-get install libqt4pas-dev
-```
-
-(при необходимости под **GTK** вы можете собрать из исходников)
-
-Для запуска эмулятора должна быть установлена **JRE**:
-```
-java -version
-```
+- [INSTALL_LINUX.md](https://github.com/Helltar/AMPASIDE/blob/master/INSTALL_LINUX.md)
+- [INSTALL_WINDOWS.md](https://github.com/Helltar/AMPASIDE/blob/master/INSTALL_WINDOWS.md)
 
 Сборка из исходников
 --------------------
