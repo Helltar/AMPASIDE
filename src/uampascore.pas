@@ -245,7 +245,7 @@ begin
 
       Result.Completed := True;
     except
-      AddLogMsg('Ошибка при запуске процесса: ' + CmdLine, lmtErr);
+      AddLogMsg('Ошибка при запуске процесса: ' + P.CommandLine, lmtErr);
     end;
   finally
     IsProcessRunning := False;
