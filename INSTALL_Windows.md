@@ -3,9 +3,16 @@
 
 ### Windows
 
-Для возможности сборки под **Android**, установите **Apache Ant**:
+Для запуска эмулятора должна быть установлена **JRE**:
 
-- http://ant.apache.org/manual/install.html
-- http://www.mkyong.com/ant/how-to-install-apache-ant-on-windows/
+```
+java -version
+```
+
+##### Другое
+
+Не используйте кириллицу в путях к проекту, наприм. *C:\Users\Андрей\Documents*, работать не будет.
+
+Также можно выставить совместимость для *tools\win_i386\mp3CC.exe*, все работает, но на больших проектах может загнутся.
 
 ---------
