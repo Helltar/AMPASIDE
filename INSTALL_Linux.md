@@ -16,10 +16,10 @@ sudo apt-get install libqt4pas-dev
 
 ##### Другое
 
-Для возможности сборки под **Android**, установите **Apache Ant**:
+Для запуска эмулятора должна быть установлена **JRE**:
 
 ```
-sudo apt-get install ant
+java -version
 ```
 
 ---------
