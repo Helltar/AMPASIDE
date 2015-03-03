@@ -8,8 +8,8 @@ Advanced MIDletPascal IDE
 Установка
 ---------
 
-- [INSTALL_LINUX.md](https://github.com/Helltar/AMPASIDE/blob/master/INSTALL_LINUX.md)
-- [INSTALL_WINDOWS.md](https://github.com/Helltar/AMPASIDE/blob/master/INSTALL_WINDOWS.md)
+- [INSTALL_Linux.md](https://github.com/Helltar/AMPASIDE/blob/master/INSTALL_Linux.md)
+- [INSTALL_Windows.md](https://github.com/Helltar/AMPASIDE/blob/master/INSTALL_Windows.md)
 
 Сборка из исходников
 --------------------
