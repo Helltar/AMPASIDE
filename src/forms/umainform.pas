@@ -342,8 +342,13 @@ begin
 end;
 
 procedure TfrmMain.actCloseActiveTabUpdate(Sender: TObject);
+var
+  IsEditorActive: boolean;
+
 begin
-  TAction(Sender).Enabled := CodeEditor.IsEditorActive;
+  IsEditorActive := CodeEditor.IsEditorActive;
+  TAction(Sender).Enabled := IsEditorActive;
+  miCloseAllOtherPages.Enabled := IsEditorActive;
 end;
 
 procedure TfrmMain.actCodeInsDateTimeExecute(Sender: TObject);
