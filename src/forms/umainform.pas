@@ -450,14 +450,24 @@ end;
 
 procedure TfrmMain.miCloseAllOtherPagesClick(Sender: TObject);
 var
+  TabClose: boolean;
   i: integer;
 
 begin
-  if pgcEditor.PageCount > 0 then
+  if pgcEditor.PageCount <= 0 then
+    Exit;
+
+  for i := pgcEditor.PageCount - 1 downto 0 do
+  begin
+    TabClose := CheckFileModified(pgcEditor.Pages[i]);
+    if not TabClose then
+      Break;
+  end;
+
+  if TabClose then
     for i := pgcEditor.PageCount - 1 downto 0 do
-      if CheckFileModified(pgcEditor.Pages[i]) then
-        if pgcEditor.Pages[i] <> pgcEditor.ActivePage then
-          CodeEditor.CloseTabSheet(pgcEditor.Pages[i]);
+      if pgcEditor.Pages[i] <> pgcEditor.ActivePage then
+        CodeEditor.CloseTabSheet(pgcEditor.Pages[i]);
 end;
 
 procedure TfrmMain.miDocumentationClick(Sender: TObject);
@@ -833,4 +843,3 @@ begin
 end;
 
 end.
-
