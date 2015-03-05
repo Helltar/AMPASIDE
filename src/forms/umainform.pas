@@ -53,6 +53,8 @@ type
     actlMain: TActionList;
     ilMain: TImageList;
     ilProjActions: TImageList;
+    miCloseActivePage: TMenuItem;
+    miCloseAllOtherPages: TMenuItem;
     miExamples: TMenuItem;
     miSettings: TMenuItem;
     miIDESettings: TMenuItem;
@@ -86,6 +88,7 @@ type
     pgcEditor: TPageControl;
     pgcMsgNotes: TPageControl;
     pgcProject: TPageControl;
+    pmEditor: TPopupMenu;
     splBottom: TSplitter;
     splLeft: TSplitter;
     stbEditor: TStatusBar;
@@ -140,6 +143,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormDropFiles(Sender: TObject; const FileNames: array of string);
+    procedure miCloseAllOtherPagesClick(Sender: TObject);
     procedure miDocumentationClick(Sender: TObject);
     procedure miExamplesClick(Sender: TObject);
     procedure miIDESettingsClick(Sender: TObject);
@@ -442,6 +446,18 @@ begin
       FileManager.AddFile(FileNames[i])
     else
       LoadFile(FileNames[i]);
+end;
+
+procedure TfrmMain.miCloseAllOtherPagesClick(Sender: TObject);
+var
+  i: integer;
+
+begin
+  if pgcEditor.PageCount > 0 then
+    for i := pgcEditor.PageCount - 1 downto 0 do
+      if CheckFileModified(pgcEditor.Pages[i]) then
+        if pgcEditor.Pages[i] <> pgcEditor.ActivePage then
+          CodeEditor.CloseTabSheet(pgcEditor.Pages[i]);
 end;
 
 procedure TfrmMain.miDocumentationClick(Sender: TObject);

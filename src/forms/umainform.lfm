@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 560
-  Height = 518
-  Top = 187
-  Width = 761
+  Left = 421
+  Height = 569
+  Top = 194
+  Width = 857
   AllowDropFiles = True
   Caption = 'AMPASIDE'
-  ClientHeight = 497
-  ClientWidth = 761
+  ClientHeight = 548
+  ClientWidth = 857
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -22,7 +22,7 @@ object frmMain: TfrmMain
     Left = 322
     Height = 26
     Top = 6
-    Width = 433
+    Width = 529
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
@@ -120,11 +120,12 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = stbEditor
     Left = 322
-    Height = 221
+    Height = 272
     Top = 38
-    Width = 433
+    Width = 529
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
+    PopupMenu = pmEditor
     TabOrder = 1
     OnCloseTabClicked = pgcEditorCloseTabClicked
     Options = [nboShowCloseButtons]
@@ -137,8 +138,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = splBottom
     Left = 322
     Height = 20
-    Top = 265
-    Width = 433
+    Top = 316
+    Width = 529
     Action = actUpdateStatusBar
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
@@ -167,8 +168,8 @@ object frmMain: TfrmMain
     Cursor = crVSplit
     Left = 322
     Height = 5
-    Top = 291
-    Width = 439
+    Top = 342
+    Width = 535
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -184,8 +185,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Side = asrBottom
     Left = 322
     Height = 189
-    Top = 302
-    Width = 433
+    Top = 353
+    Width = 529
     ActivePage = tsLogMsg
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
@@ -194,12 +195,12 @@ object frmMain: TfrmMain
     object tsLogMsg: TTabSheet
       Caption = 'Сообщения'
       ClientHeight = 159
-      ClientWidth = 425
+      ClientWidth = 521
       object tvMsg: TTreeView
         Left = 6
         Height = 147
         Top = 6
-        Width = 413
+        Width = 509
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
@@ -727,7 +728,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 251
-    Height = 453
+    Height = 504
     Top = 38
     Width = 65
     Align = alNone
@@ -802,7 +803,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 240
-    Height = 497
+    Height = 548
     Top = 0
     Width = 5
     Align = alNone
@@ -815,7 +816,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 485
+    Height = 536
     Top = 6
     Width = 228
     ActivePage = tsProjFiles
@@ -1049,5 +1050,19 @@ object frmMain: TfrmMain
     Width = 64
     left = 544
     top = 128
+  end
+  object pmEditor: TPopupMenu
+    Images = ilMain
+    left = 464
+    top = 128
+    object miCloseActivePage: TMenuItem
+      Action = actCloseActiveTab
+      Caption = 'Закрыть вкладку'
+      Hint = 'Закрыть вкладку'
+    end
+    object miCloseAllOtherPages: TMenuItem
+      Caption = 'Закрыть другие вкладки'
+      OnClick = miCloseAllOtherPagesClick
+    end
   end
 end
