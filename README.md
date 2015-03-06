@@ -8,7 +8,7 @@ Advanced MIDletPascal IDE
 Установка
 ---------
 
-### Linux
+#### Linux
 
 Выпускаемые версии на **Qt**, установите [Free Pascal Qt4 Binding](http://users.telenet.be/Jan.Van.hijfte/qtforfpc/fpcqt4.html):
 
