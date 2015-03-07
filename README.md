@@ -5,10 +5,10 @@ Advanced MIDletPascal IDE
 
 Среда разработки использующая компилятор языка программирования [MIDletPascal](http://ru.wikipedia.org/wiki/MIDletPascal).
 
-**[Последний релиз (бинарные файлы)](https://github.com/Helltar/AMPASIDE/releases/latest)**
- 
 Установка
 ---------
+
+**[Последний релиз (бинарные файлы)](https://github.com/Helltar/AMPASIDE/releases/latest)**
 
 ### Linux
 
