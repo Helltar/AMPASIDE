@@ -38,8 +38,9 @@ type
     function CompileFile(FileName: string): boolean;
     function CreateManifest(const FileName: string): boolean;
     function DeleteCharacters(const AValue: string): string;
+    function ExecPreBuildAct: boolean;
     function IsErr(const AValue: string): boolean;
-    function PreBuild: boolean;
+    function RebuildPreBuildDir: boolean;
     procedure CreateJad;
   public
     constructor Create;
@@ -282,9 +283,12 @@ begin
       if Exec(P.Output) then
       begin
         repeat
-          FileName := ProjManager.ProjDirSrc + Match[1] + EXT_MODULE;
-          if not CompileFile(FileName) then
-            Exit;
+          if not FileExists(ProjManager.ProjDirPreBuild + Match[1] + EXT_CLASS) then // ._.
+          begin
+            FileName := ProjManager.ProjDirSrc + Match[1] + EXT_MODULE;
+            if not CompileFile(FileName) then
+              Exit;
+          end;
         until not ExecNext;
       end;
     finally
@@ -316,30 +320,38 @@ begin
     Result := True;
 end;
 
-function TProjectBuilding.PreBuild: boolean;
+function TProjectBuilding.ExecPreBuildAct: boolean;
 var
-  PreBuildDir, FW_Class: string;
+  FW_Class: string;
 
 begin
   Result := False;
+
   if ProjManager.CreateProjDir(ProjManager.ProjDirHome) then
-  begin
-    PreBuildDir := ProjManager.ProjDirPreBuild;
-    if CheckDir(PreBuildDir) then
+    if RebuildPreBuildDir then
     begin
-      { TODO : if }
-      DeleteDirectory(PreBuildDir, False);
-      if MakeDir(PreBuildDir) then
-      begin
-        FW_Class := GetAppPath + APP_DIR_STUBS + CLASS_FW;
-        if CheckFile(FW_Class) then
-          if CopyFile(FW_Class, PreBuildDir + CLASS_FW) then
-            if MakeDir(ExtractFilePath(ManifestFileName)) then
-              if CreateManifest(ManifestFileName) then
-                Result := True;
-      end;
+      FW_Class := GetAppPath + APP_DIR_STUBS + CLASS_FW;
+      if CheckFile(FW_Class) then
+        if CopyFile(FW_Class, ProjManager.ProjDirPreBuild + CLASS_FW) then
+          if MakeDir(ExtractFilePath(ManifestFileName)) then
+            if CreateManifest(ManifestFileName) then
+              Result := True;
     end;
-  end;
+end;
+
+function TProjectBuilding.RebuildPreBuildDir: boolean;
+var
+  PreBuildDir: string;
+
+begin
+  Result := False;
+
+  PreBuildDir := ProjManager.ProjDirPreBuild;
+
+  if CheckDir(PreBuildDir) then
+    if DeleteDirectory(PreBuildDir, False) then
+      if MakeDir(PreBuildDir) then
+        Result := True;
 end;
 
 procedure TProjectBuilding.CreateJad;
@@ -413,10 +425,10 @@ var
 begin
   Result := False;
 
-  if not PreBuild then
+  if not ExecPreBuildAct then
     Exit;
 
-  if not CompileMainModule then
+  if not CompileFile(ProjManager.MainModule) then
     Exit;
 
   JARFileName := ProjManager.JarFile;
@@ -457,9 +469,11 @@ end;
 function TProjectBuilding.CompileMainModule: boolean;
 begin
   Result := False;
+
   if ProjManager.CreateProjDir(ProjManager.ProjDirHome) then
-    if CompileFile(ProjManager.MainModule) then
-      Result := True;
+    if RebuildPreBuildDir then
+      if CompileFile(ProjManager.MainModule) then
+        Result := True;
 end;
 
 procedure TProjectBuilding.Run;
