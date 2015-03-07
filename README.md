@@ -5,10 +5,12 @@ Advanced MIDletPascal IDE
 
 Среда разработки использующая компилятор языка программирования [MIDletPascal](http://ru.wikipedia.org/wiki/MIDletPascal).
 
+**[Последний релиз (бинарный файлы)](https://github.com/Helltar/AMPASIDE/releases/latest)**
+ 
 Установка
 ---------
 
-#### Linux
+### Linux
 
 Выпускаемые версии на **Qt**, установите [Free Pascal Qt4 Binding](http://users.telenet.be/Jan.Van.hijfte/qtforfpc/fpcqt4.html):
 
