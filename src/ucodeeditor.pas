@@ -26,9 +26,8 @@ unit uCodeEditor;
 interface
 
 uses
-  Classes, ComCtrls, Controls, Graphics, SysUtils, LCLIntf, LCLType, RegExpr,
-  SynEdit, SynEditMarkupHighAll, SynEditMouseCmds, SynExportHTML, SynCompletion,
-  SynEditHighlighter, SynPluginSyncroEdit;
+  Classes, ComCtrls, Controls, Graphics, SysUtils, LCLIntf, SynEdit, SynEditMarkupHighAll,
+  SynEditMouseCmds, SynExportHTML, SynEditHighlighter, SynPluginSyncroEdit;
 
 type
 
@@ -36,20 +35,14 @@ type
 
   TCodeEditor = class
   private
-    CompletionList: TStringList;
-    EditorCompletion: TSynCompletion;
     FileNameList: array of string;
     FOwner: TPageControl;
-    function EditorCompletionPaintItem(const AKey: string; ACanvas: TCanvas; X, Y: integer; Selected: boolean; Index: integer): boolean;
     function GetActiveFileName: string;
     function GetActiveTabSheet: TTabSheet;
     function GetActiveTabTag: integer;
     function GetCaretPos: string;
-    function GetCompletionKeyFromIndex(Index: integer; ACanvas: TCanvas): string;
     function GetCurrentEditor: TSynEdit;
     function GetHighlighterFromName(const FileName: string): TSynCustomHighlighter;
-    procedure DelCompletionKey(var AValue: TStringList);
-    procedure EditorCompletionCodeCompletion(var AValue: string; SourceValue: string; var SourceStart, SourceEnd: TPoint; KeyChar: TUTF8Char; Shift: TShiftState);
   public
     constructor Create(AOwner: TPageControl);
     destructor Destroy; override;
@@ -82,49 +75,25 @@ implementation
 
 uses
   uAMPASCore,
+  uAutocomplete,
   uCodeEditorDM,
   uEditorConfig;
+
+var
+  EditorAutocomplete: TAutocomplete;
 
 { TCodeEditor }
 
 constructor TCodeEditor.Create(AOwner: TPageControl);
-var
-  StrList: TStringList;
-
 begin
   FOwner := AOwner;
-
-  CompletionList := TStringList.Create;
-  try
-    CompletionList.LoadFromFile(GetAppPath + EDITOR_COMPLETION);
-  except
-    AddLogMsg('Не удалось загрузить файл автодополнения: ' + EDITOR_COMPLETION, lmtErr);
-  end;
-
-  EditorCompletion := TSynCompletion.Create(AOwner);
-  EditorCompletion.LinesInWindow := 12;
-  EditorCompletion.OnCodeCompletion := @EditorCompletionCodeCompletion;
-  EditorCompletion.OnPaintItem := @EditorCompletionPaintItem;
-  EditorCompletion.SelectedColor := $E0E0E0;
-  EditorCompletion.ShowSizeDrag := True;
-  EditorCompletion.Width := EditorConfig.EditorCompletionWidth;
-
-  StrList := TStringList.Create;
-  try
-    StrList.Text := CompletionList.Text;
-    DelCompletionKey(StrList);
-    EditorCompletion.ItemList := StrList;
-  finally
-    FreeAndNil(StrList);
-  end;
+  EditorAutocomplete := TAutocomplete.Create(AOwner);
 end;
 
 destructor TCodeEditor.Destroy;
 begin
   FileNameList := nil;
-  { TODO : не работает }
-  EditorConfig.EditorCompletionWidth := EditorCompletion.Width;
-  FreeAndNil(CompletionList);
+  FreeAndNil(EditorAutocomplete);
   inherited Destroy;
 end;
 
@@ -180,7 +149,7 @@ begin
 
   UpdateEditorSettings(synEditor);
 
-  EditorCompletion.AddEditor(synEditor);
+  EditorAutocomplete.AddEditor(synEditor);
 
   synSyncEdit := TSynPluginSyncroEdit.Create(synEditor);
   synSyncEdit.Editor := synEditor;
@@ -230,102 +199,6 @@ begin
         Options := Options + [eoScrollPastEol]
       else
         Options := Options - [eoScrollPastEol];
-    end;
-  end;
-end;
-
-function TCodeEditor.GetCompletionKeyFromIndex(Index: integer; ACanvas: TCanvas): string;
-const
-  KEY_CONST = 'const';
-  KEY_FUNCTION = 'function';
-  KEY_MIMETYPE = 'mimetype';
-  KEY_PROCEDURE = 'procedure';
-  KEY_PROPERTY = 'property';
-  KEY_TYPE = 'type';
-
-begin
-  Result := CompletionList.Strings[Index];
-
-  with TRegExpr.Create do
-  begin
-    try
-      Expression := '\w*';
-      if Exec(Result) then
-        Result := Match[0];
-    finally
-      Free;
-    end;
-  end;
-
-  with ACanvas.Font do
-  begin
-    case Result of
-      KEY_CONST: Color := clMaroon;
-      KEY_FUNCTION: Color := clGreen;
-      KEY_MIMETYPE: Color := clOlive;
-      KEY_PROCEDURE: Color := clNavy;
-      KEY_PROPERTY: Color := clTeal;
-      KEY_TYPE: Color := clPurple;
-    end;
-  end;
-end;
-
-function TCodeEditor.EditorCompletionPaintItem(const AKey: string; ACanvas: TCanvas; X, Y: integer; Selected: boolean; Index: integer): boolean;
-begin
-  ACanvas.Font.Name := EditorConfig.FontName;
-  ACanvas.Font.Size := EditorConfig.FontSize;
-
-  ACanvas.TextOut(0, Y, GetCompletionKeyFromIndex(Index, ACanvas));
-
-  ACanvas.Font.Color := $303030;
-  ACanvas.TextOut(90, Y, AKey);
-
-  Result := True;
-end;
-
-procedure TCodeEditor.EditorCompletionCodeCompletion(var AValue: string; SourceValue: string; var SourceStart, SourceEnd: TPoint; KeyChar: TUTF8Char; Shift: TShiftState);
-begin
-  with TRegExpr.Create do
-  begin
-    try
-      Expression := '\w*\(';
-      if Exec(AValue) then
-      begin
-        AValue := Match[0];
-        EditorCompletion.AddCharAtCursor(')');
-      end
-      else
-      begin
-        Expression := '(\w*):';
-        if Exec(AValue) then
-          AValue := Match[1]
-        else
-        begin
-          Expression := '(\w*);';
-          if Exec(AValue) then
-            AValue := Match[1];
-        end;
-      end;
-    finally
-      Free;
-    end;
-  end;
-end;
-
-procedure TCodeEditor.DelCompletionKey(var AValue: TStringList);
-var
-  i: integer;
-
-begin
-  with TRegExpr.Create do
-  begin
-    try
-      Expression := '\s(.*?)$';
-      for i := 0 to AValue.Count - 1 do
-        if Exec(AValue.Strings[i]) then
-          AValue.Strings[i] := Match[1];
-    finally
-      Free;
     end;
   end;
 end;
