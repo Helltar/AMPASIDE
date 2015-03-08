@@ -241,6 +241,7 @@ const
   KEY_MIMETYPE = 'mimetype';
   KEY_PROCEDURE = 'procedure';
   KEY_PROPERTY = 'property';
+  KEY_TYPE = 'type';
 
 begin
   Result := CompletionList.Strings[Index];
@@ -264,6 +265,7 @@ begin
       KEY_MIMETYPE: Color := clOlive;
       KEY_PROCEDURE: Color := clNavy;
       KEY_PROPERTY: Color := clTeal;
+      KEY_TYPE: Color := clPurple;
     end;
   end;
 end;

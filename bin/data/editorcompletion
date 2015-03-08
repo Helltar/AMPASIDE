@@ -1,3 +1,13 @@
+type boolean
+type char
+type integer
+type real
+type string
+type image
+type command
+type recordStore
+type http
+type resource
 procedure DrawArc(X, Y, Width, Height, StartAngle, ArcAngle: integer);
 procedure DrawEllipse(X, Y, Width, Height: integer);
 procedure DrawImage(Img: image; X, Y: integer);
