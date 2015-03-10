@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 421
-  Height = 569
-  Top = 194
-  Width = 857
+  Left = 611
+  Height = 548
+  Top = 178
+  Width = 816
   AllowDropFiles = True
   Caption = 'AMPASIDE'
-  ClientHeight = 548
-  ClientWidth = 857
+  ClientHeight = 527
+  ClientWidth = 816
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -22,7 +22,7 @@ object frmMain: TfrmMain
     Left = 322
     Height = 26
     Top = 6
-    Width = 529
+    Width = 488
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
@@ -120,9 +120,9 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = stbEditor
     Left = 322
-    Height = 272
+    Height = 251
     Top = 38
-    Width = 529
+    Width = 488
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     PopupMenu = pmEditor
@@ -138,8 +138,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = splBottom
     Left = 322
     Height = 20
-    Top = 316
-    Width = 529
+    Top = 295
+    Width = 488
     Action = actUpdateStatusBar
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
@@ -168,8 +168,8 @@ object frmMain: TfrmMain
     Cursor = crVSplit
     Left = 322
     Height = 5
-    Top = 342
-    Width = 535
+    Top = 321
+    Width = 494
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -185,8 +185,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Side = asrBottom
     Left = 322
     Height = 189
-    Top = 353
-    Width = 529
+    Top = 332
+    Width = 488
     ActivePage = tsLogMsg
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
@@ -195,12 +195,12 @@ object frmMain: TfrmMain
     object tsLogMsg: TTabSheet
       Caption = 'Сообщения'
       ClientHeight = 159
-      ClientWidth = 521
+      ClientWidth = 480
       object tvMsg: TTreeView
         Left = 6
         Height = 147
         Top = 6
-        Width = 509
+        Width = 468
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
@@ -728,7 +728,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 251
-    Height = 504
+    Height = 483
     Top = 38
     Width = 65
     Align = alNone
@@ -803,7 +803,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 240
-    Height = 548
+    Height = 527
     Top = 0
     Width = 5
     Align = alNone
@@ -816,13 +816,13 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 536
+    Height = 515
     Top = 6
     Width = 228
-    ActivePage = tsProjFiles
+    ActivePage = tsProjSettings
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 7
     object tsProjFiles: TTabSheet
       Caption = 'Файлы'
@@ -904,10 +904,10 @@ object frmMain: TfrmMain
   end
   object mmMain: TMainMenu
     Images = ilMain
-    left = 464
+    left = 496
     top = 64
     object miFile: TMenuItem
-      Caption = 'Файл'
+      Caption = '&Файл'
       object miCreateModule: TMenuItem
         Action = actCreateModule
       end
@@ -943,13 +943,13 @@ object frmMain: TfrmMain
       end
     end
     object miView: TMenuItem
-      Caption = 'Вид'
+      Caption = '&Вид'
       object miCompactViewMode: TMenuItem
         Action = actCompactViewMode
       end
     end
     object miCode: TMenuItem
-      Caption = 'Код'
+      Caption = '&Код'
       object miCodeIns: TMenuItem
         Caption = 'Вставить общее'
         object miCodeInsDateTime: TMenuItem
@@ -968,14 +968,14 @@ object frmMain: TfrmMain
       end
     end
     object miSettings: TMenuItem
-      Caption = 'Настройка'
+      Caption = '&Настройка'
       object miIDESettings: TMenuItem
         Caption = 'Настроить AMPASIDE'
         OnClick = miIDESettingsClick
       end
     end
     object miInfo: TMenuItem
-      Caption = 'Справка'
+      Caption = '&Справка'
       object miDocumentation: TMenuItem
         Caption = 'Документация'
         OnClick = miDocumentationClick
@@ -1005,7 +1005,7 @@ object frmMain: TfrmMain
     end
   end
   object ilMain: TImageList
-    left = 544
+    left = 608
     top = 64
   end
   object actlProjActions: TActionList
@@ -1048,12 +1048,12 @@ object frmMain: TfrmMain
   object ilProjActions: TImageList
     Height = 64
     Width = 64
-    left = 544
+    left = 608
     top = 128
   end
   object pmEditor: TPopupMenu
     Images = ilMain
-    left = 464
+    left = 496
     top = 128
     object miCloseActivePage: TMenuItem
       Action = actCloseActiveTab
