@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 611
+  Left = 546
   Height = 548
-  Top = 178
+  Top = 185
   Width = 816
   AllowDropFiles = True
   Caption = 'AMPASIDE'
@@ -215,12 +215,12 @@ object frmMain: TfrmMain
     object tsNotes: TTabSheet
       Caption = 'Заметки'
       ClientHeight = 159
-      ClientWidth = 491
+      ClientWidth = 480
       inline synedtNotes: TSynEdit
         Left = 6
         Height = 147
         Top = 6
-        Width = 479
+        Width = 468
         Align = alClient
         BorderSpacing.Around = 6
         Font.Height = -12
