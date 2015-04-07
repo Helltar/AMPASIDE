@@ -1,0 +1,37 @@
+[MAIN]
+CanvasType=1
+MathType=0
+MainModule=space
+
+[MANIFEST]
+MIDletName=Space
+MIDletVendor=AMPASIDE
+MIDletIcon=/icon.png
+MIDletDescription=
+MIDletInfoURL=http://hello.com
+MIDletDeleteConfirm=Заходите на helltar.com
+MIDletInstallNotify=Helllo install notify
+ExtraOptionsEnabled=1
+ExtraOptions=sllllllllllll
+=sa
+=f
+=sa
+=f
+=fa ;;a s;as
+=f:::::::::::
+=a
+=s
+=1
+=111111111111111111111111111
+==========23423423^^^^^^^^44444444$$$##!!!!
+=das
+=d
+=sa
+=da
+=sd
+
+[VERSIONS]
+VersMajor=1
+VersMinor=0
+VersBuild=0
+AutoIncBuildVers=0
