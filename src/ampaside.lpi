@@ -124,7 +124,6 @@
       <Unit2>
         <Filename Value="ucodeeditor.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uCodeEditor"/>
       </Unit2>
       <Unit3>
         <Filename Value="uprojectmanager.pas"/>
@@ -133,7 +132,6 @@
       <Unit4>
         <Filename Value="uprojectbuilding.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uProjectBuilding"/>
       </Unit4>
       <Unit5>
         <Filename Value="uideconfig.pas"/>
@@ -146,7 +144,6 @@
       <Unit7>
         <Filename Value="ueditorconfig.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uEditorConfig"/>
       </Unit7>
       <Unit8>
         <Filename Value="ampasideconsts.inc"/>
@@ -155,11 +152,11 @@
       <Unit9>
         <Filename Value="ufilemanager.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uFileManager"/>
       </Unit9>
       <Unit10>
         <Filename Value="uandroidbuilding.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uAndroidBuilding"/>
       </Unit10>
       <Unit11>
         <Filename Value="frames/ueditoroptionsframe.pas"/>
