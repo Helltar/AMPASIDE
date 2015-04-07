@@ -8,8 +8,6 @@ Advanced MIDletPascal IDE
 Установка
 ---------
 
-**[Последний релиз (бинарные файлы)](https://github.com/Helltar/AMPASIDE/releases/latest)**
-
 ### Linux
 
 Выпускаемые версии на **Qt**, установите [Free Pascal Qt4 Binding](http://users.telenet.be/Jan.Van.hijfte/qtforfpc/fpcqt4.html):
@@ -27,6 +25,35 @@ sudo apt-get install libqt4pas-dev
 java -version
 ```
 
+#### Для возможности сборки под Android
+
+Должен быть установлен **JDK**:
+
+```
+javac -version
+```
+
+Установите **Apache Ant**:
+
+```
+sudo apt-get install ant
+```
+
+##### Linux x86_64
+
+Некоторые утилиты **Android SDK** являются **32-битными** (appt, adb...), добавьте архитектуру **i386**...:
+
+```
+sudo dpkg --add-architecture i386
+```
+
+... обновите список пакетов и установите следующие библиотеки:
+
+```
+sudo apt-get update
+sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 zlib1g:i386
+```
+
 Сборка из исходников
 --------------------
 
@@ -40,3 +67,5 @@ java -version
 --------
 
 [![GPLv3](http://www.gnu.org/graphics/gplv3-127x51.png)](https://github.com/Helltar/AMPASIDE/blob/master/COPYING)
+
+----------------------
