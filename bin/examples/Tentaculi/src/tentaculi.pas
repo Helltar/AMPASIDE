@@ -4,12 +4,6 @@ const
   S = 12;
   N = 8;
 
-  procedure Refresh;
-  begin
-    Repaint;
-    Delay(22);
-  end;
-
 var
   i, j: integer;
   x, y: real;
@@ -45,18 +39,23 @@ begin
     begin
       x := 0.5 * GetWidth;
       y := 0.5 * GetHeight;
+
       for i := 2 to N do
       begin
         SetColor(255, Trunc(255 - 255 * i / N), 255);
+
         tx := x + Cos(j * d + a[i]) * len;
         ty := y + Sin(j * d + a[i]) * len;
+
         DrawLine(Trunc(x), Trunc(y), Trunc(tx), Trunc(ty));
+
         x := tx;
         y := ty;
       end;
     end;
 
-    Refresh;
+    Repaint;
+    Delay(24);
   until GetKeyClicked = KE_KEY0;
 end.
 

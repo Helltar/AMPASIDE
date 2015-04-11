@@ -5,7 +5,7 @@ program Cubes;
     BLOCK_SIZE = 24;
 
   var
-    R, G, B: integer;
+    r, g, b: integer;
     i, j: integer;
 
   begin
@@ -13,11 +13,11 @@ program Cubes;
     begin
       for j := 0 to GetWidth do
       begin
-        R := Random(256);
-        G := Random(256);
-        B := Random(256);
+        r := Random(256);
+        g := Random(256);
+        b := Random(256);
 
-        SetColor(R, G, B);
+        SetColor(r, g, b);
         FillRect(j, i, BLOCK_SIZE, BLOCK_SIZE);
 
         SetColor(255, 255, 255);

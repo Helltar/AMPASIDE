@@ -2,7 +2,7 @@ program Space;
 
 type
   TStar = record
-    X, Y, Z: integer;
+    x, y, z: integer;
   end;
 
 const
@@ -21,8 +21,8 @@ var
     sx, sy: integer;
 
   begin
-    sx := Trunc(Scr_W / 2 + Stars[i].X * 200 / (Stars[i].Z + 200));
-    sy := Trunc(Scr_H / 2 - Stars[i].Y * 200 / (Stars[i].Z + 200));
+    sx := Trunc(Scr_W / 2 + Stars[i].x * 200 / (Stars[i].z + 200));
+    sy := Trunc(Scr_H / 2 - Stars[i].y * 200 / (Stars[i].z + 200));
     SetColor(c, c, c);
     Plot(sx, sy);
   end;
@@ -35,9 +35,9 @@ begin
 
   for i := 1 to MAX_STARS do
   begin
-    Stars[i].X := Random(Scr_W * 4) - Scr_W * 2;
-    Stars[i].Y := Random(Scr_H * 4) - Scr_H * 2;
-    Stars[i].Z := Random(1900);
+    Stars[i].x := Random(Scr_W * 4) - Scr_W * 2;
+    Stars[i].y := Random(Scr_H * 4) - Scr_H * 2;
+    Stars[i].z := Random(1900);
   end;
 
   SetColor(0, 0, 0);
@@ -52,16 +52,16 @@ begin
     for i := 1 to MAX_STARS do
     begin
       SetPix(0);
-      Stars[i].Z := Stars[i].Z - SPEED * Dt / 1000;
+      Stars[i].z := Stars[i].z - SPEED * Dt / 1000;
 
-      if Stars[i].Z <= -200 then
+      if Stars[i].z <= -200 then
       begin
-        Stars[i].X := Random(Scr_W * 4) - Scr_W * 2;
-        Stars[i].Y := Random(Scr_H * 4) - Scr_H * 2;
-        Stars[i].Z := 1900;
+        Stars[i].x := Random(Scr_W * 4) - Scr_W * 2;
+        Stars[i].y := Random(Scr_H * 4) - Scr_H * 2;
+        Stars[i].z := 1900;
       end;
 
-      SetPix(trunc(255 - 255 * (Stars[i].Z + 200) / 2100));
+      SetPix(trunc(255 - 255 * (Stars[i].z + 200) / 2100));
     end;
 
     Repaint;

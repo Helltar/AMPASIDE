@@ -4,10 +4,10 @@ const
   Speed = 1;
 
 var
-  i: integer;
   Tank: array [0..3] of Image;
   Dir: integer;
-  X, Y: integer;
+  x, y: integer;
+  i: integer;
   Key: integer;
 
 begin
@@ -15,53 +15,53 @@ begin
     Tank[i] := LoadImage('/' + IntegerToString(i) + '.png');
 
   Dir := 0;
-  X := 32;
-  Y := 32;
+  x := 32;
+  y := 32;
 
   SetColor(0, 0, 0);
   FillRect(0, 0, GetWidth, GetHeight);
 
   repeat
-    FillRect(X, Y, 16, 16);
+    FillRect(x, y, 16, 16);
     Key := GetKeyPressed;
 
     if Key = KE_KEY6 then
     begin
       Dir := 0;
-      X := X + Speed;
+      x := x + Speed;
     end
     else
     if Key = KE_KEY8 then
     begin
       Dir := 1;
-      Y := Y + Speed;
+      y := y + Speed;
     end
     else
     if Key = KE_KEY4 then
     begin
       Dir := 2;
-      X := X - Speed;
+      x := x - Speed;
     end
     else
     if Key = KE_KEY2 then
     begin
       Dir := 3;
-      Y := Y - Speed;
+      y := y - Speed;
     end;
 
-    if X < 0 then
-      X := 0;
+    if x < 0 then
+      x := 0;
 
-    if Y < 0 then
-      Y := 0;
+    if y < 0 then
+      y := 0;
 
-    if X > GetWidth - 16 then
-      X := GetWidth - 16;
+    if x > GetWidth - 16 then
+      x := GetWidth - 16;
 
-    if Y > GetHeight - 16 then
-      Y := GetHeight - 16;
+    if y > GetHeight - 16 then
+      y := GetHeight - 16;
 
-    DrawImage(Tank[Dir], X, Y);
+    DrawImage(Tank[Dir], x, y);
 
     Repaint;
     Delay(20);

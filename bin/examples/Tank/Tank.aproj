@@ -10,10 +10,9 @@ MIDletIcon=/icon.png
 MIDletDescription=
 MIDletInfoURL=
 MIDletDeleteConfirm=
-ExtraOptionsEnabled=0
 
 [VERSIONS]
 VersMajor=1
 VersMinor=0
-VersBuild=3
+VersBuild=0
 AutoIncBuildVers=0
