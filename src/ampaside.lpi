@@ -16,9 +16,8 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MinorVersionNr Value="9"/>
-      <RevisionNr Value="3"/>
-      <BuildNr Value="6"/>
+      <MajorVersionNr Value="1"/>
+      <BuildNr Value="7"/>
       <StringTable FileDescription="Advanced MIDletPascal IDE" LegalCopyright="© 2015 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE" ProductVersion=""/>
     </VersionInfo>
     <BuildModes Count="3">
@@ -119,7 +118,6 @@
       <Unit1>
         <Filename Value="uampascore.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uAMPASCore"/>
       </Unit1>
       <Unit2>
         <Filename Value="ucodeeditor.pas"/>
@@ -128,10 +126,12 @@
       <Unit3>
         <Filename Value="uprojectmanager.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uProjectManager"/>
       </Unit3>
       <Unit4>
         <Filename Value="uprojectbuilding.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uProjectBuilding"/>
       </Unit4>
       <Unit5>
         <Filename Value="uideconfig.pas"/>
@@ -140,6 +140,7 @@
       <Unit6>
         <Filename Value="uprojectconfig.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uProjectConfig"/>
       </Unit6>
       <Unit7>
         <Filename Value="ueditorconfig.pas"/>
