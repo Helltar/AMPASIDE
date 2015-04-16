@@ -1,27 +1,28 @@
 object GeneralOptionsFrame: TGeneralOptionsFrame
   Left = 0
-  Height = 431
+  Height = 456
   Top = 0
-  Width = 336
-  ClientHeight = 431
-  ClientWidth = 336
+  Width = 371
+  ClientHeight = 456
+  ClientWidth = 371
   TabOrder = 0
-  DesignLeft = 1391
-  DesignTop = 208
+  DesignLeft = 847
+  DesignTop = 200
   object gbEmulator: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 6
-    Height = 82
+    Height = 78
     Top = 6
-    Width = 324
+    Width = 359
     Anchors = [akTop, akLeft, akRight]
+    AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Эмулятор'
-    ClientHeight = 62
-    ClientWidth = 318
+    ClientHeight = 58
+    ClientWidth = 353
     TabOrder = 0
     object edtEmulatorCmd: TEdit
       AnchorSideLeft.Control = gbEmulator
@@ -32,7 +33,7 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       Left = 6
       Height = 23
       Top = 27
-      Width = 306
+      Width = 341
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       OnChange = edtEmulatorCmdChange
@@ -59,14 +60,15 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 114
-    Top = 94
-    Width = 324
+    Height = 111
+    Top = 90
+    Width = 359
     Anchors = [akTop, akLeft, akRight]
+    AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Файловый менеджер (превью)'
-    ClientHeight = 94
-    ClientWidth = 318
+    ClientHeight = 91
+    ClientWidth = 353
     ParentShowHint = False
     TabOrder = 1
     object lblPrevHeight: TLabel
@@ -141,20 +143,21 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 148
-    Top = 277
-    Width = 324
+    Height = 159
+    Top = 291
+    Width = 359
     Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Заголовки'
-    ClientHeight = 128
-    ClientWidth = 318
+    ClientHeight = 139
+    ClientWidth = 353
     TabOrder = 2
     inline synedtHeaders: TSynEdit
       Left = 6
-      Height = 116
+      Height = 127
       Top = 6
-      Width = 306
+      Width = 341
       Align = alClient
       BorderSpacing.Around = 6
       Font.Height = -13
@@ -595,7 +598,6 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       Options = [eoAutoIndent, eoBracketHighlight, eoGroupUndo, eoSmartTabs, eoTabsToSpaces, eoTrimTrailingSpaces]
       VisibleSpecialChars = [vscSpace, vscTabAtLast]
       ScrollBars = ssAutoBoth
-      SelectedColor.FrameEdges = sfeAround
       SelectedColor.BackPriority = 50
       SelectedColor.ForePriority = 50
       SelectedColor.FramePriority = 50
@@ -603,23 +605,17 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       SelectedColor.ItalicPriority = 50
       SelectedColor.UnderlinePriority = 50
       SelectedColor.StrikeOutPriority = 50
-      IncrementColor.FrameEdges = sfeAround
-      HighlightAllColor.FrameEdges = sfeAround
       BracketHighlightStyle = sbhsBoth
       BracketMatchColor.Background = clNone
       BracketMatchColor.Foreground = clNone
-      BracketMatchColor.FrameEdges = sfeAround
       BracketMatchColor.Style = [fsBold]
       FoldedCodeColor.Background = clNone
       FoldedCodeColor.Foreground = clGray
       FoldedCodeColor.FrameColor = clGray
-      FoldedCodeColor.FrameEdges = sfeAround
       MouseLinkColor.Background = clNone
       MouseLinkColor.Foreground = clBlue
-      MouseLinkColor.FrameEdges = sfeAround
       LineHighlightColor.Background = clNone
       LineHighlightColor.Foreground = clNone
-      LineHighlightColor.FrameEdges = sfeAround
       OnChange = synedtHeadersChange
       inline SynLeftGutterPartList1: TSynGutterPartList
         object SynGutterMarks1: TSynGutterMarks
@@ -631,7 +627,6 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
           MouseActions = <>
           MarkupInfo.Background = clBtnFace
           MarkupInfo.Foreground = clNone
-          MarkupInfo.FrameEdges = sfeAround
           DigitCount = 2
           ShowOnlyLineNumbersMultiplesOf = 1
           ZeroStart = False
@@ -648,13 +643,11 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
           MouseActions = <>
           MarkupInfo.Background = clWhite
           MarkupInfo.Foreground = clGray
-          MarkupInfo.FrameEdges = sfeAround
         end
         object SynGutterCodeFolding1: TSynGutterCodeFolding
           MouseActions = <>
           MarkupInfo.Background = clNone
           MarkupInfo.Foreground = clGray
-          MarkupInfo.FrameEdges = sfeAround
           MouseActionsExpanded = <>
           MouseActionsCollapsed = <>
         end
@@ -670,14 +663,15 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 57
-    Top = 214
-    Width = 324
+    Height = 78
+    Top = 207
+    Width = 359
     Anchors = [akTop, akLeft, akRight]
+    AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Префикс для новых модулей'
-    ClientHeight = 37
-    ClientWidth = 318
+    ClientHeight = 58
+    ClientWidth = 353
     TabOrder = 3
     object edtModulePrefix: TEdit
       AnchorSideLeft.Control = gbModulePrefix
@@ -687,7 +681,7 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       Left = 6
       Height = 23
       Top = 6
-      Width = 306
+      Width = 341
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       OnChange = edtModulePrefixChange
