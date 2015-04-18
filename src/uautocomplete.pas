@@ -40,7 +40,6 @@ type
     function GetCompletionKeyFromIndex(Index: integer; ACanvas: TCanvas): string;
     procedure DelCompletionKey(var AValue: TStringList);
     procedure EditorCompletionCodeCompletion(var AValue: string; SourceValue: string; var SourceStart, SourceEnd: TPoint; KeyChar: TUTF8Char; Shift: TShiftState);
-    procedure EditorCompletionExecute(Sender: TObject);
   public
     constructor Create(AOwner: TComponent);
     destructor Destroy; override;
@@ -70,7 +69,6 @@ begin
   EditorCompletion := TSynCompletion.Create(AOwner);
   EditorCompletion.LinesInWindow := 12;
   EditorCompletion.OnCodeCompletion := @EditorCompletionCodeCompletion;
-  EditorCompletion.OnExecute := @EditorCompletionExecute;
   EditorCompletion.OnPaintItem := @EditorCompletionPaintItem;
   EditorCompletion.SelectedColor := $E0E0E0;
   EditorCompletion.ShowSizeDrag := True;
@@ -124,11 +122,6 @@ begin
       Free;
     end;
   end;
-end;
-
-procedure TAutocomplete.EditorCompletionExecute(Sender: TObject);
-begin
-  // test
 end;
 
 function TAutocomplete.EditorCompletionPaintItem(const AKey: string; ACanvas: TCanvas; X, Y: integer; Selected: boolean; Index: integer): boolean;
