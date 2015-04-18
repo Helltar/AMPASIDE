@@ -17,6 +17,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
+      <RevisionNr Value="1"/>
       <BuildNr Value="7"/>
       <StringTable FileDescription="Advanced MIDletPascal IDE" LegalCopyright="© 2015 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE" ProductVersion=""/>
     </VersionInfo>
@@ -118,6 +119,7 @@
       <Unit1>
         <Filename Value="uampascore.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uAMPASCore"/>
       </Unit1>
       <Unit2>
         <Filename Value="ucodeeditor.pas"/>
@@ -161,7 +163,6 @@
         <ComponentName Value="EditorOptionsFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <UnitName Value="uEditorOptionsFrame"/>
       </Unit11>
       <Unit12>
         <Filename Value="frames/ufilemanagerframe.pas"/>
@@ -169,7 +170,6 @@
         <ComponentName Value="FileManagerFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <UnitName Value="uFileManagerFrame"/>
       </Unit12>
       <Unit13>
         <Filename Value="frames/ugeneraloptionsframe.pas"/>
@@ -177,7 +177,6 @@
         <ComponentName Value="GeneralOptionsFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <UnitName Value="uGeneralOptionsFrame"/>
       </Unit13>
       <Unit14>
         <Filename Value="frames/uprojectoptionsframe.pas"/>
@@ -185,7 +184,6 @@
         <ComponentName Value="ProjectOptionsFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
-        <UnitName Value="uProjectOptionsFrame"/>
       </Unit14>
       <Unit15>
         <Filename Value="forms/uaboutform.pas"/>
@@ -193,7 +191,6 @@
         <ComponentName Value="frmAbout"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uAboutForm"/>
       </Unit15>
       <Unit16>
         <Filename Value="forms/ucodeeditordm.pas"/>
@@ -201,7 +198,6 @@
         <ComponentName Value="dmCodeEditor"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <UnitName Value="uCodeEditorDM"/>
       </Unit16>
       <Unit17>
         <Filename Value="forms/uidemacrosform.pas"/>
@@ -209,7 +205,6 @@
         <ComponentName Value="frmIDEMacros"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uIDEMacrosForm"/>
       </Unit17>
       <Unit18>
         <Filename Value="forms/uideoptionsform.pas"/>
@@ -217,7 +212,6 @@
         <ComponentName Value="frmIDEOptions"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uIDEOptionsForm"/>
       </Unit18>
       <Unit19>
         <Filename Value="forms/umainform.pas"/>
@@ -225,7 +219,6 @@
         <ComponentName Value="frmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uMainForm"/>
       </Unit19>
       <Unit20>
         <Filename Value="forms/unewprojform.pas"/>
@@ -233,7 +226,6 @@
         <ComponentName Value="frmNewProj"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uNewProjForm"/>
       </Unit20>
       <Unit21>
         <Filename Value="forms/umanifestmfform.pas"/>
@@ -241,11 +233,11 @@
         <ComponentName Value="frmManifestMf"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uManifestMfForm"/>
       </Unit21>
       <Unit22>
         <Filename Value="uautocomplete.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uAutocomplete"/>
       </Unit22>
     </Units>
   </ProjectOptions>
