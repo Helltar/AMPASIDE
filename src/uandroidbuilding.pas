@@ -189,8 +189,8 @@ var
       if MakeDir(GetAppPath + APP_DIR_TMP) then
         if CopyFile(AntBuildFile, ProjBuildFile) then
           if CreateBuildFile(ProjBuildFile, ProjManager.JadFile, ApkName, ProjManager.ProjDirPreBuild) then
-            if CreateAndroidManifest(GetAppPath + APP_DIR_TMP + 'AndroidManifest.xml',
-              'org.microemu.android.' + MIDletName, ProjManager.MIDletVersion, ProjConfig.VersMajor) then
+            if CreateAndroidManifest(GetAppPath + APP_DIR_TMP + 'AndroidManifest.xml', ProjConfig.APackage,
+              ProjManager.MIDletVersion, ProjConfig.VersMajor) then
               if CreateStringsFile(GetAppPath + APP_DIR_TMP + 'strings.xml', MIDletName, 'FW', MIDletName + EXT_JAD) then
                 Result := True;
   end;

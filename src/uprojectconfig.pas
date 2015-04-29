@@ -35,6 +35,7 @@ type
   TProjectConfig = class
   private
     ProjIniFile: TIniFile;
+    function GetAPackage: string;
     function GetAutoIncBuildVers: boolean;
     function GetCanvasType: integer;
     function GetConfigFileName: string;
@@ -53,6 +54,7 @@ type
     function GetVersBuild: integer;
     function GetVersMajor: integer;
     function GetVersMinor: integer;
+    procedure SetAPackage(AValue: string);
     procedure SetAutoIncBuildVers(AValue: boolean);
     procedure SetCanvasType(AValue: integer);
     procedure SetConfigFileName(AValue: string);
@@ -90,6 +92,9 @@ type
     property MnfExtraOptions: string read GetMnfExtraOptions write SetMnfExtraOptions;
     property MnfExtraOptionsEnabled: boolean read GetMnfExtraOptionsEnabled write SetMnfExtraOptionsEnabled;
 
+    // android
+    property APackage: string read GetAPackage write SetAPackage;
+
     property AutoIncBuildVers: boolean read GetAutoIncBuildVers write SetAutoIncBuildVers;
     property VersBuild: integer read GetVersBuild write SetVersBuild;
     property VersMajor: integer read GetVersMajor write SetVersMajor;
@@ -120,6 +125,11 @@ end;
 function TProjectConfig.GetAutoIncBuildVers: boolean;
 begin
   Result := ProjIniFile.ReadBool('VERSIONS', 'AutoIncBuildVers', True);
+end;
+
+function TProjectConfig.GetAPackage: string;
+begin
+  Result := ProjIniFile.ReadString('AMANIFEST', 'Package', 'org.microemu.android.' + MIDletName);
 end;
 
 function TProjectConfig.GetCanvasType: integer;
@@ -207,6 +217,11 @@ end;
 function TProjectConfig.GetVersMinor: integer;
 begin
   Result := ProjIniFile.ReadInteger('VERSIONS', 'VersMinor', 0);
+end;
+
+procedure TProjectConfig.SetAPackage(AValue: string);
+begin
+  ProjIniFile.WriteString('AMANIFEST', 'Package', AValue);
 end;
 
 procedure TProjectConfig.SetAutoIncBuildVers(AValue: boolean);

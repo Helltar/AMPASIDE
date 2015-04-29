@@ -124,7 +124,6 @@
       <Unit2>
         <Filename Value="ucodeeditor.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uCodeEditor"/>
       </Unit2>
       <Unit3>
         <Filename Value="uprojectmanager.pas"/>
@@ -157,6 +156,7 @@
       <Unit10>
         <Filename Value="uandroidbuilding.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uAndroidBuilding"/>
       </Unit10>
       <Unit11>
         <Filename Value="frames/ueditoroptionsframe.pas"/>
@@ -185,6 +185,7 @@
         <ComponentName Value="ProjectOptionsFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
+        <UnitName Value="uProjectOptionsFrame"/>
       </Unit14>
       <Unit15>
         <Filename Value="forms/uaboutform.pas"/>
@@ -192,7 +193,6 @@
         <ComponentName Value="frmAbout"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uAboutForm"/>
       </Unit15>
       <Unit16>
         <Filename Value="forms/ucodeeditordm.pas"/>
@@ -200,7 +200,6 @@
         <ComponentName Value="dmCodeEditor"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <UnitName Value="uCodeEditorDM"/>
       </Unit16>
       <Unit17>
         <Filename Value="forms/uidemacrosform.pas"/>
