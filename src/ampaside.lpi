@@ -18,7 +18,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="7"/>
+      <BuildNr Value="8"/>
       <StringTable FileDescription="Advanced MIDletPascal IDE" LegalCopyright="© 2015 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE" ProductVersion=""/>
     </VersionInfo>
     <BuildModes Count="3">
@@ -124,6 +124,7 @@
       <Unit2>
         <Filename Value="ucodeeditor.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uCodeEditor"/>
       </Unit2>
       <Unit3>
         <Filename Value="uprojectmanager.pas"/>
@@ -191,6 +192,7 @@
         <ComponentName Value="frmAbout"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uAboutForm"/>
       </Unit15>
       <Unit16>
         <Filename Value="forms/ucodeeditordm.pas"/>
@@ -198,6 +200,7 @@
         <ComponentName Value="dmCodeEditor"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="uCodeEditorDM"/>
       </Unit16>
       <Unit17>
         <Filename Value="forms/uidemacrosform.pas"/>
@@ -219,6 +222,7 @@
         <ComponentName Value="frmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uMainForm"/>
       </Unit19>
       <Unit20>
         <Filename Value="forms/unewprojform.pas"/>
@@ -237,7 +241,6 @@
       <Unit22>
         <Filename Value="uautocomplete.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="uAutocomplete"/>
       </Unit22>
     </Units>
   </ProjectOptions>
