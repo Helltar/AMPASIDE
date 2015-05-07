@@ -61,11 +61,9 @@ sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 zlib1g:i386
 
 Для корректной сборки используйте **trunk** версию Lazarus IDE:
 
-- http://wiki.lazarus.freepascal.org/Getting_Lazarus#Getting_SVN
+- http://wiki.lazarus.freepascal.org/Getting_Lazarus#Getting_Lazarus_SVN_development_version
 
 Лицензия
 --------
 
 [![GPLv3](http://www.gnu.org/graphics/gplv3-127x51.png)](https://github.com/Helltar/AMPASIDE/blob/master/COPYING)
-
-----------------------
