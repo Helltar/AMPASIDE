@@ -18,7 +18,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="8"/>
+      <BuildNr Value="9"/>
       <StringTable FileDescription="Advanced MIDletPascal IDE" LegalCopyright="© 2015 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE" ProductVersion=""/>
     </VersionInfo>
     <BuildModes Count="3">
@@ -124,22 +124,27 @@
       <Unit2>
         <Filename Value="ucodeeditor.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uCodeEditor"/>
       </Unit2>
       <Unit3>
         <Filename Value="uprojectmanager.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uProjectManager"/>
       </Unit3>
       <Unit4>
         <Filename Value="uprojectbuilding.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uProjectBuilding"/>
       </Unit4>
       <Unit5>
         <Filename Value="uideconfig.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uIDEConfig"/>
       </Unit5>
       <Unit6>
         <Filename Value="uprojectconfig.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uProjectConfig"/>
       </Unit6>
       <Unit7>
         <Filename Value="ueditorconfig.pas"/>
@@ -152,6 +157,7 @@
       <Unit9>
         <Filename Value="ufilemanager.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uFileManager"/>
       </Unit9>
       <Unit10>
         <Filename Value="uandroidbuilding.pas"/>
@@ -171,6 +177,7 @@
         <ComponentName Value="FileManagerFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
+        <UnitName Value="uFileManagerFrame"/>
       </Unit12>
       <Unit13>
         <Filename Value="frames/ugeneraloptionsframe.pas"/>
@@ -193,6 +200,7 @@
         <ComponentName Value="frmAbout"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uAboutForm"/>
       </Unit15>
       <Unit16>
         <Filename Value="forms/ucodeeditordm.pas"/>
@@ -207,6 +215,7 @@
         <ComponentName Value="frmIDEMacros"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uIDEMacrosForm"/>
       </Unit17>
       <Unit18>
         <Filename Value="forms/uideoptionsform.pas"/>
@@ -240,6 +249,7 @@
       <Unit22>
         <Filename Value="uautocomplete.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="uAutocomplete"/>
       </Unit22>
     </Units>
   </ProjectOptions>
