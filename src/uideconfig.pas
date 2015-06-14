@@ -247,7 +247,7 @@ end;
 
 function TIDEConfig.GetFHeight: integer;
 begin
-  Result := FMainConfig.ReadInteger('FORM', 'Height', 680);
+  Result := FMainConfig.ReadInteger('FORM', 'Height', 720);
 end;
 
 function TIDEConfig.GetFilManPrevSizeX: integer;
