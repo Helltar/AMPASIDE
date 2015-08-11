@@ -19,15 +19,15 @@
 
     <property name="sdk-platform-tools" value="${sdk-folder}/platform-tools" />
 
-    <condition property="aapt" value="${sdk-folder}/build-tools/android-4.4W/aapt" else="${sdk-platform-folder}/tools/aapt">
+    <condition property="aapt" value="${sdk-folder}/build-tools/android-4.4W/aapt" else="${sdk-folder}/build-tools/android-4.4W/aapt.exe">
         <available file="${sdk-platform-tools}" type="dir" />
     </condition>
 
-    <condition property="adb" value="${sdk-platform-tools}/adb" else="${sdk-folder}/tools/adb">
+    <condition property="adb" value="${sdk-platform-tools}/adb" else="${sdk-platform-tools}/adb.exe">
         <available file="${sdk-platform-tools}" type="dir" />
     </condition>
     
-    <condition property="dx" value="${sdk-platform-tools}/dx.bat">
+    <condition property="dx" value="${sdk-folder}/build-tools/android-4.4W/dx.bat">
         <and>
             <os family="windows"/>
             <available file="${sdk-platform-tools}" type="dir" />
@@ -328,4 +328,3 @@
     </target>
 
 </project>
-
