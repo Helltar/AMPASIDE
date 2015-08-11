@@ -208,6 +208,7 @@
         <ComponentName Value="dmCodeEditor"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="uCodeEditorDM"/>
       </Unit16>
       <Unit17>
         <Filename Value="forms/uidemacrosform.pas"/>
