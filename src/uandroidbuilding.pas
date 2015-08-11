@@ -146,6 +146,7 @@ begin
     sList.Add('    <property name="midlet.jad" value="' + JadName + '" />');
     sList.Add('    <property name="midlet.package" value="' + ApkName + '" />');
     sList.Add('    <property name="outdir" value="' + Outdir + '" />');
+    sList.Add('    <property name="sdk-folder" value="' + GetAppPath + 'tools' + DIR_SEP + 'android' + DIR_SEP + 'sdk" />');
     with TStringList.Create do
       try
         try
@@ -206,6 +207,7 @@ var
 
 var
   ApkFileName: string;
+  AntOutput, AntCmd: string;
   P: TProcFunc;
 
 begin
@@ -218,23 +220,41 @@ begin
 
   AddLogMsg('Apache Ant (' + ApkName + '), идет сборка, это займет около минуты...');
 
-  P := ProcStart('ant -buildfile ' + ProjBuildFile);
+  {$IFDEF MSWINDOWS}
+  AntCmd := 'ant.bat -buildfile ' + ProjBuildFile + ' -logfile ' + GetAppPath + ANT_LOG;
+  {$ELSE}
+  AntCmd := 'ant -buildfile ' + ProjBuildFile;
+  {$ENDIF}
+
+  P := ProcStart(AntCmd);
 
   if not P.Completed then
     Exit;
 
   // ant.log
-  with TStringList.Create do
+  if P.Output <> EmptyStr then
   begin
-    try
-      Text := P.Output;
-      SaveToFile(GetAppPath + ANT_LOG);
-    finally
-      Free;
+    with TStringList.Create do
+    begin
+      try
+        Text := P.Output;
+        AntOutput := Text;
+        SaveToFile(GetAppPath + ANT_LOG);
+      finally
+        Free;
+      end;
     end;
-  end;
+  end
+  else
+    with TStringList.Create do
+      try
+        LoadFromFile(GetAppPath + ANT_LOG);
+        AntOutput := Text;
+      finally
+        Free;
+      end;
 
-  if Pos('BUILD SUCCESSFUL', P.Output) > 0 then
+  if Pos('BUILD SUCCESSFUL', AntOutput) > 0 then
   begin
     ApkFileName := ProjManager.ProjDirPreBuild + ApkName;
 
@@ -250,7 +270,7 @@ begin
     DelTempFiles;
   end
   else
-  if Pos('BUILD FAILED', P.Output) > 0 then
+  if Pos('BUILD FAILED', AntOutput) > 0 then
     AddLogMsg('Не удалось собрать APK файл, подробности: ' + ANT_LOG, lmtErr)
   else
     AddLogMsg('Ant завершил работу, подробности: ' + ANT_LOG);

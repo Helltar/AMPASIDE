@@ -1,5 +1,4 @@
 
-    <property name="sdk-folder" value="sdk" />
     <property name="sdk-platform-folder" value="${sdk-folder}/platforms/android-20" />
     <property name="microemu-cldc.jar" value="lib/cldc.jar" />
     <property name="microemu-midp.jar" value="lib/midp.jar" />
@@ -18,11 +17,31 @@
     <property name="out-package" value="${outdir}/${midlet.package}" />
 
     <property name="sdk-platform-tools" value="${sdk-folder}/platform-tools" />
-
-    <condition property="aapt" value="${sdk-folder}/build-tools/android-4.4W/aapt" else="${sdk-folder}/build-tools/android-4.4W/aapt.exe">
-        <available file="${sdk-platform-tools}" type="dir" />
+    
+    
+    <!-- -->
+    
+    
+    <condition property="aapt" value="${sdk-folder}/build-tools/android-4.4W/aapt">
+        <and>
+            <not>
+                <os family="windows"/>
+            </not>
+            <available file="${sdk-platform-tools}" type="dir" />
+        </and>
     </condition>
+    
+    <condition property="aapt" value="${sdk-folder}/build-tools/android-4.4W/aapt.exe">
+      <and>
+        <os family="windows"/>
+        <available file="${sdk-platform-tools}" type="dir" />
+      </and>
+    </condition>
+    
 
+    <!-- -->
+    
+    
     <condition property="adb" value="${sdk-platform-tools}/adb" else="${sdk-platform-tools}/adb.exe">
         <available file="${sdk-platform-tools}" type="dir" />
     </condition>

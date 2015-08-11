@@ -26,8 +26,8 @@ unit uAMPASCore;
 interface
 
 uses
-  Classes, Controls, Graphics, SysUtils, FileUtil, Forms, process, versionresource,
-  versiontypes {$IFDEF MSWINDOWS}, Windows  {$ENDIF};
+  Classes, Controls, Graphics, SysUtils, FileUtil, Forms, process, LazFileUtils, LazUTF8,
+  versionresource, versiontypes {$IFDEF MSWINDOWS}, Windows  {$ENDIF};
 
 type
 
