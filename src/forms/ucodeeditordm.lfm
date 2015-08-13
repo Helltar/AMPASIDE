@@ -3,8 +3,8 @@ object dmCodeEditor: TdmCodeEditor
   OnDestroy = DataModuleDestroy
   OldCreateOrder = False
   Height = 324
-  HorizontalOffset = 571
-  VerticalOffset = 269
+  HorizontalOffset = 780
+  VerticalOffset = 242
   Width = 623
   object actlEditorMenu: TActionList
     Images = ilEditor
