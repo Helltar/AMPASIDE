@@ -43,6 +43,7 @@ type
     actCodeInsUserName: TAction;
     actExportAsHTML: TAction;
     actCompactViewMode: TAction;
+    actSaveAll: TAction;
     actTerminateProc: TAction;
     actJCFCurrentTab: TAction;
     actRun: TAction;
@@ -53,6 +54,7 @@ type
     actlMain: TActionList;
     ilMain: TImageList;
     ilProjActions: TImageList;
+    miSaveAll: TMenuItem;
     miCloseActivePage: TMenuItem;
     miCloseAllOtherPages: TMenuItem;
     miExamples: TMenuItem;
@@ -111,6 +113,7 @@ type
     tbbTermProc: TToolButton;
     tbbDivider5: TToolButton;
     tbbBuildAndroid64: TToolButton;
+    tbbSaveAll: TToolButton;
     tsLogMsg: TTabSheet;
     tsNotes: TTabSheet;
     tsProjFiles: TTabSheet;
@@ -131,6 +134,7 @@ type
     procedure actFileSaveUpdate(Sender: TObject);
     procedure actExportAsHTMLExecute(Sender: TObject);
     procedure actJCFCurrentTabExecute(Sender: TObject);
+    procedure actSaveAllExecute(Sender: TObject);
     procedure actTerminateProcExecute(Sender: TObject);
     procedure actlProjActionsUpdate(AAction: TBasicAction; var Handled: boolean);
     procedure actRunExecute(Sender: TObject);
@@ -424,6 +428,11 @@ begin
       mrYes: JCFormat;
     end;
   end;
+end;
+
+procedure TfrmMain.actSaveAllExecute(Sender: TObject);
+begin
+  CodeEditor.SaveAllFiles;
 end;
 
 procedure TfrmMain.actTerminateProcExecute(Sender: TObject);
@@ -727,6 +736,7 @@ begin
     actExportAsHTML.ImageIndex := 7;
     actFileOpen.ImageIndex := 12;
     actFileSave.ImageIndex := 15;
+    actSaveAll.ImageIndex := 19;
 
     miAbout.ImageIndex := 8;
     miCreateProject.ImageIndex := 13;

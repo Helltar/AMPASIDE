@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 442
-  Height = 551
-  Top = 211
-  Width = 831
+  Left = 503
+  Height = 581
+  Top = 235
+  Width = 832
   AllowDropFiles = True
   Caption = 'AMPASIDE'
-  ClientHeight = 530
-  ClientWidth = 831
+  ClientHeight = 560
+  ClientWidth = 832
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -22,7 +22,7 @@ object frmMain: TfrmMain
     Left = 322
     Height = 26
     Top = 6
-    Width = 503
+    Width = 504
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
@@ -60,7 +60,7 @@ object frmMain: TfrmMain
       ShowHint = True
     end
     object tbbDivider2: TToolButton
-      Left = 75
+      Left = 98
       Height = 22
       Top = 0
       Width = 5
@@ -68,35 +68,35 @@ object frmMain: TfrmMain
       Style = tbsDivider
     end
     object tbbCloseEditorTab: TToolButton
-      Left = 177
+      Left = 200
       Top = 0
       Action = actCloseActiveTab
       ParentShowHint = False
       ShowHint = True
     end
     object tbbRun: TToolButton
-      Left = 80
+      Left = 103
       Top = 0
       Action = actRun
       ParentShowHint = False
       ShowHint = True
     end
     object tbbCompile: TToolButton
-      Left = 103
+      Left = 126
       Top = 0
       Action = actCompile
       ParentShowHint = False
       ShowHint = True
     end
     object tbbBuild: TToolButton
-      Left = 126
+      Left = 149
       Top = 0
       Action = actBuild
       ParentShowHint = False
       ShowHint = True
     end
     object tbbDivider3: TToolButton
-      Left = 172
+      Left = 195
       Height = 22
       Top = 0
       Width = 5
@@ -104,9 +104,16 @@ object frmMain: TfrmMain
       Style = tbsDivider
     end
     object tbbTermProc: TToolButton
-      Left = 149
+      Left = 172
       Top = 0
       Action = actTerminateProc
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object tbbSaveAll: TToolButton
+      Left = 75
+      Top = 0
+      Action = actSaveAll
       ParentShowHint = False
       ShowHint = True
     end
@@ -120,9 +127,9 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = stbEditor
     Left = 322
-    Height = 252
+    Height = 282
     Top = 38
-    Width = 503
+    Width = 504
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     PopupMenu = pmEditor
@@ -138,8 +145,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = splBottom
     Left = 322
     Height = 20
-    Top = 296
-    Width = 503
+    Top = 326
+    Width = 504
     Action = actUpdateStatusBar
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
@@ -168,8 +175,8 @@ object frmMain: TfrmMain
     Cursor = crVSplit
     Left = 322
     Height = 5
-    Top = 322
-    Width = 509
+    Top = 352
+    Width = 510
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -185,8 +192,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Side = asrBottom
     Left = 322
     Height = 191
-    Top = 333
-    Width = 503
+    Top = 363
+    Width = 504
     ActivePage = tsLogMsg
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
@@ -195,12 +202,12 @@ object frmMain: TfrmMain
     object tsLogMsg: TTabSheet
       Caption = 'Сообщения'
       ClientHeight = 161
-      ClientWidth = 495
+      ClientWidth = 496
       object tvMsg: TTreeView
         Left = 6
         Height = 149
         Top = 6
-        Width = 483
+        Width = 484
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
@@ -215,12 +222,12 @@ object frmMain: TfrmMain
     object tsNotes: TTabSheet
       Caption = 'Заметки'
       ClientHeight = 161
-      ClientWidth = 497
+      ClientWidth = 496
       inline synedtNotes: TSynEdit
         Left = 6
         Height = 149
         Top = 6
-        Width = 485
+        Width = 484
         Align = alClient
         BorderSpacing.Around = 6
         Font.Height = -12
@@ -728,7 +735,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 251
-    Height = 486
+    Height = 516
     Top = 38
     Width = 65
     Align = alNone
@@ -803,7 +810,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 240
-    Height = 530
+    Height = 560
     Top = 0
     Width = 5
     Align = alNone
@@ -816,7 +823,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 518
+    Height = 548
     Top = 6
     Width = 228
     ActivePage = tsProjSettings
@@ -856,14 +863,6 @@ object frmMain: TfrmMain
       OnUpdate = actFileSaveUpdate
       ShortCut = 16467
     end
-    object actCloseActiveTab: TAction
-      Category = 'File'
-      Caption = 'Закрыть файл редактора'
-      Hint = 'Закрыть файл редактора'
-      OnExecute = actCloseActiveTabExecute
-      OnUpdate = actCloseActiveTabUpdate
-      ShortCut = 16499
-    end
     object actJCFCurrentTab: TAction
       Category = 'Code'
       Caption = 'Форматировать код'
@@ -889,17 +888,32 @@ object frmMain: TfrmMain
       OnExecute = actCodeInsUserNameExecute
       OnUpdate = actCloseActiveTabUpdate
     end
+    object actCompactViewMode: TAction
+      Category = 'View'
+      Caption = 'Компактный режим'
+      OnExecute = actCompactViewModeExecute
+    end
+    object actSaveAll: TAction
+      Category = 'File'
+      Caption = 'Сохранить все'
+      Hint = 'Сохранить все'
+      OnExecute = actSaveAllExecute
+      ShortCut = 24659
+    end
+    object actCloseActiveTab: TAction
+      Category = 'File'
+      Caption = 'Закрыть файл редактора'
+      Hint = 'Закрыть файл редактора'
+      OnExecute = actCloseActiveTabExecute
+      OnUpdate = actCloseActiveTabUpdate
+      ShortCut = 16499
+    end
     object actExportAsHTML: TAction
       Category = 'File'
       Caption = 'Экспортировать в HTML'
       Hint = 'Экспортировать в HTML'
       OnExecute = actExportAsHTMLExecute
       OnUpdate = actCloseActiveTabUpdate
-    end
-    object actCompactViewMode: TAction
-      Category = 'View'
-      Caption = 'Компактный режим'
-      OnExecute = actCompactViewModeExecute
     end
   end
   object mmMain: TMainMenu
@@ -924,6 +938,9 @@ object frmMain: TfrmMain
       end
       object miFileSave: TMenuItem
         Action = actFileSave
+      end
+      object miSaveAll: TMenuItem
+        Action = actSaveAll
       end
       object miExportAsHTML: TMenuItem
         Action = actExportAsHTML

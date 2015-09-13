@@ -60,6 +60,7 @@ type
     procedure InsUsername;
     procedure JCFormat;
     procedure SaveCurrentFile;
+    procedure SaveAllFiles;
     procedure SaveFile(const FileName: string; AEditor: TSynEdit);
     procedure UpdateEditorSettings(AEditor: TSynEdit);
 
@@ -171,6 +172,23 @@ procedure TCodeEditor.SaveCurrentFile;
 begin
   if IsEditorActive then
     SaveFile(GetActiveFileName, GetCurrentEditor);
+end;
+
+procedure TCodeEditor.SaveAllFiles;
+var
+  APage: TTabSheet;
+  AEditor: TSynEdit;
+  i: integer;
+
+begin
+  if IsEditorActive then
+    for i := 0 to FOwner.PageCount - 1 do
+    begin
+      APage := FOwner.Pages[i];
+      AEditor := GetEditor(APage);
+      if IsFileModified(AEditor) then
+        SaveFile(GetFileName(APage), AEditor);
+    end;
 end;
 
 procedure TCodeEditor.SaveFile(const FileName: string; AEditor: TSynEdit);
