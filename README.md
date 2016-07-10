@@ -24,3 +24,14 @@ Advanced MIDletPascal IDE
 --------
 
 [![GPLv3](http://www.gnu.org/graphics/gplv3-127x51.png)](https://github.com/Helltar/AMPASIDE/blob/master/COPYING)
+
+Скриншоты
+---------
+
+##### Linux (KDE)
+
+![KDE](http://cs623219.vk.me/v623219188/3ded7/y8N98xkXIGE.jpg)
+
+##### Windows
+
+![Windows](http://cs623219.vk.me/v623219188/3defc/CG6VubbvZkE.jpg)
