@@ -6,8 +6,11 @@
 Выпускаемые версии на **Qt**, установите [Free Pascal Qt4 Binding](http://users.telenet.be/Jan.Van.hijfte/qtforfpc/fpcqt4.html):
 
 ``` bash
-# yum, zypper, etc...
-sudo apt-get install libqt4pas-dev
+# Arch Linux
+pacman -S qt4pas
+
+# Ubuntu
+apt-get install libqt4pas-dev
 ```
 
 (при необходимости под **GTK** вы можете собрать из исходников)
@@ -28,21 +31,33 @@ javac -version
 
 Установите **Apache Ant**:
 
-```
-sudo apt-get install ant
+``` bash
+# Arch Linux
+pacman -S apache-ant
+
+# Ubuntu
+apt-get install ant
 ```
 
 ##### Linux x86_64
 
-Поскольку некоторые утилиты **Android SDK** являются **32-битными** (appt, adb...), добавьте архитектуру **i386**...:
+Некоторые утилиты **Android SDK** являются **32-битными** (appt, adb...), для запуска на:
+
+###### Ubuntu
+
+Добавьте архитектуру **i386**...:
 
 ```
-sudo dpkg --add-architecture i386
+dpkg --add-architecture i386
 ```
 
 ... обновите список пакетов и установите следующие библиотеки:
 
 ```
-sudo apt-get update
-sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 zlib1g:i386
+apt-get update
+apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 zlib1g:i386
 ```
+
+###### Arch Linux
+
+- https://wiki.archlinux.org/index.php/Multilib_(Русский)
