@@ -16,10 +16,6 @@ Advanced MIDletPascal IDE
 
 [![LazarusIDE](http://wiki.lazarus.freepascal.org/images/9/94/built_with_lazarus_logo.png)](http://www.lazarus-ide.org)
 
-Для корректной сборки используйте **trunk** версию Lazarus IDE:
-
-- http://wiki.lazarus.freepascal.org/Getting_Lazarus#Getting_Lazarus_SVN_development_version
-
 Лицензия
 --------
 
