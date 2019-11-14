@@ -17,7 +17,7 @@ java -version
 javac -version
 ```
 
-**Apache Ant** (можете воспользоваться удобным инсталлятором: [WinAnt](http://winant.googlecode.com/files/winant-install-v7.exe)):
+**Apache Ant** (можете воспользоваться удобным инсталлятором: [WinAnt](https://github.com/longlene/winant/releases/download/v8/winant-install-v8.exe)):
 
 ```
 ant -version
