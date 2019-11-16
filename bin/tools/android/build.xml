@@ -131,7 +131,7 @@
     </target>
     
     <target name="compile-producer" depends="check,dirs">
-        <javac target="1.5" debug="true" extdirs=""
+        <javac target="1.7" debug="true" extdirs=""
                srcdir="src"
                destdir="${outdir-producer}"
                includes="org/microemu/android/asm/**">
@@ -223,7 +223,7 @@
     </target>
 
     <target name="compile" depends="prepare-jars,package-res">
-        <javac target="1.5" debug="true" extdirs=""
+        <javac target="1.7" debug="true" extdirs=""
                srcdir="src"
                destdir="${outdir-classes}"
                bootclasspath="${android-jar}"
