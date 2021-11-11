@@ -26,7 +26,7 @@ unit uFileManager;
 interface
 
 uses
-  SysUtils, FileUtil, ComCtrls, Controls, Dialogs, LCLIntf, LazUTF8;
+  SysUtils, FileUtil, ComCtrls, Controls, Dialogs, LCLIntf, LazUTF8, LazFileUtils;
 
 type
 
@@ -39,7 +39,8 @@ type
     function GetParentNode: TTreeNode;
     function GetSelectedNode: TTreeNode;
     function TreeViewAddChild(ParentNode: TTreeNode; const NodeName: string): TTreeNode;
-    procedure AddChildNode(ParentNode: TTreeNode; const NodeName: string; IsDir: boolean = False);
+    procedure AddChildNode(ParentNode: TTreeNode; const NodeName: string;
+      IsDir: boolean = False);
     procedure AddFilesFromDir(const DirName: string; ParentNode: TTreeNode);
     procedure DeleteSelectedNode;
   public
@@ -86,12 +87,14 @@ var
   procedure AddDir(DirName: string);
   begin
     if DirectoryExists(DestFileName) then
-      case MessageDlg('Подтвердите действие', 'Перезаписать каталог "' + ExtractFileName(DestFileName) + '"?',
-          mtInformation, [mbYes, mbNo], 0) of
+      case MessageDlg('Подтвердите действие',
+          'Перезаписать каталог "' + ExtractFileName(DestFileName) +
+          '"?', mtInformation, [mbYes, mbNo], 0) of
         mrYes:
           if not DeleteDirectory(DestFileName, False) then
           begin
-            AddLogMsg('Ошибка при удалении каталога: ' + DestFileName);
+            AddLogMsg('Ошибка при удалении каталога: ' +
+              DestFileName);
             Exit;
           end;
         mrNo: Exit;
@@ -100,7 +103,8 @@ var
     if CopyDirTree(DirName, DestFileName) then
       AddChildNode(GetParentNode, ExtractFileName(DirName))
     else
-      AddLogMsg('Не удалось скопировать каталог: ' + DirName, lmtErr);
+      AddLogMsg('Не удалось скопировать каталог: ' +
+        DirName, lmtErr);
   end;
 
 begin
@@ -114,15 +118,17 @@ begin
   else
   begin
     if FileExists(DestFileName) then
-      case MessageDlg('Подтвердите действие', 'Перезаписать файл "' + ExtractFileName(DestFileName) + '"?',
-          mtInformation, [mbYes, mbNo], 0) of
+      case MessageDlg('Подтвердите действие',
+          'Перезаписать файл "' + ExtractFileName(DestFileName) +
+          '"?', mtInformation, [mbYes, mbNo], 0) of
         mrNo: Exit;
       end;
 
     if CopyFile(FileName, DestFileName) then
       AddChildNode(GetParentNode, ExtractFileName(FileName))
     else
-      AddLogMsg('Не удалось скопировать файл: ' + FileName, lmtErr);
+      AddLogMsg('Не удалось скопировать файл: ' +
+        FileName, lmtErr);
   end;
 end;
 
@@ -191,12 +197,14 @@ begin
   FOwner.Selected.Delete;
 end;
 
-function TFileManager.TreeViewAddChild(ParentNode: TTreeNode; const NodeName: string): TTreeNode;
+function TFileManager.TreeViewAddChild(ParentNode: TTreeNode;
+  const NodeName: string): TTreeNode;
 begin
   Result := FOwner.Items.AddChild(ParentNode, NodeName);
 end;
 
-procedure TFileManager.AddChildNode(ParentNode: TTreeNode; const NodeName: string; IsDir: boolean);
+procedure TFileManager.AddChildNode(ParentNode: TTreeNode; const NodeName: string;
+  IsDir: boolean);
 var
   ChildNode: TTreeNode;
   ImgIndex: integer;
@@ -237,7 +245,8 @@ var
           ParentNode.ImageIndex := 5;
           ParentNode.SelectedIndex := 5;
           if (SR.Name <> '.') and (SR.Name <> '..') then
-            AddFilesFromDir(DirName + SR.Name + DIR_SEP, TreeViewAddChild(ParentNode, SR.Name));
+            AddFilesFromDir(DirName + SR.Name + DIR_SEP,
+              TreeViewAddChild(ParentNode, SR.Name));
         end;
       until FindNext(SR) <> 0;
       FindClose(SR);
@@ -328,13 +337,15 @@ var
 
   procedure ShowDelDirDialog;
   begin
-    case MessageDlg('Подтвердите действие', 'Удалить каталог "' + GetDirNameOnly(GetPath) + '"?',
+    case MessageDlg('Подтвердите действие',
+        'Удалить каталог "' + GetDirNameOnly(GetPath) + '"?',
         mtInformation, [mbYes, mbNo], 0) of
       mrYes:
         if DeleteDirectory(FileName, False) then
           DeleteSelectedNode
         else
-          MessageDlg('Ошибка', 'Не удалось удалить каталог: ' + FileName, mtError, [mbOK], 0);
+          MessageDlg('Ошибка',
+            'Не удалось удалить каталог: ' + FileName, mtError, [mbOK], 0);
     end;
   end;
 
@@ -344,13 +355,15 @@ begin
   if IsDirectory(FileName) then
     ShowDelDirDialog
   else
-    case MessageDlg('Подтвердите действие', 'Удалить файл "' + ExtractFileName(FileName) + '"?',
+    case MessageDlg('Подтвердите действие',
+        'Удалить файл "' + ExtractFileName(FileName) + '"?',
         mtInformation, [mbYes, mbNo], 0) of
       mrYes:
         if DeleteFile(FileName) then
           DeleteSelectedNode
         else
-          MessageDlg('Ошибка', 'Не удалось удалить файл: ' + FileName, mtError, [mbOK], 0);
+          MessageDlg('Ошибка', 'Не удалось удалить файл: ' +
+            FileName, mtError, [mbOK], 0);
     end;
 end;
 
@@ -359,7 +372,8 @@ var
   DirName: string = '';
 
 begin
-  if InputQuery('Создание каталога', 'Введите название:', DirName) then
+  if InputQuery('Создание каталога', 'Введите название:',
+    DirName) then
   begin
     if DirName = '' then
       MessageDlg('Ошибка', 'Пустое значение', mtError, [mbOK], 0)
@@ -367,7 +381,8 @@ begin
     if CreateDir(GetPath + DirName) then
       AddChildNode(GetParentNode, DirName, True)
     else
-      MessageDlg('Ошибка', 'Не удалось создать каталог', mtError, [mbOK], 0);
+      MessageDlg('Ошибка', 'Не удалось создать каталог',
+        mtError, [mbOK], 0);
   end;
 end;
 
@@ -387,9 +402,9 @@ begin
     if RenameFile(FileName, ExtractFilePath(FileName) + NewName) then
       FOwner.Selected.Text := NewName
     else
-      MessageDlg('Ошибка', 'Не удалось переименовать: ' + FileName, mtError, [mbOK], 0);
+      MessageDlg('Ошибка', 'Не удалось переименовать: ' +
+        FileName, mtError, [mbOK], 0);
   end;
 end;
 
 end.
-

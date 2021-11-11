@@ -26,7 +26,8 @@ unit uFileManagerFrame;
 interface
 
 uses
-  Classes, ActnList, ComCtrls, Controls, ExtCtrls, Forms, Menus, StdCtrls, SysUtils, FileUtil, TreeFilterEdit;
+  Classes, ActnList, ComCtrls, Controls, ExtCtrls, Forms, Menus,
+  StdCtrls, SysUtils, FileUtil, TreeFilterEdit, LazFileUtils;
 
 type
 
@@ -174,7 +175,8 @@ begin
       actRenameFile.Enabled := False;
       actDeleteFile.Enabled := False;
     end;
-    actAddFiles.Caption := 'Добавить файлы в "' + FileManager.GetDirNameOnly(FileManager.GetPath) + '"';
+    actAddFiles.Caption := 'Добавить файлы в "' +
+      FileManager.GetDirNameOnly(FileManager.GetPath) + '"';
   end;
 end;
 
@@ -262,4 +264,3 @@ begin
 end;
 
 end.
-
