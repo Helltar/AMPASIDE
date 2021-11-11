@@ -26,7 +26,7 @@ unit uProjectConfig;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, IniFiles;
+  Classes, SysUtils, FileUtil, IniFiles, LazFileUtils;
 
 type
 
