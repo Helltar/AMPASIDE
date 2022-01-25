@@ -179,7 +179,7 @@ function TProjectManager.CreateProject(APath, AName: string): boolean;
     MIDletNameOnly: string;
 
   begin
-    MIDletNameOnly := ExtractFileNameOnly(FileName);
+    MIDletNameOnly := ExtractFileNameWithoutExt(FileName);
 
     with ProjConfig do
     begin
@@ -210,7 +210,7 @@ function TProjectManager.CreateProject(APath, AName: string): boolean;
     ModuleName: string;
 
   begin
-    ModuleName := ExtractFileNameOnly(FileName);
+    ModuleName := ExtractFileNameWithoutExt(FileName);
     FileName := ExtractFilePath(FileName) + LowerCase(ModuleName + EXT_MODULE);
 
     with TStringList.Create do
@@ -283,7 +283,7 @@ begin
     Exit;
 
   FConfigFile := FileName;
-  FNotesFile := FProjDirHome + ExtractFileNameOnly(FileName) + EXT_NOTES;
+  FNotesFile := FProjDirHome + ExtractFileNameWithoutExt(FileName) + EXT_NOTES;
   FProjDirBin := FProjDirHome + PROJ_DIR_BIN + DIR_SEP;
   FProjDirAndroid := FProjDirBin + PROJ_DIR_ANDROID + DIR_SEP;
   FProjDirJavaME := FProjDirBin + PROJ_DIR_JAVAME + DIR_SEP;

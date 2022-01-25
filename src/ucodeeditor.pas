@@ -26,8 +26,8 @@ unit uCodeEditor;
 interface
 
 uses
-  Classes, ComCtrls, Controls, Graphics, SysUtils, LCLIntf, SynEdit, SynEditMarkupHighAll,
-  SynEditMouseCmds, SynExportHTML, SynEditHighlighter, SynPluginSyncroEdit;
+  Classes, ComCtrls, Controls, Graphics, SysUtils, LCLIntf, SynEdit, SynEditTypes,
+  SynEditMarkupHighAll, SynEditMouseCmds, SynExportHTML, SynEditHighlighter, SynPluginSyncroEdit;
 
 type
 

@@ -26,7 +26,8 @@ unit uFileManagerFrame;
 interface
 
 uses
-  Classes, ActnList, ComCtrls, Controls, ExtCtrls, Forms, Menus, StdCtrls, SysUtils, FileUtil, TreeFilterEdit;
+  Classes, ActnList, ComCtrls, Controls, ExtCtrls, Forms, Menus, StdCtrls,
+  SysUtils, FileUtil, LazFileUtils, TreeFilterEdit;
 
 type
 

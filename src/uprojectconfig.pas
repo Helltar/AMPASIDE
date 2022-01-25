@@ -318,7 +318,7 @@ end;
 
 function TProjectConfig.GetExtraOptionsFileName: string;
 begin
-  Result := ExtractFilePath(GetConfigFileName) + ExtractFileNameOnly(GetConfigFileName) + '.mf';
+  Result := ExtractFilePath(GetConfigFileName) + ExtractFileNameWithoutExt(GetConfigFileName) + '.mf';
 end;
 
 end.

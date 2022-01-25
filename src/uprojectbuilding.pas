@@ -256,7 +256,7 @@ begin
   if not FileExists(FileName) then
   begin
     AddLogMsg('Не удалось найти библиотеку/модуль: "' +
-      ExtractFileNameOnly(FileName) + '"', lmtErr);
+      ExtractFileNameWithoutExt(FileName) + '"', lmtErr);
     Exit;
   end;
 
