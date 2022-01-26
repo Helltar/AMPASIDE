@@ -18,7 +18,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <RevisionNr Value="2"/>
-      <BuildNr Value="13"/>
+      <BuildNr Value="14"/>
       <StringTable FileDescription="Advanced MIDletPascal IDE" LegalCopyright="© 2015 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE"/>
     </VersionInfo>
     <BuildModes Count="3">

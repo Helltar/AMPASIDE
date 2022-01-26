@@ -304,7 +304,7 @@ begin
         InitialDir := ProjManager.ProjDirSrc;
       if Execute then
       begin
-        if Length(ExtractFileNameWithoutExt(FileName)) < 3 then
+        if Length(ExtractFileNameOnly(FileName)) < 3 then
           MessageDlg('Неверное значение', 'Название модуля должно состоять минимум из 3-х символов',
             mtWarning, [mbOK], 0)
         else
