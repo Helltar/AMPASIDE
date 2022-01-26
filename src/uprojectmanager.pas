@@ -26,7 +26,7 @@ unit uProjectManager;
 interface
 
 uses
-  Classes, FileUtil, LazFileUtils, SysUtils;
+  Classes, FileUtil, SysUtils, LazFileUtils;
 
 type
 
