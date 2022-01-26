@@ -27,7 +27,7 @@ interface
 
 uses
   Classes, ComCtrls, Controls, Forms, Dialogs, ExtCtrls, ActnList, FileUtil,
-  LCLIntf, Menus, SynEdit, SysUtils, uAMPASCore;
+  LazFileUtils, LCLIntf, Menus, SynEdit, SysUtils, uAMPASCore;
 
 type
 

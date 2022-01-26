@@ -26,7 +26,7 @@ unit uProjectBuilding;
 interface
 
 uses
-  Classes, FileUtil, RegExpr, SysUtils;
+  Classes, FileUtil, LazFileUtils, RegExpr, SysUtils;
 
 type
 
