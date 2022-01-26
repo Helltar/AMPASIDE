@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="9"/>
+    <Version Value="11"/>
     <General>
       <SessionStorage Value="InProjectDir"/>
       <MainUnit Value="0"/>
@@ -18,8 +18,8 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <RevisionNr Value="2"/>
-      <BuildNr Value="11"/>
-      <StringTable FileDescription="Advanced MIDletPascal IDE" LegalCopyright="© 2015 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE" ProductVersion=""/>
+      <BuildNr Value="14"/>
+      <StringTable FileDescription="Advanced MIDletPascal IDE" LegalCopyright="© 2015 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE"/>
     </VersionInfo>
     <BuildModes Count="3">
       <Item1 Name="Default" Default="True"/>
@@ -96,9 +96,10 @@
       <Version Value="2"/>
     </PublishOptions>
     <RunParams>
-      <local>
-        <FormatVersion Value="1"/>
-      </local>
+      <FormatVersion Value="2"/>
+      <Modes Count="1">
+        <Mode0 Name="default"/>
+      </Modes>
     </RunParams>
     <RequiredPackages Count="3">
       <Item1>

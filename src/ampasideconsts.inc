@@ -63,5 +63,5 @@ EMULATOR = APP_DIR_TOOLS + 'microemulator.jar';
 
 URL_JAVA_LIB = 'http://forum.boolean.name/showthread.php?t=5494';
 URL_SRC_CODE = 'https://github.com/Helltar/AMPASIDE';
-URL_TUTORIAL = 'http://helltar.ho.ua/mpascal/manual';
+URL_TUTORIAL = 'http://helltar.ho.ua/mpascal/docs/';
 
