@@ -8,7 +8,7 @@ object frmAbout: TfrmAbout
   ClientWidth = 340
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '1.5'
+  LCLVersion = '2.2.0.4'
   object imgLogo: TImage
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -100,7 +100,7 @@ object frmAbout: TfrmAbout
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = lblGitHubURL
     Left = 6
-    Height = 82
+    Height = 106
     Top = 70
     Width = 328
     Anchors = [akTop, akLeft, akRight]
@@ -136,33 +136,11 @@ object frmAbout: TfrmAbout
     Cursor = crHandPoint
     Left = 6
     Height = 15
-    Top = 158
-    Width = 206
+    Top = 182
+    Width = 203
     BorderSpacing.Around = 6
     Caption = 'https://github.com/Helltar/AMPASIDE'
     Font.Color = 13391121
-    ParentColor = False
-    ParentFont = False
-    OnClick = lblURLClick
-    OnMouseEnter = lblURLMouseEnter
-    OnMouseLeave = lblURLMouseLeave
-  end
-  object lblVKURL: TLabel
-    AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = lblGitHubURL
-    AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = btnpnlMain
-    Cursor = crHandPoint
-    Left = 6
-    Height = 15
-    Top = 179
-    Width = 132
-    BorderSpacing.Around = 6
-    Caption = 'http://vk.com/ampaside'
-    Font.Color = 13391121
-    ParentColor = False
     ParentFont = False
     OnClick = lblURLClick
     OnMouseEnter = lblURLMouseEnter

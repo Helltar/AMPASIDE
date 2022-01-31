@@ -1,6 +1,6 @@
 {-------------------------------------------------------------------------------
 
-Copyright (C) 2015 Taras Adamchuk <helltar.live@gmail.com>
+Copyright (C) 2015-2022 Helltar <mail@helltar.com>
 
 This file is part of AMPASIDE.
 
@@ -36,7 +36,6 @@ type
     btnpnlMain: TButtonPanel;
     imgLogo: TImage;
     lblGitHubURL: TLabel;
-    lblVKURL: TLabel;
     memAbout: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure lblURLClick(Sender: TObject);
@@ -69,7 +68,6 @@ begin
   Constraints.MinWidth := Width;
 
   lblGitHubURL.Caption := URL_SRC_CODE;
-  lblVKURL.Caption := 'http://vk.com/ampaside';
 
   memAbout.Lines.Text :=
     'Advanced MIDletPascal IDE' + LE +
