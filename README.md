@@ -26,8 +26,10 @@ Advanced MIDletPascal IDE
 
 ##### Linux (KDE)
 
-![KDE](http://cs623219.vk.me/v623219188/3ded7/y8N98xkXIGE.jpg)
+![KDE](https://helltar.com/projects/ampaside/screenshots/linux_kde.jpg)
 
 ##### Windows
 
-![Windows](http://cs623219.vk.me/v623219188/3defc/CG6VubbvZkE.jpg)
+![Windows_10](https://helltar.com/projects/ampaside/screenshots/windows_10_1.0.3.png)
+
+![Windows](https://helltar.com/projects/ampaside/screenshots/windows.jpg)
