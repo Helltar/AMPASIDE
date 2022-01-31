@@ -9,3 +9,7 @@ src/*.res
 
 src/**/backup
 src/**/lib
+
+release_bin/
+tmp/
+build.*.xml
