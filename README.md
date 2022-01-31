@@ -24,12 +24,14 @@ Advanced MIDletPascal IDE
 Скриншоты
 ---------
 
-##### Linux (KDE)
+##### Linux (KDE) - v.1.0.2
 
 ![KDE](https://helltar.com/projects/ampaside/screenshots/linux_kde.jpg)
 
-##### Windows
+##### Windows - v.1.0.3
 
 ![Windows_10](https://helltar.com/projects/ampaside/screenshots/windows_10_1.0.3.png)
+
+##### Windows - v.1.0.2
 
 ![Windows](https://helltar.com/projects/ampaside/screenshots/windows.jpg)
