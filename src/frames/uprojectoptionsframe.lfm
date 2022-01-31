@@ -6,23 +6,23 @@ object ProjectOptionsFrame: TProjectOptionsFrame
   ClientHeight = 631
   ClientWidth = 350
   TabOrder = 0
-  DesignLeft = 1056
-  DesignTop = 186
+  DesignLeft = 660
+  DesignTop = 137
   object gbManifest: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 6
-    Height = 256
+    Height = 257
     Top = 6
     Width = 338
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'MANIFEST.MF'
-    ClientHeight = 236
-    ClientWidth = 332
+    ClientHeight = 237
+    ClientWidth = 334
     TabOrder = 0
     object lblMName: TLabel
       AnchorSideLeft.Control = gbManifest
@@ -30,10 +30,9 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 15
       Top = 6
-      Width = 77
+      Width = 75
       BorderSpacing.Around = 6
       Caption = 'MIDlet-Name:'
-      ParentColor = False
     end
     object edtMName: TEdit
       AnchorSideLeft.Control = gbManifest
@@ -44,7 +43,7 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 23
       Top = 27
-      Width = 320
+      Width = 322
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       OnChange = edtMNameChange
@@ -57,10 +56,9 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 15
       Top = 56
-      Width = 84
+      Width = 80
       BorderSpacing.Around = 6
       Caption = 'MIDlet-Vendor:'
-      ParentColor = False
     end
     object edtMVendor: TEdit
       AnchorSideLeft.Control = gbManifest
@@ -71,7 +69,7 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 23
       Top = 77
-      Width = 320
+      Width = 322
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       OnChange = edtMVendorChange
@@ -84,10 +82,9 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 15
       Top = 106
-      Width = 108
+      Width = 103
       BorderSpacing.Around = 6
       Caption = 'MIDlet-Description:'
-      ParentColor = False
     end
     object edtMDesc: TEdit
       AnchorSideLeft.Control = gbManifest
@@ -98,7 +95,7 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 23
       Top = 127
-      Width = 320
+      Width = 322
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       OnChange = edtMDescChange
@@ -111,10 +108,9 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 15
       Top = 156
-      Width = 68
+      Width = 66
       BorderSpacing.Around = 6
       Caption = 'MIDlet-Icon:'
-      ParentColor = False
     end
     object edtMIcon: TEdit
       AnchorSideLeft.Control = gbManifest
@@ -125,7 +121,7 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 23
       Top = 177
-      Width = 320
+      Width = 322
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       OnChange = edtMIconChange
@@ -138,9 +134,9 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       AnchorSideRight.Control = edtMIcon
       AnchorSideRight.Side = asrBottom
       Left = 6
-      Height = 24
+      Height = 25
       Top = 206
-      Width = 69
+      Width = 82
       AutoSize = True
       BorderSpacing.Around = 6
       Caption = 'Больше ...'
@@ -156,15 +152,15 @@ object ProjectOptionsFrame: TProjectOptionsFrame
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = gbConfiguration
     Left = 6
-    Height = 103
-    Top = 352
+    Height = 101
+    Top = 351
     Width = 338
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Номера версий'
-    ClientHeight = 83
-    ClientWidth = 332
+    ClientHeight = 81
+    ClientWidth = 334
     TabOrder = 1
     object lblVMajor: TLabel
       AnchorSideLeft.Control = gbVersions
@@ -172,10 +168,9 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 15
       Top = 6
-      Width = 53
+      Width = 52
       BorderSpacing.Around = 6
       Caption = 'Старшая:'
-      ParentColor = False
     end
     object sedtVMajor: TSpinEdit
       AnchorSideLeft.Control = gbVersions
@@ -196,21 +191,20 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       AnchorSideLeft.Control = lblVMajor
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = gbVersions
-      Left = 83
+      Left = 82
       Height = 15
       Top = 6
-      Width = 58
+      Width = 56
       BorderSpacing.Left = 18
       BorderSpacing.Around = 6
       Caption = 'Младшая:'
-      ParentColor = False
     end
     object sedtVMinor: TSpinEdit
       AnchorSideLeft.Control = lblVMinor
       AnchorSideTop.Control = lblVMinor
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = sedtVBuild
-      Left = 83
+      Left = 82
       Height = 23
       Top = 27
       Width = 54
@@ -222,14 +216,13 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       AnchorSideLeft.Control = lblVMinor
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = gbVersions
-      Left = 165
+      Left = 162
       Height = 15
       Top = 6
-      Width = 46
+      Width = 44
       BorderSpacing.Left = 18
       BorderSpacing.Around = 6
       Caption = 'Сборка:'
-      ParentColor = False
     end
     object sedtVBuild: TSpinEdit
       AnchorSideLeft.Control = lblVBuild
@@ -237,7 +230,7 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = lblVBuild
       AnchorSideRight.Side = asrBottom
-      Left = 165
+      Left = 162
       Height = 23
       Top = 27
       Width = 54
@@ -250,9 +243,9 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       AnchorSideTop.Control = sedtVMajor
       AnchorSideTop.Side = asrBottom
       Left = 6
-      Height = 21
+      Height = 19
       Top = 56
-      Width = 219
+      Width = 210
       BorderSpacing.Around = 6
       Caption = 'Автом. наращивать номер сборки'
       Checked = True
@@ -270,15 +263,15 @@ object ProjectOptionsFrame: TProjectOptionsFrame
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 128
-    Top = 461
+    Height = 126
+    Top = 458
     Width = 338
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Конфигурация'
-    ClientHeight = 108
-    ClientWidth = 332
+    ClientHeight = 106
+    ClientWidth = 334
     TabOrder = 2
     object lblMType: TLabel
       AnchorSideLeft.Control = gbConfiguration
@@ -286,10 +279,9 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 15
       Top = 6
-      Width = 69
+      Width = 64
       BorderSpacing.Around = 6
       Caption = 'MIDlet type:'
-      ParentColor = False
     end
     object cbbCanvasType: TComboBox
       AnchorSideLeft.Control = gbConfiguration
@@ -298,9 +290,9 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       AnchorSideRight.Control = gbConfiguration
       AnchorSideRight.Side = asrBottom
       Left = 6
-      Height = 24
+      Height = 23
       Top = 27
-      Width = 320
+      Width = 322
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       ItemHeight = 15
@@ -321,11 +313,10 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       AnchorSideTop.Side = asrBottom
       Left = 6
       Height = 15
-      Top = 57
-      Width = 80
+      Top = 56
+      Width = 77
       BorderSpacing.Around = 6
       Caption = 'Real-numbers:'
-      ParentColor = False
     end
     object cbbMathType: TComboBox
       AnchorSideLeft.Control = gbConfiguration
@@ -334,9 +325,9 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       AnchorSideRight.Control = gbConfiguration
       AnchorSideRight.Side = asrBottom
       Left = 6
-      Height = 24
-      Top = 78
-      Width = 320
+      Height = 23
+      Top = 77
+      Width = 322
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       ItemHeight = 15
@@ -358,26 +349,28 @@ object ProjectOptionsFrame: TProjectOptionsFrame
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 6
-    Height = 78
-    Top = 268
+    Height = 76
+    Top = 269
     Width = 338
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'AndroidManifest'
-    ClientHeight = 58
-    ClientWidth = 332
+    ClientHeight = 56
+    ClientWidth = 334
+    ParentShowHint = False
     TabOrder = 3
+    OnClick = gbAndroidManifestClick
     object lblAPackage: TLabel
       AnchorSideLeft.Control = gbAndroidManifest
       AnchorSideTop.Control = gbAndroidManifest
       Left = 6
       Height = 15
       Top = 6
-      Width = 50
+      Width = 47
       BorderSpacing.Around = 6
       Caption = 'Package:'
-      ParentColor = False
+      Visible = False
     end
     object edtAPackage: TEdit
       AnchorSideLeft.Control = gbAndroidManifest
@@ -388,11 +381,25 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Left = 6
       Height = 23
       Top = 27
-      Width = 320
+      Width = 322
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       OnChange = edtAPackageChange
       TabOrder = 0
+      Visible = False
+    end
+    object lblAndroidManifestFile: TLabel
+      Left = 6
+      Height = 15
+      Top = 10
+      Width = 120
+      BorderSpacing.Around = 6
+      Caption = 'lblAndroidManifestFile'
+      Font.Height = 16
+      Layout = tlCenter
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
     end
   end
 end

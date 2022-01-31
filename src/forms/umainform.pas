@@ -1,6 +1,6 @@
 {-------------------------------------------------------------------------------
 
-Copyright (C) 2015 Taras Adamchuk <helltar.live@gmail.com>
+Copyright (C) 2015-2022 Helltar <mail@helltar.com>
 
 This file is part of AMPASIDE.
 

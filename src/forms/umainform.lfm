@@ -1,28 +1,28 @@
 object frmMain: TfrmMain
-  Left = 503
-  Height = 581
-  Top = 235
-  Width = 832
+  Left = 388
+  Height = 609
+  Top = 118
+  Width = 1036
   AllowDropFiles = True
   Caption = 'AMPASIDE'
-  ClientHeight = 560
-  ClientWidth = 832
+  ClientHeight = 589
+  ClientWidth = 1036
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnDropFiles = FormDropFiles
-  LCLVersion = '1.5'
+  LCLVersion = '2.2.0.4'
   object tlbMain: TToolBar
     AnchorSideLeft.Control = tlbRCB
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 322
+    Left = 290
     Height = 26
     Top = 6
-    Width = 504
+    Width = 740
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
@@ -41,7 +41,6 @@ object frmMain: TfrmMain
       Left = 24
       Height = 22
       Top = 0
-      Width = 5
       Caption = 'tbbDivider1'
       Style = tbsDivider
     end
@@ -63,7 +62,6 @@ object frmMain: TfrmMain
       Left = 98
       Height = 22
       Top = 0
-      Width = 5
       Caption = 'tbbDivider2'
       Style = tbsDivider
     end
@@ -99,7 +97,6 @@ object frmMain: TfrmMain
       Left = 195
       Height = 22
       Top = 0
-      Width = 5
       Caption = 'tbbDivider3'
       Style = tbsDivider
     end
@@ -126,10 +123,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = stbEditor
-    Left = 322
-    Height = 282
+    Left = 290
+    Height = 308
     Top = 38
-    Width = 504
+    Width = 740
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     PopupMenu = pmEditor
@@ -143,10 +140,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = splBottom
-    Left = 322
-    Height = 20
-    Top = 326
-    Width = 504
+    Left = 290
+    Height = 23
+    Top = 352
+    Width = 740
     Action = actUpdateStatusBar
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
@@ -173,10 +170,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Side = asrBottom
     Cursor = crVSplit
-    Left = 322
+    Left = 290
     Height = 5
-    Top = 352
-    Width = 510
+    Top = 381
+    Width = 746
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -190,10 +187,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 322
+    Left = 290
     Height = 191
-    Top = 363
-    Width = 504
+    Top = 392
+    Width = 740
     ActivePage = tsLogMsg
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
@@ -201,17 +198,16 @@ object frmMain: TfrmMain
     TabOrder = 4
     object tsLogMsg: TTabSheet
       Caption = 'Сообщения'
-      ClientHeight = 161
-      ClientWidth = 496
+      ClientHeight = 163
+      ClientWidth = 732
       object tvMsg: TTreeView
         Left = 6
-        Height = 149
+        Height = 151
         Top = 6
-        Width = 484
+        Width = 720
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
-        DefaultItemHeight = 18
         Images = ilMain
         ReadOnly = True
         ScrollBars = ssAutoBoth
@@ -221,13 +217,13 @@ object frmMain: TfrmMain
     end
     object tsNotes: TTabSheet
       Caption = 'Заметки'
-      ClientHeight = 161
-      ClientWidth = 496
+      ClientHeight = 163
+      ClientWidth = 732
       inline synedtNotes: TSynEdit
         Left = 6
-        Height = 149
+        Height = 151
         Top = 6
-        Width = 484
+        Width = 720
         Align = alClient
         BorderSpacing.Around = 6
         Font.Height = -12
@@ -237,7 +233,7 @@ object frmMain: TfrmMain
         ParentColor = False
         ParentFont = False
         TabOrder = 0
-        Gutter.Width = 55
+        Gutter.Width = 57
         Gutter.MouseActions = <>
         RightGutter.Width = 0
         RightGutter.MouseActions = <>
@@ -695,7 +691,7 @@ object frmMain: TfrmMain
             MouseActions = <>
           end
           object SynGutterLineNumber1: TSynGutterLineNumber
-            Width = 15
+            Width = 17
             MouseActions = <>
             MarkupInfo.Background = clBtnFace
             MarkupInfo.Foreground = clNone
@@ -735,15 +731,15 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 251
-    Height = 516
+    Height = 545
     Top = 38
-    Width = 65
+    Width = 33
     Align = alNone
     Anchors = [akTop, akLeft, akBottom]
     AutoSize = True
     BorderSpacing.Around = 6
-    ButtonHeight = 64
-    ButtonWidth = 64
+    ButtonHeight = 32
+    ButtonWidth = 32
     Caption = 'tlbRCB'
     EdgeBorders = []
     Images = ilProjActions
@@ -759,7 +755,7 @@ object frmMain: TfrmMain
     object tbbCompile64: TToolButton
       Cursor = crHandPoint
       Left = 1
-      Top = 64
+      Top = 32
       Action = actCompile
       ParentShowHint = False
       ShowHint = True
@@ -767,40 +763,40 @@ object frmMain: TfrmMain
     object tbbBuild64: TToolButton
       Cursor = crHandPoint
       Left = 1
-      Top = 128
+      Top = 64
       Action = actBuild
       ParentShowHint = False
       ShowHint = True
     end
     object tbbDivider4: TToolButton
       Left = 1
-      Height = 5
-      Top = 192
-      Width = 64
+      Top = 96
+      Width = 32
       Caption = 'tbbDivider4'
       Style = tbsDivider
     end
     object tbbTermProc64: TToolButton
       Cursor = crHandPoint
       Left = 1
-      Top = 266
+      Hint = 'Завершить запущенный процесс'
+      Top = 138
       Action = actTerminateProc
+      Caption = 'Завершить запущенный процесс'
       ParentShowHint = False
       ShowHint = True
     end
     object tbbBuildAndroid64: TToolButton
       Cursor = crHandPoint
       Left = 1
-      Top = 197
+      Top = 101
       Action = actBuildAndroid
       ParentShowHint = False
       ShowHint = True
     end
     object tbbDivider5: TToolButton
       Left = 1
-      Height = 5
-      Top = 261
-      Width = 64
+      Top = 133
+      Width = 32
       Caption = 'tbbDivider5'
       Style = tbsDivider
     end
@@ -810,7 +806,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 240
-    Height = 560
+    Height = 589
     Top = 0
     Width = 5
     Align = alNone
@@ -823,7 +819,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 548
+    Height = 577
     Top = 6
     Width = 228
     ActivePage = tsProjSettings
@@ -840,8 +836,8 @@ object frmMain: TfrmMain
   end
   object actlMain: TActionList
     Images = ilMain
-    left = 384
-    top = 56
+    Left = 384
+    Top = 56
     object actCreateModule: TAction
       Category = 'File'
       Caption = 'Создать модуль'
@@ -918,8 +914,8 @@ object frmMain: TfrmMain
   end
   object mmMain: TMainMenu
     Images = ilMain
-    left = 496
-    top = 56
+    Left = 496
+    Top = 56
     object miFile: TMenuItem
       Caption = '&Файл'
       object miCreateModule: TMenuItem
@@ -1022,13 +1018,13 @@ object frmMain: TfrmMain
     end
   end
   object ilMain: TImageList
-    left = 608
-    top = 56
+    Left = 608
+    Top = 56
   end
   object actlProjActions: TActionList
     OnUpdate = actlProjActionsUpdate
-    left = 384
-    top = 120
+    Left = 384
+    Top = 120
     object actRun: TAction
       Caption = 'Запустить'
       Hint = 'Запустить'
@@ -1063,15 +1059,15 @@ object frmMain: TfrmMain
     end
   end
   object ilProjActions: TImageList
-    Height = 64
-    Width = 64
-    left = 608
-    top = 120
+    Height = 32
+    Width = 32
+    Left = 608
+    Top = 120
   end
   object pmEditor: TPopupMenu
     Images = ilMain
-    left = 496
-    top = 120
+    Left = 496
+    Top = 120
     object miCloseActivePage: TMenuItem
       Action = actCloseActiveTab
       Caption = 'Закрыть вкладку'

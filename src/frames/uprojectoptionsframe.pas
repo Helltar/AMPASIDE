@@ -1,6 +1,6 @@
 {-------------------------------------------------------------------------------
 
-Copyright (C) 2015 Taras Adamchuk <helltar.live@gmail.com>
+Copyright (C) 2015-2022 Helltar <mail@helltar.com>
 
 This file is part of AMPASIDE.
 
@@ -26,7 +26,7 @@ unit uProjectOptionsFrame;
 interface
 
 uses
-  Forms, Spin, StdCtrls, Classes;
+  Forms, Spin, StdCtrls, Classes, uAMPASCore;
 
 type
 
@@ -46,6 +46,7 @@ type
     gbVersions: TGroupBox;
     gbConfiguration: TGroupBox;
     gbAndroidManifest: TGroupBox;
+    lblAndroidManifestFile: TLabel;
     lblAPackage: TLabel;
     lblMName: TLabel;
     lblMVendor: TLabel;
@@ -68,6 +69,7 @@ type
     procedure edtMIconChange(Sender: TObject);
     procedure edtMNameChange(Sender: TObject);
     procedure edtMVendorChange(Sender: TObject);
+    procedure gbAndroidManifestClick(Sender: TObject);
     procedure sedtVBuildChange(Sender: TObject);
     procedure sedtVMajorChange(Sender: TObject);
     procedure sedtVMinorChange(Sender: TObject);
@@ -139,6 +141,11 @@ begin
   ProjConfig.MIDletVendor := edtMVendor.Text;
 end;
 
+procedure TProjectOptionsFrame.gbAndroidManifestClick(Sender: TObject);
+begin
+
+end;
+
 procedure TProjectOptionsFrame.sedtVBuildChange(Sender: TObject);
 begin
   ProjConfig.VersBuild := sedtVBuild.Value;
@@ -171,8 +178,9 @@ begin
   edtMIcon.Text := ProjConfig.MIDletIcon;
   edtMName.Text := ProjConfig.MIDletName;
   edtMVendor.Text := ProjConfig.MIDletVendor;
+  lblAndroidManifestFile.Caption:= APP_DIR_DATA + ANDROID_MANIFEST;
+  lblAndroidManifestFile.Hint:= GetAppPath + APP_DIR_DATA + ANDROID_MANIFEST;
   UpdateVers;
 end;
 
 end.
-
