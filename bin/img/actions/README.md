@@ -1,0 +1,1 @@
+<a target="_blank" href="https://icons8.com/icon/ozL6Pkd9efPv/stop-circled">Stop Circled</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
