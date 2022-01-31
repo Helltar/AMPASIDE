@@ -1,6 +1,6 @@
 {-------------------------------------------------------------------------------
 
-Copyright (C) 2015 Taras Adamchuk <helltar.live@gmail.com>
+Copyright (C) 2015-2022 Helltar <mail@helltar.com>
 
 This file is part of AMPASIDE.
 
@@ -37,7 +37,7 @@ type
   TAndroidBuildingThread = class(TThread)
   private
     FAntBuildFile: string;
-    function CreateAndroidManifest(const FileName, Package, NameVers: string; CodeVers: integer): boolean;
+    function CreateAndroidManifest(const srcFilename, destFilename: string): boolean;
     function CreateBuildFile(const FileName, JadName, ApkName, Outdir: string): boolean;
     function CreateStringsFile(const FileName, AppName, MainClass, JadName: string): boolean;
     procedure BuildAPK(const AntBuildFile: string);
@@ -69,45 +69,9 @@ begin
   BuildAPK(FAntBuildFile);
 end;
 
-function TAndroidBuildingThread.CreateAndroidManifest(const FileName, Package, NameVers: string; CodeVers: integer): boolean;
+function TAndroidBuildingThread.CreateAndroidManifest(const srcFilename, destFilename: string): boolean;
 begin
-  Result := False;
-  with TStringList.Create do
-  begin
-    try
-      Add('<?xml version="1.0" encoding="utf-8"?>');
-      Add('<manifest xmlns:android="http://schemas.android.com/apk/res/android"');
-      Add('    package="' + Package + '"');
-      Add('    android:versionCode="' + IntToStr(CodeVers) + '"');
-      Add('    android:versionName="' + NameVers + '" >');
-      Add('    <uses-permission android:name="android.permission.INTERNET" />');
-      Add('    <uses-permission android:name="android.permission.VIBRATE" />');
-      Add('    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />');
-      Add('    <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:anyDensity="true" />');
-      Add('    <uses-sdk');
-      Add('        android:minSdkVersion="4"');
-      Add('        android:targetSdkVersion="20" />');
-      Add('    <application android:label="@string/app_name" android:icon="@drawable/app_icon">');
-      Add('        <activity');
-      Add('            android:name="org.microemu.android.MicroEmulator"');
-      Add('            android:configChanges="orientation|keyboardHidden">');
-      Add('            <intent-filter>');
-      Add('                <action android:name="android.intent.action.MAIN" />');
-      Add('                <category android:name="android.intent.category.LAUNCHER" />');
-      Add('            </intent-filter>');
-      Add('        </activity>');
-      Add('    </application>');
-      Add('</manifest>');
-      try
-        SaveToFile(FileName);
-        Result := True;
-      except
-        AddLogMsg('Не удалось сохранить: ' + FileName, lmtErr);
-      end;
-    finally
-      Free;
-    end;
-  end;
+  Result := CopyFile(srcFilename, destFilename);
 end;
 
 function TAndroidBuildingThread.CreateStringsFile(const FileName, AppName, MainClass, JadName: string): boolean;
@@ -189,9 +153,11 @@ var
     if CheckFile(AntBuildFile) then
       if MakeDir(GetAppPath + APP_DIR_TMP) then
         if CopyFile(AntBuildFile, ProjBuildFile) then
-          if CreateBuildFile(ProjBuildFile, ProjManager.JadFile, ApkName, ProjManager.ProjDirPreBuild) then
-            if CreateAndroidManifest(GetAppPath + APP_DIR_TMP + 'AndroidManifest.xml', ProjConfig.APackage,
-              ProjManager.MIDletVersion, ProjConfig.VersMajor) then
+          if CreateBuildFile(ProjBuildFile, ProjManager.JadFile,
+            ApkName, ProjManager.ProjDirPreBuild) then
+            if CreateAndroidManifest(
+              GetAppPath + APP_DIR_DATA + ANDROID_MANIFEST,
+              GetAppPath + APP_DIR_TMP + ANDROID_MANIFEST) then
               if CreateStringsFile(GetAppPath + APP_DIR_TMP + 'strings.xml', MIDletName, 'FW', MIDletName + EXT_JAD) then
                 Result := True;
   end;
@@ -263,9 +229,8 @@ begin
       ApkFileName := ProjManager.ApkFile;
 
     AddLogMsg('Проект успешно собран' + LE +
-      'Версия: ' + ProjManager.MIDletVersion + LE +
-      'Размер: ' + GetFileSize(ApkFileName) + LE +
-      'Платформа: Android', lmtOk);
+      'Версия: ' + ProjManager.MIDletVersion + LE + 'Размер: ' +
+      GetFileSize(ApkFileName) + LE + 'Платформа: Android', lmtOk);
 
     DelTempFiles;
   end
@@ -277,4 +242,3 @@ begin
 end;
 
 end.
-
