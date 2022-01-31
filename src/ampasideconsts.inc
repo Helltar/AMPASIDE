@@ -38,6 +38,7 @@ EXT_NOTES = '.txt';
 EXT_PROJECT = '.aproj';
 
 EMULATOR = APP_DIR_TOOLS + 'microemulator.jar';
+ANDROID_MANIFEST = 'AndroidManifest.xml';
 
 {$IFDEF UNIX}
 
@@ -63,5 +64,5 @@ EMULATOR = APP_DIR_TOOLS + 'microemulator.jar';
 
 URL_JAVA_LIB = 'http://forum.boolean.name/showthread.php?t=5494';
 URL_SRC_CODE = 'https://github.com/Helltar/AMPASIDE';
-URL_TUTORIAL = 'http://helltar.ho.ua/mpascal/docs/';
+URL_TUTORIAL = 'https://helltar.com/mpascal/docs/';
 
