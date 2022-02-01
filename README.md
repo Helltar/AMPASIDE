@@ -30,7 +30,7 @@ Advanced MIDletPascal IDE
 
 ##### Windows - v.1.0.3
 
-![Windows_10](https://helltar.com/projects/ampaside/screenshots/windows_10_1.0.3.png)
+![Windows_10](https://helltar.com/projects/ampaside/screenshots/windows-10_1.0.3.png)
 
 ##### Linux (QT) - v.1.0.2
 
