@@ -3,18 +3,6 @@
 
 ### Linux
 
-Выпускаемые версии на **Qt**, установите [Free Pascal Qt4 Binding](http://users.telenet.be/Jan.Van.hijfte/qtforfpc/fpcqt4.html):
-
-``` bash
-# Arch Linux
-pacman -S qt4pas
-
-# Ubuntu
-apt-get install libqt4pas-dev
-```
-
-(при необходимости под **GTK** вы можете собрать из исходников)
-
 Для запуска эмулятора должна быть установлена **JRE**:
 
 ```
@@ -36,7 +24,7 @@ javac -version
 pacman -S apache-ant
 
 # Ubuntu
-apt-get install ant
+apt install ant
 ```
 
 ##### Linux x86_64
