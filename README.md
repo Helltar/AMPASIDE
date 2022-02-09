@@ -5,6 +5,8 @@ Advanced MIDletPascal IDE
 
 Среда разработки использующая компилятор языка программирования [MIDletPascal](http://ru.wikipedia.org/wiki/MIDletPascal).
 
+- https://helltar.com/mpascal/docs/
+
 Установка
 ---------
 
