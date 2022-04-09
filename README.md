@@ -13,6 +13,6 @@ Advanced MIDletPascal IDE
 - [Linux](https://github.com/Helltar/AMPASIDE/blob/master/install_linux.md)
 - [Windows](https://github.com/Helltar/AMPASIDE/blob/master/install_windows.md)
 
-![KDE](https://helltar.com/projects/ampaside/screenshots/linux_kde_qt.jpg)
+![KDE](https://helltar.com/projects/ampaside/screenshots/linux_gnome_gtk.png)
 
 [![LazarusIDE](http://wiki.lazarus.freepascal.org/images/9/94/built_with_lazarus_logo.png)](http://www.lazarus-ide.org)
