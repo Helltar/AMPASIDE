@@ -26,7 +26,8 @@ unit uProjectOptionsFrame;
 interface
 
 uses
-  Forms, Spin, StdCtrls, Classes, uAMPASCore;
+  Forms, Spin, StdCtrls, Classes, LCLIntf,
+  uAMPASCore;
 
 type
 
@@ -70,6 +71,7 @@ type
     procedure edtMNameChange(Sender: TObject);
     procedure edtMVendorChange(Sender: TObject);
     procedure gbAndroidManifestClick(Sender: TObject);
+    procedure lblAndroidManifestFileClick(Sender: TObject);
     procedure sedtVBuildChange(Sender: TObject);
     procedure sedtVMajorChange(Sender: TObject);
     procedure sedtVMinorChange(Sender: TObject);
@@ -146,6 +148,11 @@ begin
 
 end;
 
+procedure TProjectOptionsFrame.lblAndroidManifestFileClick(Sender: TObject);
+begin
+  OpenURL(GetAppPath + APP_DIR_DATA + ANDROID_MANIFEST);
+end;
+
 procedure TProjectOptionsFrame.sedtVBuildChange(Sender: TObject);
 begin
   ProjConfig.VersBuild := sedtVBuild.Value;
@@ -178,8 +185,8 @@ begin
   edtMIcon.Text := ProjConfig.MIDletIcon;
   edtMName.Text := ProjConfig.MIDletName;
   edtMVendor.Text := ProjConfig.MIDletVendor;
-  lblAndroidManifestFile.Caption:= APP_DIR_DATA + ANDROID_MANIFEST;
-  lblAndroidManifestFile.Hint:= GetAppPath + APP_DIR_DATA + ANDROID_MANIFEST;
+  lblAndroidManifestFile.Caption := '...' + DIR_SEP + APP_DIR_DATA + ANDROID_MANIFEST;
+  lblAndroidManifestFile.Hint := GetAppPath + APP_DIR_DATA + ANDROID_MANIFEST;
   UpdateVers;
 end;
 
