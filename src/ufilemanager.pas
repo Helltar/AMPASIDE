@@ -39,8 +39,7 @@ type
     function GetParentNode: TTreeNode;
     function GetSelectedNode: TTreeNode;
     function TreeViewAddChild(ParentNode: TTreeNode; const NodeName: string): TTreeNode;
-    procedure AddChildNode(ParentNode: TTreeNode; const NodeName: string;
-      IsDir: boolean = False);
+    procedure AddChildNode(ParentNode: TTreeNode; const NodeName: string; IsDir: boolean = False);
     procedure AddFilesFromDir(const DirName: string; ParentNode: TTreeNode);
     procedure DeleteSelectedNode;
   public
@@ -197,14 +196,12 @@ begin
   FOwner.Selected.Delete;
 end;
 
-function TFileManager.TreeViewAddChild(ParentNode: TTreeNode;
-  const NodeName: string): TTreeNode;
+function TFileManager.TreeViewAddChild(ParentNode: TTreeNode; const NodeName: string): TTreeNode;
 begin
   Result := FOwner.Items.AddChild(ParentNode, NodeName);
 end;
 
-procedure TFileManager.AddChildNode(ParentNode: TTreeNode; const NodeName: string;
-  IsDir: boolean);
+procedure TFileManager.AddChildNode(ParentNode: TTreeNode; const NodeName: string; IsDir: boolean);
 var
   ChildNode: TTreeNode;
   ImgIndex: integer;
@@ -281,7 +278,11 @@ begin
       Exit;
     end;
 
+  {$IFDEF MSWINDOWS}
   OpenDocument(FileName);
+  {$ELSE}
+  OpenURL(FileName);
+  {$ENDIF}
 end;
 
 procedure TFileManager.UpdateFileList;

@@ -486,7 +486,11 @@ end;
 
 procedure TfrmMain.miExamplesClick(Sender: TObject);
 begin
+  {$IFDEF MSWINDOWS}
+  OpenDocument(GetAppPath + 'examples');
+  {$ELSE}
   OpenURL(GetAppPath + 'examples');
+  {$ENDIF}
 end;
 
 procedure TfrmMain.miIDESettingsClick(Sender: TObject);
