@@ -1,28 +1,28 @@
 object frmMain: TfrmMain
-  Left = 388
-  Height = 609
-  Top = 118
-  Width = 1036
+  Left = 359
+  Height = 674
+  Top = 229
+  Width = 1112
   AllowDropFiles = True
   Caption = 'AMPASIDE'
-  ClientHeight = 589
-  ClientWidth = 1036
+  ClientHeight = 649
+  ClientWidth = 1112
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnDropFiles = FormDropFiles
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '2.0.12.0'
   object tlbMain: TToolBar
     AnchorSideLeft.Control = tlbRCB
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 290
+    Left = 345
     Height = 26
     Top = 6
-    Width = 740
+    Width = 761
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
@@ -123,10 +123,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = stbEditor
-    Left = 290
-    Height = 308
+    Left = 345
+    Height = 372
     Top = 38
-    Width = 740
+    Width = 761
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     PopupMenu = pmEditor
@@ -140,10 +140,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = splBottom
-    Left = 290
-    Height = 23
-    Top = 352
-    Width = 740
+    Left = 345
+    Height = 19
+    Top = 416
+    Width = 761
     Action = actUpdateStatusBar
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
@@ -170,10 +170,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Side = asrBottom
     Cursor = crVSplit
-    Left = 290
+    Left = 345
     Height = 5
-    Top = 381
-    Width = 746
+    Top = 441
+    Width = 767
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -187,10 +187,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 290
+    Left = 345
     Height = 191
-    Top = 392
-    Width = 740
+    Top = 452
+    Width = 761
     ActivePage = tsLogMsg
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
@@ -198,13 +198,13 @@ object frmMain: TfrmMain
     TabOrder = 4
     object tsLogMsg: TTabSheet
       Caption = 'Сообщения'
-      ClientHeight = 163
-      ClientWidth = 732
+      ClientHeight = 160
+      ClientWidth = 751
       object tvMsg: TTreeView
         Left = 6
-        Height = 151
+        Height = 148
         Top = 6
-        Width = 720
+        Width = 739
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
@@ -217,13 +217,13 @@ object frmMain: TfrmMain
     end
     object tsNotes: TTabSheet
       Caption = 'Заметки'
-      ClientHeight = 163
-      ClientWidth = 732
+      ClientHeight = 160
+      ClientWidth = 751
       inline synedtNotes: TSynEdit
         Left = 6
-        Height = 151
+        Height = 148
         Top = 6
-        Width = 720
+        Width = 739
         Align = alClient
         BorderSpacing.Around = 6
         Font.Height = -12
@@ -233,7 +233,7 @@ object frmMain: TfrmMain
         ParentColor = False
         ParentFont = False
         TabOrder = 0
-        Gutter.Width = 57
+        Gutter.Width = 55
         Gutter.MouseActions = <>
         RightGutter.Width = 0
         RightGutter.MouseActions = <>
@@ -691,7 +691,7 @@ object frmMain: TfrmMain
             MouseActions = <>
           end
           object SynGutterLineNumber1: TSynGutterLineNumber
-            Width = 17
+            Width = 15
             MouseActions = <>
             MarkupInfo.Background = clBtnFace
             MarkupInfo.Foreground = clNone
@@ -730,8 +730,8 @@ object frmMain: TfrmMain
     AnchorSideTop.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 251
-    Height = 545
+    Left = 306
+    Height = 605
     Top = 38
     Width = 33
     Align = alNone
@@ -805,10 +805,10 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 240
-    Height = 589
+    Left = 299
+    Height = 649
     Top = 0
-    Width = 5
+    Width = 1
     Align = alNone
     Anchors = [akTop, akLeft, akBottom]
   end
@@ -819,9 +819,9 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 577
+    Height = 637
     Top = 6
-    Width = 228
+    Width = 287
     ActivePage = tsProjSettings
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
@@ -832,11 +832,12 @@ object frmMain: TfrmMain
     end
     object tsProjSettings: TTabSheet
       Caption = 'Параметры'
+      OnContextPopup = tsProjSettingsContextPopup
     end
   end
   object actlMain: TActionList
     Images = ilMain
-    Left = 384
+    Left = 448
     Top = 56
     object actCreateModule: TAction
       Category = 'File'
@@ -914,7 +915,7 @@ object frmMain: TfrmMain
   end
   object mmMain: TMainMenu
     Images = ilMain
-    Left = 496
+    Left = 568
     Top = 56
     object miFile: TMenuItem
       Caption = '&Файл'
@@ -1018,12 +1019,12 @@ object frmMain: TfrmMain
     end
   end
   object ilMain: TImageList
-    Left = 608
+    Left = 688
     Top = 56
   end
   object actlProjActions: TActionList
     OnUpdate = actlProjActionsUpdate
-    Left = 384
+    Left = 448
     Top = 120
     object actRun: TAction
       Caption = 'Запустить'
@@ -1061,12 +1062,12 @@ object frmMain: TfrmMain
   object ilProjActions: TImageList
     Height = 32
     Width = 32
-    Left = 608
+    Left = 688
     Top = 120
   end
   object pmEditor: TPopupMenu
     Images = ilMain
-    Left = 496
+    Left = 568
     Top = 120
     object miCloseActivePage: TMenuItem
       Action = actCloseActiveTab

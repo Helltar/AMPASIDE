@@ -27,7 +27,7 @@ interface
 
 uses
   Classes, ComCtrls, Controls, Forms, Dialogs, ExtCtrls, ActnList, FileUtil,
-  LCLIntf, Menus, SynEdit, SysUtils, LazFileUtils, uAMPASCore;
+  LCLIntf, Menus, SynEdit, SysUtils, LazFileUtils, uAMPASCore, Types;
 
 type
 
@@ -158,6 +158,8 @@ type
     procedure miJavaLibsClick(Sender: TObject);
     procedure pgcEditorCloseTabClicked(Sender: TObject);
     procedure synedtNotesChange(Sender: TObject);
+    procedure tsProjSettingsContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: boolean);
   private
     { private declarations }
     function CheckFileModified(ATabSheet: TTabSheet): boolean;
@@ -253,7 +255,8 @@ var
 
 begin
   if IsProcRunning then
-    case MessageDlg('Запущен процесс', 'Прервать выполнение?', mtWarning, [mbYes, mbCancel], 0) of
+    case MessageDlg('Запущен процесс',
+        'Прервать выполнение?', mtWarning, [mbYes, mbCancel], 0) of
       mrYes: TerminateProc;
       mrCancel:
       begin
@@ -305,12 +308,14 @@ begin
       if Execute then
       begin
         if Length(ExtractFileNameOnly(FileName)) < 3 then
-          MessageDlg('Неверное значение', 'Название модуля должно состоять минимум из 3-х символов',
+          MessageDlg('Неверное значение',
+            'Название модуля должно состоять минимум из 3-х символов',
             mtWarning, [mbOK], 0)
         else
         begin
           if FileExists(FileName) then
-            case MessageDlg('Подтверждение', 'Модуль с таким именем уже существует, заменить?',
+            case MessageDlg('Подтверждение',
+                'Модуль с таким именем уже существует, заменить?',
                 mtWarning, [mbYes, mbNo], 0) of
               mrNo: Exit;
             end;
@@ -380,9 +385,8 @@ begin
     try
       Title := 'Открыть файл';
       Filter :=
-        'Все файлы *|*|' +
-        APP_NAME + ' Project|*' + EXT_PROJECT + '|' +
-        'Pascal Source Code|*' + EXT_MODULE;
+        'Все файлы *|*|' + APP_NAME + ' Project|*' +
+        EXT_PROJECT + '|' + 'Pascal Source Code|*' + EXT_MODULE;
       Options := [ofAllowMultiSelect, ofEnableSizing, ofViewDetail];
       if Execute then
         for i := 0 to Files.Count - 1 do
@@ -423,8 +427,8 @@ begin
   with CodeEditor do
   begin
     SaveCurrentFile;
-    case MessageDlg('Подтверждение', 'Форматировать код ' + ActiveFileName + '? ',
-        mtInformation, [mbYes, mbNo], 0) of
+    case MessageDlg('Подтверждение', 'Форматировать код ' +
+        ActiveFileName + '? ', mtInformation, [mbYes, mbNo], 0) of
       mrYes: JCFormat;
     end;
   end;
@@ -491,7 +495,7 @@ end;
 
 procedure TfrmMain.miExamplesClick(Sender: TObject);
 begin
-  OpenDocument(GetAppPath + 'examples');
+  OpenURL(GetAppPath + 'examples');
 end;
 
 procedure TfrmMain.miIDESettingsClick(Sender: TObject);
@@ -552,8 +556,15 @@ begin
   try
     synedtNotes.Lines.SaveToFile(ProjManager.NotesFile);
   except
-    synedtNotes.Lines.Add('Не удалось сохранить файл заметок');
+    synedtNotes.Lines.Add(
+      'Не удалось сохранить файл заметок');
   end;
+end;
+
+procedure TfrmMain.tsProjSettingsContextPopup(Sender: TObject;
+  MousePos: TPoint; var Handled: boolean);
+begin
+
 end;
 
 procedure TfrmMain.CloseTab(ATabSheet: TTabSheet);
@@ -575,8 +586,9 @@ begin
 
   if CodeEditor.IsFileModified(AEditor) then
   begin
-    case MessageDlg('Подтверждение', 'Сохранить изменения в файле "' + ExtractFileName(FileName) + '"?',
-        mtInformation, [mbYes, mbNo, mbCancel], 0) of
+    case MessageDlg('Подтверждение',
+        'Сохранить изменения в файле "' +
+        ExtractFileName(FileName) + '"?', mtInformation, [mbYes, mbNo, mbCancel], 0) of
       mrYes: CodeEditor.SaveFile(FileName, AEditor);
       mrCancel: Result := False;
     end;
@@ -794,7 +806,8 @@ begin
   try
     synedtNotes.Lines.LoadFromFile(ProjManager.NotesFile);
   except
-    synedtNotes.Lines.Text := 'Не удалось загрузить файл заметок';
+    synedtNotes.Lines.Text :=
+      'Не удалось загрузить файл заметок';
   end;
 end;
 
@@ -858,4 +871,3 @@ begin
 end;
 
 end.
-
