@@ -6,8 +6,8 @@ object FileManagerFrame: TFileManagerFrame
   ClientHeight = 475
   ClientWidth = 317
   TabOrder = 0
-  DesignLeft = 720
-  DesignTop = 273
+  DesignLeft = 1185
+  DesignTop = 215
   object tvFileList: TTreeView
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = tlbManagerActions
@@ -16,13 +16,12 @@ object FileManagerFrame: TFileManagerFrame
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = splBottom
     Left = 6
-    Height = 272
-    Top = 34
+    Height = 262
+    Top = 44
     Width = 305
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoExpand = True
     BorderSpacing.Around = 6
-    DefaultItemHeight = 18
     Images = ilMain
     PopupMenu = pmFileManager
     ReadOnly = True
@@ -50,8 +49,8 @@ object FileManagerFrame: TFileManagerFrame
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 6
-    ClientHeight = 150
-    ClientWidth = 299
+    ClientHeight = 145
+    ClientWidth = 303
     TabOrder = 1
     object lblFileName: TLabel
       AnchorSideLeft.Control = imgPreview
@@ -134,12 +133,13 @@ object FileManagerFrame: TFileManagerFrame
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     Left = 6
-    Height = 22
     Top = 6
-    Width = 47
+    Width = 65
     Align = alNone
     AutoSize = True
     BorderSpacing.Around = 6
+    ButtonHeight = 32
+    ButtonWidth = 32
     Caption = 'tlbManagerActions'
     EdgeBorders = []
     Images = ilMain
@@ -153,7 +153,7 @@ object FileManagerFrame: TFileManagerFrame
       ShowHint = True
     end
     object tbbUpdateFileList: TToolButton
-      Left = 24
+      Left = 33
       Top = 0
       Action = actUpdateFileList
       ParentShowHint = False
@@ -166,22 +166,23 @@ object FileManagerFrame: TFileManagerFrame
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 59
-    Height = 23
+    AnchorSideBottom.Control = tvFileList
+    Left = 77
+    Height = 32
     Top = 6
-    Width = 252
+    Width = 234
     ButtonWidth = 23
-    NumGlyphs = 1
-    Anchors = [akTop, akLeft, akRight]
+    Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
+    NumGlyphs = 1
     MaxLength = 0
     TabOrder = 4
     FilteredTreeview = tvFileList
   end
   object pmFileManager: TPopupMenu
     Images = ilMain
-    left = 144
-    top = 56
+    Left = 144
+    Top = 56
     object miOpenFile: TMenuItem
       Action = actOpenFile
     end
@@ -205,13 +206,13 @@ object FileManagerFrame: TFileManagerFrame
     end
   end
   object ilMain: TImageList
-    left = 48
-    top = 128
+    Left = 48
+    Top = 128
   end
   object actlMain: TActionList
     Images = ilMain
-    left = 48
-    top = 56
+    Left = 48
+    Top = 56
     object actOpenFile: TAction
       Caption = 'Открыть ...'
       Hint = 'Открыть'
@@ -255,7 +256,7 @@ object FileManagerFrame: TFileManagerFrame
   object ilPreview: TImageList
     Height = 64
     Width = 64
-    left = 144
-    top = 128
+    Left = 144
+    Top = 128
   end
 end
