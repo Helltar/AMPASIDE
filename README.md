@@ -10,20 +10,9 @@ Advanced MIDletPascal IDE
 Установка
 ---------
 
-- [install_linux.md](https://github.com/Helltar/AMPASIDE/blob/master/install_linux.md)
-- [install_windows.md](https://github.com/Helltar/AMPASIDE/blob/master/install_windows.md)
-
-Сборка из исходников
---------------------
-
-[![LazarusIDE](http://wiki.lazarus.freepascal.org/images/9/94/built_with_lazarus_logo.png)](http://www.lazarus-ide.org)
-
-Лицензия
---------
-
-[![GPLv3](http://www.gnu.org/graphics/gplv3-127x51.png)](https://github.com/Helltar/AMPASIDE/blob/master/COPYING)
-
-Скриншоты
----------
+- [Linux](https://github.com/Helltar/AMPASIDE/blob/master/install_linux.md)
+- [Windows](https://github.com/Helltar/AMPASIDE/blob/master/install_windows.md)
 
 ![KDE](https://helltar.com/projects/ampaside/screenshots/linux_kde_qt.jpg)
+
+[![LazarusIDE](http://wiki.lazarus.freepascal.org/images/9/94/built_with_lazarus_logo.png)](http://www.lazarus-ide.org)
