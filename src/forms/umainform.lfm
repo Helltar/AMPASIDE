@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 359
-  Height = 674
-  Top = 229
-  Width = 1112
+  Left = 757
+  Height = 648
+  Top = 124
+  Width = 1086
   AllowDropFiles = True
   Caption = 'AMPASIDE'
-  ClientHeight = 649
-  ClientWidth = 1112
+  ClientHeight = 623
+  ClientWidth = 1086
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -14,15 +14,15 @@ object frmMain: TfrmMain
   OnDropFiles = FormDropFiles
   LCLVersion = '2.0.12.0'
   object tlbMain: TToolBar
-    AnchorSideLeft.Control = tlbRCB
+    AnchorSideLeft.Control = splLeft
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 345
-    Height = 26
+    Left = 296
+    Height = 22
     Top = 6
-    Width = 761
+    Width = 784
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
@@ -31,102 +31,114 @@ object frmMain: TfrmMain
     Images = ilMain
     TabOrder = 0
     object tbbCreateModule: TToolButton
-      Left = 1
+      Left = 149
       Top = 0
       Action = actCreateModule
       ParentShowHint = False
       ShowHint = True
     end
     object tbbDivider1: TToolButton
-      Left = 24
+      Left = 93
       Height = 22
       Top = 0
       Caption = 'tbbDivider1'
       Style = tbsDivider
     end
     object tbbOpenFile: TToolButton
-      Left = 29
+      Left = 126
       Top = 0
       Action = actFileOpen
       ParentShowHint = False
       ShowHint = True
     end
     object tbbSaveFile: TToolButton
-      Left = 52
+      Left = 172
       Top = 0
       Action = actFileSave
       ParentShowHint = False
       ShowHint = True
     end
     object tbbDivider2: TToolButton
-      Left = 98
+      Left = 121
       Height = 22
       Top = 0
       Caption = 'tbbDivider2'
       Style = tbsDivider
     end
     object tbbCloseEditorTab: TToolButton
-      Left = 200
+      Left = 223
       Top = 0
       Action = actCloseActiveTab
       ParentShowHint = False
       ShowHint = True
     end
-    object tbbRun: TToolButton
-      Left = 103
-      Top = 0
-      Action = actRun
-      ParentShowHint = False
-      ShowHint = True
-    end
-    object tbbCompile: TToolButton
-      Left = 126
-      Top = 0
-      Action = actCompile
-      ParentShowHint = False
-      ShowHint = True
-    end
-    object tbbBuild: TToolButton
-      Left = 149
-      Top = 0
-      Action = actBuild
-      ParentShowHint = False
-      ShowHint = True
-    end
     object tbbDivider3: TToolButton
-      Left = 195
+      Left = 218
       Height = 22
       Top = 0
       Caption = 'tbbDivider3'
       Style = tbsDivider
     end
-    object tbbTermProc: TToolButton
-      Left = 172
-      Top = 0
-      Action = actTerminateProc
-      ParentShowHint = False
-      ShowHint = True
-    end
     object tbbSaveAll: TToolButton
-      Left = 75
+      Left = 195
       Top = 0
       Action = actSaveAll
       ParentShowHint = False
       ShowHint = True
     end
+    object tbbBuildAndroid: TToolButton
+      Cursor = crHandPoint
+      Left = 70
+      Top = 0
+      Action = actBuildAndroid
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object tbbBuild: TToolButton
+      Cursor = crHandPoint
+      Left = 47
+      Top = 0
+      Action = actBuild
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object tbbCompile: TToolButton
+      Cursor = crHandPoint
+      Left = 24
+      Top = 0
+      Action = actCompile
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object tbbTermProc: TToolButton
+      Cursor = crHandPoint
+      Left = 98
+      Top = 0
+      Action = actTerminateProc
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object tbbRun: TToolButton
+      Cursor = crHandPoint
+      Left = 1
+      Top = 0
+      Action = actRun
+      ParentShowHint = False
+      ShowHint = True
+    end
   end
   object pgcEditor: TPageControl
-    AnchorSideLeft.Control = tlbRCB
+    AnchorSideLeft.Control = splLeft
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = tlbMain
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = stbEditor
-    Left = 345
-    Height = 372
-    Top = 38
-    Width = 761
+    Left = 296
+    Height = 350
+    Top = 34
+    Width = 784
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     PopupMenu = pmEditor
@@ -135,15 +147,15 @@ object frmMain: TfrmMain
     Options = [nboShowCloseButtons]
   end
   object stbEditor: TStatusBar
-    AnchorSideLeft.Control = tlbRCB
+    AnchorSideLeft.Control = splLeft
     AnchorSideLeft.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = splBottom
-    Left = 345
+    Left = 296
     Height = 19
-    Top = 416
-    Width = 761
+    Top = 390
+    Width = 784
     Action = actUpdateStatusBar
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
@@ -164,22 +176,21 @@ object frmMain: TfrmMain
     ShowHint = True
   end
   object splBottom: TSplitter
-    AnchorSideLeft.Control = tlbRCB
     AnchorSideLeft.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Side = asrBottom
     Cursor = crVSplit
-    Left = 345
+    Left = 423
     Height = 5
-    Top = 441
-    Width = 767
+    Top = 415
+    Width = 663
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
   end
   object pgcMsgNotes: TPageControl
-    AnchorSideLeft.Control = tlbRCB
+    AnchorSideLeft.Control = splLeft
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = splBottom
     AnchorSideTop.Side = asrBottom
@@ -187,10 +198,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 345
+    Left = 296
     Height = 191
-    Top = 452
-    Width = 761
+    Top = 426
+    Width = 784
     ActivePage = tsLogMsg
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
@@ -199,12 +210,12 @@ object frmMain: TfrmMain
     object tsLogMsg: TTabSheet
       Caption = 'Сообщения'
       ClientHeight = 160
-      ClientWidth = 751
+      ClientWidth = 774
       object tvMsg: TTreeView
         Left = 6
         Height = 148
         Top = 6
-        Width = 739
+        Width = 762
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
@@ -218,12 +229,12 @@ object frmMain: TfrmMain
     object tsNotes: TTabSheet
       Caption = 'Заметки'
       ClientHeight = 160
-      ClientWidth = 751
+      ClientWidth = 774
       inline synedtNotes: TSynEdit
         Left = 6
         Height = 148
         Top = 6
-        Width = 739
+        Width = 749
         Align = alClient
         BorderSpacing.Around = 6
         Font.Height = -12
@@ -723,92 +734,14 @@ object frmMain: TfrmMain
       end
     end
   end
-  object tlbRCB: TToolBar
-    AnchorSideLeft.Control = splLeft
-    AnchorSideLeft.Side = asrBottom
-    AnchorSideTop.Control = tlbMain
-    AnchorSideTop.Side = asrBottom
-    AnchorSideBottom.Control = Owner
-    AnchorSideBottom.Side = asrBottom
-    Left = 306
-    Height = 605
-    Top = 38
-    Width = 33
-    Align = alNone
-    Anchors = [akTop, akLeft, akBottom]
-    AutoSize = True
-    BorderSpacing.Around = 6
-    ButtonHeight = 32
-    ButtonWidth = 32
-    Caption = 'tlbRCB'
-    EdgeBorders = []
-    Images = ilProjActions
-    TabOrder = 5
-    object tbbRun64: TToolButton
-      Cursor = crHandPoint
-      Left = 1
-      Top = 0
-      Action = actRun
-      ParentShowHint = False
-      ShowHint = True
-    end
-    object tbbCompile64: TToolButton
-      Cursor = crHandPoint
-      Left = 1
-      Top = 32
-      Action = actCompile
-      ParentShowHint = False
-      ShowHint = True
-    end
-    object tbbBuild64: TToolButton
-      Cursor = crHandPoint
-      Left = 1
-      Top = 64
-      Action = actBuild
-      ParentShowHint = False
-      ShowHint = True
-    end
-    object tbbDivider4: TToolButton
-      Left = 1
-      Top = 96
-      Width = 32
-      Caption = 'tbbDivider4'
-      Style = tbsDivider
-    end
-    object tbbTermProc64: TToolButton
-      Cursor = crHandPoint
-      Left = 1
-      Hint = 'Завершить запущенный процесс'
-      Top = 138
-      Action = actTerminateProc
-      Caption = 'Завершить запущенный процесс'
-      ParentShowHint = False
-      ShowHint = True
-    end
-    object tbbBuildAndroid64: TToolButton
-      Cursor = crHandPoint
-      Left = 1
-      Top = 101
-      Action = actBuildAndroid
-      ParentShowHint = False
-      ShowHint = True
-    end
-    object tbbDivider5: TToolButton
-      Left = 1
-      Top = 133
-      Width = 32
-      Caption = 'tbbDivider5'
-      Style = tbsDivider
-    end
-  end
   object splLeft: TSplitter
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 299
-    Height = 649
+    Left = 288
+    Height = 623
     Top = 0
-    Width = 1
+    Width = 2
     Align = alNone
     Anchors = [akTop, akLeft, akBottom]
   end
@@ -819,21 +752,28 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 637
+    Height = 611
     Top = 6
-    Width = 287
+    Width = 276
     ActivePage = tsProjSettings
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     TabIndex = 1
-    TabOrder = 7
+    TabOrder = 6
     object tsProjFiles: TTabSheet
       Caption = 'Файлы'
     end
     object tsProjSettings: TTabSheet
       Caption = 'Параметры'
-      OnContextPopup = tsProjSettingsContextPopup
     end
+  end
+  object tbbRun64: TToolButton
+    Cursor = crHandPoint
+    Left = 1
+    Top = 0
+    Action = actRun
+    ParentShowHint = False
+    ShowHint = True
   end
   object actlMain: TActionList
     Images = ilMain
@@ -1058,12 +998,6 @@ object frmMain: TfrmMain
       OnExecute = actBuildAndroidExecute
       OnUpdate = actRunUpdate
     end
-  end
-  object ilProjActions: TImageList
-    Height = 32
-    Width = 32
-    Left = 688
-    Top = 120
   end
   object pmEditor: TPopupMenu
     Images = ilMain

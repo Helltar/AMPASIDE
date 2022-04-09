@@ -53,7 +53,6 @@ type
     actUpdateStatusBar: TAction;
     actlMain: TActionList;
     ilMain: TImageList;
-    ilProjActions: TImageList;
     miSaveAll: TMenuItem;
     miCloseActivePage: TMenuItem;
     miCloseAllOtherPages: TMenuItem;
@@ -95,31 +94,25 @@ type
     splLeft: TSplitter;
     stbEditor: TStatusBar;
     synedtNotes: TSynEdit;
-    tbbRun64: TToolButton;
-    tbbCompile64: TToolButton;
-    tbbBuild64: TToolButton;
+    tbbBuild: TToolButton;
+    tbbBuildAndroid: TToolButton;
+    tbbCompile: TToolButton;
     tbbCreateModule: TToolButton;
     tbbDivider1: TToolButton;
     tbbOpenFile: TToolButton;
-    tbbSaveFile: TToolButton;
+    tbbRun64: TToolButton;
     tbbRun: TToolButton;
-    tbbCompile: TToolButton;
+    tbbSaveFile: TToolButton;
     tbbDivider2: TToolButton;
     tbbCloseEditorTab: TToolButton;
-    tbbBuild: TToolButton;
-    tbbDivider4: TToolButton;
-    tbbTermProc64: TToolButton;
     tbbDivider3: TToolButton;
-    tbbTermProc: TToolButton;
-    tbbDivider5: TToolButton;
-    tbbBuildAndroid64: TToolButton;
     tbbSaveAll: TToolButton;
+    tbbTermProc: TToolButton;
     tsLogMsg: TTabSheet;
     tsNotes: TTabSheet;
     tsProjFiles: TTabSheet;
     tsProjSettings: TTabSheet;
     tlbMain: TToolBar;
-    tlbRCB: TToolBar;
     tvMsg: TTreeView;
     procedure actBuildAndroidExecute(Sender: TObject);
     procedure actBuildExecute(Sender: TObject);
@@ -158,8 +151,6 @@ type
     procedure miJavaLibsClick(Sender: TObject);
     procedure pgcEditorCloseTabClicked(Sender: TObject);
     procedure synedtNotesChange(Sender: TObject);
-    procedure tsProjSettingsContextPopup(Sender: TObject; MousePos: TPoint;
-      var Handled: boolean);
   private
     { private declarations }
     function CheckFileModified(ATabSheet: TTabSheet): boolean;
@@ -561,12 +552,6 @@ begin
   end;
 end;
 
-procedure TfrmMain.tsProjSettingsContextPopup(Sender: TObject;
-  MousePos: TPoint; var Handled: boolean);
-begin
-
-end;
-
 procedure TfrmMain.CloseTab(ATabSheet: TTabSheet);
 begin
   if CheckFileModified(ATabSheet) then
@@ -716,12 +701,6 @@ begin
   synedtNotes.Font.Size := EditorConfig.FontSize;
   synedtNotes.Lines.Add('Недоступно, нет открытого проекта');
 
-  tbbBuild.Visible := False;
-  tbbCompile.Visible := False;
-  tbbDivider2.Visible := False;
-  tbbRun.Visible := False;
-  tbbTermProc.Visible := False;
-
   {$IFDEF MSWINDOWS}
   tbbDivider3.Visible := True;
   tbbCloseEditorTab.Visible := True;
@@ -757,19 +736,11 @@ begin
     miExit.ImageIndex := 6;
     miJavaLibs.ImageIndex := 9;
 
-    tbbBuild.ImageIndex := 1;
-    tbbCompile.ImageIndex := 3;
-    tbbRun.ImageIndex := 14;
-    tbbTermProc.ImageIndex := 17;
-  end;
-
-  if LoadImages('actions', ilProjActions) then
-  begin
-    actBuild.ImageIndex := 0;
-    actBuildAndroid.ImageIndex := 1;
-    actCompile.ImageIndex := 2;
-    actRun.ImageIndex := 4;
-    actTerminateProc.ImageIndex := 3;
+    actBuild.ImageIndex := 1;
+    actBuildAndroid.ImageIndex := 20;
+    actCompile.ImageIndex := 3;
+    actRun.ImageIndex := 14;
+    actTerminateProc.ImageIndex := 17;
   end;
 end;
 
@@ -821,24 +792,19 @@ begin
 
   pgcProject.Visible := IsChecked;
   splLeft.Visible := IsChecked;
-  tlbRCB.Visible := IsChecked;
-  tbbBuild.Visible := not IsChecked;
-  tbbCompile.Visible := not IsChecked;
   tbbDivider2.Visible := not IsChecked;
-  tbbRun.Visible := not IsChecked;
-  tbbTermProc.Visible := not IsChecked;
 
   if IsChecked then
   begin
-    pgcEditor.AnchorSideLeft.Control := tlbRCB;
+    pgcEditor.AnchorSideLeft.Control := splLeft;
     pgcEditor.AnchorSideLeft.Side := asrBottom;
-    pgcMsgNotes.AnchorSideLeft.Control := tlbRCB;
+    pgcMsgNotes.AnchorSideLeft.Control := splLeft;
     pgcMsgNotes.AnchorSideLeft.Side := asrBottom;
-    splBottom.AnchorSideLeft.Control := tlbRCB;
+    splBottom.AnchorSideLeft.Control := splLeft;
     splBottom.AnchorSideLeft.Side := asrBottom;
-    stbEditor.AnchorSideLeft.Control := tlbRCB;
+    stbEditor.AnchorSideLeft.Control := splLeft;
     stbEditor.AnchorSideLeft.Side := asrBottom;
-    tlbMain.AnchorSideLeft.Control := tlbRCB;
+    tlbMain.AnchorSideLeft.Control := splLeft;
     tlbMain.AnchorSideLeft.Side := asrBottom;
   end
   else
