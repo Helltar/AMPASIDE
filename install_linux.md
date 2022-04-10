@@ -12,14 +12,10 @@ java --version
 javac --version
 ```
 
-Установите **Apache Ant**:
+**Apache Ant**:
 
 ``` bash
-# Fedora
-sudo dnf install ant
-
-# Ubuntu
-sudo apt install ant
+ant --version
 ```
 
 #### Linux x86_64
