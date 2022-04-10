@@ -5,7 +5,7 @@
 - **Ubuntu 22.04** LTS (Jammy Jellyfish)
 
 
-На некоторых системах, например **Fedora 35 Workstation**, вы можете получить ошибку ввида:
+На некоторых системах, например **Fedora 35 Workstation**, вы можете получить ошибку вида:
 
 ```
 ./ampaside: error while loading shared libraries: libgdk-x11-2.0.so.0: cannot open shared object file: No such file or directory
