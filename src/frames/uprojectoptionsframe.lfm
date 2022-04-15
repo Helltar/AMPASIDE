@@ -33,7 +33,6 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Width = 92
       BorderSpacing.Around = 6
       Caption = 'MIDlet-Name:'
-      ParentColor = False
     end
     object edtMName: TEdit
       AnchorSideLeft.Control = gbManifest
@@ -60,7 +59,6 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Width = 101
       BorderSpacing.Around = 6
       Caption = 'MIDlet-Vendor:'
-      ParentColor = False
     end
     object edtMVendor: TEdit
       AnchorSideLeft.Control = gbManifest
@@ -87,7 +85,6 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Width = 130
       BorderSpacing.Around = 6
       Caption = 'MIDlet-Description:'
-      ParentColor = False
     end
     object edtMDesc: TEdit
       AnchorSideLeft.Control = gbManifest
@@ -114,7 +111,6 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Width = 80
       BorderSpacing.Around = 6
       Caption = 'MIDlet-Icon:'
-      ParentColor = False
     end
     object edtMIcon: TEdit
       AnchorSideLeft.Control = gbManifest
@@ -175,7 +171,6 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Width = 65
       BorderSpacing.Around = 6
       Caption = 'Старшая:'
-      ParentColor = False
     end
     object sedtVMajor: TSpinEdit
       AnchorSideLeft.Control = gbVersions
@@ -203,7 +198,6 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       BorderSpacing.Left = 18
       BorderSpacing.Around = 6
       Caption = 'Младшая:'
-      ParentColor = False
     end
     object sedtVMinor: TSpinEdit
       AnchorSideLeft.Control = lblVMinor
@@ -229,7 +223,6 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       BorderSpacing.Left = 18
       BorderSpacing.Around = 6
       Caption = 'Сборка:'
-      ParentColor = False
     end
     object sedtVBuild: TSpinEdit
       AnchorSideLeft.Control = lblVBuild
@@ -289,7 +282,6 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Width = 82
       BorderSpacing.Around = 6
       Caption = 'MIDlet type:'
-      ParentColor = False
     end
     object cbbCanvasType: TComboBox
       AnchorSideLeft.Control = gbConfiguration
@@ -325,7 +317,6 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Width = 96
       BorderSpacing.Around = 6
       Caption = 'Real-numbers:'
-      ParentColor = False
     end
     object cbbMathType: TComboBox
       AnchorSideLeft.Control = gbConfiguration
@@ -379,7 +370,6 @@ object ProjectOptionsFrame: TProjectOptionsFrame
       Width = 60
       BorderSpacing.Around = 6
       Caption = 'Package:'
-      ParentColor = False
       Visible = False
     end
     object edtAPackage: TEdit
@@ -401,16 +391,14 @@ object ProjectOptionsFrame: TProjectOptionsFrame
     object lblAndroidManifestFile: TLabel
       Cursor = crHandPoint
       Left = 6
-      Height = 19
+      Height = 1
       Top = 10
-      Width = 163
+      Width = 1
       BorderSpacing.Around = 6
-      Caption = 'lblAndroidManifestFile'
       Font.Color = clHighlight
       Font.Height = 16
       Font.Style = [fsUnderline]
       Layout = tlCenter
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True

@@ -25,10 +25,9 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <RevisionNr Value="3"/>
-      <BuildNr Value="21"/>
+      <BuildNr Value="22"/>
       <Language Value="0419"/>
       <CharSet Value="04B0"/>
-      <Attributes pvaPatched="True"/>
       <StringTable CompanyName="helltar.com" FileDescription="Advanced MIDletPascal IDE" LegalCopyright="© 2015-2022 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE" ProductVersion="1.0.3"/>
     </VersionInfo>
     <BuildModes Count="3">
