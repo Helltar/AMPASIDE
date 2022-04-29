@@ -19,6 +19,18 @@ Advanced MIDletPascal IDE
 - [Linux](https://github.com/Helltar/AMPASIDE/blob/master/install_linux.md)
 - [Windows](https://github.com/Helltar/AMPASIDE/blob/master/install_windows.md)
 
+Скриншоты
+---------
+
+#### Ubuntu 22.04
+
 ![linux_gnome](https://helltar.com/projects/ampaside/screenshots/linux_gnome_gtk.png)
+
+#### Windows 11
+
+![windows-11](https://helltar.com/projects/ampaside/screenshots/windows-11_1.0.3.png)
+
+Сборка из исходников
+--------------------
 
 [![LazarusIDE](http://wiki.lazarus.freepascal.org/images/9/94/built_with_lazarus_logo.png)](http://www.lazarus-ide.org)
