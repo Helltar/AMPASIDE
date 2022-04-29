@@ -11,7 +11,7 @@ Advanced MIDletPascal IDE
 -------
 
 - [ampaside-1.0.3_linux-gtk-x86_64.tar.xz](https://github.com/Helltar/AMPASIDE/releases/download/v1.0.3-22/ampaside-1.0.3_linux-gtk-x86_64.tar.xz) (18.1 MB)
-- [ampaside-1.0.3_windows.zip](https://github.com/Helltar/AMPASIDE/releases/download/v1.0.3/ampaside-1.0.3_windows.zip) (20.8 MB)
+- [ampaside-1.0.3_windows.zip](https://github.com/Helltar/AMPASIDE/releases/download/v1.0.3-22/ampaside-1.0.3_windows.zip) (20.9 MB)
 
 Установка
 ---------
