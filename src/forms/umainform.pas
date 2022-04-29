@@ -688,7 +688,7 @@ end;
 
 procedure TfrmMain.InitControls;
 begin
-  pgcProject.ActivePage := tsProjSettings;
+  pgcProject.ActivePage := tsProjFiles;
 
   FileManagerFrame := TFileManagerFrame.Create(tsProjFiles);
   FileManagerFrame.Parent := tsProjFiles;

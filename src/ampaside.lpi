@@ -25,10 +25,10 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <RevisionNr Value="3"/>
-      <BuildNr Value="22"/>
+      <BuildNr Value="23"/>
       <Language Value="0419"/>
       <CharSet Value="04B0"/>
-      <StringTable CompanyName="helltar.com" FileDescription="Advanced MIDletPascal IDE" LegalCopyright="© 2015-2022 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE" ProductVersion="1.0.3"/>
+      <StringTable CompanyName="helltar.com" FileDescription="Advanced MIDletPascal IDE" LegalCopyright="2015-2022 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE" ProductVersion="1.0.3"/>
     </VersionInfo>
     <BuildModes Count="3">
       <Item1 Name="Default" Default="True"/>
@@ -195,6 +195,7 @@
         <ComponentName Value="GeneralOptionsFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
+        <UnitName Value="uGeneralOptionsFrame"/>
       </Unit13>
       <Unit14>
         <Filename Value="frames/uprojectoptionsframe.pas"/>

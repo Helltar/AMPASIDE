@@ -1,13 +1,15 @@
 object FileManagerFrame: TFileManagerFrame
   Left = 0
-  Height = 475
+  Height = 648
   Top = 0
-  Width = 317
-  ClientHeight = 475
-  ClientWidth = 317
+  Width = 408
+  ClientHeight = 648
+  ClientWidth = 408
+  DesignTimePPI = 120
+  ParentFont = False
   TabOrder = 0
-  DesignLeft = 1185
-  DesignTop = 215
+  DesignLeft = 807
+  DesignTop = 222
   object tvFileList: TTreeView
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = tlbManagerActions
@@ -15,13 +17,13 @@ object FileManagerFrame: TFileManagerFrame
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = splBottom
-    Left = 6
-    Height = 262
-    Top = 44
-    Width = 305
+    Left = 8
+    Height = 388
+    Top = 48
+    Width = 392
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoExpand = True
-    BorderSpacing.Around = 6
+    BorderSpacing.Around = 8
     Images = ilMain
     PopupMenu = pmFileManager
     ReadOnly = True
@@ -42,27 +44,26 @@ object FileManagerFrame: TFileManagerFrame
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 6
-    Height = 147
-    Top = 322
-    Width = 305
+    Left = 8
+    Height = 183
+    Top = 457
+    Width = 392
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
-    BorderSpacing.Around = 6
-    ClientHeight = 145
-    ClientWidth = 303
+    BorderSpacing.Around = 8
+    ClientHeight = 158
+    ClientWidth = 388
     TabOrder = 1
     object lblFileName: TLabel
       AnchorSideLeft.Control = imgPreview
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = gbFileInfo
-      Left = 140
+      Left = 144
       Height = 1
-      Top = 6
+      Top = 8
       Width = 1
-      BorderSpacing.Around = 6
+      BorderSpacing.Around = 8
       Font.Style = [fsBold]
-      ParentColor = False
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
@@ -72,47 +73,44 @@ object FileManagerFrame: TFileManagerFrame
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = lblFileName
       AnchorSideTop.Side = asrBottom
-      Left = 140
+      Left = 144
       Height = 1
-      Top = 13
+      Top = 17
       Width = 1
-      BorderSpacing.Around = 6
-      ParentColor = False
+      BorderSpacing.Around = 8
     end
     object lblImgWidth: TLabel
       AnchorSideLeft.Control = imgPreview
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = lblFileSize
       AnchorSideTop.Side = asrBottom
-      Left = 140
+      Left = 144
       Height = 1
-      Top = 20
+      Top = 26
       Width = 1
-      BorderSpacing.Around = 6
-      ParentColor = False
+      BorderSpacing.Around = 8
     end
     object lblImgHeight: TLabel
       AnchorSideLeft.Control = imgPreview
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = lblImgWidth
       AnchorSideTop.Side = asrBottom
-      Left = 140
+      Left = 144
       Height = 1
-      Top = 27
+      Top = 35
       Width = 1
-      BorderSpacing.Around = 6
-      ParentColor = False
+      BorderSpacing.Around = 8
     end
     object imgPreview: TImage
       AnchorSideLeft.Control = gbFileInfo
       AnchorSideTop.Control = gbFileInfo
-      AnchorSideBottom.Control = gbFileInfo
-      AnchorSideBottom.Side = asrBottom
-      Left = 6
+      AnchorSideTop.Side = asrCenter
+      AnchorSideBottom.Side = asrCenter
+      Left = 8
       Height = 128
-      Top = 6
+      Top = 15
       Width = 128
-      BorderSpacing.Around = 6
+      BorderSpacing.Around = 8
       Proportional = True
     end
   end
@@ -122,9 +120,9 @@ object FileManagerFrame: TFileManagerFrame
     AnchorSideRight.Side = asrBottom
     Cursor = crVSplit
     Left = 0
-    Height = 4
-    Top = 312
-    Width = 317
+    Height = 5
+    Top = 444
+    Width = 408
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -132,12 +130,12 @@ object FileManagerFrame: TFileManagerFrame
   object tlbManagerActions: TToolBar
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
-    Left = 6
-    Top = 6
+    Left = 8
+    Top = 8
     Width = 65
     Align = alNone
     AutoSize = True
-    BorderSpacing.Around = 6
+    BorderSpacing.Around = 8
     ButtonHeight = 32
     ButtonWidth = 32
     Caption = 'tlbManagerActions'
@@ -167,13 +165,13 @@ object FileManagerFrame: TFileManagerFrame
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = tvFileList
-    Left = 77
+    Left = 81
     Height = 32
-    Top = 6
-    Width = 234
-    ButtonWidth = 23
+    Top = 8
+    Width = 319
+    ButtonWidth = 32
     Anchors = [akTop, akLeft, akRight, akBottom]
-    BorderSpacing.Around = 6
+    BorderSpacing.Around = 8
     NumGlyphs = 1
     MaxLength = 0
     TabOrder = 4
@@ -181,8 +179,8 @@ object FileManagerFrame: TFileManagerFrame
   end
   object pmFileManager: TPopupMenu
     Images = ilMain
-    Left = 144
-    Top = 56
+    Left = 180
+    Top = 70
     object miOpenFile: TMenuItem
       Action = actOpenFile
     end
@@ -206,13 +204,13 @@ object FileManagerFrame: TFileManagerFrame
     end
   end
   object ilMain: TImageList
-    Left = 48
-    Top = 128
+    Left = 60
+    Top = 160
   end
   object actlMain: TActionList
     Images = ilMain
-    Left = 48
-    Top = 56
+    Left = 60
+    Top = 70
     object actOpenFile: TAction
       Caption = 'Открыть ...'
       Hint = 'Открыть'
@@ -256,7 +254,7 @@ object FileManagerFrame: TFileManagerFrame
   object ilPreview: TImageList
     Height = 64
     Width = 64
-    Left = 144
-    Top = 128
+    Left = 180
+    Top = 160
   end
 end

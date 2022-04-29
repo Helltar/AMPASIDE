@@ -277,7 +277,7 @@ end;
 
 function TIDEConfig.GetFsplLeft: integer;
 begin
-  Result := FMainConfig.ReadInteger('FORM', 'SplLeft', 290);
+  Result := FMainConfig.ReadInteger('FORM', 'SplLeft', 350);
 end;
 
 function TIDEConfig.GetFTop: integer;
