@@ -1,11 +1,13 @@
 object frmAbout: TfrmAbout
-  Left = 660
-  Height = 246
-  Top = 296
-  Width = 340
+  Left = 709
+  Height = 405
+  Top = 318
+  Width = 342
+  AutoSize = True
   Caption = 'About'
-  ClientHeight = 246
-  ClientWidth = 340
+  ClientHeight = 405
+  ClientWidth = 342
+  DesignTimePPI = 120
   OnCreate = FormCreate
   Position = poScreenCenter
   LCLVersion = '2.2.0.4'
@@ -99,21 +101,22 @@ object frmAbout: TfrmAbout
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = lblGitHubURL
-    Left = 6
-    Height = 106
-    Top = 70
-    Width = 328
+    Left = 8
+    Height = 160
+    Top = 72
+    Width = 326
     Anchors = [akTop, akLeft, akRight]
-    BorderSpacing.Around = 6
+    BorderSpacing.Around = 8
     ReadOnly = True
     ScrollBars = ssAutoBoth
     TabOrder = 0
   end
   object btnpnlMain: TButtonPanel
-    Left = 6
-    Height = 34
-    Top = 206
-    Width = 328
+    Left = 8
+    Height = 38
+    Top = 359
+    Width = 326
+    BorderSpacing.Around = 8
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
     OKButton.OnClick = OKButtonClick
@@ -128,18 +131,38 @@ object frmAbout: TfrmAbout
   end
   object lblGitHubURL: TLabel
     AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = lblHomepage
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = btnpnlMain
+    Cursor = crHandPoint
+    Left = 8
+    Height = 20
+    Top = 268
+    Width = 251
+    BorderSpacing.Around = 8
+    Caption = 'https://github.com/Helltar/AMPASIDE'
+    Font.Color = 13391121
+    ParentFont = False
+    OnClick = lblURLClick
+    OnMouseEnter = lblURLMouseEnter
+    OnMouseLeave = lblURLMouseLeave
+  end
+  object lblHomepage: TLabel
+    AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = memAbout
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = btnpnlMain
     Cursor = crHandPoint
-    Left = 6
-    Height = 15
-    Top = 182
-    Width = 203
-    BorderSpacing.Around = 6
-    Caption = 'https://github.com/Helltar/AMPASIDE'
+    Left = 8
+    Height = 20
+    Top = 240
+    Width = 122
+    BorderSpacing.Around = 8
+    Caption = 'https://helltar.com'
     Font.Color = 13391121
     ParentFont = False
     OnClick = lblURLClick

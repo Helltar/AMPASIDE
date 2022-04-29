@@ -26,7 +26,7 @@ unit uAboutForm;
 interface
 
 uses
-  ButtonPanel, Graphics, ExtCtrls, Forms, StdCtrls, LCLIntf;
+  ButtonPanel, Graphics, ExtCtrls, Forms, StdCtrls, LCLIntf, Classes;
 
 type
 
@@ -36,6 +36,7 @@ type
     btnpnlMain: TButtonPanel;
     imgLogo: TImage;
     lblGitHubURL: TLabel;
+    lblHomepage: TLabel;
     memAbout: TMemo;
     procedure FormCreate(Sender: TObject);
     procedure lblURLClick(Sender: TObject);
@@ -59,9 +60,9 @@ uses
 
 procedure TfrmAbout.FormCreate(Sender: TObject);
 begin
-  Caption := 'О проекте ' + APP_NAME;
+  Caption := APP_NAME;
 
-  Height := 252;
+  Height := 400;
   Width := 340;
 
   Constraints.MinHeight := Height;
@@ -70,10 +71,10 @@ begin
   lblGitHubURL.Caption := URL_SRC_CODE;
 
   memAbout.Lines.Text :=
-    'Advanced MIDletPascal IDE' + LE +
-    'Автор: Helltar' + LE +
-    'Версия: ' + GetProgramVersion + LE +
-    'Лицензия: GPLv3 (см. COPYING)';
+    'Advanced MIDletPascal IDE' + LE + LE +
+    'Author: Helltar' + LE +
+    'Version: ' + GetProgramVersion + LE +
+    'License: GPLv3 (see COPYING)';
 end;
 
 procedure TfrmAbout.lblURLClick(Sender: TObject);
@@ -97,4 +98,3 @@ begin
 end;
 
 end.
-
