@@ -5,7 +5,7 @@
 - Ubuntu 22.04 LTS
 
 
-На некоторых системах, например **Fedora 35 Workstation**, вы можете получить ошибку вида:
+На некоторых системах вы можете получить ошибку вида:
 
 ```
 error while loading shared libraries: libgdk-x11-2.0.so.0: cannot open shared object file: No such file or directory
@@ -15,6 +15,12 @@ error while loading shared libraries: libgdk-x11-2.0.so.0: cannot open shared ob
 
 ```
 sudo dnf install gtk2
+```
+
+Ubuntu и производные:
+
+```
+sudo apt install libgtk2.0-0
 ```
 
 Для работы эмулятора должна быть установлена **JRE**:
