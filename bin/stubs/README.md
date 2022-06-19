@@ -1,1 +1,1 @@
-- http://sourceforge.net/p/midletpascal/code/HEAD/tree/MPS.3.1/
+- https://github.com/Helltar/mps-code
