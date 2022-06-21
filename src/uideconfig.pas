@@ -242,7 +242,7 @@ end;
 
 function TIDEConfig.GetColorSchemeFile: string;
 begin
-  Result := FMainConfig.ReadString('EDITOR', 'ColorSchemeFile', GetAppPath + APP_DIR_DATA + 'editorcolorscheme');
+  Result := FMainConfig.ReadString('EDITOR', 'ColorSchemeFile', GetAppPath + APP_DIR_CONFIG + 'editorcolorscheme');
 end;
 
 function TIDEConfig.GetFHeight: integer;
