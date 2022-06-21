@@ -110,7 +110,9 @@ begin
     sList.Add('    <property name="midlet.jad" value="' + JadName + '" />');
     sList.Add('    <property name="midlet.package" value="' + ApkName + '" />');
     sList.Add('    <property name="outdir" value="' + Outdir + '" />');
-    sList.Add('    <property name="sdk-folder" value="' + GetAppPath + 'tools' + DIR_SEP + 'android' + DIR_SEP + 'sdk" />');
+    sList.Add('    <property name="sdk-folder" value="' + GetAppPath + APP_DIR_ANDROID + 'sdk" />');
+    sList.Add('    <property name="root-folder" value="' + GetAppPath + APP_DIR_ANDROID + '" />');
+
     with TStringList.Create do
       try
         try
@@ -156,7 +158,7 @@ var
           if CreateBuildFile(ProjBuildFile, ProjManager.JadFile,
             ApkName, ProjManager.ProjDirPreBuild) then
             if CreateAndroidManifest(
-              GetAppPath + APP_DIR_DATA + ANDROID_MANIFEST,
+              GetAppPath + APP_DIR_CONFIG + ANDROID_MANIFEST,
               GetAppPath + APP_DIR_TMP + ANDROID_MANIFEST) then
               if CreateStringsFile(GetAppPath + APP_DIR_TMP + 'strings.xml', MIDletName, 'FW', MIDletName + EXT_JAD) then
                 Result := True;
@@ -178,7 +180,7 @@ var
 
 begin
   MIDletName := ProjConfig.MIDletName;
-  ProjBuildFile := ExtractFilePath(AntBuildFile) + 'build.' + MIDletName + '.xml';
+  ProjBuildFile := APP_DIR_TMP + 'build.' + MIDletName + '.xml';
   ApkName := MIDletName + EXT_APK;
 
   if not PreBuildAct then
