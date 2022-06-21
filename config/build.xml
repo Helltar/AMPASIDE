@@ -1,5 +1,5 @@
 
-    <property name="sdk-platform-folder" value="${sdk-folder}/platforms/android-20" />
+    <property name="sdk-platform-folder" value="${sdk-folder}/platforms/android-26" />
     <property name="microemu-cldc.jar" value="${root-folder}/lib/cldc.jar" />
     <property name="microemu-midp.jar" value="${root-folder}/lib/midp.jar" />
     <property name="microemu-javase.jar" value="${root-folder}/lib/javase.jar" />
