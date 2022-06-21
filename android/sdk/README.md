@@ -1,0 +1,2 @@
+- https://androidsdkmanager.azurewebsites.net/tools.html
+- https://github.com/Sable/android-platforms/tree/master/android-26
