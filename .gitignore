@@ -11,5 +11,6 @@ src/**/lib
 
 release_bin/
 tmp/
+log/
 
 build.*.xml
