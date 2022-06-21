@@ -1,8 +1,7 @@
-bin/ampaside*
+ampaside
+ampaside.dbg
 
-bin/data/ampaside
-bin/data/ant.log
-bin/data/editorheaders
+config/editorheaders
 
 src/*.lps
 src/*.res
@@ -12,4 +11,5 @@ src/**/lib
 
 release_bin/
 tmp/
+
 build.*.xml
