@@ -7,7 +7,7 @@ config/ampaside
 src/*.lps
 src/*.res
 
-src/**/backup
+backup/
 src/**/lib
 
 release_bin/
