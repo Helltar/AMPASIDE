@@ -1,19 +1,11 @@
-Для запуска эмулятора должна быть установлена **JRE**, проверьте набрав в ком. строке:
+### Сборка под Android
 
-```
-java -version
-```
+Установите **JDK** версии **1.8** (8):
 
-### Для возможности сборки под Android
+- [OpenJDK8U-jdk_x64_windows_hotspot_8u332b09.msi](https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u332-b09/OpenJDK8U-jdk_x64_windows_hotspot_8u332b09.msi) (85.9 MB)
+- https://adoptium.net/temurin/archive?version=8
 
-Должен быть установлен **JDK**:
+**Apache Ant**:
 
-```
-javac -version
-```
-
-**Apache Ant** (https://ant.apache.org/manual/install.html):
-
-```
-ant -version
-```
+- [apache-ant-1.10.12-bin.zip](https://dlcdn.apache.org//ant/binaries/apache-ant-1.10.12-bin.zip) (9.8 MB)
+- https://ant.apache.org/manual/install.html
