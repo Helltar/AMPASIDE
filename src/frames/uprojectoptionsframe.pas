@@ -38,7 +38,6 @@ type
     cbAutoIncBuildVer: TCheckBox;
     cbbCanvasType: TComboBox;
     cbbMathType: TComboBox;
-    edtAPackage: TEdit;
     edtMName: TEdit;
     edtMVendor: TEdit;
     edtMDesc: TEdit;
@@ -48,7 +47,6 @@ type
     gbConfiguration: TGroupBox;
     gbAndroidManifest: TGroupBox;
     lblAndroidManifestFile: TLabel;
-    lblAPackage: TLabel;
     lblMName: TLabel;
     lblMVendor: TLabel;
     lblMDesc: TLabel;
@@ -65,7 +63,6 @@ type
     procedure cbAutoIncBuildVerChange(Sender: TObject);
     procedure cbbCanvasTypeChange(Sender: TObject);
     procedure cbbMathTypeChange(Sender: TObject);
-    procedure edtAPackageChange(Sender: TObject);
     procedure edtMDescChange(Sender: TObject);
     procedure edtMIconChange(Sender: TObject);
     procedure edtMNameChange(Sender: TObject);
@@ -117,11 +114,6 @@ end;
 procedure TProjectOptionsFrame.cbbMathTypeChange(Sender: TObject);
 begin
   ProjConfig.MathType := cbbMathType.ItemIndex;
-end;
-
-procedure TProjectOptionsFrame.edtAPackageChange(Sender: TObject);
-begin
-  ProjConfig.APackage := edtAPackage.Text;
 end;
 
 procedure TProjectOptionsFrame.edtMDescChange(Sender: TObject);
@@ -181,13 +173,12 @@ begin
   cbAutoIncBuildVer.Checked := ProjConfig.AutoIncBuildVers;
   cbbCanvasType.ItemIndex := ProjConfig.CanvasType;
   cbbMathType.ItemIndex := ProjConfig.MathType;
-  edtAPackage.Text := ProjConfig.APackage;
   edtMDesc.Text := ProjConfig.MIDletDescription;
   edtMIcon.Text := ProjConfig.MIDletIcon;
   edtMName.Text := ProjConfig.MIDletName;
   edtMVendor.Text := ProjConfig.MIDletVendor;
   lblAndroidManifestFile.Caption := ANDROID_MANIFEST;
-  lblAndroidManifestFile.Hint := GetAppPath + APP_DIR_CONFIG + ANDROID_MANIFEST;
+  lblAndroidManifestFile.Hint := ProjManager.ProjDirHome + ANDROID_MANIFEST;
   UpdateVers;
 end;
 
