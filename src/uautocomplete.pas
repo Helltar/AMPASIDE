@@ -63,7 +63,7 @@ begin
   try
     CompletionList.LoadFromFile(GetAppPath + EDITOR_COMPLETION);
   except
-    AddLogMsg('Не удалось загрузить файл автодополнения: ' + EDITOR_COMPLETION, lmtErr);
+    AddLogMsg(ERR_LOAD_AUTOCOMPELE_FILE + ': ' + EDITOR_COMPLETION, lmtErr);
   end;
 
   EditorCompletion := TSynCompletion.Create(AOwner);

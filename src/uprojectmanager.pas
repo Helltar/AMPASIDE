@@ -146,7 +146,7 @@ begin
       try
         SaveToFile(Result);
       except
-        AddLogMsg('Не удалось создать модуль: ' + Result, lmtErr);
+        AddLogMsg(ERR_FAILED_CREATE_MODULE + ': ' + Result, lmtErr);
       end;
     finally
       Free;
@@ -241,7 +241,7 @@ function TProjectManager.CreateProject(APath, AName: string): boolean;
     with TStringList.Create do
     begin
       try
-        Add('Здесь можно писать что угодно, используйте это для заметок и быстрых записей');
+        Add(MSG_DEFAULT_NOTES);
         SaveToFile(FileName + EXT_NOTES);
       finally
         Free;

@@ -98,7 +98,7 @@ begin
   begin
     if not FileIsWritable(FileName) then
     begin
-      ErrMsg := 'Недостаточно прав для записи в файл: ' + FileName;
+      ErrMsg := ERR_WRITE_ACCESS + ': ' + FileName;
       FileName := '';
     end;
   end
@@ -118,13 +118,13 @@ begin
   Result := False;
 
   if FileName = '' then
-    ErrMsg := 'Ошибка, пустое значение в имени файла'
+    ErrMsg := ERR_EMPTY_FILENAME
   else
   if not FileExists(FileName) then
-    ErrMsg := 'Файл не найден: ' + FileName
+    ErrMsg := ERR_FILE_404 + ': ' + FileName
   else
   if not FileIsWritable(FileName) then
-    ErrMsg := 'Недостаточно прав для чтения файла: ' + FileName
+    ErrMsg := ERR_READ_ACCESS + ': ' + FileName
   else
     Result := True;
 
@@ -167,10 +167,10 @@ begin
     if DirectoryIsWritable(DirName) then
       Result := True
     else
-      AddLogMsg('Недостаточно прав для чтения каталога: ' + DirName, lmtErr);
+      AddLogMsg(ERR_READ_ACCESS + ': ' + DirName, lmtErr);
   end
   else
-    AddLogMsg('Каталога не существует: ' + DirName, lmtErr);
+    AddLogMsg(ERR_DIR_404 + ': ' + DirName, lmtErr);
 end;
 
 function GetCurrentUsername: string;
@@ -192,7 +192,7 @@ begin
   IntSize := FileSize(FileName);
 
   if IntSize < 1024 then
-    Result := IntToStr(IntSize) + ' байт'
+    Result := IntToStr(IntSize) + ' ' + MSG_BYTE
   else
   if (IntSize div 1024) >= 1024 then
     Result := IntToStr((IntSize div 1024) div 1024) + ' MB'
@@ -231,7 +231,7 @@ begin
         IsProcessRunning := True;
         if IsProcTerminate then
           if P.Terminate(0) then
-            AddLogMsg('Процесс (PID: ' + IntToStr(P.ProcessID) + ') завершен');
+            AddLogMsg(MSG_PROC + ' (PID: ' + IntToStr(P.ProcessID) + ') ' + MSG_PCOMPLETED);
         Sleep(1);
       end;
 
@@ -246,7 +246,7 @@ begin
 
       Result.Completed := True;
     except
-      AddLogMsg('Ошибка при запуске процесса: ' + P.CommandLine, lmtErr);
+      AddLogMsg(ERR_RUN_PROC + ': ' + P.CommandLine, lmtErr);
     end;
   finally
     IsProcessRunning := False;
@@ -289,7 +289,7 @@ begin
     if not CreateDir(DirName) then
     begin
       Result := False;
-      AddLogMsg('Ошибка создания каталога: ' + DirName, lmtErr);
+      AddLogMsg(ERR_CREATE_DIR + ': ' + DirName, lmtErr);
     end;
 end;
 
@@ -313,7 +313,7 @@ begin
     try
       sList.LoadFromFile(FileName);
     except
-      AddLogMsg('Не удалось получить список изображений: ' + FileName, lmtErr);
+      AddLogMsg(ERR_LOAD_IMG + ': ' + FileName, lmtErr);
     end;
 
     for i := 0 to sList.Count - 1 do
@@ -325,7 +325,7 @@ begin
           Img.LoadFromFile(FileName);
           ImgList.Add(Img, nil);
         except
-          AddLogMsg('Не удалось открыть файл как PNG: ' + FileName, lmtErr);
+          AddLogMsg(ERR_OPEN_PNG + ': ' + FileName, lmtErr);
         end;
       end;
     end;
@@ -417,4 +417,3 @@ begin
 end;
 
 end.
-

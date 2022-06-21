@@ -139,13 +139,13 @@ begin
   begin
     tvFileList.FullExpand;
     actExpandCollapse.ImageIndex := 2;
-    actExpandCollapse.Hint := 'Свернуть';
+    actExpandCollapse.Hint := MSG_MINIMIZE;
   end
   else
   begin
     tvFileList.FullCollapse;
     actExpandCollapse.ImageIndex := 3;
-    actExpandCollapse.Hint := 'Развернуть';
+    actExpandCollapse.Hint := MSG_EXPAND;
   end;
 end;
 
@@ -175,7 +175,7 @@ begin
       actRenameFile.Enabled := False;
       actDeleteFile.Enabled := False;
     end;
-    actAddFiles.Caption := 'Добавить файлы в "' +
+    actAddFiles.Caption := TITLE_ADD_FILES_TO + ' "' +
       FileManager.GetDirNameOnly(FileManager.GetPath) + '"';
   end;
 end;
@@ -197,7 +197,7 @@ var
 begin
   if not Assigned(Node) then
   begin
-    lblFileName.Caption := 'Файл не выбран';
+    lblFileName.Caption := CAPTION_FILE_NO_SELECTED;
     lblFileName.Hint := '';
     lblFileSize.Caption := '';
     lblImgHeight.Caption := '';
@@ -210,7 +210,7 @@ begin
 
   lblFileName.Caption := ExtractFileName(FileName);
   lblFileName.Hint := lblFileName.Caption;
-  lblFileSize.Caption := 'Размер: ' + GetFileSize(FileName);
+  lblFileSize.Caption := MSG_SIZE + ': ' + GetFileSize(FileName);
   lblImgHeight.Caption := '';
   lblImgWidth.Caption := '';
 
@@ -221,8 +221,8 @@ begin
     begin
       try
         imgPreview.Picture.LoadFromFile(FileName);
-        lblImgWidth.Caption := 'Высота: ' + IntToStr(imgPreview.Picture.Height);
-        lblImgHeight.Caption := 'Ширина: ' + IntToStr(imgPreview.Picture.Width);
+        lblImgWidth.Caption := MSG_HEIGHT + ': ' + IntToStr(imgPreview.Picture.Height);
+        lblImgHeight.Caption := MSG_WIDTH + ': ' + IntToStr(imgPreview.Picture.Width);
       except
         imgPreview.Picture.Clear;
       end;

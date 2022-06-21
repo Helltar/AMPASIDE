@@ -165,7 +165,7 @@ begin
         LoadFromFile(GetAppPath + EDITOR_HEADERS);
         Result := Text;
       except
-        AddLogMsg('Ошибка при загрузке файла: ' + EDITOR_HEADERS, lmtErr);
+        AddLogMsg(ERR_FAILED_DOWNLOAD + ': ' + EDITOR_HEADERS, lmtErr);
       end;
     finally
       Free;
@@ -270,7 +270,7 @@ begin
         Text := AValue;
         SaveToFile(GetAppPath + EDITOR_HEADERS);
       except
-        AddLogMsg('Ошибка при сохранении файла: ' + EDITOR_HEADERS, lmtErr);
+        AddLogMsg(ERR_SAVING + ': ' + EDITOR_HEADERS, lmtErr);
       end;
     finally
       Free;

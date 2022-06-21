@@ -19,13 +19,14 @@
     </General>
     <i18n>
       <EnableI18N LFM="False"/>
+      <OutDir Value="po_files"/>
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <RevisionNr Value="3"/>
-      <BuildNr Value="24"/>
+      <BuildNr Value="25"/>
       <Language Value="0419"/>
       <CharSet Value="04B0"/>
       <StringTable CompanyName="helltar.com" FileDescription="Advanced MIDletPascal IDE" LegalCopyright="2015-2022 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE" ProductVersion="1.0.3"/>
@@ -180,6 +181,7 @@
         <ComponentName Value="EditorOptionsFrame"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Frame"/>
+        <UnitName Value="uEditorOptionsFrame"/>
       </Unit11>
       <Unit12>
         <Filename Value="frames/ufilemanagerframe.pas"/>
@@ -235,6 +237,7 @@
         <ComponentName Value="frmIDEOptions"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uIDEOptionsForm"/>
       </Unit18>
       <Unit19>
         <Filename Value="forms/umainform.pas"/>

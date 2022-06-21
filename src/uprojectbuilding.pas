@@ -156,7 +156,7 @@ begin
         SaveToFile(FileName);
         Result := True;
       except
-        AddLogMsg('Ошибка при сохранении: ' + FileName, lmtErr);
+        AddLogMsg(ERR_SAVING + ': ' + FileName, lmtErr);
       end;
     finally
       Free;
@@ -255,7 +255,7 @@ begin
 
   if not FileExists(FileName) then
   begin
-    AddLogMsg('Не удалось найти библиотеку/модуль: "' +
+    AddLogMsg(ERR_FAILED_FIND_LIB + ': "' +
       ExtractFileNameOnly(FileName) + '"', lmtErr);
     Exit;
   end;
@@ -296,7 +296,7 @@ begin
     end;
   end;
 
-  AddLogMsg('Идет компиляция ' + OrigName + '...');
+  AddLogMsg(MSG_COMPILATION_PROGRESS + ' ' + OrigName + '...');
   P := ProcStart(MPCompiler, CmdParameters);
 
   if P.Completed then
@@ -305,7 +305,7 @@ begin
     CopyLib;
     if not IsErr(P.Output) then
     begin
-      AddLogMsg(DeleteCharacters(P.Output) + 'Завершено', lmtOk);
+      AddLogMsg(DeleteCharacters(P.Output) + MSG_COMPLETED, lmtOk);
       Result := True;
     end
     else
@@ -400,7 +400,7 @@ function TProjectBuilding.Build: boolean;
 
     Inc(vBuild);
 
-    // >= 100 не работает (Nokia)
+    // >= 100 not working (Nokia)
     if vBuild > 99 then
     begin
       vBuild := 0;
@@ -436,12 +436,12 @@ begin
   if FileExists(JARFileName) then
     if not DeleteFile(JARFileName) then
     begin
-      AddLogMsg('Не удалось удалить ' + ExtractFileName(JARFileName) +
-        ' возможно файл занят другим процессом', lmtErr);
+      AddLogMsg(ERR_FAILED_DEL + ' ' + ExtractFileName(JARFileName) +
+        ' ' + MSG_BUSY_PROC, lmtErr);
       Exit;
     end;
 
-  AddLogMsg('Начало архивации ' + ExtractFileName(JARFileName) + '...' + LE);
+  AddLogMsg(MSG_ARCHIVING_START + ' ' + ExtractFileName(JARFileName) + '...' + LE);
 
   FileArchiver := GetAppPath + FILE_ARCHIVER;
   CmdParameters := 'a "' + JARFileName + '" "';
@@ -456,10 +456,10 @@ begin
         IncBuildVers;
 
       AddLogMsg(
-        'Проект успешно собран' + LE +
-        'Версия: ' + ProjManager.MIDletVersion + LE +
-        'Размер: ' + GetFileSize(JARFileName) + LE +
-        'Платформа: JavaME', lmtOk);
+        MSG_SUCCESSFULLY_ASSEMBLED + LE +
+        MSG_VERSION + ': ' + ProjManager.MIDletVersion + LE +
+        MSG_SIZE + ': ' + GetFileSize(JARFileName) + LE +
+        MSG_PLATFORM + ': JavaME', lmtOk);
 
       Result := True;
     end;
@@ -481,11 +481,10 @@ begin
   if not Build then
     Exit;
 
-  AddLogMsg('Emulator: запуск ' + ExtractFileName(ProjManager.JarFile) + '...');
+  AddLogMsg('Emulator: ' + MSG_LAUCHING + ' ' + ExtractFileName(ProjManager.JarFile) + '...');
 
   if ProcStart(IDEConfig.MacrosReplace(IDEConfig.EmulatorCmd), False).Completed then
-    AddLogMsg('Работа эмулятора завершена');
+    AddLogMsg(MSG_EMULATOR_STOP);
 end;
 
 end.
-

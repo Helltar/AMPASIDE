@@ -93,10 +93,10 @@ begin
   Result := False;
 
   if AName = '' then
-    MessageDlg('Пустое значение', 'Введите название проекта', mtError, [mbOK], 0)
+    MessageDlg(ERR_EMPTY_VALUE, MSG_ENTER_PROJNAME, mtError, [mbOK], 0)
   else
   if Length(AName) < 3 then
-    MessageDlg('Неверное значение', 'Название проекта должно состоять минимум из 3-х символов', mtWarning, [mbOK], 0)
+    MessageDlg(ERR_BAD_VALUE, MSG_PROJ_NAME_MUST_LEAST, mtWarning, [mbOK], 0)
   else
     Result := True;
 end;
@@ -106,21 +106,21 @@ begin
   Result := False;
 
   if ParentPath = '' then
-    MessageDlg('Пустое значение', 'Выберите каталог сохранения', mtError, [mbOK], 0)
+    MessageDlg(ERR_EMPTY_VALUE, MSG_SELECT_SAVE_DIR, mtError, [mbOK], 0)
   else
   if not DirectoryExists(ParentPath) then
-    MessageDlg('Ошибка', 'Каталога не существует', mtError, [mbOK], 0)
+    MessageDlg(ERR_ERR, ERR_DIR_404, mtError, [mbOK], 0)
   else
   if DirectoryExists(ProjPath) then
   begin
-    case MessageDlg('Подтвердите действие', 'Проект с таким именем уже существует на диске, перезаписать его?',
+    case MessageDlg(MSG_CONFIRM_ACTION, MSG_PROJ_EXIST_REWRITE + '?',
         mtWarning, [mbYes, mbNo], 0) of
       mrYes:
       begin
         if DeleteDirectory(ProjPath, False) then
           Result := True
         else
-          MessageDlg('Ошибка', 'Не удалось удалить каталог: ' + ProjPath, mtError, [mbOK], 0);
+          MessageDlg(ERR_ERR, ERR_DEL_DIR + ': ' + ProjPath, mtError, [mbOK], 0);
       end;
     end;
   end
@@ -129,4 +129,3 @@ begin
 end;
 
 end.
-

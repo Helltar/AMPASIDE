@@ -77,28 +77,28 @@ begin
   ProjPath := IDEConfig.MacrosReplace(M_PROJ_PATH);
 
   if APKFileName = '' then
-    APKFileName := 'абсолютный путь к .apk';
+    APKFileName := MSG_ABSOLUTE_PATH_TO + ' .apk';
 
   if JADFileName = '' then
-    JADFileName := 'абсолютный путь к .jad';
+    JADFileName := MSG_ABSOLUTE_PATH_TO + ' .jad';
 
   if JARFileName = '' then
-    JARFileName := 'абсолютный путь к .jar';
+    JARFileName := MSG_ABSOLUTE_PATH_TO + ' .jar';
 
   if ProjPath = '' then
-    ProjPath := 'абсолютный путь к домашнему каталогу проекта ' + DIR_SEP;
+    ProjPath := MSG_ABSOLUTE_PATH_TO_PROJ + ' ' + DIR_SEP;
 
   with IDEConfig do
     synedtMacros.Text := (
       '//--------- IDE ---------' + LE + LE +
       M_APP_NAME + ' - ' + MacrosReplace(M_APP_NAME) + LE +
       M_APP_VERSION + ' - ' + MacrosReplace(M_APP_VERSION) + LE + LE +
-      '//--------- Проект ---------' + LE + LE +
+      '//--------- ' + CAPTION_PROJ + ' ---------' + LE + LE +
       M_PROJ_PATH + ' - ' + ProjPath + LE +
       M_APK_FILENAME + ' - ' + APKFileName + LE +
       M_JAD_FILENAME + ' - ' + JADFileName + LE +
       M_JAR_FILENAME + ' - ' + JARFileName + LE + LE +
-      '//--------- Другое ---------' + LE + LE +
+      '//--------- ' + CAPTION_OTHER + ' ---------' + LE + LE +
       M_DATE_TIME + ' - ' + MacrosReplace(M_DATE_TIME) + LE +
       M_USERNAME + ' - ' + MacrosReplace(M_USERNAME)
       );
@@ -115,4 +115,3 @@ begin
 end;
 
 end.
-

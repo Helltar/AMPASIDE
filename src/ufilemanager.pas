@@ -86,13 +86,13 @@ var
   procedure AddDir(DirName: string);
   begin
     if DirectoryExists(DestFileName) then
-      case MessageDlg('Подтвердите действие',
-          'Перезаписать каталог "' + ExtractFileName(DestFileName) +
+      case MessageDlg(MSG_CONFIRM_ACTION,
+          MSG_OVERWRITE_DIR + ' "' + ExtractFileName(DestFileName) +
           '"?', mtInformation, [mbYes, mbNo], 0) of
         mrYes:
           if not DeleteDirectory(DestFileName, False) then
           begin
-            AddLogMsg('Ошибка при удалении каталога: ' +
+            AddLogMsg(ERR_DEL_DIR + ': ' +
               DestFileName);
             Exit;
           end;
@@ -102,7 +102,7 @@ var
     if CopyDirTree(DirName, DestFileName) then
       AddChildNode(GetParentNode, ExtractFileName(DirName))
     else
-      AddLogMsg('Не удалось скопировать каталог: ' +
+      AddLogMsg(ERR_COPY_DIR + ': ' +
         DirName, lmtErr);
   end;
 
@@ -117,8 +117,8 @@ begin
   else
   begin
     if FileExists(DestFileName) then
-      case MessageDlg('Подтвердите действие',
-          'Перезаписать файл "' + ExtractFileName(DestFileName) +
+      case MessageDlg(MSG_CONFIRM_ACTION,
+          MSG_OVERWRITE_FILE + ' "' + ExtractFileName(DestFileName) +
           '"?', mtInformation, [mbYes, mbNo], 0) of
         mrNo: Exit;
       end;
@@ -126,7 +126,7 @@ begin
     if CopyFile(FileName, DestFileName) then
       AddChildNode(GetParentNode, ExtractFileName(FileName))
     else
-      AddLogMsg('Не удалось скопировать файл: ' +
+      AddLogMsg(ERR_COPY_FILE + ': ' +
         FileName, lmtErr);
   end;
 end;
@@ -256,7 +256,6 @@ var
     begin
       repeat
         if (SR.Attr and faDirectory) = 0 then
-          { TODO : сделать .ampasignore или сохранение в xml, etc... }
           if ExtractFileExt(SR.Name) <> '.bak' then
             AddChildNode(ParentNode, SR.Name);
       until FindNext(SR) <> 0;
@@ -293,15 +292,15 @@ begin
 
     BeginUpdate;
 
-    AddFilesFromDir(ProjManager.ProjDirSrc, Items.Add(nil, 'Модули'));
+    AddFilesFromDir(ProjManager.ProjDirSrc, Items.Add(nil, CAPTION_MODULES));
     Items.GetLastNode.ImageIndex := 6;
     Items.GetLastNode.SelectedIndex := 6;
 
-    AddFilesFromDir(ProjManager.ProjDirRes, Items.Add(nil, 'Ресурсы'));
+    AddFilesFromDir(ProjManager.ProjDirRes, Items.Add(nil, CAPTION_RES));
     Items.GetLastNode.ImageIndex := 10;
     Items.GetLastNode.SelectedIndex := 10;
 
-    AddFilesFromDir(ProjManager.ProjDirLibs, Items.Add(nil, 'Библиотеки'));
+    AddFilesFromDir(ProjManager.ProjDirLibs, Items.Add(nil, CAPTION_LIBS));
     Items.GetLastNode.ImageIndex := 15;
     Items.GetLastNode.SelectedIndex := 15;
 
@@ -320,8 +319,8 @@ begin
   with TOpenDialog.Create(nil) do
   begin
     try
-      Title := 'Добавить файлы в "' + GetDirNameOnly(GetPath) + '"';
-      Filter := 'Все файлы *|*';
+      Title := TITLE_ADD_FILES_TO + ' "' + GetDirNameOnly(GetPath) + '"';
+      Filter := FILTER_ALL_FILES + ' *|*';
       Options := [ofAllowMultiSelect, ofEnableSizing, ofViewDetail];
       if Execute then
         for i := 0 to Files.Count - 1 do
@@ -338,15 +337,15 @@ var
 
   procedure ShowDelDirDialog;
   begin
-    case MessageDlg('Подтвердите действие',
-        'Удалить каталог "' + GetDirNameOnly(GetPath) + '"?',
+    case MessageDlg(MSG_CONFIRM_ACTION,
+        MSG_DEL_DIR + ' "' + GetDirNameOnly(GetPath) + '"?',
         mtInformation, [mbYes, mbNo], 0) of
       mrYes:
         if DeleteDirectory(FileName, False) then
           DeleteSelectedNode
         else
-          MessageDlg('Ошибка',
-            'Не удалось удалить каталог: ' + FileName, mtError, [mbOK], 0);
+          MessageDlg(ERR_ERR,
+            ERR_DEL_DIR + ': ' + FileName, mtError, [mbOK], 0);
     end;
   end;
 
@@ -356,14 +355,14 @@ begin
   if IsDirectory(FileName) then
     ShowDelDirDialog
   else
-    case MessageDlg('Подтвердите действие',
-        'Удалить файл "' + ExtractFileName(FileName) + '"?',
+    case MessageDlg(MSG_CONFIRM_ACTION,
+        MSG_DEL_FILE + ' "' + ExtractFileName(FileName) + '"?',
         mtInformation, [mbYes, mbNo], 0) of
       mrYes:
         if DeleteFile(FileName) then
           DeleteSelectedNode
         else
-          MessageDlg('Ошибка', 'Не удалось удалить файл: ' +
+          MessageDlg(ERR_ERR, ERR_FAILED_DEL + ': ' +
             FileName, mtError, [mbOK], 0);
     end;
 end;
@@ -373,16 +372,16 @@ var
   DirName: string = '';
 
 begin
-  if InputQuery('Создание каталога', 'Введите название:',
+  if InputQuery(MSG_CREATE_DIR, MSG_ENTER_NAME + ':',
     DirName) then
   begin
     if DirName = '' then
-      MessageDlg('Ошибка', 'Пустое значение', mtError, [mbOK], 0)
+      MessageDlg(ERR_ERR, ERR_EMPTY_VALUE, mtError, [mbOK], 0)
     else
     if CreateDir(GetPath + DirName) then
       AddChildNode(GetParentNode, DirName, True)
     else
-      MessageDlg('Ошибка', 'Не удалось создать каталог',
+      MessageDlg(ERR_ERR, ERR_CREATE_DIR,
         mtError, [mbOK], 0);
   end;
 end;
@@ -395,15 +394,15 @@ begin
   FileName := SelectedFileName;
   NewName := ExtractFileName(FileName);
 
-  if InputQuery('Переименование', 'Новое имя:', NewName) then
+  if InputQuery(MSG_RENAMING, MSG_NEW_NAME + ':', NewName) then
   begin
     if NewName = '' then
-      MessageDlg('Ошибка', 'Пустое значение', mtError, [mbOK], 0)
+      MessageDlg(ERR_ERR, ERR_EMPTY_VALUE, mtError, [mbOK], 0)
     else
     if RenameFile(FileName, ExtractFilePath(FileName) + NewName) then
       FOwner.Selected.Text := NewName
     else
-      MessageDlg('Ошибка', 'Не удалось переименовать: ' +
+      MessageDlg(ERR_ERR, ERR_FAILED_RENAME + ': ' +
         FileName, mtError, [mbOK], 0);
   end;
 end;

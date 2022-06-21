@@ -131,7 +131,7 @@ begin
     FileNameList[FileListLength] := FileName;
   except
     FreeAndNil(tsEditor);
-    AddLogMsg('Не удалось открыть файл: ' + FileName, lmtErr);
+    AddLogMsg(ERR_FAILED_OPEN + ': ' + FileName, lmtErr);
     Exit;
   end;
 
@@ -197,7 +197,7 @@ begin
     AEditor.Lines.SaveToFile(FileName);
     AEditor.Modified := False;
   except
-    AddLogMsg('Не удалось сохранить файл: ' + FileName, lmtErr);
+    AddLogMsg(ERR_FAILED_SAVE + ': ' + FileName, lmtErr);
   end;
 end;
 
@@ -223,7 +223,7 @@ end;
 
 function TCodeEditor.GetActiveFileName: string;
 begin
-  Result := 'нет открытого файла';
+  Result := MSG_NO_OPEN_FILES;
   if IsEditorActive then
     Result := FileNameList[GetActiveTabTag];
 end;
@@ -323,7 +323,7 @@ begin
         ExportAll(AEditor.Lines);
         SaveToFile(FileName);
       except
-        AddLogMsg('Ошибка при сохранении файла: ' + FileName, lmtErr);
+        AddLogMsg(ERR_SAVING + ': ' + FileName, lmtErr);
       end;
     finally
       Free;
@@ -364,7 +364,7 @@ begin
             AEditor.TextBetweenPoints[Point(1, 1), XY] := Text;
             AddLogMsg(P.Output);
           except
-            AddLogMsg('При форматировании кода возникла ошибка', lmtErr);
+            AddLogMsg(ERR_CODE_FORMAT, lmtErr);
           end;
         finally
           Free;
