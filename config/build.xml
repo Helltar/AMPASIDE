@@ -22,7 +22,7 @@
     <!-- -->
     
     
-    <condition property="aapt" value="${sdk-folder}/build-tools/android-4.4W/aapt">
+    <condition property="aapt" value="${sdk-folder}/build-tools/aapt">
         <and>
             <not>
                 <os family="windows"/>
@@ -31,7 +31,7 @@
         </and>
     </condition>
     
-    <condition property="aapt" value="${sdk-folder}/build-tools/android-4.4W/aapt.exe">
+    <condition property="aapt" value="${sdk-folder}/build-tools/aapt.exe">
       <and>
         <os family="windows"/>
         <available file="${sdk-platform-tools}" type="dir" />
@@ -46,7 +46,7 @@
         <available file="${sdk-platform-tools}" type="dir" />
     </condition>
     
-    <condition property="dx" value="${sdk-folder}/build-tools/android-4.4W/dx.bat">
+    <condition property="dx" value="${sdk-folder}/build-tools/dx.bat">
         <and>
             <os family="windows"/>
             <available file="${sdk-platform-tools}" type="dir" />
@@ -60,7 +60,7 @@
             </not>
         </and>
     </condition>	
-    <condition property="dx" value="${sdk-folder}/build-tools/android-4.4W/dx">
+    <condition property="dx" value="${sdk-folder}/build-tools/dx">
         <and>
             <not>
                 <os family="windows"/>
