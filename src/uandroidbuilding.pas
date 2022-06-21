@@ -19,8 +19,6 @@ along with AMPASIDE.  If not, see <http://www.gnu.org/licenses/>.
 
 -------------------------------------------------------------------------------}
 
-{ TODO : --> XMLWrite, etc... }
-
 unit uAndroidBuilding;
 
 {$mode objfpc}{$H+}
@@ -82,15 +80,15 @@ begin
     try
       Add('<?xml version="1.0" encoding="utf-8"?>');
       Add('<resources>');
-      Add('    <string name="app_name">' + AppName + '</string>');
-      Add('    <string name="class_name">' + MainClass + '</string>');
-      Add('    <string name="jad_name">' + JadName + '</string>');
+      Add('<string name="app_name">' + AppName + '</string>');
+      Add('<string name="class_name">' + MainClass + '</string>');
+      Add('<string name="jad_name">' + JadName + '</string>');
       Add('</resources>');
       try
         SaveToFile(FileName);
         Result := True;
       except
-        AddLogMsg('Не удалось сохранить: ' + FileName, lmtErr);
+        AddLogMsg(ERR_FAILED_SAVE + ': ' + FileName, lmtErr);
       end;
     finally
       Free;
@@ -107,11 +105,11 @@ begin
   sList := TStringList.Create;
   try
     sList.Add('<project name="microemu-android" default="package-apk">' + LE);
-    sList.Add('    <property name="midlet.jad" value="' + JadName + '" />');
-    sList.Add('    <property name="midlet.package" value="' + ApkName + '" />');
-    sList.Add('    <property name="outdir" value="' + Outdir + '" />');
-    sList.Add('    <property name="sdk-folder" value="' + GetAppPath + APP_DIR_ANDROID + 'sdk" />');
-    sList.Add('    <property name="root-folder" value="' + GetAppPath + APP_DIR_ANDROID + '" />');
+    sList.Add('<property name="midlet.jad" value="' + JadName + '" />');
+    sList.Add('<property name="midlet.package" value="' + ApkName + '" />');
+    sList.Add('<property name="outdir" value="' + Outdir + '" />');
+    sList.Add('<property name="sdk-folder" value="' + GetAppPath + APP_DIR_ANDROID + 'sdk" />');
+    sList.Add('<property name="root-folder" value="' + GetAppPath + APP_DIR_ANDROID + '" />');
 
     with TStringList.Create do
       try
@@ -119,7 +117,7 @@ begin
           LoadFromFile(FileName);
           sList.Add(Text);
         except
-          AddLogMsg('Не удалось загрузить: ' + FileName, lmtErr);
+          AddLogMsg(ERR_FAILED_DOWNLOAD + ': ' + FileName, lmtErr);
         end;
       finally
         Free;
@@ -128,7 +126,7 @@ begin
       sList.SaveToFile(FileName);
       Result := True;
     except
-      AddLogMsg('Не удалось сохранить: ' + FileName, lmtErr);
+      AddLogMsg(ERR_FAILED_SAVE + ': ' + FileName, lmtErr);
     end;
   finally
     FreeAndNil(sList);
@@ -157,8 +155,7 @@ var
         if CopyFile(AntBuildFile, ProjBuildFile) then
           if CreateBuildFile(ProjBuildFile, ProjManager.JadFile,
             ApkName, ProjManager.ProjDirPreBuild) then
-            if CreateAndroidManifest(
-              GetAppPath + APP_DIR_CONFIG + ANDROID_MANIFEST,
+            if CreateAndroidManifest(GetAppPath + APP_DIR_CONFIG + ANDROID_MANIFEST,
               GetAppPath + APP_DIR_TMP + ANDROID_MANIFEST) then
               if CreateStringsFile(GetAppPath + APP_DIR_TMP + 'strings.xml', MIDletName, 'FW', MIDletName + EXT_JAD) then
                 Result := True;
@@ -166,9 +163,7 @@ var
 
   procedure DelTempFiles;
   begin
-    // tools/android/build.myMIDlet.xml
     DeleteFile(ProjBuildFile);
-    // tools/android/src/org/microemu/android/myMIDlet (R.java)
     DeleteDirectory(GetAppPath + APP_DIR_ANDROID + 'src' + DIR_SEP + 'org' + DIR_SEP + 'microemu' + DIR_SEP + 'android' + DIR_SEP + MIDletName, False);
     DeleteDirectory(GetAppPath + APP_DIR_TMP, False);
   end;
@@ -186,7 +181,7 @@ begin
   if not PreBuildAct then
     Exit;
 
-  AddLogMsg('Apache Ant (' + ApkName + '), идет сборка, это займет около минуты...');
+  AddLogMsg('Apache Ant (' + ApkName + '), ' + MSG_GOING_ASSEMBLED + '...');
 
   {$IFDEF MSWINDOWS}
   AntCmd := 'ant.bat -buildfile ' + ProjBuildFile + ' -logfile ' + GetAppPath + ANT_LOG;
@@ -226,21 +221,21 @@ begin
   begin
     ApkFileName := ProjManager.ProjDirPreBuild + ApkName;
 
-    // pre-build/myMIDlet.apk -> bin/android/myMIDlet.apk
+    // ../pre-build/midlet.apk -> ../bin/android/midlet.apk
     if RenameFile(ApkFileName, ProjManager.ProjDirAndroid + ApkName) then
       ApkFileName := ProjManager.ApkFile;
 
-    AddLogMsg('Проект успешно собран' + LE +
-      'Версия: ' + ProjManager.MIDletVersion + LE + 'Размер: ' +
-      GetFileSize(ApkFileName) + LE + 'Платформа: Android', lmtOk);
+    AddLogMsg(MSG_SUCCESSFULLY_ASSEMBLED + LE +
+      MSG_VERSION + ': ' + ProjManager.MIDletVersion + LE + MSG_SIZE + ': ' +
+      GetFileSize(ApkFileName) + LE + MSG_PLATFORM + ': Android', lmtOk);
 
     DelTempFiles;
   end
   else
   if Pos('BUILD FAILED', AntOutput) > 0 then
-    AddLogMsg('Не удалось собрать APK файл, подробности: ' + ANT_LOG, lmtErr)
+    AddLogMsg(ERR_FAILDED_BUILD_APK + ': ' + ANT_LOG, lmtErr)
   else
-    AddLogMsg('Ant завершил работу, подробности: ' + ANT_LOG);
+    AddLogMsg(ERR_ANT_COMPLETED_WORK + ': ' + ANT_LOG);
 end;
 
 end.

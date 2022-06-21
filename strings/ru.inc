@@ -10,10 +10,19 @@ MSG_FORMAT_CODE = 'Форматировать код';
 MSG_SAVE_CHANGES = 'Сохранить изменения в файле';
 MSG_PROCESS_IS_STARTED = 'Запущен процесс';
 MSG_INTERRUPT_EXECUTION = 'Прервать выполнение';
+MSG_GOING_ASSEMBLED = 'идет сборка, это займет около минуты';
+MSG_SUCCESSFULLY_ASSEMBLED = 'Проект успешно собран';
+MSG_VERSION = 'Версия';
+MSG_SIZE = 'Размер';
+MSG_PLATFORM = 'Платформа';
 
 ERR_SAVE_NOTES_FILE = 'Не удалось сохранить файл заметок';
 ERR_NOT_AVAILABLE_NO_OPEN_PROJECT = 'Недоступно, нет открытого проекта';
 ERR_LOAD_NOTES = 'Не удалось загрузить файл заметок';
+ERR_FAILED_SAVE = 'Не удалось сохранить';
+ERR_FAILED_DOWNLOAD = 'Не удалось загрузить';
+ERR_FAILDED_BUILD_APK = 'Не удалось собрать APK файл, подробности';
+ERR_ANT_COMPLETED_WORK = 'Ant завершил работу, подробности';
 
 STBAR_MODIFIED = 'Изменён';
 FILTER_ALL_FILES = 'Все файлы';
