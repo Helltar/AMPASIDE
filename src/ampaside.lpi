@@ -25,7 +25,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <RevisionNr Value="3"/>
-      <BuildNr Value="23"/>
+      <BuildNr Value="24"/>
       <Language Value="0419"/>
       <CharSet Value="04B0"/>
       <StringTable CompanyName="helltar.com" FileDescription="Advanced MIDletPascal IDE" LegalCopyright="2015-2022 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE" ProductVersion="1.0.3"/>
@@ -36,7 +36,7 @@
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
-            <Filename Value="../bin/ampaside"/>
+            <Filename Value="../ampaside"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
@@ -74,7 +74,7 @@
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
-            <Filename Value="../bin/release_bin/ampaside"/>
+            <Filename Value="../release_bin/ampaside"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
@@ -270,7 +270,7 @@
   <CompilerOptions>
     <Version Value="11"/>
     <Target>
-      <Filename Value="../bin/ampaside"/>
+      <Filename Value="../ampaside"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
