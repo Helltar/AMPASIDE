@@ -22,9 +22,9 @@ JCF_SETTINGS = APP_DIR_CONFIG + 'jcfsettings';
 
 CLASS_FW = 'FW.class';
 
-PROJ_DIR_ANDROID = 'android';
+PROJ_DIR_ANDROID = 'apk';
 PROJ_DIR_BIN = 'bin';
-PROJ_DIR_JAVAME = 'javame';
+PROJ_DIR_JAVAME = 'jar';
 PROJ_DIR_LIBS = 'libs';
 PROJ_DIR_PRE_BUILD = 'pre-build';
 PROJ_DIR_RES = 'res';
