@@ -481,7 +481,11 @@ end;
 
 procedure TfrmMain.miDocumentationClick(Sender: TObject);
 begin
-  OpenURL(URL_TUTORIAL);
+  {$IFDEF MSWINDOWS}
+  OpenDocument(GetAppPath + 'help');
+  {$ELSE}
+  OpenURL(GetAppPath + 'help');
+  {$ENDIF}
 end;
 
 procedure TfrmMain.miExamplesClick(Sender: TObject);
