@@ -153,7 +153,7 @@ var
       end;
 
     if CheckFile(AntBuildFile) then
-      if MakeDir(GetAppPath + APP_DIR_TMP) then
+      if MakeDir(GetAppPath + APP_DIR_TMP) and MakeDir(GetAppPath + APP_DIR_LOGS) then
         if CopyFile(AntBuildFile, ProjBuildFile) then
           if CreateBuildFile(ProjBuildFile, ProjManager.JadFile,
             ApkName, ProjManager.ProjDirPreBuild) then
