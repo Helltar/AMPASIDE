@@ -285,7 +285,7 @@
             </patternset>
         </unjar>
         <copy file="${outdir}/assets/${midlet.icon}" tofile="${outdir-res}/drawable/app_icon.png" />
-        <copy file="${root-folder}/../tmp/AndroidManifest.xml" tofile="${outdir}/AndroidManifest.xml" />
+        <copy file="${outdir}/../AndroidManifest.xml" tofile="${outdir}/AndroidManifest.xml" />
     </target>
     
     <target name="package-res" depends="prepare-assets, prepare-res">

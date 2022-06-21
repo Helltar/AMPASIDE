@@ -263,6 +263,7 @@ begin
     CreateConfigFile(FConfigFile);
     CreateMainModule(FMainModule);
     CreateNotesFile(FNotesFile);
+    CopyFile(GetAppPath + APP_DIR_CONFIG + ANDROID_MANIFEST, APath + ANDROID_MANIFEST);
     CopyFile(GetAppPath + APP_DIR_IMG + 'main' + DIR_SEP + 'icon.png', FProjDirRes + 'icon.png');
     Result := True;
   end;
@@ -299,4 +300,3 @@ begin
 end;
 
 end.
-

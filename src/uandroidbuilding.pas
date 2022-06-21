@@ -35,7 +35,6 @@ type
   TAndroidBuildingThread = class(TThread)
   private
     FAntBuildFile: string;
-    function CreateAndroidManifest(const srcFilename, destFilename: string): boolean;
     function CreateBuildFile(const FileName, JadName, ApkName, Outdir: string): boolean;
     function CreateStringsFile(const FileName, AppName, MainClass, JadName: string): boolean;
     procedure BuildAPK(const AntBuildFile: string);
@@ -65,11 +64,6 @@ end;
 procedure TAndroidBuildingThread.Execute;
 begin
   BuildAPK(FAntBuildFile);
-end;
-
-function TAndroidBuildingThread.CreateAndroidManifest(const srcFilename, destFilename: string): boolean;
-begin
-  Result := CopyFile(srcFilename, destFilename);
 end;
 
 function TAndroidBuildingThread.CreateStringsFile(const FileName, AppName, MainClass, JadName: string): boolean;
@@ -155,8 +149,6 @@ var
         if CopyFile(AntBuildFile, ProjBuildFile) then
           if CreateBuildFile(ProjBuildFile, ProjManager.JadFile,
             ApkName, ProjManager.ProjDirPreBuild) then
-            if CreateAndroidManifest(GetAppPath + APP_DIR_CONFIG + ANDROID_MANIFEST,
-              GetAppPath + APP_DIR_TMP + ANDROID_MANIFEST) then
               if CreateStringsFile(GetAppPath + APP_DIR_TMP + 'strings.xml', MIDletName, 'FW', MIDletName + EXT_JAD) then
                 Result := True;
   end;

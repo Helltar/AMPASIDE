@@ -87,7 +87,8 @@ implementation
 
 uses
   uManifestMfForm,
-  uProjectConfig;
+  uProjectConfig,
+  uProjectManager;
 
 {$R *.lfm}
 
@@ -150,7 +151,7 @@ end;
 
 procedure TProjectOptionsFrame.lblAndroidManifestFileClick(Sender: TObject);
 begin
-  OpenURL(GetAppPath + APP_DIR_CONFIG + ANDROID_MANIFEST);
+  OpenURL(ProjManager.ProjDirHome + ANDROID_MANIFEST);
 end;
 
 procedure TProjectOptionsFrame.sedtVBuildChange(Sender: TObject);
@@ -185,7 +186,7 @@ begin
   edtMIcon.Text := ProjConfig.MIDletIcon;
   edtMName.Text := ProjConfig.MIDletName;
   edtMVendor.Text := ProjConfig.MIDletVendor;
-  lblAndroidManifestFile.Caption := '...' + DIR_SEP + APP_DIR_CONFIG + ANDROID_MANIFEST;
+  lblAndroidManifestFile.Caption := ANDROID_MANIFEST;
   lblAndroidManifestFile.Hint := GetAppPath + APP_DIR_CONFIG + ANDROID_MANIFEST;
   UpdateVers;
 end;

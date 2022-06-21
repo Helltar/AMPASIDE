@@ -6,30 +6,30 @@ object EditorOptionsFrame: TEditorOptionsFrame
   ClientHeight = 404
   ClientWidth = 759
   TabOrder = 0
-  DesignLeft = 574
-  DesignTop = 250
+  DesignLeft = 506
+  DesignTop = 245
   object gbFont: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = splLeft
     Left = 6
-    Height = 84
+    Height = 115
     Top = 6
     Width = 268
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Шрифт'
-    ClientHeight = 64
-    ClientWidth = 262
+    ClientHeight = 84
+    ClientWidth = 264
     TabOrder = 0
     object sedtFontSize: TSpinEdit
       AnchorSideLeft.Control = gbFont
       AnchorSideTop.Control = edtbtnSelectFont
       AnchorSideTop.Side = asrBottom
       Left = 6
-      Height = 23
-      Top = 35
+      Height = 33
+      Top = 45
       Width = 50
       BorderSpacing.Around = 6
       OnChange = sedtFontSizeChange
@@ -41,9 +41,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = sedtFontSize
       AnchorSideTop.Side = asrCenter
       Left = 62
-      Height = 15
-      Top = 39
-      Width = 91
+      Height = 19
+      Top = 52
+      Width = 119
       Caption = 'Размер шрифта'
       ParentColor = False
     end
@@ -53,9 +53,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideRight.Control = gbFont
       AnchorSideRight.Side = asrBottom
       Left = 6
-      Height = 23
+      Height = 33
       Top = 6
-      Width = 250
+      Width = 252
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       ButtonCaption = '...'
@@ -76,25 +76,25 @@ object EditorOptionsFrame: TEditorOptionsFrame
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 302
-    Top = 96
+    Height = 271
+    Top = 127
     Width = 268
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Разное'
-    ClientHeight = 282
-    ClientWidth = 262
+    ClientHeight = 240
+    ClientWidth = 264
     TabOrder = 1
     object cbbRightEdge: TComboBox
       AnchorSideLeft.Control = gbMix
       AnchorSideTop.Control = gbMix
       Left = 6
-      Height = 24
+      Height = 33
       Top = 6
       Width = 64
       BorderSpacing.Around = 6
-      ItemHeight = 15
+      ItemHeight = 25
       ItemIndex = 3
       Items.Strings = (
         '-1'
@@ -115,9 +115,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = cbbRightEdge
       AnchorSideTop.Side = asrCenter
       Left = 76
-      Height = 15
-      Top = 11
-      Width = 91
+      Height = 19
+      Top = 13
+      Width = 121
       Caption = 'Правая граница'
       ParentColor = False
     end
@@ -126,9 +126,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = cbbRightEdge
       AnchorSideTop.Side = asrBottom
       Left = 6
-      Height = 21
-      Top = 36
-      Width = 200
+      Height = 23
+      Top = 45
+      Width = 261
       BorderSpacing.Around = 6
       Caption = 'Прокручивать за конец строки'
       OnChange = cbScrollPastEolChange
@@ -151,8 +151,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Цвета'
-    ClientHeight = 372
-    ClientWidth = 456
+    ClientHeight = 361
+    ClientWidth = 458
     TabOrder = 2
     object lblEditorColor: TLabel
       AnchorSideLeft.Control = clrbEditorColor
@@ -161,9 +161,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = clrbEditorColor
       Left = 252
-      Height = 15
-      Top = 11
-      Width = 91
+      Height = 19
+      Top = 13
+      Width = 120
       Caption = 'Цвет редактора'
       ParentColor = False
     end
@@ -171,7 +171,7 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideLeft.Control = gbColors
       AnchorSideTop.Control = gbColors
       Left = 6
-      Height = 24
+      Height = 33
       Top = 6
       Width = 240
       Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
@@ -187,9 +187,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = clrbRightEdgeColor
       Left = 252
-      Height = 15
-      Top = 41
-      Width = 101
+      Height = 19
+      Top = 52
+      Width = 131
       Caption = 'Линия отделения'
       ParentColor = False
     end
@@ -198,8 +198,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = clrbEditorColor
       AnchorSideTop.Side = asrBottom
       Left = 6
-      Height = 24
-      Top = 36
+      Height = 33
+      Top = 45
       Width = 240
       Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
       BorderSpacing.Around = 6
@@ -214,9 +214,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = clrbComment
       Left = 252
-      Height = 15
-      Top = 71
-      Width = 81
+      Height = 19
+      Top = 91
+      Width = 105
       Caption = 'Комментарий'
       ParentColor = False
     end
@@ -225,8 +225,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = clrbRightEdgeColor
       AnchorSideTop.Side = asrBottom
       Left = 6
-      Height = 24
-      Top = 66
+      Height = 33
+      Top = 84
       Width = 240
       Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
       BorderSpacing.Around = 6
@@ -241,9 +241,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = clrbKey
       Left = 252
-      Height = 15
-      Top = 101
-      Width = 153
+      Height = 19
+      Top = 130
+      Width = 201
       Caption = 'Зарезервированное слово'
       ParentColor = False
     end
@@ -252,8 +252,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = clrbComment
       AnchorSideTop.Side = asrBottom
       Left = 6
-      Height = 24
-      Top = 96
+      Height = 33
+      Top = 123
       Width = 240
       Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
       BorderSpacing.Around = 6
@@ -266,8 +266,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = clrbKey
       AnchorSideTop.Side = asrBottom
       Left = 6
-      Height = 24
-      Top = 126
+      Height = 33
+      Top = 162
       Width = 240
       Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
       BorderSpacing.Around = 6
@@ -281,9 +281,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = clrbNumber
       AnchorSideTop.Side = asrCenter
       Left = 252
-      Height = 15
-      Top = 131
-      Width = 36
+      Height = 19
+      Top = 169
+      Width = 47
       Caption = 'Число'
       ParentColor = False
     end
@@ -292,8 +292,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = clrbNumber
       AnchorSideTop.Side = asrBottom
       Left = 6
-      Height = 24
-      Top = 156
+      Height = 33
+      Top = 201
       Width = 240
       Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
       BorderSpacing.Around = 6
@@ -307,9 +307,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = clrbString
       AnchorSideTop.Side = asrCenter
       Left = 252
-      Height = 15
-      Top = 161
-      Width = 41
+      Height = 19
+      Top = 208
+      Width = 54
       Caption = 'Строка'
       ParentColor = False
     end
@@ -318,8 +318,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = clrbString
       AnchorSideTop.Side = asrBottom
       Left = 6
-      Height = 24
-      Top = 186
+      Height = 33
+      Top = 240
       Width = 240
       Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
       BorderSpacing.Around = 6
@@ -332,8 +332,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = clrbIdentifier
       AnchorSideTop.Side = asrBottom
       Left = 6
-      Height = 24
-      Top = 216
+      Height = 33
+      Top = 279
       Width = 240
       Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
       BorderSpacing.Around = 6
@@ -347,9 +347,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = clrbIdentifier
       AnchorSideTop.Side = asrCenter
       Left = 252
-      Height = 15
-      Top = 191
-      Width = 93
+      Height = 19
+      Top = 247
+      Width = 120
       Caption = 'Идентификатор'
       ParentColor = False
     end
@@ -359,9 +359,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = clrbSymbol
       AnchorSideTop.Side = asrCenter
       Left = 252
-      Height = 15
-      Top = 221
-      Width = 46
+      Height = 19
+      Top = 286
+      Width = 59
       Caption = 'Символ'
       ParentColor = False
     end
@@ -370,8 +370,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = clrbSymbol
       AnchorSideTop.Side = asrBottom
       Left = 6
-      Height = 24
-      Top = 246
+      Height = 33
+      Top = 318
       Width = 240
       Style = [cbStandardColors, cbExtendedColors, cbSystemColors, cbCustomColor, cbPrettyNames]
       BorderSpacing.Around = 6
@@ -385,9 +385,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideTop.Control = clrbSelectedColor
       AnchorSideTop.Side = asrCenter
       Left = 252
-      Height = 15
-      Top = 251
-      Width = 106
+      Height = 19
+      Top = 325
+      Width = 138
       Caption = 'Выделение текста'
       ParentColor = False
     end
@@ -398,9 +398,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       AnchorSideRight.Control = gbColors
       AnchorSideRight.Side = asrBottom
       Left = 6
-      Height = 23
-      Top = 276
-      Width = 444
+      Height = 33
+      Top = 357
+      Width = 446
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       ButtonCaption = '...'
@@ -409,6 +409,7 @@ object EditorOptionsFrame: TEditorOptionsFrame
       NumGlyphs = 1
       OnButtonClick = edtbtnSchemeFileButtonClick
       OnChange = edtbtnSchemeFileChange
+      ParentShowHint = False
       PasswordChar = #0
       ShowHint = True
       TabOrder = 9
