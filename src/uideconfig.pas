@@ -26,7 +26,7 @@ unit uIDEConfig;
 interface
 
 uses
-  Graphics, IniFiles, SysUtils;
+  Graphics, IniFiles, SysUtils, Forms;
 
 type
 
@@ -247,7 +247,12 @@ end;
 
 function TIDEConfig.GetFHeight: integer;
 begin
-  Result := FMainConfig.ReadInteger('FORM', 'Height', 720);
+  Result := FMainConfig.ReadInteger('FORM', 'Height', Screen.Height - 200);
+end;
+
+function TIDEConfig.GetFWidth: integer;
+begin
+  Result := FMainConfig.ReadInteger('FORM', 'Width', Screen.Width - 700);
 end;
 
 function TIDEConfig.GetFilManPrevSizeX: integer;
@@ -272,22 +277,17 @@ end;
 
 function TIDEConfig.GetFsplBottom: integer;
 begin
-  Result := FMainConfig.ReadInteger('FORM', 'SplBottom', 460);
+  Result := FMainConfig.ReadInteger('FORM', 'SplBottom', 590);
 end;
 
 function TIDEConfig.GetFsplLeft: integer;
 begin
-  Result := FMainConfig.ReadInteger('FORM', 'SplLeft', 350);
+  Result := FMainConfig.ReadInteger('FORM', 'SplLeft', 390);
 end;
 
 function TIDEConfig.GetFTop: integer;
 begin
   Result := FMainConfig.ReadInteger('FORM', 'Top', 120);
-end;
-
-function TIDEConfig.GetFWidth: integer;
-begin
-  Result := FMainConfig.ReadInteger('FORM', 'Width', 1020);
 end;
 
 end.

@@ -1,28 +1,28 @@
 object GeneralOptionsFrame: TGeneralOptionsFrame
   Left = 0
-  Height = 456
+  Height = 578
   Top = 0
-  Width = 371
-  ClientHeight = 456
-  ClientWidth = 371
+  Width = 683
+  ClientHeight = 578
+  ClientWidth = 683
   TabOrder = 0
-  DesignLeft = 847
-  DesignTop = 200
+  DesignLeft = 661
+  DesignTop = 263
   object gbEmulator: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 6
-    Height = 78
+    Height = 101
     Top = 6
-    Width = 359
+    Width = 671
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Эмулятор'
-    ClientHeight = 58
-    ClientWidth = 353
+    ClientHeight = 70
+    ClientWidth = 667
     TabOrder = 0
     object edtEmulatorCmd: TEdit
       AnchorSideLeft.Control = gbEmulator
@@ -31,9 +31,9 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       AnchorSideRight.Control = gbEmulator
       AnchorSideRight.Side = asrBottom
       Left = 6
-      Height = 23
-      Top = 27
-      Width = 341
+      Height = 33
+      Top = 31
+      Width = 655
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       OnChange = edtEmulatorCmdChange
@@ -43,9 +43,9 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       AnchorSideLeft.Control = gbEmulator
       AnchorSideTop.Control = gbEmulator
       Left = 6
-      Height = 15
+      Height = 19
       Top = 6
-      Width = 109
+      Width = 145
       BorderSpacing.Around = 6
       Caption = 'Командная строка:'
       ParentColor = False
@@ -60,15 +60,15 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 111
-    Top = 90
-    Width = 359
+    Height = 144
+    Top = 113
+    Width = 671
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Файловый менеджер (превью)'
-    ClientHeight = 91
-    ClientWidth = 353
+    ClientHeight = 113
+    ClientWidth = 667
     ParentShowHint = False
     TabOrder = 1
     object lblPrevHeight: TLabel
@@ -77,9 +77,9 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       AnchorSideTop.Control = sedtY
       AnchorSideTop.Side = asrCenter
       Left = 62
-      Height = 15
-      Top = 10
-      Width = 43
+      Height = 19
+      Top = 13
+      Width = 56
       Caption = 'Высота'
       ParentColor = False
     end
@@ -89,9 +89,9 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       AnchorSideTop.Control = sedtX
       AnchorSideTop.Side = asrCenter
       Left = 62
-      Height = 15
-      Top = 39
-      Width = 48
+      Height = 19
+      Top = 52
+      Width = 61
       Caption = 'Ширина'
       ParentColor = False
     end
@@ -99,7 +99,7 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       AnchorSideLeft.Control = gbFileManager
       AnchorSideTop.Control = gbFileManager
       Left = 6
-      Height = 23
+      Height = 33
       Top = 6
       Width = 50
       BorderSpacing.Around = 6
@@ -112,8 +112,8 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       AnchorSideTop.Control = sedtY
       AnchorSideTop.Side = asrBottom
       Left = 6
-      Height = 23
-      Top = 35
+      Height = 33
+      Top = 45
       Width = 50
       BorderSpacing.Around = 6
       MaxValue = 240
@@ -125,9 +125,9 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       AnchorSideTop.Control = sedtX
       AnchorSideTop.Side = asrBottom
       Left = 6
-      Height = 21
-      Top = 64
-      Width = 175
+      Height = 23
+      Top = 84
+      Width = 226
       BorderSpacing.Around = 6
       Caption = 'Растягивать изображение'
       OnChange = cbPrevStretchChange
@@ -143,21 +143,21 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 159
-    Top = 291
-    Width = 359
+    Height = 210
+    Top = 362
+    Width = 671
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Заголовки'
-    ClientHeight = 139
-    ClientWidth = 353
+    ClientHeight = 179
+    ClientWidth = 667
     TabOrder = 2
     inline synedtHeaders: TSynEdit
       Left = 6
-      Height = 127
+      Height = 167
       Top = 6
-      Width = 341
+      Width = 655
       Align = alClient
       BorderSpacing.Around = 6
       Font.Height = -13
@@ -663,15 +663,15 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 78
-    Top = 207
-    Width = 359
+    Height = 93
+    Top = 263
+    Width = 671
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Префикс для новых модулей'
-    ClientHeight = 58
-    ClientWidth = 353
+    ClientHeight = 62
+    ClientWidth = 667
     TabOrder = 3
     object edtModulePrefix: TEdit
       AnchorSideLeft.Control = gbModulePrefix
@@ -679,9 +679,9 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       AnchorSideRight.Control = gbModulePrefix
       AnchorSideRight.Side = asrBottom
       Left = 6
-      Height = 23
+      Height = 33
       Top = 6
-      Width = 341
+      Width = 655
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       OnChange = edtModulePrefixChange

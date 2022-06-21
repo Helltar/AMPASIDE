@@ -1,13 +1,13 @@
 object EditorOptionsFrame: TEditorOptionsFrame
   Left = 0
-  Height = 404
+  Height = 512
   Top = 0
-  Width = 759
-  ClientHeight = 404
-  ClientWidth = 759
+  Width = 1031
+  ClientHeight = 512
+  ClientWidth = 1031
   TabOrder = 0
-  DesignLeft = 506
-  DesignTop = 245
+  DesignLeft = 420
+  DesignTop = 305
   object gbFont: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -15,13 +15,13 @@ object EditorOptionsFrame: TEditorOptionsFrame
     Left = 6
     Height = 115
     Top = 6
-    Width = 268
+    Width = 328
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Шрифт'
     ClientHeight = 84
-    ClientWidth = 264
+    ClientWidth = 324
     TabOrder = 0
     object sedtFontSize: TSpinEdit
       AnchorSideLeft.Control = gbFont
@@ -55,7 +55,7 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 6
       Height = 33
       Top = 6
-      Width = 252
+      Width = 312
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       ButtonCaption = '...'
@@ -76,15 +76,15 @@ object EditorOptionsFrame: TEditorOptionsFrame
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 271
+    Height = 379
     Top = 127
-    Width = 268
+    Width = 328
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Разное'
-    ClientHeight = 240
-    ClientWidth = 264
+    ClientHeight = 348
+    ClientWidth = 324
     TabOrder = 1
     object cbbRightEdge: TComboBox
       AnchorSideLeft.Control = gbMix
@@ -143,16 +143,16 @@ object EditorOptionsFrame: TEditorOptionsFrame
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 291
-    Height = 392
+    Left = 351
+    Height = 500
     Top = 6
-    Width = 462
+    Width = 674
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Цвета'
-    ClientHeight = 361
-    ClientWidth = 458
+    ClientHeight = 469
+    ClientWidth = 670
     TabOrder = 2
     object lblEditorColor: TLabel
       AnchorSideLeft.Control = clrbEditorColor
@@ -400,7 +400,7 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 6
       Height = 33
       Top = 357
-      Width = 446
+      Width = 658
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       ButtonCaption = '...'
@@ -419,8 +419,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 280
-    Height = 404
+    Left = 340
+    Height = 512
     Top = 0
     Width = 5
     Align = alNone
