@@ -335,7 +335,7 @@ procedure TfrmMain.actBuildAndroidExecute(Sender: TObject);
 begin
   with TAndroidBuildingThread.Create(True) do
   begin
-    AntBuildFile := GetAppPath + APP_DIR_ANDROID + 'build.xml';
+    AntBuildFile := GetAppPath + APP_DIR_CONFIG + 'build.xml';
     OnTerminate := @BuildingThreadTerminate;
     Start;
   end;
