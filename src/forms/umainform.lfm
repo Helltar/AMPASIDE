@@ -1,98 +1,101 @@
 object frmMain: TfrmMain
-  Left = 436
-  Height = 677
-  Top = 157
-  Width = 1114
+  Left = 550
+  Height = 542
+  Top = 280
+  Width = 891
   AllowDropFiles = True
   Caption = 'AMPASIDE'
-  ClientHeight = 652
-  ClientWidth = 1114
-  DesignTimePPI = 120
+  ClientHeight = 511
+  ClientWidth = 891
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnDropFiles = FormDropFiles
   Position = poDesktopCenter
-  LCLVersion = '2.2.0.4'
+  LCLVersion = '2.2.2.0'
   object tlbMain: TToolBar
     AnchorSideLeft.Control = splLeft
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 334
-    Height = 28
-    Top = 8
-    Width = 772
+    Left = 267
+    Height = 22
+    Top = 6
+    Width = 618
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
-    BorderSpacing.Around = 8
-    ButtonHeight = 28
-    ButtonWidth = 29
+    BorderSpacing.Around = 6
+    ButtonHeight = 22
+    ButtonWidth = 23
     Caption = 'tlbMain'
     EdgeBorders = []
     Images = ilMain
     TabOrder = 0
     object tbbCreateModule: TToolButton
-      Left = 185
+      Left = 149
       Top = 0
       Action = actCreateModule
       ParentShowHint = False
       ShowHint = True
     end
     object tbbDivider1: TToolButton
-      Left = 117
-      Height = 28
+      Left = 93
+      Height = 22
       Top = 0
       Caption = 'tbbDivider1'
       Style = tbsDivider
     end
     object tbbOpenFile: TToolButton
-      Left = 156
+      Left = 126
       Top = 0
       Action = actFileOpen
       ParentShowHint = False
       ShowHint = True
     end
     object tbbSaveFile: TToolButton
-      Left = 214
+      Left = 172
+      Hint = 'CAPTION_SAVE'
       Top = 0
       Action = actFileSave
+      Caption = 'CAPTION_SAVE'
       ParentShowHint = False
       ShowHint = True
     end
     object tbbDivider2: TToolButton
-      Left = 151
-      Height = 28
+      Left = 121
+      Height = 22
       Top = 0
       Caption = 'tbbDivider2'
       Style = tbsDivider
     end
     object tbbCloseEditorTab: TToolButton
-      Left = 277
+      Left = 223
       Top = 0
       Action = actCloseActiveTab
       ParentShowHint = False
       ShowHint = True
     end
     object tbbDivider3: TToolButton
-      Left = 272
-      Height = 28
+      Left = 218
+      Height = 22
       Top = 0
       Caption = 'tbbDivider3'
       Style = tbsDivider
     end
     object tbbSaveAll: TToolButton
-      Left = 243
+      Left = 195
+      Hint = 'CAPTION_SAVE_ALL'
       Top = 0
       Action = actSaveAll
+      Caption = 'CAPTION_SAVE_ALL'
       ParentShowHint = False
       ShowHint = True
     end
     object tbbBuildAndroid: TToolButton
       Cursor = crHandPoint
-      Left = 88
+      Left = 70
       Top = 0
       Action = actBuildAndroid
       ParentShowHint = False
@@ -100,7 +103,7 @@ object frmMain: TfrmMain
     end
     object tbbBuild: TToolButton
       Cursor = crHandPoint
-      Left = 59
+      Left = 47
       Top = 0
       Action = actBuild
       ParentShowHint = False
@@ -108,7 +111,7 @@ object frmMain: TfrmMain
     end
     object tbbCompile: TToolButton
       Cursor = crHandPoint
-      Left = 30
+      Left = 24
       Top = 0
       Action = actCompile
       ParentShowHint = False
@@ -116,7 +119,7 @@ object frmMain: TfrmMain
     end
     object tbbTermProc: TToolButton
       Cursor = crHandPoint
-      Left = 122
+      Left = 98
       Top = 0
       Action = actTerminateProc
       ParentShowHint = False
@@ -139,14 +142,15 @@ object frmMain: TfrmMain
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = stbEditor
-    Left = 334
-    Height = 351
-    Top = 44
-    Width = 772
+    Left = 267
+    Height = 271
+    Top = 34
+    Width = 618
     Anchors = [akTop, akLeft, akRight, akBottom]
-    BorderSpacing.Around = 8
+    BorderSpacing.Around = 6
     PopupMenu = pmEditor
     TabOrder = 1
+    OnChange = pgcEditorChange
     OnCloseTabClicked = pgcEditorCloseTabClicked
     Options = [nboShowCloseButtons]
   end
@@ -156,24 +160,24 @@ object frmMain: TfrmMain
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = splBottom
-    Left = 334
-    Height = 29
-    Top = 403
-    Width = 772
+    Left = 267
+    Height = 24
+    Top = 311
+    Width = 618
     Action = actUpdateStatusBar
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
-    BorderSpacing.Around = 8
+    BorderSpacing.Around = 6
     Panels = <    
       item
         Alignment = taCenter
-        Width = 125
+        Width = 100
       end    
       item
-        Width = 125
+        Width = 100
       end    
       item
-        Width = 62
+        Width = 50
       end>
     ParentShowHint = False
     SimplePanel = False
@@ -185,10 +189,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Side = asrBottom
     Cursor = crVSplit
-    Left = 320
-    Height = 6
-    Top = 440
-    Width = 794
+    Left = 256
+    Height = 5
+    Top = 341
+    Width = 635
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -202,27 +206,27 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 334
-    Height = 190
-    Top = 454
-    Width = 772
-    ActivePage = tsLogMsg
+    Left = 267
+    Height = 153
+    Top = 352
+    Width = 618
+    ActivePage = tsNotes
     Anchors = [akTop, akLeft, akRight, akBottom]
-    BorderSpacing.Around = 8
-    TabIndex = 0
+    BorderSpacing.Around = 6
+    TabIndex = 1
     TabOrder = 4
     object tsLogMsg: TTabSheet
-      Caption = 'Сообщения'
-      ClientHeight = 157
-      ClientWidth = 764
+      Caption = 'CAPTION_MESSAGES'
+      ClientHeight = 118
+      ClientWidth = 614
       object tvMsg: TTreeView
-        Left = 8
-        Height = 141
-        Top = 8
-        Width = 748
+        Left = 6
+        Height = 106
+        Top = 6
+        Width = 602
         Align = alClient
         AutoExpand = True
-        BorderSpacing.Around = 8
+        BorderSpacing.Around = 6
         Images = ilMain
         ReadOnly = True
         ScrollBars = ssAutoBoth
@@ -231,24 +235,24 @@ object frmMain: TfrmMain
       end
     end
     object tsNotes: TTabSheet
-      Caption = 'Заметки'
-      ClientHeight = 157
-      ClientWidth = 764
+      Caption = 'CAPTION_NOTES'
+      ClientHeight = 118
+      ClientWidth = 614
       inline synedtNotes: TSynEdit
-        Left = 8
-        Height = 141
-        Top = 8
-        Width = 748
+        Left = 6
+        Height = 106
+        Top = 6
+        Width = 602
         Align = alClient
-        BorderSpacing.Around = 8
-        Font.Height = -15
+        BorderSpacing.Around = 6
+        Font.Height = -12
         Font.Name = 'DejaVu Sans Mono'
         Font.Pitch = fpFixed
         Font.Quality = fqCleartype
         ParentColor = False
         ParentFont = False
         TabOrder = 0
-        Gutter.Width = 70
+        Gutter.Width = 55
         Gutter.MouseActions = <>
         RightGutter.Width = 0
         RightGutter.MouseActions = <>
@@ -702,11 +706,11 @@ object frmMain: TfrmMain
         OnChange = synedtNotesChange
         inline SynLeftGutterPartList1: TSynGutterPartList
           object SynGutterMarks1: TSynGutterMarks
-            Width = 30
+            Width = 24
             MouseActions = <>
           end
           object SynGutterLineNumber1: TSynGutterLineNumber
-            Width = 19
+            Width = 15
             MouseActions = <>
             MarkupInfo.Background = clBtnFace
             MarkupInfo.Foreground = clNone
@@ -716,19 +720,18 @@ object frmMain: TfrmMain
             LeadingZeros = False
           end
           object SynGutterChanges1: TSynGutterChanges
-            Width = 5
+            Width = 4
             MouseActions = <>
             ModifiedColor = 59900
             SavedColor = clGreen
           end
           object SynGutterSeparator1: TSynGutterSeparator
-            Width = 3
+            Width = 2
             MouseActions = <>
             MarkupInfo.Background = clWhite
             MarkupInfo.Foreground = clGray
           end
           object SynGutterCodeFolding1: TSynGutterCodeFolding
-            Width = 13
             MouseActions = <>
             MarkupInfo.Background = clNone
             MarkupInfo.Foreground = clGray
@@ -743,10 +746,10 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 320
-    Height = 652
+    Left = 256
+    Height = 511
     Top = 0
-    Width = 6
+    Width = 5
     Align = alNone
     Anchors = [akTop, akLeft, akBottom]
   end
@@ -756,20 +759,20 @@ object frmMain: TfrmMain
     AnchorSideRight.Control = splLeft
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 8
-    Height = 636
-    Top = 8
-    Width = 304
-    ActivePage = tsProjFiles
+    Left = 6
+    Height = 499
+    Top = 6
+    Width = 244
+    ActivePage = tsProjSettings
     Anchors = [akTop, akLeft, akRight, akBottom]
-    BorderSpacing.Around = 8
-    TabIndex = 0
+    BorderSpacing.Around = 6
+    TabIndex = 1
     TabOrder = 6
     object tsProjFiles: TTabSheet
-      Caption = 'Файлы'
+      Caption = 'CAPTION_FILES'
     end
     object tsProjSettings: TTabSheet
-      Caption = 'Параметры'
+      Caption = 'CAPTION_SETTINGS'
     end
   end
   object tbbRun64: TToolButton
@@ -782,33 +785,33 @@ object frmMain: TfrmMain
   end
   object actlMain: TActionList
     Images = ilMain
-    Left = 440
-    Top = 112
+    Left = 352
+    Top = 90
     object actCreateModule: TAction
       Category = 'File'
-      Caption = 'Создать модуль'
-      Hint = 'Создать модуль'
+      Caption = 'CAPTION_CREATE_MODULE'
+      Hint = 'CAPTION_CREATE_MODULE'
       OnExecute = actCreateModuleExecute
     end
     object actFileOpen: TAction
       Category = 'File'
-      Caption = 'Открыть ...'
-      Hint = 'Открыть'
+      Caption = 'CAPTION_OPEN'
+      Hint = 'CAPTION_OPEN'
       OnExecute = actFileOpenExecute
       ShortCut = 16463
     end
     object actFileSave: TAction
       Category = 'File'
-      Caption = 'Сохранить'
-      Hint = 'Сохранить'
+      Caption = 'CAPTION_OPEN'
+      Hint = 'CAPTION_OPEN'
       OnExecute = actFileSaveExecute
       OnUpdate = actFileSaveUpdate
       ShortCut = 16467
     end
     object actJCFCurrentTab: TAction
       Category = 'Code'
-      Caption = 'Форматировать код'
-      Hint = 'Форматировать код'
+      Caption = 'MSG_FORMAT_CODE'
+      Hint = 'MSG_FORMAT_CODE'
       OnExecute = actJCFCurrentTabExecute
       OnUpdate = actCloseActiveTabUpdate
       ShortCut = 16452
@@ -820,19 +823,19 @@ object frmMain: TfrmMain
     end
     object actCodeInsDateTime: TAction
       Category = 'Code'
-      Caption = 'Дата и время'
+      Caption = 'CAPTION_DATETIME'
       OnExecute = actCodeInsDateTimeExecute
       OnUpdate = actCloseActiveTabUpdate
     end
     object actCodeInsUserName: TAction
       Category = 'Code'
-      Caption = 'Имя пользователя'
+      Caption = 'CAPTION_USERNAME'
       OnExecute = actCodeInsUserNameExecute
       OnUpdate = actCloseActiveTabUpdate
     end
     object actCompactViewMode: TAction
       Category = 'View'
-      Caption = 'Компактный режим'
+      Caption = 'CAPTION_COMPACT_VIEW'
       OnExecute = actCompactViewModeExecute
     end
     object actSaveAll: TAction
@@ -844,32 +847,32 @@ object frmMain: TfrmMain
     end
     object actCloseActiveTab: TAction
       Category = 'File'
-      Caption = 'Закрыть файл редактора'
-      Hint = 'Закрыть файл редактора'
+      Caption = 'CAPTION_CLOSE_EDITOR_FILE'
+      Hint = 'CAPTION_CLOSE_EDITOR_FILE'
       OnExecute = actCloseActiveTabExecute
       OnUpdate = actCloseActiveTabUpdate
       ShortCut = 16499
     end
     object actExportAsHTML: TAction
       Category = 'File'
-      Caption = 'Экспортировать в HTML'
-      Hint = 'Экспортировать в HTML'
+      Caption = 'CAPTION_EXPORT_HTML'
+      Hint = 'CAPTION_EXPORT_HTML'
       OnExecute = actExportAsHTMLExecute
       OnUpdate = actCloseActiveTabUpdate
     end
   end
   object mmMain: TMainMenu
     Images = ilMain
-    Left = 608
-    Top = 112
+    Left = 486
+    Top = 90
     object miFile: TMenuItem
       Caption = '&Файл'
       object miCreateModule: TMenuItem
         Action = actCreateModule
       end
       object miCreateProject: TMenuItem
-        Caption = 'Создать проект'
-        Hint = 'Создать проект'
+        Caption = 'CAPTION_CREATE_PROJ'
+        Hint = 'CAPTION_CREATE_PROJ'
         OnClick = miCreateProjectClick
       end
       object MenuItem3: TMenuItem
@@ -883,6 +886,8 @@ object frmMain: TfrmMain
       end
       object miSaveAll: TMenuItem
         Action = actSaveAll
+        Caption = 'CAPTION_SAVE_ALL'
+        Hint = 'CAPTION_SAVE_ALL'
       end
       object miExportAsHTML: TMenuItem
         Action = actExportAsHTML
@@ -897,20 +902,20 @@ object frmMain: TfrmMain
         Caption = '-'
       end
       object miExit: TMenuItem
-        Caption = 'Выход'
+        Caption = 'CAPTION_EXIT'
         OnClick = miExitClick
       end
     end
     object miView: TMenuItem
-      Caption = '&Вид'
+      Caption = 'CAPTION_VIEW'
       object miCompactViewMode: TMenuItem
         Action = actCompactViewMode
       end
     end
     object miCode: TMenuItem
-      Caption = '&Код'
+      Caption = 'CAPTION_CODE'
       object miCodeIns: TMenuItem
-        Caption = 'Вставить общее'
+        Caption = 'CAPTION_INS_GENERAL'
         object miCodeInsDateTime: TMenuItem
           Action = actCodeInsDateTime
         end
@@ -919,102 +924,102 @@ object frmMain: TfrmMain
         end
       end
       object miJCF: TMenuItem
-        Caption = 'Форматирование кода JEDI'
+        Caption = 'CAPTION_JCF'
         object miJCFCurrentTAB: TMenuItem
           Action = actJCFCurrentTab
-          Caption = 'Текущая вкладка редактора'
+          Caption = 'CAPTION_CURRENT_TAB'
         end
       end
     end
     object miSettings: TMenuItem
-      Caption = '&Настройка'
+      Caption = 'CAPTION_OPTIONS'
       object miIDESettings: TMenuItem
-        Caption = 'Настроить AMPASIDE'
+        Caption = 'CAPTION_IDE_SETTINGS'
         OnClick = miIDESettingsClick
       end
     end
     object miInfo: TMenuItem
-      Caption = '&Справка'
+      Caption = 'CAPTION_HELP'
       object miDocumentation: TMenuItem
-        Caption = 'Документация'
+        Caption = 'CAPTION_DOCS'
         OnClick = miDocumentationClick
       end
       object miJavaLibs: TMenuItem
-        Caption = 'Java библиотеки'
+        Caption = 'CAPTION_JAVA_LIBS'
         OnClick = miJavaLibsClick
       end
       object miExamples: TMenuItem
-        Caption = 'Примеры'
+        Caption = 'CAPTION_EXAMPLES'
         OnClick = miExamplesClick
       end
       object MenuItem14: TMenuItem
         Caption = '-'
       end
       object miIDEMacros: TMenuItem
-        Caption = 'Макросы IDE'
+        Caption = 'CAPTION_MACROS'
         OnClick = miIDEMacrosClick
       end
       object MenuItem5: TMenuItem
         Caption = '-'
       end
       object miAbout: TMenuItem
-        Caption = 'О программе'
+        Caption = 'CAPTION_ABOUT'
         OnClick = miAboutClick
       end
     end
   end
   object ilMain: TImageList
-    Left = 776
-    Top = 112
+    Left = 621
+    Top = 90
   end
   object actlProjActions: TActionList
     OnUpdate = actlProjActionsUpdate
-    Left = 440
-    Top = 232
+    Left = 352
+    Top = 186
     object actRun: TAction
-      Caption = 'Запустить'
-      Hint = 'Запустить'
+      Caption = 'CAPTION_RUN'
+      Hint = 'CAPTION_RUN'
       OnExecute = actRunExecute
       OnUpdate = actRunUpdate
       ShortCut = 120
     end
     object actCompile: TAction
-      Caption = 'Компилировать'
-      Hint = 'Компилировать'
+      Caption = 'CAPTION_COMPILE'
+      Hint = 'CAPTION_COMPILE'
       OnExecute = actCompileExecute
       OnUpdate = actRunUpdate
       ShortCut = 16504
     end
     object actBuild: TAction
-      Caption = 'Собрать'
-      Hint = 'Собрать'
+      Caption = 'CAPTION_BUILD'
+      Hint = 'CAPTION_BUILD'
       OnExecute = actBuildExecute
       OnUpdate = actRunUpdate
       ShortCut = 8312
     end
     object actTerminateProc: TAction
-      Caption = 'Завершить процесс'
-      Hint = 'Завершить процесс'
+      Caption = 'CAPTION_KILL_PROC'
+      Hint = 'CAPTION_KILL_PROC'
       OnExecute = actTerminateProcExecute
     end
     object actBuildAndroid: TAction
-      Caption = 'Собрать APK'
-      Hint = 'Собрать APK'
+      Caption = 'CAPTION_BUILD_APK'
+      Hint = 'CAPTION_BUILD_APK'
       OnExecute = actBuildAndroidExecute
       OnUpdate = actRunUpdate
     end
   end
   object pmEditor: TPopupMenu
     Images = ilMain
-    Left = 608
-    Top = 232
+    Left = 486
+    Top = 186
     object miCloseActivePage: TMenuItem
       Action = actCloseActiveTab
-      Caption = 'Закрыть вкладку'
-      Hint = 'Закрыть вкладку'
+      Caption = 'CAPTION_CLOSE_TAB'
+      Hint = 'CAPTION_CLOSE_TAB'
     end
     object miCloseAllOtherPages: TMenuItem
-      Caption = 'Закрыть другие вкладки'
+      Caption = 'CAPTION_CLOSE_OTHER_TABS'
       OnClick = miCloseAllOtherPagesClick
     end
   end

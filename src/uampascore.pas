@@ -62,6 +62,7 @@ type
 
 const
   {$I ampasideconsts.inc}
+  {$I ../strings/ru.inc}
 
 function CheckDir(const DirName: string): boolean;
 function CheckFile(const FileName: string): boolean;

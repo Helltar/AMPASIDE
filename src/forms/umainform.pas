@@ -149,6 +149,7 @@ type
     procedure miCreateProjectClick(Sender: TObject);
     procedure miExitClick(Sender: TObject);
     procedure miJavaLibsClick(Sender: TObject);
+    procedure pgcEditorChange(Sender: TObject);
     procedure pgcEditorCloseTabClicked(Sender: TObject);
     procedure synedtNotesChange(Sender: TObject);
   private
@@ -159,7 +160,7 @@ type
     procedure GetSettings;
     procedure InitControls;
     procedure LoadControlsImages;
-    type TProjBuildMode = (pbmRun, pbmCompile, pbmBuild);
+  type TProjBuildMode = (pbmRun, pbmCompile, pbmBuild);
     procedure ProjLaunchMode(ProjBuildMode: TProjBuildMode);
     procedure SetSettings;
     procedure UpdateStatusBar;
@@ -206,7 +207,7 @@ var
   i: integer;
 
 begin
-  Caption := APP_NAME + ' ' + GetProgramVersion;
+  Caption := Caption + ' ' + GetProgramVersion;
 
   AddLogMsg(Caption);
 
@@ -246,8 +247,8 @@ var
 
 begin
   if IsProcRunning then
-    case MessageDlg('Запущен процесс',
-        'Прервать выполнение?', mtWarning, [mbYes, mbCancel], 0) of
+    case MessageDlg(MSG_PROCESS_IS_STARTED,
+        MSG_INTERRUPT_EXECUTION + '?', mtWarning, [mbYes, mbCancel], 0) of
       mrYes: TerminateProc;
       mrCancel:
       begin
@@ -292,21 +293,19 @@ begin
   with TSaveDialog.Create(Self) do
   begin
     try
-      Title := 'Сохранить модуль как ...';
+      Title := TITLE_SAVE_MODULE_AS;
       FileName := IDEConfig.ModulePrefix;
       if ProjManager.ProjectOpen then
         InitialDir := ProjManager.ProjDirSrc;
       if Execute then
       begin
         if Length(ExtractFileNameOnly(FileName)) < 3 then
-          MessageDlg('Неверное значение',
-            'Название модуля должно состоять минимум из 3-х символов',
+          MessageDlg(MSG_INCORRECT_VALUE, MSG_MODULE_NAME_MUST_LEAST,
             mtWarning, [mbOK], 0)
         else
         begin
           if FileExists(FileName) then
-            case MessageDlg('Подтверждение',
-                'Модуль с таким именем уже существует, заменить?',
+            case MessageDlg(MSG_CONFIRMATION, MSG_MODULE_ALREADY_EXISTS,
                 mtWarning, [mbYes, mbNo], 0) of
               mrNo: Exit;
             end;
@@ -374,9 +373,9 @@ begin
   with TOpenDialog.Create(Self) do
   begin
     try
-      Title := 'Открыть файл';
+      Title := TITLE_OPEN_FILE;
       Filter :=
-        'Все файлы *|*|' + APP_NAME + ' Project|*' +
+        FILTER_ALL_FILES + ' *|*|' + APP_NAME + ' Project|*' +
         EXT_PROJECT + '|' + 'Pascal Source Code|*' + EXT_MODULE;
       Options := [ofAllowMultiSelect, ofEnableSizing, ofViewDetail];
       if Execute then
@@ -403,7 +402,7 @@ begin
   with TSaveDialog.Create(Self) do
   begin
     try
-      Title := 'Сохранить как ...';
+      Title := TITLE_SAVE_AS;
       Filter := 'HTML|*.html';
       if Execute then
         CodeEditor.ExportToHTML(FileName + '.html');
@@ -418,7 +417,7 @@ begin
   with CodeEditor do
   begin
     SaveCurrentFile;
-    case MessageDlg('Подтверждение', 'Форматировать код ' +
+    case MessageDlg(MSG_CONFIRMATION, MSG_FORMAT_CODE + ' ' +
         ActiveFileName + '? ', mtInformation, [mbYes, mbNo], 0) of
       mrYes: JCFormat;
     end;
@@ -544,6 +543,11 @@ begin
   OpenURL(URL_JAVA_LIB);
 end;
 
+procedure TfrmMain.pgcEditorChange(Sender: TObject);
+begin
+
+end;
+
 procedure TfrmMain.pgcEditorCloseTabClicked(Sender: TObject);
 begin
   if Sender is TTabSheet then
@@ -555,8 +559,7 @@ begin
   try
     synedtNotes.Lines.SaveToFile(ProjManager.NotesFile);
   except
-    synedtNotes.Lines.Add(
-      'Не удалось сохранить файл заметок');
+    synedtNotes.Lines.Add(ERR_SAVE_NOTES_FILE);
   end;
 end;
 
@@ -579,8 +582,8 @@ begin
 
   if CodeEditor.IsFileModified(AEditor) then
   begin
-    case MessageDlg('Подтверждение',
-        'Сохранить изменения в файле "' +
+    case MessageDlg(MSG_CONFIRMATION,
+        MSG_SAVE_CHANGES + ' "' +
         ExtractFileName(FileName) + '"?', mtInformation, [mbYes, mbNo, mbCancel], 0) of
       mrYes: CodeEditor.SaveFile(FileName, AEditor);
       mrCancel: Result := False;
@@ -625,7 +628,7 @@ begin
   stbEditor.Panels[0].Text := CodeEditor.CaretPos;
 
   if CodeEditor.IsCurrentFileModified then
-    stbEditor.Panels[1].Text := 'Изменён'
+    stbEditor.Panels[1].Text := STBAR_MODIFIED
   else
     stbEditor.Panels[1].Text := '';
 
@@ -663,7 +666,7 @@ begin
       for i := 1 to Count - 1 do
       begin
         tvMsg.Items.AddChild(tvMsg.Items.GetLastNode, Strings[i]);
-        Application.ProcessMessages; // не нужно
+        Application.ProcessMessages;
         tvMsg.Items.GetLastSubNode.Selected := True;
       end;
     finally
@@ -692,6 +695,100 @@ end;
 
 procedure TfrmMain.InitControls;
 begin
+  tbbCreateModule.Caption := CAPTION_CREATE_MODULE;
+  tbbCreateModule.Hint := CAPTION_CREATE_MODULE;
+
+  tbbOpenFile.Caption := CAPTION_OPEN + ' ...';
+  tbbOpenFile.Hint := CAPTION_OPEN;
+
+  tbbSaveFile.Caption := CAPTION_SAVE;
+  tbbSaveFile.Hint := CAPTION_SAVE;
+
+  tbbCloseEditorTab.Caption := CAPTION_CLOSE_EDITOR_FILE;
+  tbbCloseEditorTab.Hint := CAPTION_CLOSE_EDITOR_FILE;
+
+  tbbSaveAll.Caption := CAPTION_SAVE_ALL;
+  tbbSaveAll.Hint := CAPTION_SAVE_ALL;
+
+  tbbBuildAndroid.Caption := CAPTION_BUILD_APK;
+  tbbBuildAndroid.Hint := CAPTION_BUILD_APK;
+
+  tbbBuild.Caption := CAPTION_BUILD;
+  tbbBuild.Hint := CAPTION_BUILD;
+
+  tbbCompile.Caption := CAPTION_COMPILE;
+  tbbCompile.Hint := CAPTION_COMPILE;
+
+  tbbTermProc.Caption := CAPTION_KILL_PROC;
+  tbbTermProc.Hint := CAPTION_KILL_PROC;
+
+  tbbRun.Caption := CAPTION_RUN;
+  tbbRun.Hint := CAPTION_RUN;
+  tbbRun64.Caption := CAPTION_RUN;
+  tbbRun64.Hint := CAPTION_RUN;
+
+
+  actCreateModule.Caption := CAPTION_CREATE_MODULE;
+  actCreateModule.Hint := CAPTION_CREATE_MODULE;
+
+  actFileOpen.Caption := CAPTION_OPEN + ' ...';
+  actFileOpen.Hint := CAPTION_OPEN;
+
+  actJCFCurrentTab.Caption := MSG_FORMAT_CODE;
+  actJCFCurrentTab.Hint := MSG_FORMAT_CODE;
+
+  actCodeInsDateTime.Caption := CAPTION_DATETIME;
+  actCodeInsUserName.Caption := CAPTION_USERNAME;
+
+  actCompactViewMode.Caption := CAPTION_COMPACT_VIEW;
+  actSaveAll.Caption := CAPTION_SAVE_ALL;
+  actSaveAll.Hint := CAPTION_SAVE_ALL;
+  actCloseActiveTab.Caption := CAPTION_CLOSE_EDITOR_FILE;
+  actCloseActiveTab.Hint := CAPTION_CLOSE_EDITOR_FILE;
+  actExportAsHTML.Caption := CAPTION_EXPORT_HTML;
+  actExportAsHTML.Hint := CAPTION_EXPORT_HTML;
+
+  miCreateProject.Caption := CAPTION_CREATE_PROJ;
+  miCreateProject.Hint := CAPTION_CREATE_PROJ;
+  miSaveAll.Caption := CAPTION_SAVE_ALL;
+  miSaveAll.Hint := CAPTION_SAVE_ALL;
+
+  miExit.Caption := CAPTION_EXIT;
+  miView.Caption := CAPTION_VIEW;
+  miCode.Caption := CAPTION_CODE;
+  miCodeIns.Caption := CAPTION_INS_GENERAL;
+  miJCF.Caption := CAPTION_JCF;
+  miJCFCurrentTAB.Caption := CAPTION_CURRENT_TAB;
+  miSettings.Caption := CAPTION_OPTIONS;
+  miIDESettings.Caption := CAPTION_IDE_SETTINGS;
+  miInfo.Caption := CAPTION_HELP;
+  miDocumentation.Caption := CAPTION_DOCS;
+  miJavaLibs.Caption := CAPTION_JAVA_LIBS;
+  miExamples.Caption := CAPTION_EXAMPLES;
+  miIDEMacros.Caption := CAPTION_MACROS;
+  miAbout.Caption := CAPTION_ABOUT;
+
+  tsLogMsg.Caption := CAPTION_MESSAGES;
+  tsNotes.Caption := CAPTION_NOTES;
+  tsProjFiles.Caption := CAPTION_FILES;
+  tsProjSettings.Caption := CAPTION_SETTINGS;
+
+  actRun.Caption := CAPTION_RUN;
+  actRun.Hint := CAPTION_RUN;
+  actCompile.Caption := CAPTION_COMPILE;
+  actCompile.Hint := CAPTION_COMPILE;
+  actBuild.Caption := CAPTION_BUILD;
+  actBuild.Hint := CAPTION_BUILD;
+  actTerminateProc.Caption := CAPTION_KILL_PROC;
+  actTerminateProc.Hint := CAPTION_KILL_PROC;
+  actBuildAndroid.Caption := CAPTION_BUILD_APK;
+  actBuildAndroid.Hint := CAPTION_BUILD_APK;
+
+  miCloseActivePage.Caption := CAPTION_CLOSE_TAB;
+  miCloseActivePage.Hint := CAPTION_CLOSE_TAB;
+  miCloseAllOtherPages.Caption := CAPTION_CLOSE_OTHER_TABS;
+
+
   pgcProject.ActivePage := tsProjFiles;
 
   FileManagerFrame := TFileManagerFrame.Create(tsProjFiles);
@@ -707,7 +804,7 @@ begin
   synedtNotes.Enabled := False;
   synedtNotes.Font.Name := EditorConfig.FontName;
   synedtNotes.Font.Size := EditorConfig.FontSize;
-  synedtNotes.Lines.Add('Недоступно, нет открытого проекта');
+  synedtNotes.Lines.Add(ERR_NOT_AVAILABLE_NO_OPEN_PROJECT);
 
   {$IFDEF MSWINDOWS}
   tbbDivider3.Visible := True;
@@ -785,8 +882,7 @@ begin
   try
     synedtNotes.Lines.LoadFromFile(ProjManager.NotesFile);
   except
-    synedtNotes.Lines.Text :=
-      'Не удалось загрузить файл заметок';
+    synedtNotes.Lines.Text := ERR_LOAD_NOTES;
   end;
 end;
 
