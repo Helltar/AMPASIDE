@@ -65,5 +65,4 @@ ANDROID_MANIFEST = 'AndroidManifest.xml';
 
 URL_JAVA_LIB = 'http://forum.boolean.name/showthread.php?t=5494';
 URL_SRC_CODE = 'https://github.com/Helltar/AMPASIDE';
-URL_TUTORIAL = 'https://helltar.com/mpascal/docs/';
 
