@@ -56,10 +56,8 @@ object frmMain: TfrmMain
     end
     object tbbSaveFile: TToolButton
       Left = 172
-      Hint = 'CAPTION_SAVE'
       Top = 0
       Action = actFileSave
-      Caption = 'CAPTION_SAVE'
       ParentShowHint = False
       ShowHint = True
     end
@@ -802,8 +800,8 @@ object frmMain: TfrmMain
     end
     object actFileSave: TAction
       Category = 'File'
-      Caption = 'CAPTION_OPEN'
-      Hint = 'CAPTION_OPEN'
+      Caption = 'CAPTION_SAVE'
+      Hint = 'CAPTION_SAVE'
       OnExecute = actFileSaveExecute
       OnUpdate = actFileSaveUpdate
       ShortCut = 16467
