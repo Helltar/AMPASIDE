@@ -2,22 +2,23 @@ LE = LineEnding;
 DIR_SEP = DirectorySeparator;
 
 APP_NAME = 'AMPASIDE';
-APP_VERSION = '1.0';
+APP_VERSION = '1.3';
 
-APP_DIR_DATA = 'data' + DIR_SEP;
-APP_DIR_HELP = APP_DIR_DATA + 'help' + DIR_SEP;
+APP_DIR_CONFIG = 'config' + DIR_SEP;
+APP_DIR_HELP = APP_DIR_CONFIG + 'help' + DIR_SEP;
 APP_DIR_IMG = 'img' + DIR_SEP;
-APP_DIR_LIBS = 'libs' + DIR_SEP;
+APP_DIR_LIBS = 'lib' + DIR_SEP;
 APP_DIR_STUBS = 'stubs' + DIR_SEP;
 APP_DIR_TMP = 'tmp' + DIR_SEP;
-APP_DIR_TOOLS = 'tools' + DIR_SEP;
-APP_DIR_ANDROID = APP_DIR_TOOLS + 'android' + DIR_SEP;
+APP_DIR_TOOLS = 'bin' + DIR_SEP;
+APP_DIR_ANDROID = 'android' + DIR_SEP;
+APP_DIR_LOGS = 'log' + DIR_SEP;
 
-ANT_LOG = APP_DIR_DATA + 'ant.log';
-APP_CONFIG = APP_DIR_DATA + 'ampaside';
-EDITOR_COMPLETION = APP_DIR_DATA + 'editorcompletion';
-EDITOR_HEADERS = APP_DIR_DATA + 'editorheaders';
-JCF_SETTINGS = APP_DIR_DATA + 'jcfsettings';
+ANT_LOG = APP_DIR_LOGS + 'ant.log';
+APP_CONFIG = APP_DIR_CONFIG + 'ampaside';
+EDITOR_COMPLETION = APP_DIR_CONFIG + 'editorcompletion';
+EDITOR_HEADERS = APP_DIR_CONFIG + 'editorheaders';
+JCF_SETTINGS = APP_DIR_CONFIG + 'jcfsettings';
 
 CLASS_FW = 'FW.class';
 
