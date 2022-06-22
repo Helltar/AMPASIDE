@@ -2,7 +2,7 @@ LE = LineEnding;
 DIR_SEP = DirectorySeparator;
 
 APP_NAME = 'AMPASIDE';
-APP_VERSION = '1.3';
+APP_VERSION = '1.1.5';
 
 APP_DIR_CONFIG = 'config' + DIR_SEP;
 APP_DIR_HELP = APP_DIR_CONFIG + 'help' + DIR_SEP;

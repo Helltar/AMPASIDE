@@ -25,11 +25,12 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <RevisionNr Value="3"/>
-      <BuildNr Value="26"/>
+      <MinorVersionNr Value="1"/>
+      <RevisionNr Value="5"/>
+      <BuildNr Value="29"/>
       <Language Value="0419"/>
       <CharSet Value="04B0"/>
-      <StringTable CompanyName="helltar.com" FileDescription="Advanced MIDletPascal IDE" LegalCopyright="2015-2022 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE" ProductVersion="1.0.3"/>
+      <StringTable CompanyName="helltar.com" FileDescription="Advanced MIDletPascal IDE" LegalCopyright="2015-2022 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE" ProductVersion="1.1.5"/>
     </VersionInfo>
     <BuildModes Count="3">
       <Item1 Name="Default" Default="True"/>
