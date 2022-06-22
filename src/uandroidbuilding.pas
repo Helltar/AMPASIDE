@@ -209,8 +209,10 @@ begin
         Free;
       end;
 
-  if Pos('BUILD SUCCESSFUL', AntOutput) > 0 then
+  if Pos('BUILD FAILED', AntOutput) = 0 then  // if Pos('BUILD SUCCESSFUL', AntOutput) > 0 then (windows output bug)
   begin
+    AddLogMsg(ERR_ANT_COMPLETED_WORK + ': ./' + ANT_LOG);
+
     ApkFileName := ProjManager.ProjDirPreBuild + ApkName;
 
     // ../pre-build/midlet.apk -> ../bin/android/midlet.apk
@@ -224,10 +226,7 @@ begin
     DelTempFiles;
   end
   else
-  if Pos('BUILD FAILED', AntOutput) > 0 then
-    AddLogMsg(ERR_FAILDED_BUILD_APK + ': ' + ANT_LOG, lmtErr)
-  else
-    AddLogMsg(ERR_ANT_COMPLETED_WORK + ': ' + ANT_LOG);
+    AddLogMsg(ERR_FAILDED_BUILD_APK + ': ./' + ANT_LOG, lmtErr);
 end;
 
 end.
