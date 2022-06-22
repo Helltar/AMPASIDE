@@ -18,7 +18,9 @@ sudo dnf install qt5pas
 sudo apt install libqt5pas-dev
 ```
 
-Для возможности сборки под **Android**, установите или переключитесь на JDK **1.8** (8):
+### Сборка под Android
+
+Установите или переключитесь на JDK **1.8** (8):
 
 ```
 javac -version
@@ -30,4 +32,10 @@ java -version
     openjdk version "1.8.0_..."
     OpenJDK Runtime Environment (build 1.8.0_...)
     OpenJDK 64-Bit Server VM
+```
+
+Установите **Apache Ant**:
+
+```
+ant -version
 ```
