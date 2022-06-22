@@ -107,6 +107,8 @@ const
 
 var
   IDEConfig: TIDEConfig;
+  sHeight: integer = 700;
+  splBottomHeight: integer = 450;
 
 implementation
 
@@ -119,6 +121,12 @@ uses
 constructor TIDEConfig.Create(FileName: string);
 begin
   FMainConfig := TIniFile.Create(FileName);
+
+  if Screen.Height > 900 then
+  begin
+    sHeight := Screen.Height - 200;
+    splBottomHeight := 600;
+  end;
 end;
 
 destructor TIDEConfig.Destroy;
@@ -247,12 +255,12 @@ end;
 
 function TIDEConfig.GetFHeight: integer;
 begin
-  Result := FMainConfig.ReadInteger('FORM', 'Height', Screen.Height - 200);
+  Result := FMainConfig.ReadInteger('FORM', 'Height', sHeight);
 end;
 
 function TIDEConfig.GetFWidth: integer;
 begin
-  Result := FMainConfig.ReadInteger('FORM', 'Width', Screen.Width - 700);
+  Result := FMainConfig.ReadInteger('FORM', 'Width', 1200);
 end;
 
 function TIDEConfig.GetFilManPrevSizeX: integer;
@@ -277,7 +285,7 @@ end;
 
 function TIDEConfig.GetFsplBottom: integer;
 begin
-  Result := FMainConfig.ReadInteger('FORM', 'SplBottom', 590);
+  Result := FMainConfig.ReadInteger('FORM', 'SplBottom', splBottomHeight);
 end;
 
 function TIDEConfig.GetFsplLeft: integer;
@@ -291,4 +299,3 @@ begin
 end;
 
 end.
-
