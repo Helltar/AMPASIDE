@@ -65,8 +65,8 @@ var
   ProjPath: string;
 
 begin
-  Height := 320;
-  Width := 700;
+  Height := 500;
+  Width := 1024;
 
   synedtMacros.Font.Name := EditorConfig.FontName;
   synedtMacros.Font.Size := EditorConfig.FontSize;
