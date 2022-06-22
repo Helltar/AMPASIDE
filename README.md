@@ -5,13 +5,11 @@ Advanced MIDletPascal IDE
 
 Среда разработки использующая компилятор языка программирования [MIDletPascal](http://ru.wikipedia.org/wiki/MIDletPascal).
 
-- https://helltar.com/mpascal/docs/
-
 Скачать
 -------
 
-- [ampaside-1.0.3_linux-gtk-x86_64.tar.xz](https://github.com/Helltar/AMPASIDE/releases/download/v1.0.3-22/ampaside-1.0.3_linux-gtk-x86_64.tar.xz) (18 MB) | [CHECKSUM](https://helltar.com/projects/ampaside/bin/checksums/ampaside-1.0.3_linux-gtk-x86_64.tar.xz.sha256)
-- [ampaside-1.0.3_windows.zip](https://github.com/Helltar/AMPASIDE/releases/download/v1.0.3-22/ampaside-1.0.3_windows.zip) (21 MB) | [CHECKSUM](https://helltar.com/projects/ampaside/bin/checksums/ampaside-1.0.3_windows.zip.sha256)
+- [ampaside-1.1.5_linux-qt-x86_64.tar.gz](https://github.com/Helltar/AMPASIDE/releases/download/v1.1.5/ampaside-1.1.5_linux-qt-x86_64.tar.gz) (28 MB)
+- [ampaside-1.1.5_windows.zip](https://github.com/Helltar/AMPASIDE/releases/download/v1.1.5/ampaside-1.1.5_windows.zip) (27.5 MB)
 
 Установка
 ---------
