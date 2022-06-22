@@ -38,7 +38,7 @@ EXT_MODULE = '.pas';
 EXT_NOTES = '.txt';
 EXT_PROJECT = '.aproj';
 
-EMULATOR = APP_DIR_TOOLS + 'microemulator.jar';
+EMULATOR = APP_DIR_TOOLS + 'emulator' + DIR_SEP +'microemulator.jar';
 ANDROID_MANIFEST = 'AndroidManifest.xml';
 
 {$IFDEF UNIX}
