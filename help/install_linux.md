@@ -29,12 +29,11 @@ sudo apt install libgtk2.0-0
 java --version
 ```
 
-Для возможности сборки под Android, установите:
-
-**JDK**:
+Для возможности сборки под Android, установите или переключитесь на JDK **1.8**:
 
 ```
-javac --version
+javac -version
+    javac 1.8.0_332
 ```
 
 **Apache Ant**:
