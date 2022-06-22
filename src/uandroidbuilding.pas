@@ -138,7 +138,7 @@ var
 
     with TProjectBuilding.Create do
       try
-        if not Build then
+        if not Build(True) then
           Exit;
       finally
         Free;
@@ -173,7 +173,7 @@ begin
   if not PreBuildAct then
     Exit;
 
-  AddLogMsg('Apache Ant (' + ApkName + '), ' + MSG_GOING_ASSEMBLED + '...');
+  AddLogMsg('Apache Ant, ' + MSG_GOING_ASSEMBLED + '...' + LE + ProjManager.ProjDirAndroid + ApkName);
 
   AntCmd := APACHE_ANT + ProjBuildFile;
 
@@ -221,7 +221,8 @@ begin
 
     AddLogMsg(MSG_SUCCESSFULLY_ASSEMBLED + LE +
       MSG_VERSION + ': ' + ProjManager.MIDletVersion + LE + MSG_SIZE + ': ' +
-      GetFileSize(ApkFileName) + LE + MSG_PLATFORM + ': Android', lmtOk);
+      GetFileSize(ApkFileName) + LE + MSG_PLATFORM + ': Android' + LE +
+      PROJ_DIR_BIN + DIR_SEP + PROJ_DIR_ANDROID + DIR_SEP + ApkName, lmtOk);
 
     DelTempFiles;
   end
