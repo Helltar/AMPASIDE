@@ -167,7 +167,7 @@ var
 
 begin
   MIDletName := ProjConfig.MIDletName;
-  ProjBuildFile := APP_DIR_TMP + 'build.' + MIDletName + '.xml';
+  ProjBuildFile := GetAppPath + APP_DIR_TMP + 'build.' + MIDletName + '.xml';
   ApkName := MIDletName + EXT_APK;
 
   if not PreBuildAct then
@@ -175,7 +175,7 @@ begin
 
   AddLogMsg('Apache Ant (' + ApkName + '), ' + MSG_GOING_ASSEMBLED + '...');
 
-  AntCmd := GetAppPath + APACHE_ANT + ProjBuildFile;
+  AntCmd := APACHE_ANT + ProjBuildFile;
 
   {$IFDEF MSWINDOWS}
   AntCmd := AntCmd + ' -logfile ' + GetAppPath + ANT_LOG;
@@ -211,7 +211,7 @@ begin
 
   if Pos('BUILD FAILED', AntOutput) = 0 then  // if Pos('BUILD SUCCESSFUL', AntOutput) > 0 then (windows output bug)
   begin
-    AddLogMsg(ERR_ANT_COMPLETED_WORK + ': ./' + ANT_LOG);
+    AddLogMsg(ERR_ANT_COMPLETED_WORK + ': .' + DIR_SEP + ANT_LOG);
 
     ApkFileName := ProjManager.ProjDirPreBuild + ApkName;
 
@@ -226,7 +226,7 @@ begin
     DelTempFiles;
   end
   else
-    AddLogMsg(ERR_FAILDED_BUILD_APK + ': ./' + ANT_LOG, lmtErr);
+    AddLogMsg(ERR_FAILDED_BUILD_APK + ': .' + DIR_SEP + ANT_LOG, lmtErr);
 end;
 
 end.
