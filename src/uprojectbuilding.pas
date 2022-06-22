@@ -44,7 +44,7 @@ type
     procedure CreateJad;
   public
     constructor Create;
-    function Build: boolean;
+    function Build(isAndroid: boolean = False): boolean;
     function CompileMainModule: boolean;
     procedure Run;
   end;
@@ -387,7 +387,7 @@ begin
   end;
 end;
 
-function TProjectBuilding.Build: boolean;
+function TProjectBuilding.Build(isAndroid: boolean = False): boolean;
 
   procedure IncBuildVers;
   var
@@ -421,6 +421,7 @@ function TProjectBuilding.Build: boolean;
 var
   FileArchiver, CmdParameters: string;
   JARFileName: string;
+  msg: string;
 
 begin
   Result := False;
@@ -455,11 +456,16 @@ begin
       if ProjConfig.AutoIncBuildVers then
         IncBuildVers;
 
-      AddLogMsg(
-        MSG_SUCCESSFULLY_ASSEMBLED + LE +
-        MSG_VERSION + ': ' + ProjManager.MIDletVersion + LE +
-        MSG_SIZE + ': ' + GetFileSize(JARFileName) + LE +
-        MSG_PLATFORM + ': JavaME', lmtOk);
+      if not isAndroid then
+      begin
+        msg :=
+          MSG_SUCCESSFULLY_ASSEMBLED + LE +
+          MSG_VERSION + ': ' + ProjManager.MIDletVersion + LE +
+          MSG_SIZE + ': ' + GetFileSize(JARFileName) + LE +
+          MSG_PLATFORM + ': JavaME';
+      end;
+
+      AddLogMsg(msg, lmtOk);
 
       Result := True;
     end;
