@@ -54,6 +54,7 @@ ANDROID_MANIFEST = 'AndroidManifest.xml';
   FILE_ARCHIVER = APP_DIR_TOOLS + 'linux_' + A_CPU + DIR_SEP + '7za';
   JCF = APP_DIR_TOOLS + 'linux_' + A_CPU + DIR_SEP + 'JCF';
   MP3CC = APP_DIR_TOOLS + 'linux_' + A_CPU + DIR_SEP + 'mp3CC';
+  APACHE_ANT = APP_DIR_TOOLS + 'apache-ant' + DIR_SEP + 'bin' + DIR_SEP + 'ant -v -buildfile ';
 
 {$ENDIF}
 
@@ -61,6 +62,7 @@ ANDROID_MANIFEST = 'AndroidManifest.xml';
   FILE_ARCHIVER = APP_DIR_TOOLS + 'win_i386' + DIR_SEP + '7za.exe';
   JCF = APP_DIR_TOOLS + 'win_i386' + DIR_SEP + 'JCF.exe';
   MP3CC = APP_DIR_TOOLS + 'win_i386' + DIR_SEP + 'mp3CC.exe';
+  APACHE_ANT = APP_DIR_TOOLS + 'apache-ant' + DIR_SEP + 'bin' + DIR_SEP + 'ant.bat -v -buildfile ';
 {$ENDIF}
 
 URL_JAVA_LIB = 'http://forum.boolean.name/showthread.php?t=5494';

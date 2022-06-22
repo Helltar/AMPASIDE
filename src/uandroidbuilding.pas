@@ -175,10 +175,10 @@ begin
 
   AddLogMsg('Apache Ant (' + ApkName + '), ' + MSG_GOING_ASSEMBLED + '...');
 
+  AntCmd := GetAppPath + APACHE_ANT + ProjBuildFile;
+
   {$IFDEF MSWINDOWS}
-  AntCmd := GetAppPath + APP_DIR_TOOLS + 'apache-ant\bin\ant.bat -v -buildfile ' + ProjBuildFile + ' -logfile ' + GetAppPath + ANT_LOG;
-  {$ELSE}
-  AntCmd := GetAppPath + APP_DIR_TOOLS + 'apache-ant/bin/ant -v -buildfile ' + ProjBuildFile;
+  AntCmd := AntCmd + ' -logfile ' + GetAppPath + ANT_LOG;
   {$ENDIF}
 
   P := ProcStart(AntCmd);
