@@ -249,6 +249,22 @@ function TProjectManager.CreateProject(APath, AName: string): boolean;
     end;
   end;
 
+  procedure CreateAndroidManifest(const AppName, filename: string);
+  begin
+    with TStringList.Create do
+      try
+        LoadFromFile(GetAppPath + APP_DIR_CONFIG + ANDROID_MANIFEST);
+        Text := StringReplace(Text, '$(APP_NAME)', LowerCase(AppName), [rfReplaceAll]);
+        try
+          SaveToFile(filename);
+        except
+          AddLogMsg(ERR_FAILED_SAVE + ': ' + FileName, lmtErr);
+        end;
+      finally
+        Free;
+      end;
+  end;
+
 begin
   Result := False;
 
@@ -263,7 +279,7 @@ begin
     CreateConfigFile(FConfigFile);
     CreateMainModule(FMainModule);
     CreateNotesFile(FNotesFile);
-    CopyFile(GetAppPath + APP_DIR_CONFIG + ANDROID_MANIFEST, APath + ANDROID_MANIFEST);
+    CreateAndroidManifest(AName, APath + ANDROID_MANIFEST);
     CopyFile(GetAppPath + APP_DIR_IMG + 'main' + DIR_SEP + 'icon.png', FProjDirRes + 'icon.png');
     Result := True;
   end;
