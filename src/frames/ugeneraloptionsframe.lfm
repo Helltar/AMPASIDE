@@ -6,8 +6,8 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
   ClientHeight = 578
   ClientWidth = 683
   TabOrder = 0
-  DesignLeft = 661
-  DesignTop = 263
+  DesignLeft = 804
+  DesignTop = 262
   object gbEmulator: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -76,7 +76,7 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = sedtY
       AnchorSideTop.Side = asrCenter
-      Left = 62
+      Left = 84
       Height = 19
       Top = 13
       Width = 56
@@ -88,7 +88,7 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = sedtX
       AnchorSideTop.Side = asrCenter
-      Left = 62
+      Left = 84
       Height = 19
       Top = 52
       Width = 61
@@ -101,7 +101,7 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       Left = 6
       Height = 33
       Top = 6
-      Width = 50
+      Width = 72
       BorderSpacing.Around = 6
       MaxValue = 240
       OnChange = sedtYChange
@@ -114,7 +114,7 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       Left = 6
       Height = 33
       Top = 45
-      Width = 50
+      Width = 72
       BorderSpacing.Around = 6
       MaxValue = 240
       OnChange = sedtXChange
