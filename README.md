@@ -5,6 +5,8 @@ Advanced MIDletPascal IDE
 
 Среда разработки использующая компилятор языка программирования [MIDletPascal](http://ru.wikipedia.org/wiki/MIDletPascal).
 
+- https://www.youtube.com/watch?v=YKPKqdwdn3I
+
 Скачать
 -------
 
