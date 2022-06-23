@@ -22,11 +22,11 @@ Advanced MIDletPascal IDE
 Скриншоты
 ---------
 
-#### Ubuntu 22.04
+#### Linux (Qt)
 
-![linux_gnome](https://helltar.com/projects/ampaside/screenshots/linux_gnome_gtk.png)
+![linux_qt](https://helltar.com/projects/ampaside/screenshots/screenshot_23062022_141821.png)
 
-#### Windows 11
+#### Windows
 
 ![windows-11](https://helltar.com/projects/ampaside/screenshots/windows-11_1.0.3.png)
 
