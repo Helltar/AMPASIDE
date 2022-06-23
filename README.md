@@ -19,16 +19,7 @@ Advanced MIDletPascal IDE
 - [Linux](https://github.com/Helltar/AMPASIDE/blob/master/help/install_linux.md)
 - [Windows](https://github.com/Helltar/AMPASIDE/blob/master/help/install_windows.md)
 
-Скриншоты
----------
-
-#### Ubuntu 22.04
-
-![linux_gnome](https://helltar.com/projects/ampaside/screenshots/linux_gnome_gtk.png)
-
-#### Windows 11
-
-![windows-11](https://helltar.com/projects/ampaside/screenshots/windows-11_1.0.3.png)
+![linux_qt](https://helltar.com/projects/ampaside/screenshots/screenshot_23062022_142550.png)
 
 Сборка из исходников
 --------------------
