@@ -7,8 +7,8 @@ object FileManagerFrame: TFileManagerFrame
   ClientWidth = 498
   ParentFont = False
   TabOrder = 0
-  DesignLeft = 713
-  DesignTop = 289
+  DesignLeft = 718
+  DesignTop = 251
   object tvFileList: TTreeView
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = tlbManagerActions
@@ -216,42 +216,42 @@ object FileManagerFrame: TFileManagerFrame
     Left = 48
     Top = 56
     object actOpenFile: TAction
-      Caption = 'Открыть ...'
-      Hint = 'Открыть'
+      Caption = 'Open ...'
+      Hint = 'Open'
       OnExecute = actOpenFileExecute
       OnUpdate = actOpenFileUpdate
     end
     object actRenameFile: TAction
-      Caption = 'Переименовать'
-      Hint = 'Переименовать'
+      Caption = 'Rename'
+      Hint = 'Rename'
       OnExecute = actRenameFileExecute
       OnUpdate = actOpenFileUpdate
     end
     object actCreateDir: TAction
-      Caption = 'Создать каталог'
+      Caption = 'Create Directory'
       OnExecute = actCreateDirExecute
       OnUpdate = actOpenFileUpdate
     end
     object actAddFiles: TAction
-      Caption = 'Добавить файлы'
-      Hint = 'Добавить файлы'
+      Caption = 'Add Files'
+      Hint = 'Add Files'
       OnExecute = actAddFilesExecute
       OnUpdate = actOpenFileUpdate
     end
     object actDeleteFile: TAction
-      Caption = 'Удалить'
-      Hint = 'Удалить'
+      Caption = 'Remove'
+      Hint = 'Remove'
       OnExecute = actDeleteFileExecute
       OnUpdate = actOpenFileUpdate
     end
     object actExpandCollapse: TAction
-      Caption = 'Свернуть'
-      Hint = 'Свернуть'
+      Caption = 'Collapse All'
+      Hint = 'Collapse All'
       OnExecute = actExpandCollapseExecute
     end
     object actUpdateFileList: TAction
-      Caption = 'Обновить список файлов'
-      Hint = 'Обновить список файлов'
+      Caption = 'Update'
+      Hint = 'Update'
       OnExecute = actUpdateFileListExecute
     end
   end

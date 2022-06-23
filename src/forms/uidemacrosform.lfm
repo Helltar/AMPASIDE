@@ -1,17 +1,17 @@
 object frmIDEMacros: TfrmIDEMacros
-  Left = 954
+  Left = 687
   Height = 220
-  Top = 207
+  Top = 342
   Width = 382
   Caption = 'IDE Macros'
   ClientHeight = 220
   ClientWidth = 382
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '1.5'
+  LCLVersion = '2.2.2.0'
   inline synedtMacros: TSynEdit
     Left = 6
-    Height = 168
+    Height = 172
     Top = 6
     Width = 370
     Align = alClient
@@ -514,8 +514,8 @@ object frmIDEMacros: TfrmIDEMacros
   end
   object btnpnlMain: TButtonPanel
     Left = 6
-    Height = 34
-    Top = 180
+    Height = 30
+    Top = 184
     Width = 370
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True
@@ -538,14 +538,15 @@ object frmIDEMacros: TfrmIDEMacros
     DirectiveAttri.Style = []
     CompilerMode = pcmDelphi
     NestedComments = False
-    left = 224
-    top = 48
+    TypeHelpers = True
+    Left = 224
+    Top = 48
   end
   object pmMain: TPopupMenu
-    left = 112
-    top = 48
+    Left = 112
+    Top = 48
     object miCopy: TMenuItem
-      Caption = 'Копиров&ать'
+      Caption = 'Copy'
       ShortCut = 16451
       OnClick = miCopyClick
     end

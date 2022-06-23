@@ -6,8 +6,8 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
   ClientHeight = 578
   ClientWidth = 683
   TabOrder = 0
-  DesignLeft = 804
-  DesignTop = 262
+  DesignLeft = 617
+  DesignTop = 251
   object gbEmulator: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -20,7 +20,7 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 6
-    Caption = 'Эмулятор'
+    Caption = 'Emulator'
     ClientHeight = 70
     ClientWidth = 667
     TabOrder = 0
@@ -45,9 +45,9 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       Left = 6
       Height = 19
       Top = 6
-      Width = 145
+      Width = 112
       BorderSpacing.Around = 6
-      Caption = 'Командная строка:'
+      Caption = 'Command Line:'
       ParentColor = False
     end
   end
@@ -66,7 +66,7 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 6
-    Caption = 'Файловый менеджер (превью)'
+    Caption = 'File manager (preview)'
     ClientHeight = 113
     ClientWidth = 667
     ParentShowHint = False
@@ -79,8 +79,8 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       Left = 84
       Height = 19
       Top = 13
-      Width = 56
-      Caption = 'Высота'
+      Width = 47
+      Caption = 'Height'
       ParentColor = False
     end
     object lblPrevWidth: TLabel
@@ -91,8 +91,8 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       Left = 84
       Height = 19
       Top = 52
-      Width = 61
-      Caption = 'Ширина'
+      Width = 42
+      Caption = 'Width'
       ParentColor = False
     end
     object sedtY: TSpinEdit
@@ -127,9 +127,9 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
       Left = 6
       Height = 23
       Top = 84
-      Width = 226
+      Width = 154
       BorderSpacing.Around = 6
-      Caption = 'Растягивать изображение'
+      Caption = 'Stretch the image'
       OnChange = cbPrevStretchChange
       TabOrder = 2
     end
@@ -149,7 +149,7 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 6
-    Caption = 'Заголовки'
+    Caption = 'Headers'
     ClientHeight = 179
     ClientWidth = 667
     TabOrder = 2
@@ -669,7 +669,7 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 6
-    Caption = 'Префикс для новых модулей'
+    Caption = 'Prefix for new modules'
     ClientHeight = 62
     ClientWidth = 667
     TabOrder = 3

@@ -1,23 +1,23 @@
 object frmNewProj: TfrmNewProj
-  Left = 964
+  Left = 739
   Height = 162
-  Top = 220
+  Top = 421
   Width = 297
-  Caption = 'Новый проект'
+  Caption = 'New project'
   ClientHeight = 162
   ClientWidth = 297
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '1.5'
+  LCLVersion = '2.2.2.0'
   object lblName: TLabel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     Left = 6
-    Height = 15
+    Height = 19
     Top = 6
-    Width = 59
+    Width = 47
     BorderSpacing.Around = 6
-    Caption = 'Название:'
+    Caption = 'Name:'
     ParentColor = False
   end
   object edtName: TEdit
@@ -27,8 +27,8 @@ object frmNewProj: TfrmNewProj
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 6
-    Height = 23
-    Top = 27
+    Height = 33
+    Top = 31
     Width = 285
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
@@ -39,11 +39,11 @@ object frmNewProj: TfrmNewProj
     AnchorSideTop.Control = edtName
     AnchorSideTop.Side = asrBottom
     Left = 6
-    Height = 15
-    Top = 56
-    Width = 119
+    Height = 19
+    Top = 70
+    Width = 37
     BorderSpacing.Around = 6
-    Caption = 'Каталог сохранения:'
+    Caption = 'Path:'
     ParentColor = False
   end
   object diredtPath: TDirectoryEdit
@@ -53,8 +53,8 @@ object frmNewProj: TfrmNewProj
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 6
-    Height = 23
-    Top = 77
+    Height = 33
+    Top = 95
     Width = 285
     ShowHidden = False
     ButtonWidth = 23
@@ -66,8 +66,8 @@ object frmNewProj: TfrmNewProj
   end
   object btnpnlMain: TButtonPanel
     Left = 6
-    Height = 34
-    Top = 122
+    Height = 38
+    Top = 118
     Width = 285
     OKButton.Name = 'OKButton'
     OKButton.DefaultCaption = True

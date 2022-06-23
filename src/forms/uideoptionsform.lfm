@@ -1,7 +1,7 @@
 object frmIDEOptions: TfrmIDEOptions
-  Left = 666
+  Left = 633
   Height = 390
-  Top = 310
+  Top = 308
   Width = 726
   Caption = 'Параметры'
   ClientHeight = 390
@@ -20,10 +20,10 @@ object frmIDEOptions: TfrmIDEOptions
     TabIndex = 0
     TabOrder = 0
     object tsEditor: TTabSheet
-      Caption = 'Редактор'
+      Caption = 'General'
     end
     object tsGeneral: TTabSheet
-      Caption = 'Общие'
+      Caption = 'Common'
     end
   end
   object btnpnlMain: TButtonPanel

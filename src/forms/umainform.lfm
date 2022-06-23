@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 550
-  Height = 542
-  Top = 280
-  Width = 891
+  Left = 512
+  Height = 578
+  Top = 247
+  Width = 911
   AllowDropFiles = True
   Caption = 'AMPASIDE'
-  ClientHeight = 511
-  ClientWidth = 891
+  ClientHeight = 547
+  ClientWidth = 911
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -20,10 +20,10 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 267
+    Left = 355
     Height = 22
     Top = 6
-    Width = 618
+    Width = 550
     Align = alNone
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 6
@@ -84,10 +84,8 @@ object frmMain: TfrmMain
     end
     object tbbSaveAll: TToolButton
       Left = 195
-      Hint = 'CAPTION_SAVE_ALL'
       Top = 0
       Action = actSaveAll
-      Caption = 'CAPTION_SAVE_ALL'
       ParentShowHint = False
       ShowHint = True
     end
@@ -140,10 +138,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = stbEditor
-    Left = 267
-    Height = 271
+    Left = 355
+    Height = 274
     Top = 34
-    Width = 618
+    Width = 550
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     PopupMenu = pmEditor
@@ -158,10 +156,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = splBottom
-    Left = 267
+    Left = 355
     Height = 24
-    Top = 311
-    Width = 618
+    Top = 314
+    Width = 550
     Action = actUpdateStatusBar
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
@@ -187,10 +185,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Side = asrBottom
     Cursor = crVSplit
-    Left = 256
+    Left = 344
     Height = 5
-    Top = 341
-    Width = 635
+    Top = 344
+    Width = 567
     Align = alNone
     Anchors = [akLeft, akRight, akBottom]
     ResizeAnchor = akBottom
@@ -204,24 +202,24 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 267
-    Height = 153
-    Top = 352
-    Width = 618
+    Left = 355
+    Height = 186
+    Top = 355
+    Width = 550
     ActivePage = tsNotes
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
     TabIndex = 1
     TabOrder = 4
     object tsLogMsg: TTabSheet
-      Caption = 'CAPTION_MESSAGES'
-      ClientHeight = 118
-      ClientWidth = 614
+      Caption = 'Messages'
+      ClientHeight = 149
+      ClientWidth = 542
       object tvMsg: TTreeView
         Left = 6
-        Height = 106
+        Height = 137
         Top = 6
-        Width = 602
+        Width = 530
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
@@ -233,14 +231,14 @@ object frmMain: TfrmMain
       end
     end
     object tsNotes: TTabSheet
-      Caption = 'CAPTION_NOTES'
-      ClientHeight = 118
-      ClientWidth = 614
+      Caption = 'Notes'
+      ClientHeight = 149
+      ClientWidth = 542
       inline synedtNotes: TSynEdit
         Left = 6
-        Height = 106
+        Height = 137
         Top = 6
-        Width = 602
+        Width = 530
         Align = alClient
         BorderSpacing.Around = 6
         Font.Height = -12
@@ -744,8 +742,8 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 256
-    Height = 511
+    Left = 344
+    Height = 547
     Top = 0
     Width = 5
     Align = alNone
@@ -758,19 +756,19 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 499
+    Height = 535
     Top = 6
-    Width = 244
-    ActivePage = tsProjSettings
+    Width = 332
+    ActivePage = tsProjFiles
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 6
     object tsProjFiles: TTabSheet
-      Caption = 'CAPTION_FILES'
+      Caption = 'Files'
     end
     object tsProjSettings: TTabSheet
-      Caption = 'CAPTION_SETTINGS'
+      Caption = 'Settings'
     end
   end
   object tbbRun64: TToolButton
@@ -783,33 +781,33 @@ object frmMain: TfrmMain
   end
   object actlMain: TActionList
     Images = ilMain
-    Left = 352
+    Left = 448
     Top = 90
     object actCreateModule: TAction
       Category = 'File'
-      Caption = 'CAPTION_CREATE_MODULE'
-      Hint = 'CAPTION_CREATE_MODULE'
+      Caption = 'Create Module'
+      Hint = 'Create module'
       OnExecute = actCreateModuleExecute
     end
     object actFileOpen: TAction
       Category = 'File'
-      Caption = 'CAPTION_OPEN'
-      Hint = 'CAPTION_OPEN'
+      Caption = 'Open ...'
+      Hint = 'Open ...'
       OnExecute = actFileOpenExecute
       ShortCut = 16463
     end
     object actFileSave: TAction
       Category = 'File'
-      Caption = 'CAPTION_SAVE'
-      Hint = 'CAPTION_SAVE'
+      Caption = 'Save'
+      Hint = 'Save'
       OnExecute = actFileSaveExecute
       OnUpdate = actFileSaveUpdate
       ShortCut = 16467
     end
     object actJCFCurrentTab: TAction
       Category = 'Code'
-      Caption = 'MSG_FORMAT_CODE'
-      Hint = 'MSG_FORMAT_CODE'
+      Caption = 'JEDI Code Format'
+      Hint = 'JEDI Code Format'
       OnExecute = actJCFCurrentTabExecute
       OnUpdate = actCloseActiveTabUpdate
       ShortCut = 16452
@@ -821,56 +819,57 @@ object frmMain: TfrmMain
     end
     object actCodeInsDateTime: TAction
       Category = 'Code'
-      Caption = 'CAPTION_DATETIME'
+      Caption = 'Date and Time'
       OnExecute = actCodeInsDateTimeExecute
       OnUpdate = actCloseActiveTabUpdate
     end
     object actCodeInsUserName: TAction
       Category = 'Code'
-      Caption = 'CAPTION_USERNAME'
+      Caption = 'Username'
       OnExecute = actCodeInsUserNameExecute
       OnUpdate = actCloseActiveTabUpdate
     end
     object actCompactViewMode: TAction
       Category = 'View'
-      Caption = 'CAPTION_COMPACT_VIEW'
+      Caption = 'Compact View'
       OnExecute = actCompactViewModeExecute
     end
     object actSaveAll: TAction
       Category = 'File'
-      Caption = 'Сохранить все'
-      Hint = 'Сохранить все'
+      Caption = 'Save All'
+      Hint = 'Save All'
       OnExecute = actSaveAllExecute
+      OnUpdate = actSaveAllUpdate
       ShortCut = 24659
     end
     object actCloseActiveTab: TAction
       Category = 'File'
-      Caption = 'CAPTION_CLOSE_EDITOR_FILE'
-      Hint = 'CAPTION_CLOSE_EDITOR_FILE'
+      Caption = 'Close Page'
+      Hint = 'Close Page'
       OnExecute = actCloseActiveTabExecute
       OnUpdate = actCloseActiveTabUpdate
       ShortCut = 16499
     end
     object actExportAsHTML: TAction
       Category = 'File'
-      Caption = 'CAPTION_EXPORT_HTML'
-      Hint = 'CAPTION_EXPORT_HTML'
+      Caption = 'Export as HTML'
+      Hint = 'Export as HTML'
       OnExecute = actExportAsHTMLExecute
       OnUpdate = actCloseActiveTabUpdate
     end
   end
   object mmMain: TMainMenu
     Images = ilMain
-    Left = 486
+    Left = 576
     Top = 90
     object miFile: TMenuItem
-      Caption = '&Файл'
+      Caption = 'File'
       object miCreateModule: TMenuItem
         Action = actCreateModule
       end
       object miCreateProject: TMenuItem
-        Caption = 'CAPTION_CREATE_PROJ'
-        Hint = 'CAPTION_CREATE_PROJ'
+        Caption = 'Create New Project'
+        Hint = 'Create New Project'
         OnClick = miCreateProjectClick
       end
       object MenuItem3: TMenuItem
@@ -884,8 +883,6 @@ object frmMain: TfrmMain
       end
       object miSaveAll: TMenuItem
         Action = actSaveAll
-        Caption = 'CAPTION_SAVE_ALL'
-        Hint = 'CAPTION_SAVE_ALL'
       end
       object miExportAsHTML: TMenuItem
         Action = actExportAsHTML
@@ -900,20 +897,20 @@ object frmMain: TfrmMain
         Caption = '-'
       end
       object miExit: TMenuItem
-        Caption = 'CAPTION_EXIT'
+        Caption = 'Quit'
         OnClick = miExitClick
       end
     end
     object miView: TMenuItem
-      Caption = 'CAPTION_VIEW'
+      Caption = 'View'
       object miCompactViewMode: TMenuItem
         Action = actCompactViewMode
       end
     end
     object miCode: TMenuItem
-      Caption = 'CAPTION_CODE'
+      Caption = 'Code'
       object miCodeIns: TMenuItem
-        Caption = 'CAPTION_INS_GENERAL'
+        Caption = 'Insert General'
         object miCodeInsDateTime: TMenuItem
           Action = actCodeInsDateTime
         end
@@ -922,102 +919,100 @@ object frmMain: TfrmMain
         end
       end
       object miJCF: TMenuItem
-        Caption = 'CAPTION_JCF'
+        Caption = 'JEDI Code Format'
         object miJCFCurrentTAB: TMenuItem
           Action = actJCFCurrentTab
-          Caption = 'CAPTION_CURRENT_TAB'
+          Caption = 'Current Editor Window'
         end
       end
     end
     object miSettings: TMenuItem
-      Caption = 'CAPTION_OPTIONS'
+      Caption = 'Settings'
       object miIDESettings: TMenuItem
-        Caption = 'CAPTION_IDE_SETTINGS'
+        Caption = 'Configure AMPASIDE'
         OnClick = miIDESettingsClick
       end
     end
     object miInfo: TMenuItem
-      Caption = 'CAPTION_HELP'
+      Caption = 'Help'
       object miDocumentation: TMenuItem
-        Caption = 'CAPTION_DOCS'
+        Caption = 'Documentation'
         OnClick = miDocumentationClick
       end
       object miJavaLibs: TMenuItem
-        Caption = 'CAPTION_JAVA_LIBS'
+        Caption = 'Java Libs'
         OnClick = miJavaLibsClick
       end
       object miExamples: TMenuItem
-        Caption = 'CAPTION_EXAMPLES'
+        Caption = 'Examples'
         OnClick = miExamplesClick
       end
       object MenuItem14: TMenuItem
         Caption = '-'
       end
       object miIDEMacros: TMenuItem
-        Caption = 'CAPTION_MACROS'
+        Caption = 'IDE Macros'
         OnClick = miIDEMacrosClick
       end
       object MenuItem5: TMenuItem
         Caption = '-'
       end
       object miAbout: TMenuItem
-        Caption = 'CAPTION_ABOUT'
+        Caption = 'About'
         OnClick = miAboutClick
       end
     end
   end
   object ilMain: TImageList
-    Left = 621
-    Top = 90
+    Left = 688
+    Top = 96
   end
   object actlProjActions: TActionList
     OnUpdate = actlProjActionsUpdate
-    Left = 352
-    Top = 186
+    Left = 496
+    Top = 208
     object actRun: TAction
-      Caption = 'CAPTION_RUN'
-      Hint = 'CAPTION_RUN'
+      Caption = 'Run'
+      Hint = 'Run'
       OnExecute = actRunExecute
       OnUpdate = actRunUpdate
       ShortCut = 120
     end
     object actCompile: TAction
-      Caption = 'CAPTION_COMPILE'
-      Hint = 'CAPTION_COMPILE'
+      Caption = 'Compile'
+      Hint = 'Compile'
       OnExecute = actCompileExecute
       OnUpdate = actRunUpdate
       ShortCut = 16504
     end
     object actBuild: TAction
-      Caption = 'CAPTION_BUILD'
-      Hint = 'CAPTION_BUILD'
+      Caption = 'Build'
+      Hint = 'Build'
       OnExecute = actBuildExecute
       OnUpdate = actRunUpdate
       ShortCut = 8312
     end
     object actTerminateProc: TAction
-      Caption = 'CAPTION_KILL_PROC'
-      Hint = 'CAPTION_KILL_PROC'
+      Caption = 'Stop'
+      Hint = 'Stop'
       OnExecute = actTerminateProcExecute
     end
     object actBuildAndroid: TAction
-      Caption = 'CAPTION_BUILD_APK'
-      Hint = 'CAPTION_BUILD_APK'
+      Caption = 'Build APK'
+      Hint = 'Build APK'
       OnExecute = actBuildAndroidExecute
       OnUpdate = actRunUpdate
     end
   end
   object pmEditor: TPopupMenu
     Images = ilMain
-    Left = 486
-    Top = 186
+    Left = 688
+    Top = 208
     object miCloseActivePage: TMenuItem
       Action = actCloseActiveTab
-      Caption = 'CAPTION_CLOSE_TAB'
-      Hint = 'CAPTION_CLOSE_TAB'
     end
     object miCloseAllOtherPages: TMenuItem
-      Caption = 'CAPTION_CLOSE_OTHER_TABS'
+      Caption = 'Close All Other Pages'
       OnClick = miCloseAllOtherPagesClick
     end
   end

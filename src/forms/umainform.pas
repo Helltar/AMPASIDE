@@ -128,6 +128,7 @@ type
     procedure actExportAsHTMLExecute(Sender: TObject);
     procedure actJCFCurrentTabExecute(Sender: TObject);
     procedure actSaveAllExecute(Sender: TObject);
+    procedure actSaveAllUpdate(Sender: TObject);
     procedure actTerminateProcExecute(Sender: TObject);
     procedure actlProjActionsUpdate(AAction: TBasicAction; var Handled: boolean);
     procedure actRunExecute(Sender: TObject);
@@ -158,6 +159,7 @@ type
     procedure CloseTab(ATabSheet: TTabSheet);
     procedure EnableProjUIControls;
     procedure GetSettings;
+    //procedure InitCaptions;
     procedure InitControls;
     procedure LoadControlsImages;
   type TProjBuildMode = (pbmRun, pbmCompile, pbmBuild);
@@ -225,6 +227,7 @@ begin
   CodeEditor := TCodeEditor.Create(pgcEditor);
   ProjManager := TProjectManager.Create;
 
+  //InitCaptions;
   InitControls;
 
   if Paramcount <> 0 then
@@ -427,6 +430,11 @@ end;
 procedure TfrmMain.actSaveAllExecute(Sender: TObject);
 begin
   CodeEditor.SaveAllFiles;
+end;
+
+procedure TfrmMain.actSaveAllUpdate(Sender: TObject);
+begin
+  //actSaveAll.Enabled := CodeEditor.IsCurrentFileModified;
 end;
 
 procedure TfrmMain.actTerminateProcExecute(Sender: TObject);
@@ -693,87 +701,93 @@ begin
   FileManagerFrame.UpdateImgPreview;
 end;
 
-procedure TfrmMain.InitControls;
+{
+procedure TfrmMain.InitCaptions;
 begin
-  tbbCreateModule.Caption := CAPTION_CREATE_MODULE;
-  tbbCreateModule.Hint := CAPTION_CREATE_MODULE;
-  tbbOpenFile.Caption := CAPTION_OPEN + ' ...';
-  tbbOpenFile.Hint := CAPTION_OPEN;
-  tbbSaveFile.Caption := CAPTION_SAVE;
-  tbbSaveFile.Hint := CAPTION_SAVE;
-  tbbCloseEditorTab.Caption := CAPTION_CLOSE_EDITOR_FILE;
-  tbbCloseEditorTab.Hint := CAPTION_CLOSE_EDITOR_FILE;
-  tbbSaveAll.Caption := CAPTION_SAVE_ALL;
-  tbbSaveAll.Hint := CAPTION_SAVE_ALL;
-  tbbBuildAndroid.Caption := CAPTION_BUILD_APK;
-  tbbBuildAndroid.Hint := CAPTION_BUILD_APK;
-  tbbBuild.Caption := CAPTION_BUILD;
-  tbbBuild.Hint := CAPTION_BUILD;
-  tbbCompile.Caption := CAPTION_COMPILE;
-  tbbCompile.Hint := CAPTION_COMPILE;
-  tbbTermProc.Caption := CAPTION_KILL_PROC;
-  tbbTermProc.Hint := CAPTION_KILL_PROC;
-  tbbRun.Caption := CAPTION_RUN;
-  tbbRun.Hint := CAPTION_RUN;
-  tbbRun64.Caption := CAPTION_RUN;
-  tbbRun64.Hint := CAPTION_RUN;
-
-  actCreateModule.Caption := CAPTION_CREATE_MODULE;
-  actCreateModule.Hint := CAPTION_CREATE_MODULE;
-  actFileOpen.Caption := CAPTION_OPEN + ' ...';
-  actFileOpen.Hint := CAPTION_OPEN;
-  actJCFCurrentTab.Caption := MSG_FORMAT_CODE;
-  actJCFCurrentTab.Hint := MSG_FORMAT_CODE;
+  actBuild.Caption := CAPTION_BUILD;
+  actBuild.Hint := CAPTION_BUILD;
+  actBuildAndroid.Caption := CAPTION_BUILD_APK;
+  actBuildAndroid.Hint := CAPTION_BUILD_APK;
+  actCloseActiveTab.Caption := CAPTION_CLOSE_EDITOR_FILE;
+  actCloseActiveTab.Hint := CAPTION_CLOSE_EDITOR_FILE;
   actCodeInsDateTime.Caption := CAPTION_DATETIME;
   actCodeInsUserName.Caption := CAPTION_USERNAME;
   actCompactViewMode.Caption := CAPTION_COMPACT_VIEW;
-  actFileSave.Caption := CAPTION_SAVE;
-  actFileSave.Hint := CAPTION_SAVE;
-  actSaveAll.Caption := CAPTION_SAVE_ALL;
-  actSaveAll.Hint := CAPTION_SAVE_ALL;
-  actCloseActiveTab.Caption := CAPTION_CLOSE_EDITOR_FILE;
-  actCloseActiveTab.Hint := CAPTION_CLOSE_EDITOR_FILE;
-  actExportAsHTML.Caption := CAPTION_EXPORT_HTML;
-  actExportAsHTML.Hint := CAPTION_EXPORT_HTML;
-  actRun.Caption := CAPTION_RUN;
-  actRun.Hint := CAPTION_RUN;
   actCompile.Caption := CAPTION_COMPILE;
   actCompile.Hint := CAPTION_COMPILE;
-  actBuild.Caption := CAPTION_BUILD;
-  actBuild.Hint := CAPTION_BUILD;
+  actCreateModule.Caption := CAPTION_CREATE_MODULE;
+  actCreateModule.Hint := CAPTION_CREATE_MODULE;
+  actExportAsHTML.Caption := CAPTION_EXPORT_HTML;
+  actExportAsHTML.Hint := CAPTION_EXPORT_HTML;
+  actFileOpen.Caption := CAPTION_OPEN + ' ...';
+  actFileOpen.Hint := CAPTION_OPEN;
+  actFileSave.Caption := CAPTION_SAVE;
+  actFileSave.Hint := CAPTION_SAVE;
+  actJCFCurrentTab.Caption := MSG_FORMAT_CODE;
+  actJCFCurrentTab.Hint := MSG_FORMAT_CODE;
+  actRun.Caption := CAPTION_RUN;
+  actRun.Hint := CAPTION_RUN;
+  actSaveAll.Caption := CAPTION_SAVE_ALL;
+  actSaveAll.Hint := CAPTION_SAVE_ALL;
   actTerminateProc.Caption := CAPTION_KILL_PROC;
   actTerminateProc.Hint := CAPTION_KILL_PROC;
-  actBuildAndroid.Caption := CAPTION_BUILD_APK;
-  actBuildAndroid.Hint := CAPTION_BUILD_APK;
 
-  miCreateProject.Caption := CAPTION_CREATE_PROJ;
-  miCreateProject.Hint := CAPTION_CREATE_PROJ;
-  miSaveAll.Caption := CAPTION_SAVE_ALL;
-  miSaveAll.Hint := CAPTION_SAVE_ALL;
-  miExit.Caption := CAPTION_EXIT;
-  miView.Caption := CAPTION_VIEW;
-  miCode.Caption := CAPTION_CODE;
-  miCodeIns.Caption := CAPTION_INS_GENERAL;
-  miJCF.Caption := CAPTION_JCF;
-  miJCFCurrentTAB.Caption := CAPTION_CURRENT_TAB;
-  miSettings.Caption := CAPTION_OPTIONS;
-  miIDESettings.Caption := CAPTION_IDE_SETTINGS;
-  miInfo.Caption := CAPTION_HELP;
-  miDocumentation.Caption := CAPTION_DOCS;
-  miJavaLibs.Caption := CAPTION_JAVA_LIBS;
-  miExamples.Caption := CAPTION_EXAMPLES;
-  miIDEMacros.Caption := CAPTION_MACROS;
   miAbout.Caption := CAPTION_ABOUT;
   miCloseActivePage.Caption := CAPTION_CLOSE_TAB;
   miCloseActivePage.Hint := CAPTION_CLOSE_TAB;
   miCloseAllOtherPages.Caption := CAPTION_CLOSE_OTHER_TABS;
+  miCode.Caption := CAPTION_CODE;
+  miCodeIns.Caption := CAPTION_INS_GENERAL;
+  miCreateProject.Caption := CAPTION_CREATE_PROJ;
+  miCreateProject.Hint := CAPTION_CREATE_PROJ;
+  miDocumentation.Caption := CAPTION_DOCS;
+  miExamples.Caption := CAPTION_EXAMPLES;
+  miExit.Caption := CAPTION_EXIT;
+  miFile.Caption := CAPTION_FILE;
   miFileOpen.Caption := CAPTION_OPEN;
   miFileOpen.Hint := CAPTION_OPEN;
+  miIDEMacros.Caption := CAPTION_MACROS;
+  miIDESettings.Caption := CAPTION_IDE_SETTINGS;
+  miInfo.Caption := CAPTION_HELP;
+  miJavaLibs.Caption := CAPTION_JAVA_LIBS;
+  miJCF.Caption := CAPTION_JCF;
+  miJCFCurrentTAB.Caption := CAPTION_CURRENT_TAB;
+  miSaveAll.Caption := CAPTION_SAVE_ALL;
+  miSaveAll.Hint := CAPTION_SAVE_ALL;
+  miSettings.Caption := CAPTION_OPTIONS;
+  miView.Caption := CAPTION_VIEW;
+
+  tbbBuild.Caption := CAPTION_BUILD;
+  tbbBuild.Hint := CAPTION_BUILD;
+  tbbBuildAndroid.Caption := CAPTION_BUILD_APK;
+  tbbBuildAndroid.Hint := CAPTION_BUILD_APK;
+  tbbCloseEditorTab.Caption := CAPTION_CLOSE_EDITOR_FILE;
+  tbbCloseEditorTab.Hint := CAPTION_CLOSE_EDITOR_FILE;
+  tbbCompile.Caption := CAPTION_COMPILE;
+  tbbCompile.Hint := CAPTION_COMPILE;
+  tbbCreateModule.Caption := CAPTION_CREATE_MODULE;
+  tbbCreateModule.Hint := CAPTION_CREATE_MODULE;
+  tbbOpenFile.Caption := CAPTION_OPEN + ' ...';
+  tbbOpenFile.Hint := CAPTION_OPEN;
+  tbbRun.Caption := CAPTION_RUN;
+  tbbRun.Hint := CAPTION_RUN;
+  tbbRun64.Caption := CAPTION_RUN;
+  tbbRun64.Hint := CAPTION_RUN;
+  tbbSaveAll.Caption := CAPTION_SAVE_ALL;
+  tbbSaveAll.Hint := CAPTION_SAVE_ALL;
+  tbbSaveFile.Caption := CAPTION_SAVE;
+  tbbSaveFile.Hint := CAPTION_SAVE;
+  tbbTermProc.Caption := CAPTION_KILL_PROC;
+  tbbTermProc.Hint := CAPTION_KILL_PROC;
 
   tsLogMsg.Caption := CAPTION_MESSAGES;
   tsNotes.Caption := CAPTION_NOTES;
   tsProjFiles.Caption := CAPTION_FILES;
   tsProjSettings.Caption := CAPTION_SETTINGS;
+end;
+}
+procedure TfrmMain.InitControls;
+begin
   pgcProject.ActivePage := tsProjFiles;
 
   FileManagerFrame := TFileManagerFrame.Create(tsProjFiles);

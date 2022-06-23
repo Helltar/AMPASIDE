@@ -1,13 +1,13 @@
 object EditorOptionsFrame: TEditorOptionsFrame
   Left = 0
-  Height = 512
+  Height = 520
   Top = 0
-  Width = 1031
-  ClientHeight = 512
-  ClientWidth = 1031
+  Width = 933
+  ClientHeight = 520
+  ClientWidth = 933
   TabOrder = 0
-  DesignLeft = 435
-  DesignTop = 276
+  DesignLeft = 461
+  DesignTop = 296
   object gbFont: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -19,7 +19,7 @@ object EditorOptionsFrame: TEditorOptionsFrame
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 6
-    Caption = 'Шрифт'
+    Caption = 'Font'
     ClientHeight = 84
     ClientWidth = 324
     TabOrder = 0
@@ -43,8 +43,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 84
       Height = 19
       Top = 52
-      Width = 119
-      Caption = 'Размер шрифта'
+      Width = 65
+      Caption = 'Font size'
       ParentColor = False
     end
     object edtbtnSelectFont: TEditButton
@@ -76,14 +76,14 @@ object EditorOptionsFrame: TEditorOptionsFrame
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 379
+    Height = 387
     Top = 127
     Width = 328
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 6
-    Caption = 'Разное'
-    ClientHeight = 348
+    Caption = 'Other'
+    ClientHeight = 356
     ClientWidth = 324
     TabOrder = 1
     object cbbRightEdge: TComboBox
@@ -117,8 +117,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 84
       Height = 19
       Top = 13
-      Width = 121
-      Caption = 'Правая граница'
+      Width = 91
+      Caption = 'Right margin'
       ParentColor = False
     end
     object cbScrollPastEol: TCheckBox
@@ -128,9 +128,9 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 6
       Height = 23
       Top = 45
-      Width = 261
+      Width = 282
       BorderSpacing.Around = 6
-      Caption = 'Прокручивать за конец строки'
+      Caption = 'Allow caret to move past end of line'
       OnChange = cbScrollPastEolChange
       TabOrder = 1
     end
@@ -144,15 +144,15 @@ object EditorOptionsFrame: TEditorOptionsFrame
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 351
-    Height = 500
+    Height = 508
     Top = 6
-    Width = 674
+    Width = 576
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 6
-    Caption = 'Цвета'
-    ClientHeight = 469
-    ClientWidth = 670
+    Caption = 'Colors'
+    ClientHeight = 477
+    ClientWidth = 572
     TabOrder = 2
     object lblEditorColor: TLabel
       AnchorSideLeft.Control = clrbEditorColor
@@ -163,8 +163,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 252
       Height = 19
       Top = 13
-      Width = 120
-      Caption = 'Цвет редактора'
+      Width = 43
+      Caption = 'Editor'
       ParentColor = False
     end
     object clrbEditorColor: TColorBox
@@ -189,8 +189,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 252
       Height = 19
       Top = 52
-      Width = 131
-      Caption = 'Линия отделения'
+      Width = 91
+      Caption = 'Right margin'
       ParentColor = False
     end
     object clrbRightEdgeColor: TColorBox
@@ -216,8 +216,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 252
       Height = 19
       Top = 91
-      Width = 105
-      Caption = 'Комментарий'
+      Width = 71
+      Caption = 'Comment'
       ParentColor = False
     end
     object clrbComment: TColorBox
@@ -243,8 +243,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 252
       Height = 19
       Top = 130
-      Width = 201
-      Caption = 'Зарезервированное слово'
+      Width = 106
+      Caption = 'Reserved word'
       ParentColor = False
     end
     object clrbKey: TColorBox
@@ -283,8 +283,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 252
       Height = 19
       Top = 169
-      Width = 47
-      Caption = 'Число'
+      Width = 59
+      Caption = 'Number'
       ParentColor = False
     end
     object clrbString: TColorBox
@@ -309,8 +309,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 252
       Height = 19
       Top = 208
-      Width = 54
-      Caption = 'Строка'
+      Width = 42
+      Caption = 'String'
       ParentColor = False
     end
     object clrbIdentifier: TColorBox
@@ -349,8 +349,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 252
       Height = 19
       Top = 247
-      Width = 120
-      Caption = 'Идентификатор'
+      Width = 64
+      Caption = 'Identifier'
       ParentColor = False
     end
     object lblSymbol: TLabel
@@ -361,8 +361,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 252
       Height = 19
       Top = 286
-      Width = 59
-      Caption = 'Символ'
+      Width = 54
+      Caption = 'Symbol'
       ParentColor = False
     end
     object clrbSelectedColor: TColorBox
@@ -387,8 +387,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 252
       Height = 19
       Top = 325
-      Width = 138
-      Caption = 'Выделение текста'
+      Width = 99
+      Caption = 'Selected Area'
       ParentColor = False
     end
     object edtbtnSchemeFile: TEditButton
@@ -400,7 +400,7 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 6
       Height = 33
       Top = 357
-      Width = 658
+      Width = 560
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       ButtonCaption = '...'
@@ -420,7 +420,7 @@ object EditorOptionsFrame: TEditorOptionsFrame
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 340
-    Height = 512
+    Height = 520
     Top = 0
     Width = 5
     Align = alNone

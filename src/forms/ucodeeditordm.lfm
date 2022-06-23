@@ -3,46 +3,46 @@ object dmCodeEditor: TdmCodeEditor
   OnDestroy = DataModuleDestroy
   OldCreateOrder = False
   Height = 324
-  HorizontalOffset = 780
-  VerticalOffset = 242
+  HorizontalOffset = 626
+  VerticalOffset = 332
   Width = 623
   object actlEditorMenu: TActionList
     Images = ilEditor
-    left = 64
-    top = 32
+    Left = 64
+    Top = 32
     object edtCut: TEditCut
       Category = 'Edit'
-      Caption = 'Выре&зать'
-      Hint = 'Вырезать'
+      Caption = 'Cut'
+      Hint = 'Cut'
       ImageIndex = 0
       ShortCut = 16472
     end
     object edtCopy: TEditCopy
       Category = 'Edit'
-      Caption = 'Копиров&ать'
-      Hint = 'Копировать'
+      Caption = 'Copy'
+      Hint = 'Copy'
       ImageIndex = 1
       ShortCut = 16451
     end
     object edtPaste: TEditPaste
       Category = 'Edit'
-      Caption = '&Вставить'
-      Hint = 'Вставить'
+      Caption = 'Paste'
+      Hint = 'Paste'
       ImageIndex = 2
       ShortCut = 16470
     end
     object edtSelectAll: TEditSelectAll
       Category = 'Edit'
-      Caption = 'Вы&делить все...'
-      Hint = 'Выделить все'
+      Caption = 'Select All'
+      Hint = 'Select All'
       ImageIndex = 3
       ShortCut = 16449
     end
   end
   object pmEditor: TPopupMenu
     Images = ilEditor
-    left = 208
-    top = 32
+    Left = 208
+    Top = 32
     object miCut: TMenuItem
       Action = edtCut
     end
@@ -60,15 +60,16 @@ object dmCodeEditor: TdmCodeEditor
     end
   end
   object ilEditor: TImageList
-    left = 344
-    top = 32
+    Left = 344
+    Top = 32
   end
   object synPasHighlighter: TSynPasSyn
     Enabled = False
     CompilerMode = pcmDelphi
     NestedComments = False
-    left = 64
-    top = 120
+    TypeHelpers = True
+    Left = 64
+    Top = 120
   end
   object synJavaHighlighter: TSynJavaSyn
     DefaultFilter = 'Java Files (*.java)|*.java'
@@ -78,19 +79,19 @@ object dmCodeEditor: TdmCodeEditor
     NumberAttri.Foreground = clTeal
     StringAttri.Foreground = 26573
     SymbolAttri.Foreground = clMaroon
-    left = 64
-    top = 216
+    Left = 64
+    Top = 216
   end
   object synHTMLHighlighter: TSynHTMLSyn
     DefaultFilter = 'HTML Document (*.htm,*.html)|*.htm;*.html'
     Enabled = False
-    left = 208
-    top = 120
+    Left = 208
+    Top = 120
   end
   object synPHPHighlighter: TSynPHPSyn
     DefaultFilter = 'PHP Files (*.php,*.php3,*.phtml,*.inc)|*.php;*.php3;*.phtml;*.inc'
     Enabled = False
-    left = 208
-    top = 216
+    Left = 208
+    Top = 216
   end
 end
