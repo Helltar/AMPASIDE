@@ -12,6 +12,7 @@ JCF
 The Jedi Code Formatter is an open-source code formatter for the Borland Delphi Object-Pascal programming language. The formatter can standardise all aspects of Delphi Object Pascal and Delphi.NET source code formatting, including indentation, spacin.
 
 - http://jedicodeformat.sourceforge.net/
+- https://github.com/git-bee/jcf-cli
 
 microemulator
 -------------
