@@ -574,7 +574,7 @@ begin
   if GetDefaultLang <> 'en' then
   begin
     case MessageDlg(CAPTION_CONFIRMATION, RESTART_CONFIRMATION, mtWarning, [mbOK, mbCancel], 0) of
-      mrOK: LangRestart('en');
+      mrOk: LangRestart('en');
       mrCancel:
     end;
   end;
@@ -585,7 +585,7 @@ begin
   if GetDefaultLang <> 'ru' then
   begin
     case MessageDlg(CAPTION_CONFIRMATION, RESTART_CONFIRMATION, mtWarning, [mbOK, mbCancel], 0) of
-      mrOK: LangRestart('ru');
+      mrOk: LangRestart('ru');
       mrCancel:
     end;
   end;
@@ -808,7 +808,7 @@ begin
     begin
       with TProcess.Create(nil) do
       begin
-        CommandLine := Application.ExeName;
+        Executable := Application.ExeName;
         try
           Execute;
         finally

@@ -322,7 +322,6 @@ begin
   begin
     try
       try
-        CreateHTMLFragment := True;
         Highlighter := AEditor.Highlighter;
         ExportAll(AEditor.Lines);
         SaveToFile(FileName);

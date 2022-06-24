@@ -274,6 +274,7 @@ begin
   end;
 
   MPCompiler := GetAppPath + MP3CC;
+
   CmdParameters :=
     ' -s "' + FileName + '"' +
     ' -o "' + ExcludeTrailingPathDelimiter(ProjManager.ProjDirPreBuild) + '"' +
