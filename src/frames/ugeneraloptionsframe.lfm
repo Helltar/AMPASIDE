@@ -1,13 +1,13 @@
 object GeneralOptionsFrame: TGeneralOptionsFrame
   Left = 0
-  Height = 578
+  Height = 671
   Top = 0
   Width = 683
-  ClientHeight = 578
+  ClientHeight = 671
   ClientWidth = 683
   TabOrder = 0
-  DesignLeft = 561
-  DesignTop = 265
+  DesignLeft = 833
+  DesignTop = 218
   object gbEmulator: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -136,26 +136,26 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
   end
   object gbEditorHeaders: TGroupBox
     AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = gbModulePrefix
+    AnchorSideTop.Control = gbVersions
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 210
-    Top = 362
+    Height = 204
+    Top = 461
     Width = 671
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Headers'
-    ClientHeight = 179
+    ClientHeight = 173
     ClientWidth = 667
     TabOrder = 2
     inline synedtHeaders: TSynEdit
       Left = 6
-      Height = 167
+      Height = 161
       Top = 6
       Width = 655
       Align = alClient
@@ -660,8 +660,7 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = Owner
-    AnchorSideBottom.Side = asrBottom
+    AnchorSideBottom.Control = gbVersions
     Left = 6
     Height = 93
     Top = 263
@@ -676,15 +675,53 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
     object edtModulePrefix: TEdit
       AnchorSideLeft.Control = gbModulePrefix
       AnchorSideTop.Control = gbModulePrefix
+      AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = gbModulePrefix
       AnchorSideRight.Side = asrBottom
       Left = 6
       Height = 33
-      Top = 6
+      Top = 15
       Width = 655
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       OnChange = edtModulePrefixChange
+      TabOrder = 0
+    end
+  end
+  object gbVersions: TGroupBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = gbModulePrefix
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 6
+    Height = 93
+    Top = 362
+    Width = 671
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = True
+    BorderSpacing.Around = 6
+    Caption = 'Versions'
+    ClientHeight = 62
+    ClientWidth = 667
+    TabOrder = 4
+    object cbAutoIncBuildVer: TCheckBox
+      AnchorSideLeft.Control = gbVersions
+      AnchorSideTop.Control = gbVersions
+      AnchorSideTop.Side = asrCenter
+      AnchorSideRight.Control = gbVersions
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Side = asrCenter
+      Left = 6
+      Height = 23
+      Top = 20
+      Width = 655
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 6
+      Caption = 'Automatically increase build number'
+      Checked = True
+      OnChange = cbAutoIncBuildVerChange
+      State = cbChecked
       TabOrder = 0
     end
   end

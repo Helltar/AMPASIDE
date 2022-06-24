@@ -66,7 +66,7 @@ procedure TfrmIDEOptions.FormCreate(Sender: TObject);
 begin
   Color := IDEConfig.FColor;
 
-  Height := 640;
+  Height := 700;
   Width := 1024;
 
   EditorOptionsFrame := TEditorOptionsFrame.Create(tsEditor);

@@ -204,7 +204,6 @@ function TProjectManager.CreateProject(APath, AName: string): boolean;
       VersMajor := 1;
       VersMinor := 0;
       VersBuild := 0;
-      AutoIncBuildVers := False;
     end;
   end;
 

@@ -26,7 +26,7 @@ unit uProjectOptionsFrame;
 interface
 
 uses
-  Forms, Spin, StdCtrls, Classes, LCLIntf,
+  Forms, Spin, StdCtrls, Classes, LCLIntf, ExtCtrls,
   uAMPASCore;
 
 type
@@ -35,7 +35,6 @@ type
 
   TProjectOptionsFrame = class(TFrame)
     btnMoarMoarMoar111: TButton;
-    cbAutoIncBuildVer: TCheckBox;
     cbbCanvasType: TComboBox;
     cbbMathType: TComboBox;
     edtMName: TEdit;
@@ -51,16 +50,13 @@ type
     lblMVendor: TLabel;
     lblMDesc: TLabel;
     lblMIcon: TLabel;
-    lblVMajor: TLabel;
-    lblVMinor: TLabel;
-    lblVBuild: TLabel;
     lblMType: TLabel;
     lblMathType: TLabel;
+    sbMain: TScrollBox;
     sedtVMajor: TSpinEdit;
     sedtVMinor: TSpinEdit;
     sedtVBuild: TSpinEdit;
     procedure btnMoarMoarMoar111Click(Sender: TObject);
-    procedure cbAutoIncBuildVerChange(Sender: TObject);
     procedure cbbCanvasTypeChange(Sender: TObject);
     procedure cbbMathTypeChange(Sender: TObject);
     procedure edtMDescChange(Sender: TObject);
@@ -90,11 +86,6 @@ uses
 {$R *.lfm}
 
 { TProjectOptionsFrame }
-
-procedure TProjectOptionsFrame.cbAutoIncBuildVerChange(Sender: TObject);
-begin
-  ProjConfig.AutoIncBuildVers := cbAutoIncBuildVer.Checked;
-end;
 
 procedure TProjectOptionsFrame.btnMoarMoarMoar111Click(Sender: TObject);
 begin
@@ -170,7 +161,6 @@ end;
 
 procedure TProjectOptionsFrame.GetSettings;
 begin
-  cbAutoIncBuildVer.Checked := ProjConfig.AutoIncBuildVers;
   cbbCanvasType.ItemIndex := ProjConfig.CanvasType;
   cbbMathType.ItemIndex := ProjConfig.MathType;
   edtMDesc.Text := ProjConfig.MIDletDescription;

@@ -8,7 +8,7 @@ object FileManagerFrame: TFileManagerFrame
   ParentFont = False
   TabOrder = 0
   DesignLeft = 945
-  DesignTop = 256
+  DesignTop = 249
   object tvFileList: TTreeView
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = tlbManagerActions

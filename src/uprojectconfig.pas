@@ -36,7 +36,6 @@ type
   private
     ProjIniFile: TIniFile;
     function GetAPackage: string;
-    function GetAutoIncBuildVers: boolean;
     function GetCanvasType: integer;
     function GetConfigFileName: string;
     function GetExtraOptionsFileName: string;
@@ -55,7 +54,6 @@ type
     function GetVersMajor: integer;
     function GetVersMinor: integer;
     procedure SetAPackage(AValue: string);
-    procedure SetAutoIncBuildVers(AValue: boolean);
     procedure SetCanvasType(AValue: integer);
     procedure SetConfigFileName(AValue: string);
     procedure SetMainModuleName(AValue: string);
@@ -95,7 +93,6 @@ type
     // android
     property APackage: string read GetAPackage write SetAPackage;
 
-    property AutoIncBuildVers: boolean read GetAutoIncBuildVers write SetAutoIncBuildVers;
     property VersBuild: integer read GetVersBuild write SetVersBuild;
     property VersMajor: integer read GetVersMajor write SetVersMajor;
     property VersMinor: integer read GetVersMinor write SetVersMinor;
@@ -120,11 +117,6 @@ destructor TProjectConfig.Destroy;
 begin
   FreeAndNil(ProjIniFile);
   inherited Destroy;
-end;
-
-function TProjectConfig.GetAutoIncBuildVers: boolean;
-begin
-  Result := ProjIniFile.ReadBool('VERSIONS', 'AutoIncBuildVers', True);
 end;
 
 function TProjectConfig.GetAPackage: string;
@@ -222,11 +214,6 @@ end;
 procedure TProjectConfig.SetAPackage(AValue: string);
 begin
   ProjIniFile.WriteString('AMANIFEST', 'Package', AValue);
-end;
-
-procedure TProjectConfig.SetAutoIncBuildVers(AValue: boolean);
-begin
-  ProjIniFile.WriteBool('VERSIONS', 'AutoIncBuildVers', AValue);
 end;
 
 procedure TProjectConfig.SetCanvasType(AValue: integer);

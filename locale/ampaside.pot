@@ -532,6 +532,11 @@ msgstr ""
 msgid "Path:"
 msgstr ""
 
+#: tgeneraloptionsframe.cbautoincbuildver.caption
+msgctxt "tgeneraloptionsframe.cbautoincbuildver.caption"
+msgid "Automatically increase build number"
+msgstr ""
+
 #: tgeneraloptionsframe.cbprevstretch.caption
 msgid "Stretch the image"
 msgstr ""
@@ -552,6 +557,10 @@ msgstr ""
 msgid "Prefix for new modules"
 msgstr ""
 
+#: tgeneraloptionsframe.gbversions.caption
+msgid "Versions"
+msgstr ""
+
 #: tgeneraloptionsframe.lblcmdline.caption
 msgid "Command Line:"
 msgstr ""
@@ -570,16 +579,16 @@ msgstr ""
 msgid "More ..."
 msgstr ""
 
-#: tprojectoptionsframe.cbautoincbuildver.caption
-msgid "Automatically increase build number"
-msgstr ""
-
 #: tprojectoptionsframe.cbbcanvastype.text
 msgid "MIDP2.0 Fullscreen"
 msgstr ""
 
 #: tprojectoptionsframe.cbbmathtype.text
 msgid "Fixed-point"
+msgstr ""
+
+#: tprojectoptionsframe.gbandroidmanifest.caption
+msgid "Android"
 msgstr ""
 
 #: tprojectoptionsframe.gbconfiguration.caption
@@ -623,16 +632,17 @@ msgstr ""
 msgid "MIDlet-Vendor:"
 msgstr ""
 
-#: tprojectoptionsframe.lblvbuild.caption
-msgid "Build:"
+#: tprojectoptionsframe.sedtvbuild.hint
+msgctxt "tprojectoptionsframe.sedtvbuild.hint"
+msgid "Build"
 msgstr ""
 
-#: tprojectoptionsframe.lblvmajor.caption
-msgid "Major:"
+#: tprojectoptionsframe.sedtvmajor.hint
+msgid "Major"
 msgstr ""
 
-#: tprojectoptionsframe.lblvminor.caption
-msgid "Minor:"
+#: tprojectoptionsframe.sedtvminor.hint
+msgid "Minor"
 msgstr ""
 
 #: uampascore.err_bad_value

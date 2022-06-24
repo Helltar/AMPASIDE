@@ -35,6 +35,7 @@ type
   TIDEConfig = class
   private
     FMainConfig: TIniFile;
+    function GetAutoIncBuildVers: boolean;
     function GetColorSchemeFile: string;
     function GetCompactViewMode: boolean;
     function GetEmulatorCmd: string;
@@ -51,6 +52,7 @@ type
     function GetLang: string;
     function GetLastProj: string;
     function GetModulePrefix: string;
+    procedure SetAutoIncBuildVers(AValue: boolean);
     procedure SetColorSchemeFile(AValue: string);
     procedure SetCompactViewMode(AValue: boolean);
     procedure SetEmulatorCmd(AValue: string);
@@ -96,6 +98,7 @@ type
     property LastProj: string read GetLastProj write SetLastProj;
     property ModulePrefix: string read GetModulePrefix write SetModulePrefix;
     property Lang: string read GetLang write SetLang;
+    property AutoIncBuildVers: boolean read GetAutoIncBuildVers write SetAutoIncBuildVers;
   end;
 
 const
@@ -231,6 +234,11 @@ begin
   Result := FMainConfig.ReadString('EDITOR', 'ModulePrefix', 'u');
 end;
 
+procedure TIDEConfig.SetAutoIncBuildVers(AValue: boolean);
+begin
+  FMainConfig.WriteBool('VERSIONS', 'AutoIncBuildVers', AValue);
+end;
+
 procedure TIDEConfig.SetColorSchemeFile(AValue: string);
 begin
   FMainConfig.WriteString('EDITOR', 'ColorSchemeFile', AValue);
@@ -259,6 +267,11 @@ end;
 function TIDEConfig.GetColorSchemeFile: string;
 begin
   Result := FMainConfig.ReadString('EDITOR', 'ColorSchemeFile', GetAppPath + APP_DIR_CONFIG + 'editorcolorscheme');
+end;
+
+function TIDEConfig.GetAutoIncBuildVers: boolean;
+begin
+  Result := FMainConfig.ReadBool('VERSIONS', 'AutoIncBuildVers', True);
 end;
 
 function TIDEConfig.GetFHeight: integer;
@@ -303,7 +316,7 @@ end;
 
 function TIDEConfig.GetFsplLeft: integer;
 begin
-  Result := FMainConfig.ReadInteger('FORM', 'SplLeft', 390);
+  Result := FMainConfig.ReadInteger('FORM', 'SplLeft', 350);
 end;
 
 function TIDEConfig.GetFTop: integer;

@@ -6,5 +6,7 @@
 {"hash":6159272,"name":"tgeneraloptionsframe.lblprevwidth.caption","sourcebytes":[87,105,100,116,104],"value":"Width"},
 {"hash":229701109,"name":"tgeneraloptionsframe.cbprevstretch.caption","sourcebytes":[83,116,114,101,116,99,104,32,116,104,101,32,105,109,97,103,101],"value":"Stretch the image"},
 {"hash":246918355,"name":"tgeneraloptionsframe.gbeditorheaders.caption","sourcebytes":[72,101,97,100,101,114,115],"value":"Headers"},
-{"hash":186678787,"name":"tgeneraloptionsframe.gbmoduleprefix.caption","sourcebytes":[80,114,101,102,105,120,32,102,111,114,32,110,101,119,32,109,111,100,117,108,101,115],"value":"Prefix for new modules"}
+{"hash":186678787,"name":"tgeneraloptionsframe.gbmoduleprefix.caption","sourcebytes":[80,114,101,102,105,120,32,102,111,114,32,110,101,119,32,109,111,100,117,108,101,115],"value":"Prefix for new modules"},
+{"hash":211419539,"name":"tgeneraloptionsframe.gbversions.caption","sourcebytes":[86,101,114,115,105,111,110,115],"value":"Versions"},
+{"hash":162729394,"name":"tgeneraloptionsframe.cbautoincbuildver.caption","sourcebytes":[65,117,116,111,109,97,116,105,99,97,108,108,121,32,105,110,99,114,101,97,115,101,32,98,117,105,108,100,32,110,117,109,98,101,114],"value":"Automatically increase build number"}
 ]}

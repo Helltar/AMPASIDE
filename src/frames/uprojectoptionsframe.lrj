@@ -5,15 +5,15 @@
 {"hash":873674,"name":"tprojectoptionsframe.lblmdesc.caption","sourcebytes":[77,73,68,108,101,116,45,68,101,115,99,114,105,112,116,105,111,110,58],"value":"MIDlet-Description:"},
 {"hash":67254490,"name":"tprojectoptionsframe.lblmicon.caption","sourcebytes":[77,73,68,108,101,116,45,73,99,111,110,58],"value":"MIDlet-Icon:"},
 {"hash":109524558,"name":"tprojectoptionsframe.btnmoarmoarmoar111.caption","sourcebytes":[77,111,114,101,32,46,46,46],"value":"More ..."},
+{"hash":139171252,"name":"tprojectoptionsframe.gbandroidmanifest.caption","sourcebytes":[65,110,100,114,111,105,100],"value":"Android"},
+{"hash":232415188,"name":"tprojectoptionsframe.lblandroidmanifestfile.caption","sourcebytes":[97,110,100,114,111,105,100,109,97,110,105,102,101,115,116],"value":"androidmanifest"},
 {"hash":59782247,"name":"tprojectoptionsframe.gbversions.caption","sourcebytes":[86,101,114,115,105,111,110,32,110,117,109,98,101,114,105,110,103],"value":"Version numbering"},
-{"hash":87561818,"name":"tprojectoptionsframe.lblvmajor.caption","sourcebytes":[77,97,106,111,114,58],"value":"Major:"},
-{"hash":88102490,"name":"tprojectoptionsframe.lblvminor.caption","sourcebytes":[77,105,110,111,114,58],"value":"Minor:"},
-{"hash":77333114,"name":"tprojectoptionsframe.lblvbuild.caption","sourcebytes":[66,117,105,108,100,58],"value":"Build:"},
-{"hash":162729394,"name":"tprojectoptionsframe.cbautoincbuildver.caption","sourcebytes":[65,117,116,111,109,97,116,105,99,97,108,108,121,32,105,110,99,114,101,97,115,101,32,98,117,105,108,100,32,110,117,109,98,101,114],"value":"Automatically increase build number"},
+{"hash":5472610,"name":"tprojectoptionsframe.sedtvmajor.hint","sourcebytes":[77,97,106,111,114],"value":"Major"},
+{"hash":4833316,"name":"tprojectoptionsframe.sedtvbuild.hint","sourcebytes":[66,117,105,108,100],"value":"Build"},
+{"hash":5506402,"name":"tprojectoptionsframe.sedtvminor.hint","sourcebytes":[77,105,110,111,114],"value":"Minor"},
 {"hash":116154878,"name":"tprojectoptionsframe.gbconfiguration.caption","sourcebytes":[67,111,110,102,105,103,117,114,97,116,105,111,110],"value":"Configuration"},
 {"hash":57128010,"name":"tprojectoptionsframe.lblmtype.caption","sourcebytes":[77,73,68,108,101,116,32,116,121,112,101,58],"value":"MIDlet type:"},
 {"hash":128172606,"name":"tprojectoptionsframe.cbbcanvastype.text","sourcebytes":[77,73,68,80,50,46,48,32,70,117,108,108,115,99,114,101,101,110],"value":"MIDP2.0 Fullscreen"},
 {"hash":76496234,"name":"tprojectoptionsframe.lblmathtype.caption","sourcebytes":[82,101,97,108,45,110,117,109,98,101,114,115,58],"value":"Real-numbers:"},
-{"hash":118248164,"name":"tprojectoptionsframe.cbbmathtype.text","sourcebytes":[70,105,120,101,100,45,112,111,105,110,116],"value":"Fixed-point"},
-{"hash":232415188,"name":"tprojectoptionsframe.lblandroidmanifestfile.caption","sourcebytes":[97,110,100,114,111,105,100,109,97,110,105,102,101,115,116],"value":"androidmanifest"}
+{"hash":118248164,"name":"tprojectoptionsframe.cbbmathtype.text","sourcebytes":[70,105,120,101,100,45,112,111,105,110,116],"value":"Fixed-point"}
 ]}

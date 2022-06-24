@@ -33,6 +33,7 @@ type
   { TGeneralOptionsFrame }
 
   TGeneralOptionsFrame = class(TFrame)
+    cbAutoIncBuildVer: TCheckBox;
     cbPrevStretch: TCheckBox;
     edtModulePrefix: TEdit;
     edtEmulatorCmd: TEdit;
@@ -40,12 +41,14 @@ type
     gbEmulator: TGroupBox;
     gbFileManager: TGroupBox;
     gbModulePrefix: TGroupBox;
+    gbVersions: TGroupBox;
     lblCmdLine: TLabel;
     lblPrevHeight: TLabel;
     lblPrevWidth: TLabel;
     sedtY: TSpinEdit;
     sedtX: TSpinEdit;
     synedtHeaders: TSynEdit;
+    procedure cbAutoIncBuildVerChange(Sender: TObject);
     procedure cbPrevStretchChange(Sender: TObject);
     procedure edtModulePrefixChange(Sender: TObject);
     procedure edtEmulatorCmdChange(Sender: TObject);
@@ -82,6 +85,7 @@ begin
   edtModulePrefix.Font.Name := EditorConfig.FontName;
   edtModulePrefix.Font.Size := EditorConfig.FontSize;
   edtModulePrefix.Text := IDEConfig.ModulePrefix;
+  cbAutoIncBuildVer.Checked := IDEConfig.AutoIncBuildVers;
   sedtX.Value := IDEConfig.FilManPrevSizeX;
   sedtY.Value := IDEConfig.FilManPrevSizeY;
 end;
@@ -94,6 +98,11 @@ end;
 procedure TGeneralOptionsFrame.cbPrevStretchChange(Sender: TObject);
 begin
   IDEConfig.FilManPrevStretch := cbPrevStretch.Checked;
+end;
+
+procedure TGeneralOptionsFrame.cbAutoIncBuildVerChange(Sender: TObject);
+begin
+  IDEConfig.AutoIncBuildVers := cbAutoIncBuildVer.Checked;
 end;
 
 procedure TGeneralOptionsFrame.edtModulePrefixChange(Sender: TObject);
@@ -117,4 +126,3 @@ begin
 end;
 
 end.
-

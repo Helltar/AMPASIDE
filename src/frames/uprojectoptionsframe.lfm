@@ -1,396 +1,371 @@
 object ProjectOptionsFrame: TProjectOptionsFrame
   Left = 0
-  Height = 737
+  Height = 833
   Top = 0
-  Width = 497
-  ClientHeight = 737
-  ClientWidth = 497
+  Width = 359
+  ClientHeight = 833
+  ClientWidth = 359
   ParentFont = False
   TabOrder = 0
-  DesignLeft = 626
-  DesignTop = 181
-  object gbManifest: TGroupBox
+  DesignLeft = 1073
+  DesignTop = 84
+  object sbMain: TScrollBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    Left = 6
-    Height = 328
-    Top = 6
-    Width = 485
-    Anchors = [akTop, akLeft, akRight]
-    AutoSize = True
-    BorderSpacing.Around = 6
-    Caption = 'MANIFEST.MF'
-    ClientHeight = 297
-    ClientWidth = 481
-    TabOrder = 0
-    object lblMName: TLabel
-      AnchorSideLeft.Control = gbManifest
-      AnchorSideTop.Control = gbManifest
-      Left = 6
-      Height = 19
-      Top = 6
-      Width = 98
-      BorderSpacing.Around = 6
-      Caption = 'MIDlet-Name:'
-      ParentColor = False
-    end
-    object edtMName: TEdit
-      AnchorSideLeft.Control = gbManifest
-      AnchorSideTop.Control = lblMName
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = gbManifest
-      AnchorSideRight.Side = asrBottom
-      Left = 6
-      Height = 33
-      Top = 31
-      Width = 469
-      Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Around = 6
-      OnChange = edtMNameChange
-      TabOrder = 0
-    end
-    object lblMVendor: TLabel
-      AnchorSideLeft.Control = gbManifest
-      AnchorSideTop.Control = edtMName
-      AnchorSideTop.Side = asrBottom
-      Left = 6
-      Height = 19
-      Top = 70
-      Width = 106
-      BorderSpacing.Around = 6
-      Caption = 'MIDlet-Vendor:'
-      ParentColor = False
-    end
-    object edtMVendor: TEdit
-      AnchorSideLeft.Control = gbManifest
-      AnchorSideTop.Control = lblMVendor
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = gbManifest
-      AnchorSideRight.Side = asrBottom
-      Left = 6
-      Height = 33
-      Top = 95
-      Width = 469
-      Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Around = 6
-      OnChange = edtMVendorChange
-      TabOrder = 1
-    end
-    object lblMDesc: TLabel
-      AnchorSideLeft.Control = gbManifest
-      AnchorSideTop.Control = edtMVendor
-      AnchorSideTop.Side = asrBottom
-      Left = 6
-      Height = 19
-      Top = 134
-      Width = 136
-      BorderSpacing.Around = 6
-      Caption = 'MIDlet-Description:'
-      ParentColor = False
-    end
-    object edtMDesc: TEdit
-      AnchorSideLeft.Control = gbManifest
-      AnchorSideTop.Control = lblMDesc
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = gbManifest
-      AnchorSideRight.Side = asrBottom
-      Left = 6
-      Height = 33
-      Top = 159
-      Width = 469
-      Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Around = 6
-      OnChange = edtMDescChange
-      TabOrder = 2
-    end
-    object lblMIcon: TLabel
-      AnchorSideLeft.Control = gbManifest
-      AnchorSideTop.Control = edtMDesc
-      AnchorSideTop.Side = asrBottom
-      Left = 6
-      Height = 19
-      Top = 198
-      Width = 86
-      BorderSpacing.Around = 6
-      Caption = 'MIDlet-Icon:'
-      ParentColor = False
-    end
-    object edtMIcon: TEdit
-      AnchorSideLeft.Control = gbManifest
-      AnchorSideTop.Control = lblMIcon
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = gbManifest
-      AnchorSideRight.Side = asrBottom
-      Left = 6
-      Height = 33
-      Top = 223
-      Width = 469
-      Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Around = 6
-      OnChange = edtMIconChange
-      TabOrder = 3
-    end
-    object btnMoarMoarMoar111: TButton
-      AnchorSideLeft.Control = gbManifest
-      AnchorSideTop.Control = edtMIcon
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = edtMIcon
-      AnchorSideRight.Side = asrBottom
-      Left = 6
-      Height = 29
-      Top = 262
-      Width = 67
-      AutoSize = True
-      BorderSpacing.Around = 6
-      Caption = 'More ...'
-      OnClick = btnMoarMoarMoar111Click
-      TabOrder = 4
-    end
-  end
-  object gbVersions: TGroupBox
-    AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = gbAndroidManifest
-    AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = gbConfiguration
-    Left = 6
-    Height = 130
-    Top = 394
-    Width = 485
-    Anchors = [akTop, akLeft, akRight]
-    AutoSize = True
-    BorderSpacing.Around = 6
-    Caption = 'Version numbering'
-    ClientHeight = 99
-    ClientWidth = 481
-    TabOrder = 1
-    object lblVMajor: TLabel
-      AnchorSideLeft.Control = gbVersions
-      AnchorSideTop.Control = gbVersions
-      Left = 6
-      Height = 19
-      Top = 6
-      Width = 45
-      BorderSpacing.Around = 6
-      Caption = 'Major:'
-      ParentColor = False
-    end
-    object sedtVMajor: TSpinEdit
-      AnchorSideLeft.Control = gbVersions
-      AnchorSideTop.Control = lblVMajor
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = sedtVMinor
-      Left = 6
-      Height = 33
-      Top = 31
-      Width = 54
-      BorderSpacing.Around = 6
-      MaxValue = 99
-      OnChange = sedtVMajorChange
-      TabOrder = 0
-      Value = 1
-    end
-    object lblVMinor: TLabel
-      AnchorSideLeft.Control = lblVMajor
-      AnchorSideLeft.Side = asrBottom
-      AnchorSideTop.Control = gbVersions
-      Left = 75
-      Height = 19
-      Top = 6
-      Width = 46
-      BorderSpacing.Left = 18
-      BorderSpacing.Around = 6
-      Caption = 'Minor:'
-      ParentColor = False
-    end
-    object sedtVMinor: TSpinEdit
-      AnchorSideLeft.Control = lblVMinor
-      AnchorSideTop.Control = lblVMinor
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = sedtVBuild
-      Left = 75
-      Height = 33
-      Top = 31
-      Width = 54
-      MaxValue = 99
-      OnChange = sedtVMinorChange
-      TabOrder = 1
-    end
-    object lblVBuild: TLabel
-      AnchorSideLeft.Control = lblVMinor
-      AnchorSideLeft.Side = asrBottom
-      AnchorSideTop.Control = gbVersions
-      Left = 145
-      Height = 19
-      Top = 6
-      Width = 40
-      BorderSpacing.Left = 18
-      BorderSpacing.Around = 6
-      Caption = 'Build:'
-      ParentColor = False
-    end
-    object sedtVBuild: TSpinEdit
-      AnchorSideLeft.Control = lblVBuild
-      AnchorSideTop.Control = lblVBuild
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = lblVBuild
-      AnchorSideRight.Side = asrBottom
-      Left = 145
-      Height = 33
-      Top = 31
-      Width = 54
-      MaxValue = 99
-      OnChange = sedtVBuildChange
-      TabOrder = 2
-    end
-    object cbAutoIncBuildVer: TCheckBox
-      AnchorSideLeft.Control = gbVersions
-      AnchorSideTop.Control = sedtVMajor
-      AnchorSideTop.Side = asrBottom
-      Left = 6
-      Height = 23
-      Top = 70
-      Width = 288
-      BorderSpacing.Around = 6
-      Caption = 'Automatically increase build number'
-      Checked = True
-      OnChange = cbAutoIncBuildVerChange
-      State = cbChecked
-      TabOrder = 3
-    end
-  end
-  object gbConfiguration: TGroupBox
-    AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = gbVersions
-    AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 165
-    Top = 530
-    Width = 485
-    Anchors = [akTop, akLeft, akRight]
-    AutoSize = True
+    Height = 821
+    Top = 6
+    Width = 347
+    HorzScrollBar.Page = 220
+    VertScrollBar.Increment = 70
+    VertScrollBar.Page = 709
+    VertScrollBar.Smooth = True
+    Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 6
-    Caption = 'Configuration'
-    ClientHeight = 134
-    ClientWidth = 481
-    TabOrder = 2
-    object lblMType: TLabel
-      AnchorSideLeft.Control = gbConfiguration
-      AnchorSideTop.Control = gbConfiguration
+    BorderStyle = bsNone
+    ClientHeight = 821
+    ClientWidth = 347
+    TabOrder = 0
+    object gbManifest: TGroupBox
+      AnchorSideLeft.Control = sbMain
+      AnchorSideTop.Control = sbMain
+      AnchorSideRight.Control = sbMain
+      AnchorSideRight.Side = asrBottom
       Left = 6
-      Height = 19
+      Height = 328
       Top = 6
-      Width = 85
-      BorderSpacing.Around = 6
-      Caption = 'MIDlet type:'
-      ParentColor = False
-    end
-    object cbbCanvasType: TComboBox
-      AnchorSideLeft.Control = gbConfiguration
-      AnchorSideTop.Control = lblMType
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = gbConfiguration
-      AnchorSideRight.Side = asrBottom
-      Left = 6
-      Height = 33
-      Top = 31
-      Width = 469
+      Width = 335
       Anchors = [akTop, akLeft, akRight]
+      AutoSize = True
       BorderSpacing.Around = 6
-      ItemHeight = 25
-      ItemIndex = 1
-      Items.Strings = (
-        'Classic MIDlet'
-        'MIDP2.0 Fullscreen'
-        'NokiaAPI Fullscreen'
-      )
-      OnChange = cbbCanvasTypeChange
-      Style = csDropDownList
+      Caption = 'MANIFEST.MF'
+      ClientHeight = 297
+      ClientWidth = 331
       TabOrder = 0
-      Text = 'MIDP2.0 Fullscreen'
+      object lblMName: TLabel
+        AnchorSideLeft.Control = gbManifest
+        AnchorSideTop.Control = gbManifest
+        Left = 6
+        Height = 19
+        Top = 6
+        Width = 98
+        BorderSpacing.Around = 6
+        Caption = 'MIDlet-Name:'
+        ParentColor = False
+      end
+      object edtMName: TEdit
+        AnchorSideLeft.Control = gbManifest
+        AnchorSideTop.Control = lblMName
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = gbManifest
+        AnchorSideRight.Side = asrBottom
+        Left = 6
+        Height = 33
+        Top = 31
+        Width = 319
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Around = 6
+        OnChange = edtMNameChange
+        TabOrder = 0
+      end
+      object lblMVendor: TLabel
+        AnchorSideLeft.Control = gbManifest
+        AnchorSideTop.Control = edtMName
+        AnchorSideTop.Side = asrBottom
+        Left = 6
+        Height = 19
+        Top = 70
+        Width = 106
+        BorderSpacing.Around = 6
+        Caption = 'MIDlet-Vendor:'
+        ParentColor = False
+      end
+      object edtMVendor: TEdit
+        AnchorSideLeft.Control = gbManifest
+        AnchorSideTop.Control = lblMVendor
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = gbManifest
+        AnchorSideRight.Side = asrBottom
+        Left = 6
+        Height = 33
+        Top = 95
+        Width = 319
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Around = 6
+        OnChange = edtMVendorChange
+        TabOrder = 1
+      end
+      object lblMDesc: TLabel
+        AnchorSideLeft.Control = gbManifest
+        AnchorSideTop.Control = edtMVendor
+        AnchorSideTop.Side = asrBottom
+        Left = 6
+        Height = 19
+        Top = 134
+        Width = 136
+        BorderSpacing.Around = 6
+        Caption = 'MIDlet-Description:'
+        ParentColor = False
+      end
+      object edtMDesc: TEdit
+        AnchorSideLeft.Control = gbManifest
+        AnchorSideTop.Control = lblMDesc
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = gbManifest
+        AnchorSideRight.Side = asrBottom
+        Left = 6
+        Height = 33
+        Top = 159
+        Width = 319
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Around = 6
+        OnChange = edtMDescChange
+        TabOrder = 2
+      end
+      object lblMIcon: TLabel
+        AnchorSideLeft.Control = gbManifest
+        AnchorSideTop.Control = edtMDesc
+        AnchorSideTop.Side = asrBottom
+        Left = 6
+        Height = 19
+        Top = 198
+        Width = 86
+        BorderSpacing.Around = 6
+        Caption = 'MIDlet-Icon:'
+        ParentColor = False
+      end
+      object edtMIcon: TEdit
+        AnchorSideLeft.Control = gbManifest
+        AnchorSideTop.Control = lblMIcon
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = gbManifest
+        AnchorSideRight.Side = asrBottom
+        Left = 6
+        Height = 33
+        Top = 223
+        Width = 319
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Around = 6
+        OnChange = edtMIconChange
+        TabOrder = 3
+      end
+      object btnMoarMoarMoar111: TButton
+        AnchorSideLeft.Control = gbManifest
+        AnchorSideTop.Control = edtMIcon
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = edtMIcon
+        AnchorSideRight.Side = asrBottom
+        Left = 6
+        Height = 29
+        Top = 262
+        Width = 67
+        AutoSize = True
+        BorderSpacing.Around = 6
+        Caption = 'More ...'
+        OnClick = btnMoarMoarMoar111Click
+        TabOrder = 4
+      end
     end
-    object lblMathType: TLabel
-      AnchorSideLeft.Control = gbConfiguration
-      AnchorSideTop.Control = cbbCanvasType
+    object gbAndroidManifest: TGroupBox
+      AnchorSideLeft.Control = sbMain
+      AnchorSideTop.Control = gbManifest
       AnchorSideTop.Side = asrBottom
-      Left = 6
-      Height = 19
-      Top = 70
-      Width = 102
-      BorderSpacing.Around = 6
-      Caption = 'Real-numbers:'
-      ParentColor = False
-    end
-    object cbbMathType: TComboBox
-      AnchorSideLeft.Control = gbConfiguration
-      AnchorSideTop.Control = lblMathType
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = gbConfiguration
+      AnchorSideRight.Control = sbMain
       AnchorSideRight.Side = asrBottom
       Left = 6
-      Height = 33
-      Top = 95
-      Width = 469
+      Height = 93
+      Top = 340
+      Width = 335
       Anchors = [akTop, akLeft, akRight]
+      AutoSize = True
       BorderSpacing.Around = 6
-      ItemHeight = 25
-      ItemIndex = 0
-      Items.Strings = (
-        'Fixed-point'
-        'Floating-point'
-      )
-      OnChange = cbbMathTypeChange
-      Style = csDropDownList
-      TabOrder = 1
-      Text = 'Fixed-point'
-    end
-  end
-  object gbAndroidManifest: TGroupBox
-    AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = gbManifest
-    AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    Left = 6
-    Height = 48
-    Top = 340
-    Width = 485
-    Anchors = [akTop, akLeft, akRight]
-    AutoSize = True
-    BorderSpacing.Around = 6
-    ClientHeight = 44
-    ClientWidth = 481
-    ParentShowHint = False
-    TabOrder = 3
-    OnClick = gbAndroidManifestClick
-    object lblAndroidManifestFile: TLabel
-      AnchorSideLeft.Control = gbAndroidManifest
-      AnchorSideLeft.Side = asrCenter
-      AnchorSideTop.Control = gbAndroidManifest
-      AnchorSideTop.Side = asrCenter
-      AnchorSideBottom.Side = asrCenter
-      Cursor = crHandPoint
-      Left = 182
-      Height = 19
-      Top = 13
-      Width = 117
-      Alignment = taCenter
-      BorderSpacing.Around = 12
-      Caption = 'androidmanifest'
-      Font.Color = clHighlight
-      Font.Style = [fsUnderline]
-      ParentColor = False
-      ParentFont = False
+      Caption = 'Android'
+      ClientHeight = 62
+      ClientWidth = 331
       ParentShowHint = False
-      ShowHint = True
-      OnClick = lblAndroidManifestFileClick
+      TabOrder = 1
+      OnClick = gbAndroidManifestClick
+      object lblAndroidManifestFile: TLabel
+        AnchorSideLeft.Control = gbAndroidManifest
+        AnchorSideTop.Control = gbAndroidManifest
+        AnchorSideTop.Side = asrCenter
+        AnchorSideBottom.Side = asrCenter
+        Cursor = crHandPoint
+        Left = 12
+        Height = 19
+        Top = 22
+        Width = 117
+        Alignment = taCenter
+        BorderSpacing.Around = 12
+        Caption = 'androidmanifest'
+        Font.Color = clHighlight
+        Font.Style = [fsUnderline]
+        ParentColor = False
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = lblAndroidManifestFileClick
+      end
+    end
+    object gbVersions: TGroupBox
+      AnchorSideLeft.Control = sbMain
+      AnchorSideTop.Control = gbAndroidManifest
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = sbMain
+      AnchorSideRight.Side = asrBottom
+      Left = 6
+      Height = 93
+      Top = 439
+      Width = 335
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = True
+      BorderSpacing.Around = 6
+      Caption = 'Version numbering'
+      ClientHeight = 62
+      ClientWidth = 331
+      TabOrder = 2
+      object sedtVMajor: TSpinEdit
+        AnchorSideLeft.Control = gbVersions
+        AnchorSideTop.Control = gbVersions
+        Left = 6
+        Height = 33
+        Hint = 'Major'
+        Top = 6
+        Width = 60
+        BorderSpacing.Around = 6
+        MaxValue = 99
+        OnChange = sedtVMajorChange
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+        Value = 1
+      end
+      object sedtVBuild: TSpinEdit
+        AnchorSideLeft.Control = sedtVMinor
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = gbVersions
+        AnchorSideRight.Side = asrBottom
+        Left = 138
+        Height = 33
+        Hint = 'Build'
+        Top = 6
+        Width = 60
+        BorderSpacing.Around = 6
+        MaxValue = 99
+        OnChange = sedtVBuildChange
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+      end
+      object sedtVMinor: TSpinEdit
+        AnchorSideLeft.Control = sedtVMajor
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = gbVersions
+        Left = 72
+        Height = 33
+        Hint = 'Minor'
+        Top = 6
+        Width = 60
+        BorderSpacing.Around = 6
+        MaxValue = 99
+        OnChange = sedtVMinorChange
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+      end
+    end
+    object gbConfiguration: TGroupBox
+      AnchorSideLeft.Control = sbMain
+      AnchorSideTop.Control = gbVersions
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = sbMain
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Side = asrBottom
+      Left = 6
+      Height = 165
+      Top = 538
+      Width = 335
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = True
+      BorderSpacing.Around = 6
+      Caption = 'Configuration'
+      ClientHeight = 134
+      ClientWidth = 331
+      TabOrder = 3
+      object lblMType: TLabel
+        AnchorSideLeft.Control = gbConfiguration
+        AnchorSideTop.Control = gbConfiguration
+        Left = 6
+        Height = 19
+        Top = 6
+        Width = 85
+        BorderSpacing.Around = 6
+        Caption = 'MIDlet type:'
+        ParentColor = False
+      end
+      object cbbCanvasType: TComboBox
+        AnchorSideLeft.Control = gbConfiguration
+        AnchorSideTop.Control = lblMType
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = gbConfiguration
+        AnchorSideRight.Side = asrBottom
+        Left = 6
+        Height = 33
+        Top = 31
+        Width = 319
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Around = 6
+        ItemHeight = 25
+        ItemIndex = 1
+        Items.Strings = (
+          'Classic MIDlet'
+          'MIDP2.0 Fullscreen'
+          'NokiaAPI Fullscreen'
+        )
+        OnChange = cbbCanvasTypeChange
+        Style = csDropDownList
+        TabOrder = 0
+        Text = 'MIDP2.0 Fullscreen'
+      end
+      object lblMathType: TLabel
+        AnchorSideLeft.Control = gbConfiguration
+        AnchorSideTop.Control = cbbCanvasType
+        AnchorSideTop.Side = asrBottom
+        Left = 6
+        Height = 19
+        Top = 70
+        Width = 102
+        BorderSpacing.Around = 6
+        Caption = 'Real-numbers:'
+        ParentColor = False
+      end
+      object cbbMathType: TComboBox
+        AnchorSideLeft.Control = gbConfiguration
+        AnchorSideTop.Control = lblMathType
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = gbConfiguration
+        AnchorSideRight.Side = asrBottom
+        Left = 6
+        Height = 33
+        Top = 95
+        Width = 319
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Around = 6
+        ItemHeight = 25
+        ItemIndex = 0
+        Items.Strings = (
+          'Fixed-point'
+          'Floating-point'
+        )
+        OnChange = cbbMathTypeChange
+        Style = csDropDownList
+        TabOrder = 1
+        Text = 'Fixed-point'
+      end
     end
   end
 end

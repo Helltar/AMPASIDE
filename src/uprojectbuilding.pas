@@ -467,7 +467,7 @@ begin
     begin
       CreateJad;
 
-      if ProjConfig.AutoIncBuildVers then
+      if IDEConfig.AutoIncBuildVers then
         IncBuildVers;
 
       if not isAndroid then

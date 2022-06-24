@@ -7,7 +7,7 @@ object EditorOptionsFrame: TEditorOptionsFrame
   ClientWidth = 1023
   TabOrder = 0
   DesignLeft = 384
-  DesignTop = 281
+  DesignTop = 274
   object gbFont: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
