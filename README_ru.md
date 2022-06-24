@@ -10,8 +10,8 @@ Advanced MIDletPascal IDE
 Скачать
 -------
 
-- [ampaside-1.2.6_linux-qt-x86_64.tar.gz](https://github.com/Helltar/AMPASIDE/releases/download/v1.1.5/ampaside-1.2.6_linux-qt-x86_64.tar.gz) (26.7 MB)
-- [ampaside-1.2.6_windows.zip](https://github.com/Helltar/AMPASIDE/releases/download/v1.1.5/ampaside-1.2.6_windows.zip) (26.8 MB)
+- [ampaside-1.2.6_linux-qt-x86_64.tar.gz](https://github.com/Helltar/AMPASIDE/releases/download/v1.2.6/ampaside-1.2.6_linux-qt-x86_64.tar.gz) (26.7 MB)
+- [ampaside-1.2.6_windows.zip](https://github.com/Helltar/AMPASIDE/releases/download/v1.2.6/ampaside-1.2.6_windows.zip) (26.8 MB)
 
 Установка
 ---------
