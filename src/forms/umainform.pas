@@ -28,7 +28,7 @@ interface
 uses
   Classes, ComCtrls, Controls, Forms, Dialogs, ExtCtrls, ActnList, FileUtil,
   LCLIntf, Menus, SynEdit, SysUtils, LazFileUtils, uAMPASCore,
-  LCLTranslator;
+  LCLTranslator, DefaultTranslator;
 
 type
 
@@ -233,7 +233,9 @@ begin
 
   FileName := GetAppPath + APP_CONFIG;
   CheckConfig(FileName);
+
   IDEConfig := TIDEConfig.Create(FileName);
+  SetDefaultLang(IDEConfig.Lang);
 
   FileName := IDEConfig.ColorSchemeFile;
   CheckConfig(FileName);
@@ -567,12 +569,14 @@ end;
 
 procedure TfrmMain.miLangEnClick(Sender: TObject);
 begin
-   SetDefaultLang('en');
+  SetDefaultLang('en');
+  IDEConfig.Lang := 'en';
 end;
 
 procedure TfrmMain.miLangRuClick(Sender: TObject);
 begin
-   SetDefaultLang('ru');
+  SetDefaultLang('ru');
+  IDEConfig.Lang := 'ru';
 end;
 
 procedure TfrmMain.pgcEditorCloseTabClicked(Sender: TObject);

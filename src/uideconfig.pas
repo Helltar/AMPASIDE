@@ -48,6 +48,7 @@ type
     function GetFsplLeft: integer;
     function GetFTop: integer;
     function GetFWidth: integer;
+    function GetLang: string;
     function GetLastProj: string;
     function GetModulePrefix: string;
     procedure SetColorSchemeFile(AValue: string);
@@ -63,6 +64,7 @@ type
     procedure SetFSplLeft(AValue: integer);
     procedure SetFTop(AValue: integer);
     procedure SetFWidth(AValue: integer);
+    procedure SetLang(AValue: string);
     procedure SetLastProj(AValue: string);
     procedure SetModulePrefix(AValue: string);
   public
@@ -93,6 +95,7 @@ type
     property EmulatorCmd: string read GetEmulatorCmd write SetEmulatorCmd;
     property LastProj: string read GetLastProj write SetLastProj;
     property ModulePrefix: string read GetModulePrefix write SetModulePrefix;
+    property Lang: string read GetLang write SetLang;
   end;
 
 const
@@ -203,6 +206,11 @@ begin
   FMainConfig.WriteInteger('FORM', 'Width', AValue);
 end;
 
+procedure TIDEConfig.SetLang(AValue: string);
+begin
+  FMainConfig.WriteString('MAIN', 'Lang', AValue);
+end;
+
 procedure TIDEConfig.SetLastProj(AValue: string);
 begin
   FMainConfig.WriteString('OTHER', 'LastProj', AValue);
@@ -261,6 +269,11 @@ end;
 function TIDEConfig.GetFWidth: integer;
 begin
   Result := FMainConfig.ReadInteger('FORM', 'Width', 1200);
+end;
+
+function TIDEConfig.GetLang: string;
+begin
+  Result := FMainConfig.ReadString('MAIN', 'Lang', 'en');
 end;
 
 function TIDEConfig.GetFilManPrevSizeX: integer;
