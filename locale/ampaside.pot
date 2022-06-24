@@ -904,6 +904,10 @@ msgstr ""
 msgid "Save changes to file"
 msgstr ""
 
+#: umainform.restart_confirmation
+msgid "Changes require a restart"
+msgstr ""
+
 #: umainform.text_not_available_no_open_project
 msgid "Not available, no open project"
 msgstr ""

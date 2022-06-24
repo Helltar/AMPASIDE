@@ -27,7 +27,7 @@ interface
 
 uses
   Classes, ComCtrls, Controls, Forms, Dialogs, ExtCtrls, ActnList, FileUtil,
-  LCLIntf, Menus, SynEdit, SysUtils, LazFileUtils, uAMPASCore,
+  LCLIntf, Menus, SynEdit, SysUtils, LazFileUtils, uAMPASCore, process,
   LCLTranslator, DefaultTranslator;
 
 type
@@ -166,6 +166,7 @@ type
     procedure GetSettings;
     procedure InitControls;
     procedure LoadControlsImages;
+    procedure LangRestart(const code: string);
   type TProjBuildMode = (pbmRun, pbmCompile, pbmBuild);
     procedure ProjLaunchMode(ProjBuildMode: TProjBuildMode);
     procedure SetSettings;
@@ -215,6 +216,7 @@ resourcestring
   MSG_MODULE_NAME_MUST_LEAST = 'Module name must be at least 3 characters long';
   MSG_MODULE_ALREADY_EXISTS = 'Module with this name already exists, overwrite it?';
   MSG_SAVE_CHANGES = 'Save changes to file';
+  RESTART_CONFIRMATION = 'Changes require a restart';
 
 { TfrmMain }
 
@@ -569,14 +571,24 @@ end;
 
 procedure TfrmMain.miLangEnClick(Sender: TObject);
 begin
-  SetDefaultLang('en');
-  IDEConfig.Lang := 'en';
+  if GetDefaultLang <> 'en' then
+  begin
+    case MessageDlg(CAPTION_CONFIRMATION, RESTART_CONFIRMATION, mtWarning, [mbOK, mbCancel], 0) of
+      mrOK: LangRestart('en');
+      mrCancel:
+    end;
+  end;
 end;
 
 procedure TfrmMain.miLangRuClick(Sender: TObject);
 begin
-  SetDefaultLang('ru');
-  IDEConfig.Lang := 'ru';
+  if GetDefaultLang <> 'ru' then
+  begin
+    case MessageDlg(CAPTION_CONFIRMATION, RESTART_CONFIRMATION, mtWarning, [mbOK, mbCancel], 0) of
+      mrOK: LangRestart('ru');
+      mrCancel:
+    end;
+  end;
 end;
 
 procedure TfrmMain.pgcEditorCloseTabClicked(Sender: TObject);
@@ -783,6 +795,29 @@ begin
     actCompile.ImageIndex := 3;
     actRun.ImageIndex := 14;
     actTerminateProc.ImageIndex := 17;
+  end;
+end;
+
+procedure TfrmMain.LangRestart(const code: string);
+begin
+  if GetDefaultLang <> code then
+  begin
+    IDEConfig.Lang := code;
+
+    if CloseQuery then
+    begin
+      with TProcess.Create(nil) do
+      begin
+        CommandLine := Application.ExeName;
+        try
+          Execute;
+        finally
+          Free;
+        end;
+      end;
+
+      Application.Terminate;
+    end;
   end;
 end;
 

@@ -917,6 +917,10 @@ msgstr "Имя модуля должно содержать не менее 3 с
 msgid "Save changes to file"
 msgstr "Сохранить изменения в файл"
 
+#: umainform.restart_confirmation
+msgid "Changes require a restart"
+msgstr "Изменения требуют перезапуска"
+
 #: umainform.text_not_available_no_open_project
 msgid "Not available, no open project"
 msgstr "Недоступно, нет открытого проекта"
