@@ -9,7 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.0.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -509,7 +510,7 @@ msgstr ""
 
 #: tfrmmanifestmf.cbextraoptions.caption
 msgid "More options"
-msgstr "Другие опции"
+msgstr "Дополнительные параметры"
 
 #: tfrmmanifestmf.lblmdelconfirm.caption
 msgid "MIDlet-Delete-Confirm:"
@@ -536,10 +537,9 @@ msgid "Path:"
 msgstr "Путь:"
 
 #: tgeneraloptionsframe.cbautoincbuildver.caption
-#, fuzzy
 msgctxt "tgeneraloptionsframe.cbautoincbuildver.caption"
 msgid "Automatically increase build number"
-msgstr "Автом. наращивать номер сборки"
+msgstr "Автоматически наращивать номер сборки"
 
 #: tgeneraloptionsframe.cbprevstretch.caption
 msgid "Stretch the image"
@@ -563,7 +563,7 @@ msgstr "Префикс для новый модулей"
 
 #: tgeneraloptionsframe.gbversions.caption
 msgid "Versions"
-msgstr ""
+msgstr "Версии"
 
 #: tgeneraloptionsframe.lblcmdline.caption
 msgid "Command Line:"
@@ -637,18 +637,17 @@ msgid "MIDlet-Vendor:"
 msgstr ""
 
 #: tprojectoptionsframe.sedtvbuild.hint
-#, fuzzy
 msgctxt "tprojectoptionsframe.sedtvbuild.hint"
 msgid "Build"
-msgstr "Собрать"
+msgstr "Сборка"
 
 #: tprojectoptionsframe.sedtvmajor.hint
 msgid "Major"
-msgstr ""
+msgstr "Старшая"
 
 #: tprojectoptionsframe.sedtvminor.hint
 msgid "Minor"
-msgstr ""
+msgstr "Младшая"
 
 #: uampascore.err_bad_value
 msgctxt "uampascore.err_bad_value"
@@ -1010,5 +1009,5 @@ msgstr "Версия"
 
 #: uprojectmanager.text_default_notes
 msgid "You can write anything here, notes, todos, etc ..."
-msgstr "Здесь можно писать что угодно, используйте это для заметок и быстрых записей"
-
+msgstr ""
+"Здесь можно писать что угодно, используйте это для заметок и быстрых записей"
