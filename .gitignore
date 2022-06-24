@@ -16,3 +16,5 @@ log/
 
 build.*.xml
 R.java
+
+locale/*.mo
