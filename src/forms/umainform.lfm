@@ -945,17 +945,14 @@ object frmMain: TfrmMain
     end
     object miInfo: TMenuItem
       Caption = 'Help'
-      object miDocumentation: TMenuItem
-        Caption = 'Documentation'
-        OnClick = miDocumentationClick
-      end
-      object miJavaLibs: TMenuItem
-        Caption = 'Java Libs'
-        OnClick = miJavaLibsClick
-      end
       object miExamples: TMenuItem
         Caption = 'Examples'
         OnClick = miExamplesClick
+      end
+      object miJavaLibs: TMenuItem
+        Caption = 'Java-Libraries'
+        Hint = 'Open on browser'
+        OnClick = miJavaLibsClick
       end
       object MenuItem14: TMenuItem
         Caption = '-'
@@ -964,12 +961,16 @@ object frmMain: TfrmMain
         Caption = 'IDE Macros'
         OnClick = miIDEMacrosClick
       end
-      object MenuItem5: TMenuItem
-        Caption = '-'
-      end
       object miAbout: TMenuItem
         Caption = 'About'
         OnClick = miAboutClick
+      end
+      object MenuItem5: TMenuItem
+        Caption = '-'
+      end
+      object miDocumentation: TMenuItem
+        Caption = 'Help'
+        OnClick = miDocumentationClick
       end
     end
   end
