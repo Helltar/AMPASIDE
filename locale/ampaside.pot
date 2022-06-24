@@ -398,7 +398,8 @@ msgid "Create New Project"
 msgstr ""
 
 #: tfrmmain.midocumentation.caption
-msgid "Documentation"
+msgctxt "tfrmmain.midocumentation.caption"
+msgid "Help"
 msgstr ""
 
 #: tfrmmain.miexamples.caption
@@ -423,11 +424,16 @@ msgid "Configure AMPASIDE"
 msgstr ""
 
 #: tfrmmain.miinfo.caption
+msgctxt "tfrmmain.miinfo.caption"
 msgid "Help"
 msgstr ""
 
 #: tfrmmain.mijavalibs.caption
-msgid "Java Libs"
+msgid "Java-Libraries"
+msgstr ""
+
+#: tfrmmain.mijavalibs.hint
+msgid "Open on browser"
 msgstr ""
 
 #: tfrmmain.mijcf.caption
