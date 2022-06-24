@@ -226,7 +226,6 @@ begin
     ftPascal: ilPreview.GetBitmap(2, imgPreview.Picture.Bitmap);
     ftSound: ilPreview.GetBitmap(3, imgPreview.Picture.Bitmap);
     ftImage:
-    begin
       try
         imgPreview.Picture.LoadFromFile(FileName);
         lblImgWidth.Caption := CAPTION_HEIGHT + ': ' + IntToStr(imgPreview.Picture.Height);
@@ -234,8 +233,10 @@ begin
       except
         imgPreview.Picture.Clear;
       end;
-    end
-    else
+    ftBinary:
+    begin
+      ilPreview.GetBitmap(0, imgPreview.Picture.Bitmap);
+
       if FileManager.IsDirectory(FileName) then
       begin
         ilPreview.GetBitmap(1, imgPreview.Picture.Bitmap);
@@ -243,9 +244,8 @@ begin
       end
       else
       if FileIsText(FileName) then
-        ilPreview.GetBitmap(4, imgPreview.Picture.Bitmap)
-      else
-        ilPreview.GetBitmap(0, imgPreview.Picture.Bitmap);
+        ilPreview.GetBitmap(4, imgPreview.Picture.Bitmap);
+    end;
   end;
 end;
 

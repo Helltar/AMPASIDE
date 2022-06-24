@@ -58,7 +58,7 @@ type
 
   { TFileType }
 
-  TFileType = (ftImage, ftSound, ftPascal, ftJava, ftHTML, ftPHP);
+  TFileType = (ftImage, ftSound, ftPascal, ftJava, ftHTML, ftPHP, ftBinary);
 
 const
   {$I ampasideconsts.inc}
@@ -400,6 +400,8 @@ var
   PHPExt: array[0..0] of string = ('php');
 
 begin
+  Result := ftBinary;
+
   if InAr(ImgExt) then
     Result := ftImage
   else
