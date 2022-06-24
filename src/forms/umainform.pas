@@ -353,6 +353,8 @@ end;
 
 procedure TfrmMain.actBuildAndroidExecute(Sender: TObject);
 begin
+  CodeEditor.SaveAllFiles;
+
   with TAndroidBuildingThread.Create(True) do
   begin
     AntBuildFile := GetAppPath + APP_DIR_CONFIG + 'build.xml';
@@ -826,7 +828,7 @@ var
   BuildingThread: TBuildingThread;
 
 begin
-  CodeEditor.SaveCurrentFile;
+  CodeEditor.SaveAllFiles;
 
   BuildingThread := TBuildingThread.Create(True);
   BuildingThread.OnTerminate := @BuildingThreadTerminate;
