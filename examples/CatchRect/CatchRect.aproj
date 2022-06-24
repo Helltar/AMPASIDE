@@ -10,14 +10,8 @@ MIDletIcon=/icon.png
 MIDletDescription=
 MIDletInfoURL=
 MIDletDeleteConfirm=
-MIDletInstallNotify=
-ExtraOptionsEnabled=0
 
 [VERSIONS]
 VersMajor=0
 VersMinor=9
-VersBuild=0
-AutoIncBuildVers=0
-
-[AMANIFEST]
-Package=org.microemu.android.CatchRect
+VersBuild=15
