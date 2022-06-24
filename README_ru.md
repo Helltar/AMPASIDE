@@ -3,27 +3,25 @@ AMPASIDE
 
 Advanced MIDletPascal IDE
 
-- [README_ru.md](https://github.com/Helltar/AMPASIDE/blob/master/README_ru.md)
-
-Development environment using the [MIDletPascal](https://en.wikipedia.org/wiki/MIDletPascal) programming language compiler.
+Среда разработки использующая компилятор языка программирования [MIDletPascal](http://ru.wikipedia.org/wiki/MIDletPascal).
 
 - https://www.youtube.com/watch?v=YKPKqdwdn3I
 
-Download
---------
+Скачать
+-------
 
 - [ampaside-1.1.5_linux-qt-x86_64.tar.gz](https://github.com/Helltar/AMPASIDE/releases/download/v1.1.5/ampaside-1.1.5_linux-qt-x86_64.tar.gz) (28 MB)
 - [ampaside-1.1.5_windows.zip](https://github.com/Helltar/AMPASIDE/releases/download/v1.1.5/ampaside-1.1.5_windows.zip) (27.5 MB)
 
-Install
--------
+Установка
+---------
 
-- [Linux](https://github.com/Helltar/AMPASIDE/blob/master/help/install_linux.md)
-- [Windows](https://github.com/Helltar/AMPASIDE/blob/master/help/install_windows.md)
+- [Linux](https://github.com/Helltar/AMPASIDE/blob/master/help/install_linux_ru.md)
+- [Windows](https://github.com/Helltar/AMPASIDE/blob/master/help/install_windows_ru.md)
 
 ![linux_qt](https://helltar.com/projects/ampaside/screenshots/screenshot_23062022_142550.png)
 
-Build from source
------------------
+Сборка из исходников
+--------------------
 
 [![LazarusIDE](http://wiki.lazarus.freepascal.org/images/9/94/built_with_lazarus_logo.png)](http://www.lazarus-ide.org)

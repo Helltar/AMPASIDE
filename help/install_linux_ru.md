@@ -1,4 +1,4 @@
-*GUI* AMPASIDE uses **Qt**, install the **qt5pas** library to run it:
+*GUI* AMPASIDE использует **Qt**, для запуска установите библиотеку **qt5pas**:
 
 **Arch Linux**:
 
@@ -12,15 +12,15 @@ sudo pacman -S qt5pas
 sudo dnf install qt5pas
 ```
 
-**Ubuntu**:
+**Ubuntu** и производные:
 
 ```
 sudo apt install libqt5pas-dev
 ```
 
-### Build for Android
+### Сборка под Android
 
-Install or switch to JDK **1.8** (8):
+Установите или переключитесь на JDK **1.8** (8):
 
 ```
 javac -version
@@ -34,7 +34,7 @@ java -version
     OpenJDK 64-Bit Server VM
 ```
 
-Install **Apache Ant**:
+Установите **Apache Ant**:
 
 ```
 ant -version
