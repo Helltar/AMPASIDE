@@ -7,8 +7,8 @@ object ProjectOptionsFrame: TProjectOptionsFrame
   ClientWidth = 497
   ParentFont = False
   TabOrder = 0
-  DesignLeft = 585
-  DesignTop = 150
+  DesignLeft = 626
+  DesignTop = 181
   object gbManifest: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner

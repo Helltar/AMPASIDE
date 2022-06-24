@@ -1,0 +1,20 @@
+{"version":1,"strings":[
+{"hash":317012,"name":"teditoroptionsframe.gbfont.caption","sourcebytes":[70,111,110,116],"value":"Font"},
+{"hash":90697317,"name":"teditoroptionsframe.lblfontsize.caption","sourcebytes":[70,111,110,116,32,115,105,122,101],"value":"Font size"},
+{"hash":12558,"name":"teditoroptionsframe.edtbtnselectfont.buttoncaption","sourcebytes":[46,46,46],"value":"..."},
+{"hash":5680834,"name":"teditoroptionsframe.gbmix.caption","sourcebytes":[79,116,104,101,114],"value":"Other"},
+{"hash":13360,"name":"teditoroptionsframe.cbbrightedge.text","sourcebytes":[49,48,48],"value":"100"},
+{"hash":79123102,"name":"teditoroptionsframe.lblrightedge.caption","sourcebytes":[82,105,103,104,116,32,109,97,114,103,105,110],"value":"Right margin"},
+{"hash":173206565,"name":"teditoroptionsframe.cbscrollpasteol.caption","sourcebytes":[65,108,108,111,119,32,99,97,114,101,116,32,116,111,32,109,111,118,101,32,112,97,115,116,32,101,110,100,32,111,102,32,108,105,110,101],"value":"Allow caret to move past end of line"},
+{"hash":78001811,"name":"teditoroptionsframe.gbcolors.caption","sourcebytes":[67,111,108,111,114,115],"value":"Colors"},
+{"hash":79367010,"name":"teditoroptionsframe.lbleditorcolor.caption","sourcebytes":[69,100,105,116,111,114],"value":"Editor"},
+{"hash":79123102,"name":"teditoroptionsframe.lblrigthedge.caption","sourcebytes":[82,105,103,104,116,32,109,97,114,103,105,110],"value":"Right margin"},
+{"hash":174341140,"name":"teditoroptionsframe.lblcomment.caption","sourcebytes":[67,111,109,109,101,110,116],"value":"Comment"},
+{"hash":61746964,"name":"teditoroptionsframe.lblkey.caption","sourcebytes":[82,101,115,101,114,118,101,100,32,119,111,114,100],"value":"Reserved word"},
+{"hash":89929922,"name":"teditoroptionsframe.lblnumber.caption","sourcebytes":[78,117,109,98,101,114],"value":"Number"},
+{"hash":95129671,"name":"teditoroptionsframe.lblstring.caption","sourcebytes":[83,116,114,105,110,103],"value":"String"},
+{"hash":95106306,"name":"teditoroptionsframe.lblidentifier.caption","sourcebytes":[73,100,101,110,116,105,102,105,101,114],"value":"Identifier"},
+{"hash":95435100,"name":"teditoroptionsframe.lblsymbol.caption","sourcebytes":[83,121,109,98,111,108],"value":"Symbol"},
+{"hash":44446273,"name":"teditoroptionsframe.lblselectedcolor.caption","sourcebytes":[83,101,108,101,99,116,101,100,32,65,114,101,97],"value":"Selected Area"},
+{"hash":12558,"name":"teditoroptionsframe.edtbtnschemefile.buttoncaption","sourcebytes":[46,46,46],"value":"..."}
+]}

@@ -1,7 +1,7 @@
 object frmManifestMf: TfrmManifestMf
-  Left = 729
+  Left = 693
   Height = 384
-  Top = 358
+  Top = 328
   Width = 352
   Caption = 'MANIFEST.MF'
   ClientHeight = 384

@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":213582195,"name":"tfrmideoptions.caption","sourcebytes":[83,101,116,116,105,110,103,115],"value":"Settings"},
+{"hash":79367010,"name":"tfrmideoptions.tseditor.caption","sourcebytes":[69,100,105,116,111,114],"value":"Editor"},
+{"hash":231000124,"name":"tfrmideoptions.tsgeneral.caption","sourcebytes":[71,101,110,101,114,97,108],"value":"General"}
+]}

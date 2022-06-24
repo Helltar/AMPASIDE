@@ -6,8 +6,8 @@ object GeneralOptionsFrame: TGeneralOptionsFrame
   ClientHeight = 578
   ClientWidth = 683
   TabOrder = 0
-  DesignLeft = 617
-  DesignTop = 251
+  DesignLeft = 561
+  DesignTop = 265
   object gbEmulator: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner

@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 512
+  Left = 441
   Height = 578
-  Top = 247
+  Top = 264
   Width = 911
   AllowDropFiles = True
   Caption = 'AMPASIDE'
@@ -213,13 +213,13 @@ object frmMain: TfrmMain
     TabOrder = 4
     object tsLogMsg: TTabSheet
       Caption = 'Messages'
-      ClientHeight = 149
-      ClientWidth = 542
+      ClientHeight = 151
+      ClientWidth = 546
       object tvMsg: TTreeView
         Left = 6
-        Height = 137
+        Height = 139
         Top = 6
-        Width = 530
+        Width = 534
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
@@ -232,13 +232,13 @@ object frmMain: TfrmMain
     end
     object tsNotes: TTabSheet
       Caption = 'Notes'
-      ClientHeight = 149
-      ClientWidth = 542
+      ClientHeight = 151
+      ClientWidth = 546
       inline synedtNotes: TSynEdit
         Left = 6
-        Height = 137
+        Height = 139
         Top = 6
-        Width = 530
+        Width = 534
         Align = alClient
         BorderSpacing.Around = 6
         Font.Height = -12
@@ -908,7 +908,7 @@ object frmMain: TfrmMain
       end
     end
     object miCode: TMenuItem
-      Caption = 'Code'
+      Caption = 'Source'
       object miCodeIns: TMenuItem
         Caption = 'Insert General'
         object miCodeInsDateTime: TMenuItem

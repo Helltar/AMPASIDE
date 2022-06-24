@@ -1,7 +1,7 @@
 object frmIDEMacros: TfrmIDEMacros
-  Left = 687
+  Left = 765
   Height = 220
-  Top = 342
+  Top = 381
   Width = 382
   Caption = 'IDE Macros'
   ClientHeight = 220

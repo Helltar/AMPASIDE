@@ -1,7 +1,7 @@
 object frmNewProj: TfrmNewProj
-  Left = 739
+  Left = 741
   Height = 162
-  Top = 421
+  Top = 398
   Width = 297
   Caption = 'New project'
   ClientHeight = 162

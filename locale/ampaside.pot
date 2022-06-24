@@ -1,0 +1,968 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: tdmcodeeditor.edtcopy.caption
+msgctxt "tdmcodeeditor.edtcopy.caption"
+msgid "Copy"
+msgstr ""
+
+#: tdmcodeeditor.edtcopy.hint
+msgctxt "tdmcodeeditor.edtcopy.hint"
+msgid "Copy"
+msgstr ""
+
+#: tdmcodeeditor.edtcut.caption
+msgctxt "tdmcodeeditor.edtcut.caption"
+msgid "Cut"
+msgstr ""
+
+#: tdmcodeeditor.edtcut.hint
+msgctxt "tdmcodeeditor.edtcut.hint"
+msgid "Cut"
+msgstr ""
+
+#: tdmcodeeditor.edtpaste.caption
+msgctxt "tdmcodeeditor.edtpaste.caption"
+msgid "Paste"
+msgstr ""
+
+#: tdmcodeeditor.edtpaste.hint
+msgctxt "tdmcodeeditor.edtpaste.hint"
+msgid "Paste"
+msgstr ""
+
+#: tdmcodeeditor.edtselectall.caption
+msgctxt "tdmcodeeditor.edtselectall.caption"
+msgid "Select All"
+msgstr ""
+
+#: tdmcodeeditor.edtselectall.hint
+msgctxt "tdmcodeeditor.edtselectall.hint"
+msgid "Select All"
+msgstr ""
+
+#: teditoroptionsframe.cbbrightedge.text
+msgid "100"
+msgstr ""
+
+#: teditoroptionsframe.cbscrollpasteol.caption
+msgid "Allow caret to move past end of line"
+msgstr ""
+
+#: teditoroptionsframe.edtbtnschemefile.buttoncaption
+msgctxt "teditoroptionsframe.edtbtnschemefile.buttoncaption"
+msgid "..."
+msgstr ""
+
+#: teditoroptionsframe.edtbtnselectfont.buttoncaption
+msgctxt "teditoroptionsframe.edtbtnselectfont.buttoncaption"
+msgid "..."
+msgstr ""
+
+#: teditoroptionsframe.gbcolors.caption
+msgid "Colors"
+msgstr ""
+
+#: teditoroptionsframe.gbfont.caption
+msgid "Font"
+msgstr ""
+
+#: teditoroptionsframe.gbmix.caption
+msgctxt "teditoroptionsframe.gbmix.caption"
+msgid "Other"
+msgstr ""
+
+#: teditoroptionsframe.lblcomment.caption
+msgid "Comment"
+msgstr ""
+
+#: teditoroptionsframe.lbleditorcolor.caption
+msgctxt "teditoroptionsframe.lbleditorcolor.caption"
+msgid "Editor"
+msgstr ""
+
+#: teditoroptionsframe.lblfontsize.caption
+msgid "Font size"
+msgstr ""
+
+#: teditoroptionsframe.lblidentifier.caption
+msgid "Identifier"
+msgstr ""
+
+#: teditoroptionsframe.lblkey.caption
+msgid "Reserved word"
+msgstr ""
+
+#: teditoroptionsframe.lblnumber.caption
+msgid "Number"
+msgstr ""
+
+#: teditoroptionsframe.lblrightedge.caption
+msgctxt "teditoroptionsframe.lblrightedge.caption"
+msgid "Right margin"
+msgstr ""
+
+#: teditoroptionsframe.lblrigthedge.caption
+msgctxt "teditoroptionsframe.lblrigthedge.caption"
+msgid "Right margin"
+msgstr ""
+
+#: teditoroptionsframe.lblselectedcolor.caption
+msgid "Selected Area"
+msgstr ""
+
+#: teditoroptionsframe.lblstring.caption
+msgid "String"
+msgstr ""
+
+#: teditoroptionsframe.lblsymbol.caption
+msgid "Symbol"
+msgstr ""
+
+#: tfilemanagerframe.actaddfiles.caption
+msgctxt "tfilemanagerframe.actaddfiles.caption"
+msgid "Add Files"
+msgstr ""
+
+#: tfilemanagerframe.actaddfiles.hint
+msgctxt "tfilemanagerframe.actaddfiles.hint"
+msgid "Add Files"
+msgstr ""
+
+#: tfilemanagerframe.actcreatedir.caption
+msgid "Create Directory"
+msgstr ""
+
+#: tfilemanagerframe.actdeletefile.caption
+msgctxt "tfilemanagerframe.actdeletefile.caption"
+msgid "Remove"
+msgstr ""
+
+#: tfilemanagerframe.actdeletefile.hint
+msgctxt "tfilemanagerframe.actdeletefile.hint"
+msgid "Remove"
+msgstr ""
+
+#: tfilemanagerframe.actexpandcollapse.caption
+msgctxt "tfilemanagerframe.actexpandcollapse.caption"
+msgid "Collapse All"
+msgstr ""
+
+#: tfilemanagerframe.actexpandcollapse.hint
+msgctxt "tfilemanagerframe.actexpandcollapse.hint"
+msgid "Collapse All"
+msgstr ""
+
+#: tfilemanagerframe.actopenfile.caption
+msgctxt "tfilemanagerframe.actopenfile.caption"
+msgid "Open ..."
+msgstr ""
+
+#: tfilemanagerframe.actopenfile.hint
+msgid "Open"
+msgstr ""
+
+#: tfilemanagerframe.actrenamefile.caption
+msgctxt "tfilemanagerframe.actrenamefile.caption"
+msgid "Rename"
+msgstr ""
+
+#: tfilemanagerframe.actrenamefile.hint
+msgctxt "tfilemanagerframe.actrenamefile.hint"
+msgid "Rename"
+msgstr ""
+
+#: tfilemanagerframe.actupdatefilelist.caption
+msgctxt "tfilemanagerframe.actupdatefilelist.caption"
+msgid "Update"
+msgstr ""
+
+#: tfilemanagerframe.actupdatefilelist.hint
+msgctxt "tfilemanagerframe.actupdatefilelist.hint"
+msgid "Update"
+msgstr ""
+
+#: tfilemanagerframe.tlbmanageractions.caption
+msgid "tlbManagerActions"
+msgstr ""
+
+#: tfrmabout.caption
+msgctxt "tfrmabout.caption"
+msgid "About"
+msgstr ""
+
+#: tfrmabout.lblgithuburl.caption
+msgid "https://github.com/Helltar/AMPASIDE"
+msgstr ""
+
+#: tfrmabout.lblhomepage.caption
+msgid "https://helltar.com"
+msgstr ""
+
+#: tfrmidemacros.caption
+msgctxt "tfrmidemacros.caption"
+msgid "IDE Macros"
+msgstr ""
+
+#: tfrmidemacros.micopy.caption
+msgctxt "tfrmidemacros.micopy.caption"
+msgid "Copy"
+msgstr ""
+
+#: tfrmideoptions.caption
+msgctxt "tfrmideoptions.caption"
+msgid "Settings"
+msgstr ""
+
+#: tfrmideoptions.tseditor.caption
+msgctxt "tfrmideoptions.tseditor.caption"
+msgid "Editor"
+msgstr ""
+
+#: tfrmideoptions.tsgeneral.caption
+msgid "General"
+msgstr ""
+
+#: tfrmmain.actbuild.caption
+msgctxt "tfrmmain.actbuild.caption"
+msgid "Build"
+msgstr ""
+
+#: tfrmmain.actbuild.hint
+msgctxt "tfrmmain.actbuild.hint"
+msgid "Build"
+msgstr ""
+
+#: tfrmmain.actbuildandroid.caption
+msgctxt "tfrmmain.actbuildandroid.caption"
+msgid "Build APK"
+msgstr ""
+
+#: tfrmmain.actbuildandroid.hint
+msgctxt "tfrmmain.actbuildandroid.hint"
+msgid "Build APK"
+msgstr ""
+
+#: tfrmmain.actcloseactivetab.caption
+msgctxt "tfrmmain.actcloseactivetab.caption"
+msgid "Close Page"
+msgstr ""
+
+#: tfrmmain.actcloseactivetab.hint
+msgctxt "tfrmmain.actcloseactivetab.hint"
+msgid "Close Page"
+msgstr ""
+
+#: tfrmmain.actcodeinsdatetime.caption
+msgid "Date and Time"
+msgstr ""
+
+#: tfrmmain.actcodeinsusername.caption
+msgid "Username"
+msgstr ""
+
+#: tfrmmain.actcompactviewmode.caption
+msgid "Compact View"
+msgstr ""
+
+#: tfrmmain.actcompile.caption
+msgctxt "tfrmmain.actcompile.caption"
+msgid "Compile"
+msgstr ""
+
+#: tfrmmain.actcompile.hint
+msgctxt "tfrmmain.actcompile.hint"
+msgid "Compile"
+msgstr ""
+
+#: tfrmmain.actcreatemodule.caption
+msgid "Create Module"
+msgstr ""
+
+#: tfrmmain.actcreatemodule.hint
+msgid "Create module"
+msgstr ""
+
+#: tfrmmain.actexportashtml.caption
+msgctxt "tfrmmain.actexportashtml.caption"
+msgid "Export as HTML"
+msgstr ""
+
+#: tfrmmain.actexportashtml.hint
+msgctxt "tfrmmain.actexportashtml.hint"
+msgid "Export as HTML"
+msgstr ""
+
+#: tfrmmain.actfileopen.caption
+msgctxt "tfrmmain.actfileopen.caption"
+msgid "Open ..."
+msgstr ""
+
+#: tfrmmain.actfileopen.hint
+msgctxt "tfrmmain.actfileopen.hint"
+msgid "Open ..."
+msgstr ""
+
+#: tfrmmain.actfilesave.caption
+msgctxt "tfrmmain.actfilesave.caption"
+msgid "Save"
+msgstr ""
+
+#: tfrmmain.actfilesave.hint
+msgctxt "tfrmmain.actfilesave.hint"
+msgid "Save"
+msgstr ""
+
+#: tfrmmain.actjcfcurrenttab.caption
+msgctxt "tfrmmain.actjcfcurrenttab.caption"
+msgid "JEDI Code Format"
+msgstr ""
+
+#: tfrmmain.actjcfcurrenttab.hint
+msgctxt "tfrmmain.actjcfcurrenttab.hint"
+msgid "JEDI Code Format"
+msgstr ""
+
+#: tfrmmain.actrun.caption
+msgctxt "tfrmmain.actrun.caption"
+msgid "Run"
+msgstr ""
+
+#: tfrmmain.actrun.hint
+msgctxt "tfrmmain.actrun.hint"
+msgid "Run"
+msgstr ""
+
+#: tfrmmain.actsaveall.caption
+msgctxt "tfrmmain.actsaveall.caption"
+msgid "Save All"
+msgstr ""
+
+#: tfrmmain.actsaveall.hint
+msgctxt "tfrmmain.actsaveall.hint"
+msgid "Save All"
+msgstr ""
+
+#: tfrmmain.actterminateproc.caption
+msgctxt "tfrmmain.actterminateproc.caption"
+msgid "Stop"
+msgstr ""
+
+#: tfrmmain.actterminateproc.hint
+msgctxt "tfrmmain.actterminateproc.hint"
+msgid "Stop"
+msgstr ""
+
+#: tfrmmain.actupdatestatusbar.caption
+msgid "actUpdateStatusBar"
+msgstr ""
+
+#: tfrmmain.caption
+msgid "AMPASIDE"
+msgstr ""
+
+#: tfrmmain.miabout.caption
+msgctxt "tfrmmain.miabout.caption"
+msgid "About"
+msgstr ""
+
+#: tfrmmain.micloseallotherpages.caption
+msgid "Close All Other Pages"
+msgstr ""
+
+#: tfrmmain.micode.caption
+msgid "Source"
+msgstr ""
+
+#: tfrmmain.micodeins.caption
+msgid "Insert General"
+msgstr ""
+
+#: tfrmmain.micreateproject.caption
+msgctxt "tfrmmain.micreateproject.caption"
+msgid "Create New Project"
+msgstr ""
+
+#: tfrmmain.micreateproject.hint
+msgctxt "tfrmmain.micreateproject.hint"
+msgid "Create New Project"
+msgstr ""
+
+#: tfrmmain.midocumentation.caption
+msgid "Documentation"
+msgstr ""
+
+#: tfrmmain.miexamples.caption
+msgid "Examples"
+msgstr ""
+
+#: tfrmmain.miexit.caption
+msgid "Quit"
+msgstr ""
+
+#: tfrmmain.mifile.caption
+msgid "File"
+msgstr ""
+
+#: tfrmmain.miidemacros.caption
+msgctxt "tfrmmain.miidemacros.caption"
+msgid "IDE Macros"
+msgstr ""
+
+#: tfrmmain.miidesettings.caption
+msgid "Configure AMPASIDE"
+msgstr ""
+
+#: tfrmmain.miinfo.caption
+msgid "Help"
+msgstr ""
+
+#: tfrmmain.mijavalibs.caption
+msgid "Java Libs"
+msgstr ""
+
+#: tfrmmain.mijcf.caption
+msgctxt "tfrmmain.mijcf.caption"
+msgid "JEDI Code Format"
+msgstr ""
+
+#: tfrmmain.mijcfcurrenttab.caption
+msgid "Current Editor Window"
+msgstr ""
+
+#: tfrmmain.misettings.caption
+msgctxt "tfrmmain.misettings.caption"
+msgid "Settings"
+msgstr ""
+
+#: tfrmmain.miview.caption
+msgid "View"
+msgstr ""
+
+#: tfrmmain.tbbdivider1.caption
+msgid "tbbDivider1"
+msgstr ""
+
+#: tfrmmain.tbbdivider2.caption
+msgid "tbbDivider2"
+msgstr ""
+
+#: tfrmmain.tbbdivider3.caption
+msgid "tbbDivider3"
+msgstr ""
+
+#: tfrmmain.tlbmain.caption
+msgid "tlbMain"
+msgstr ""
+
+#: tfrmmain.tslogmsg.caption
+msgid "Messages"
+msgstr ""
+
+#: tfrmmain.tsnotes.caption
+msgid "Notes"
+msgstr ""
+
+#: tfrmmain.tsprojfiles.caption
+msgid "Files"
+msgstr ""
+
+#: tfrmmain.tsprojsettings.caption
+msgctxt "tfrmmain.tsprojsettings.caption"
+msgid "Settings"
+msgstr ""
+
+#: tfrmmanifestmf.caption
+msgctxt "tfrmmanifestmf.caption"
+msgid "MANIFEST.MF"
+msgstr ""
+
+#: tfrmmanifestmf.cbextraoptions.caption
+msgid "More options"
+msgstr ""
+
+#: tfrmmanifestmf.lblmdelconfirm.caption
+msgid "MIDlet-Delete-Confirm:"
+msgstr ""
+
+#: tfrmmanifestmf.lblminfourl.caption
+msgid "MIDlet-Info-URL:"
+msgstr ""
+
+#: tfrmmanifestmf.lblminstallnotify.caption
+msgid "MIDlet-Install-Notify:"
+msgstr ""
+
+#: tfrmnewproj.caption
+msgid "New project"
+msgstr ""
+
+#: tfrmnewproj.lblname.caption
+msgid "Name:"
+msgstr ""
+
+#: tfrmnewproj.lblpath.caption
+msgid "Path:"
+msgstr ""
+
+#: tgeneraloptionsframe.cbprevstretch.caption
+msgid "Stretch the image"
+msgstr ""
+
+#: tgeneraloptionsframe.gbeditorheaders.caption
+msgid "Headers"
+msgstr ""
+
+#: tgeneraloptionsframe.gbemulator.caption
+msgid "Emulator"
+msgstr ""
+
+#: tgeneraloptionsframe.gbfilemanager.caption
+msgid "File manager (preview)"
+msgstr ""
+
+#: tgeneraloptionsframe.gbmoduleprefix.caption
+msgid "Prefix for new modules"
+msgstr ""
+
+#: tgeneraloptionsframe.lblcmdline.caption
+msgid "Command Line:"
+msgstr ""
+
+#: tgeneraloptionsframe.lblprevheight.caption
+msgctxt "tgeneraloptionsframe.lblprevheight.caption"
+msgid "Height"
+msgstr ""
+
+#: tgeneraloptionsframe.lblprevwidth.caption
+msgctxt "tgeneraloptionsframe.lblprevwidth.caption"
+msgid "Width"
+msgstr ""
+
+#: tprojectoptionsframe.btnmoarmoarmoar111.caption
+msgid "More ..."
+msgstr ""
+
+#: tprojectoptionsframe.cbautoincbuildver.caption
+msgid "Automatically increase build number"
+msgstr ""
+
+#: tprojectoptionsframe.cbbcanvastype.text
+msgid "MIDP2.0 Fullscreen"
+msgstr ""
+
+#: tprojectoptionsframe.cbbmathtype.text
+msgid "Fixed-point"
+msgstr ""
+
+#: tprojectoptionsframe.gbconfiguration.caption
+msgid "Configuration"
+msgstr ""
+
+#: tprojectoptionsframe.gbmanifest.caption
+msgctxt "tprojectoptionsframe.gbmanifest.caption"
+msgid "MANIFEST.MF"
+msgstr ""
+
+#: tprojectoptionsframe.gbversions.caption
+msgid "Version numbering"
+msgstr ""
+
+#: tprojectoptionsframe.lblandroidmanifestfile.caption
+msgid "androidmanifest"
+msgstr ""
+
+#: tprojectoptionsframe.lblmathtype.caption
+msgid "Real-numbers:"
+msgstr ""
+
+#: tprojectoptionsframe.lblmdesc.caption
+msgid "MIDlet-Description:"
+msgstr ""
+
+#: tprojectoptionsframe.lblmicon.caption
+msgid "MIDlet-Icon:"
+msgstr ""
+
+#: tprojectoptionsframe.lblmname.caption
+msgid "MIDlet-Name:"
+msgstr ""
+
+#: tprojectoptionsframe.lblmtype.caption
+msgid "MIDlet type:"
+msgstr ""
+
+#: tprojectoptionsframe.lblmvendor.caption
+msgid "MIDlet-Vendor:"
+msgstr ""
+
+#: tprojectoptionsframe.lblvbuild.caption
+msgid "Build:"
+msgstr ""
+
+#: tprojectoptionsframe.lblvmajor.caption
+msgid "Major:"
+msgstr ""
+
+#: tprojectoptionsframe.lblvminor.caption
+msgid "Minor:"
+msgstr ""
+
+#: uampascore.err_bad_value
+msgctxt "uampascore.err_bad_value"
+msgid "Invalid value"
+msgstr ""
+
+#: uampascore.err_copy_dir
+msgid "Failed to copy directory"
+msgstr ""
+
+#: uampascore.err_copy_file
+msgid "Failed to copy file"
+msgstr ""
+
+#: uampascore.err_create_dir
+msgid "Failed to create directory"
+msgstr ""
+
+#: uampascore.err_del_dir
+msgid "Error when deleting a directory"
+msgstr ""
+
+#: uampascore.err_dir_404
+msgid "Directory not found"
+msgstr ""
+
+#: uampascore.err_empty_filename
+msgid "Error, empty value in filename"
+msgstr ""
+
+#: uampascore.err_empty_value
+msgid "Empty value"
+msgstr ""
+
+#: uampascore.err_err
+msgid "Error"
+msgstr ""
+
+#: uampascore.err_failded_build_apk
+msgid "Failed to build APK file, details"
+msgstr ""
+
+#: uampascore.err_failed_create_module
+msgid "Failed to create module"
+msgstr ""
+
+#: uampascore.err_failed_del
+msgid "Failed to delete"
+msgstr ""
+
+#: uampascore.err_failed_download
+msgid "Failed to download"
+msgstr ""
+
+#: uampascore.err_failed_find_lib
+msgid "Failed to find library/module"
+msgstr ""
+
+#: uampascore.err_failed_open
+msgid "Failed to open"
+msgstr ""
+
+#: uampascore.err_failed_open_file_as_png
+msgid "Failed to open file as PNG"
+msgstr ""
+
+#: uampascore.err_failed_rename
+msgid "Failed to rename"
+msgstr ""
+
+#: uampascore.err_failed_save
+msgid "Failed to save"
+msgstr ""
+
+#: uampascore.err_failed_save_notes_file
+msgid "Failed to save notes file"
+msgstr ""
+
+#: uampascore.err_file_404
+msgid "File not found"
+msgstr ""
+
+#: uampascore.err_jedi_cf
+msgid "An error occurred during code formatting"
+msgstr ""
+
+#: uampascore.err_load_autocompele_file
+msgid "Failed to load the auto-complete file"
+msgstr ""
+
+#: uampascore.err_load_img
+msgid "Failed to get image list"
+msgstr ""
+
+#: uampascore.err_load_notes
+msgid "Failed to load notes file"
+msgstr ""
+
+#: uampascore.err_no_read_access
+msgid "No read permissions"
+msgstr ""
+
+#: uampascore.err_no_write_access
+msgid "No write permissions"
+msgstr ""
+
+#: uampascore.err_run_proc
+msgid "Process startup error"
+msgstr ""
+
+#: uampascore.err_saving
+msgid "Saving error"
+msgstr ""
+
+#: uampascore.text_byte
+msgid "b."
+msgstr ""
+
+#: uampascore.text_completed
+msgid "completed"
+msgstr ""
+
+#: uampascore.text_proc
+msgid "Process"
+msgstr ""
+
+#: uandroidbuilding.text_compile_project
+msgid "compile project, it takes about a minute"
+msgstr ""
+
+#: ucodeeditor.st_bar_modified
+msgid "Modified"
+msgstr ""
+
+#: ucodeeditor.st_bar_no_open_files
+msgid "no open file"
+msgstr ""
+
+#: ufilemanager.caption_confirm_action
+msgctxt "ufilemanager.caption_confirm_action"
+msgid "Confirm the action"
+msgstr ""
+
+#: ufilemanager.caption_creating_dir
+msgid "Creating a directory"
+msgstr ""
+
+#: ufilemanager.caption_rename
+msgctxt "ufilemanager.caption_rename"
+msgid "Rename"
+msgstr ""
+
+#: ufilemanager.filter_all_files
+msgid "All files"
+msgstr ""
+
+#: ufilemanager.item_libs
+msgid "Libraries"
+msgstr ""
+
+#: ufilemanager.item_modules
+msgid "Modules"
+msgstr ""
+
+#: ufilemanager.item_res
+msgid "Resources"
+msgstr ""
+
+#: ufilemanager.msg_del_dir
+msgid "Remove directory"
+msgstr ""
+
+#: ufilemanager.msg_del_file
+msgid "Remove file"
+msgstr ""
+
+#: ufilemanager.msg_enter_name
+msgid "Enter name"
+msgstr ""
+
+#: ufilemanager.msg_new_name
+msgid "New name"
+msgstr ""
+
+#: ufilemanager.msg_overwrite_dir
+msgid "Overwrite directory"
+msgstr ""
+
+#: ufilemanager.msg_overwrite_file
+msgid "Overwrite file"
+msgstr ""
+
+#: ufilemanager.title_add_files_to
+msgid "Add files to"
+msgstr ""
+
+#: ufilemanager.title_open_file
+msgid "Open file"
+msgstr ""
+
+#: ufilemanager.title_save_as
+msgid "Save As ..."
+msgstr ""
+
+#: ufilemanager.title_save_module_as
+msgid "Save module as ..."
+msgstr ""
+
+#: ufilemanagerframe.caption_height
+msgctxt "ufilemanagerframe.caption_height"
+msgid "Height"
+msgstr ""
+
+#: ufilemanagerframe.caption_no_file_selected
+msgid "No file selected"
+msgstr ""
+
+#: ufilemanagerframe.caption_width
+msgctxt "ufilemanagerframe.caption_width"
+msgid "Width"
+msgstr ""
+
+#: ufilemanagerframe.hint_collapse
+msgid "Collapse"
+msgstr ""
+
+#: ufilemanagerframe.hint_expand
+msgid "Expand"
+msgstr ""
+
+#: ufilemanagerframe.text_size
+msgctxt "ufilemanagerframe.text_size"
+msgid "Size"
+msgstr ""
+
+#: uidemacrosform.text_absolute_path_to
+msgid "absolute path to"
+msgstr ""
+
+#: uidemacrosform.text_absolute_path_to_proj
+msgid "absolute path to project home directory"
+msgstr ""
+
+#: uidemacrosform.text_other
+msgctxt "uidemacrosform.text_other"
+msgid "Other"
+msgstr ""
+
+#: uidemacrosform.text_project
+msgid "Project"
+msgstr ""
+
+#: umainform.caption_confirmation
+msgid "Confirmation"
+msgstr ""
+
+#: umainform.caption_invalid_value
+msgctxt "umainform.caption_invalid_value"
+msgid "Invalid value"
+msgstr ""
+
+#: umainform.caption_process_is_started
+msgid "Process started"
+msgstr ""
+
+#: umainform.msg_format_code
+msgid "Format code"
+msgstr ""
+
+#: umainform.msg_interrupt_execution
+msgid "Interrupt execution"
+msgstr ""
+
+#: umainform.msg_module_already_exists
+msgid "Module with this name already exists, overwrite it?"
+msgstr ""
+
+#: umainform.msg_module_name_must_least
+msgid "Module name must be at least 3 characters long"
+msgstr ""
+
+#: umainform.msg_save_changes
+msgid "Save changes to file"
+msgstr ""
+
+#: umainform.text_not_available_no_open_project
+msgid "Not available, no open project"
+msgstr ""
+
+#: unewprojform.caption_confirm_action
+msgctxt "unewprojform.caption_confirm_action"
+msgid "Confirm the action"
+msgstr ""
+
+#: unewprojform.msg_enter_projname
+msgid "Enter project name"
+msgstr ""
+
+#: unewprojform.msg_proj_exists
+msgid "Project with this name already exists, overwrite it?"
+msgstr ""
+
+#: unewprojform.msg_proj_name_must_least
+msgid "Project name must be at least 3 characters long"
+msgstr ""
+
+#: unewprojform.msg_select_save_dir
+msgid "Select a save directory"
+msgstr ""
+
+#: uprojectbuilding.log_info_ant_completed_work
+msgid "Ant has completed its work, details"
+msgstr ""
+
+#: uprojectbuilding.log_info_archiving_start
+msgid "Starting archiving"
+msgstr ""
+
+#: uprojectbuilding.log_info_compiling
+msgid "Compiling"
+msgstr ""
+
+#: uprojectbuilding.log_info_completed
+msgid "Completed"
+msgstr ""
+
+#: uprojectbuilding.log_info_emulator_stop
+msgid "Emulator operation completed"
+msgstr ""
+
+#: uprojectbuilding.msg_build_successful
+msgid "Build successful"
+msgstr ""
+
+#: uprojectbuilding.text_lauch
+msgid "launch"
+msgstr ""
+
+#: uprojectbuilding.text_platform
+msgid "Platform"
+msgstr ""
+
+#: uprojectbuilding.text_process_busy
+msgid "file may be busy with another process"
+msgstr ""
+
+#: uprojectbuilding.text_size
+msgctxt "uprojectbuilding.text_size"
+msgid "Size"
+msgstr ""
+
+#: uprojectbuilding.text_version
+msgid "Version"
+msgstr ""
+
+#: uprojectmanager.text_default_notes
+msgid "You can write anything here, notes, todos, etc ..."
+msgstr ""
+

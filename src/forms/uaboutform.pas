@@ -63,7 +63,7 @@ begin
   Caption := APP_NAME;
 
   Height := 400;
-  Width := 340;
+  Width := 400;
 
   Constraints.MinHeight := Height;
   Constraints.MinWidth := Width;
@@ -74,7 +74,7 @@ begin
     'Advanced MIDletPascal IDE' + LE + LE +
     'Author: Helltar' + LE +
     'Version: ' + GetProgramVersion + LE +
-    'License: GPLv3 (see COPYING)';
+    'License: GPLv3 (see .' + DIR_SEP + 'license' + DIR_SEP + 'ampaside.txt)';
 end;
 
 procedure TfrmAbout.lblURLClick(Sender: TObject);

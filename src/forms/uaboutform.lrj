@@ -1,0 +1,5 @@
+{"version":1,"strings":[
+{"hash":4691652,"name":"tfrmabout.caption","sourcebytes":[65,98,111,117,116],"value":"About"},
+{"hash":136927045,"name":"tfrmabout.lblgithuburl.caption","sourcebytes":[104,116,116,112,115,58,47,47,103,105,116,104,117,98,46,99,111,109,47,72,101,108,108,116,97,114,47,65,77,80,65,83,73,68,69],"value":"https://github.com/Helltar/AMPASIDE"},
+{"hash":90349021,"name":"tfrmabout.lblhomepage.caption","sourcebytes":[104,116,116,112,115,58,47,47,104,101,108,108,116,97,114,46,99,111,109],"value":"https://helltar.com"}
+]}

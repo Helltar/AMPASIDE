@@ -62,7 +62,40 @@ type
 
 const
   {$I ampasideconsts.inc}
-  {$I ../strings/ru.inc}
+
+resourcestring
+  ERR_BAD_VALUE = 'Invalid value';
+  ERR_COPY_DIR = 'Failed to copy directory';
+  ERR_COPY_FILE = 'Failed to copy file';
+  ERR_CREATE_DIR = 'Failed to create directory';
+  ERR_DEL_DIR = 'Error when deleting a directory';
+  ERR_DIR_404 = 'Directory not found';
+  ERR_EMPTY_FILENAME = 'Error, empty value in filename';
+  ERR_EMPTY_VALUE = 'Empty value';
+  ERR_ERR = 'Error';
+  ERR_FAILDED_BUILD_APK = 'Failed to build APK file, details';
+  ERR_FAILED_CREATE_MODULE = 'Failed to create module';
+  ERR_FAILED_DEL = 'Failed to delete';
+  ERR_FAILED_DOWNLOAD = 'Failed to download';
+  ERR_FAILED_FIND_LIB = 'Failed to find library/module';
+  ERR_FAILED_OPEN = 'Failed to open';
+  ERR_FAILED_OPEN_FILE_AS_PNG = 'Failed to open file as PNG';
+  ERR_FAILED_RENAME = 'Failed to rename';
+  ERR_FAILED_SAVE = 'Failed to save';
+  ERR_FAILED_SAVE_NOTES_FILE = 'Failed to save notes file';
+  ERR_FILE_404 = 'File not found';
+  ERR_JEDI_CF = 'An error occurred during code formatting';
+  ERR_LOAD_AUTOCOMPELE_FILE = 'Failed to load the auto-complete file';
+  ERR_LOAD_IMG = 'Failed to get image list';
+  ERR_LOAD_NOTES = 'Failed to load notes file';
+  ERR_NO_READ_ACCESS = 'No read permissions';
+  ERR_NO_WRITE_ACCESS = 'No write permissions';
+  ERR_RUN_PROC = 'Process startup error';
+  ERR_SAVING = 'Saving error';
+
+  TEXT_BYTE = 'b.';
+  TEXT_COMPLETED = 'completed';
+  TEXT_PROC = 'Process';
 
 function CheckDir(const DirName: string): boolean;
 function CheckFile(const FileName: string): boolean;
@@ -98,7 +131,7 @@ begin
   begin
     if not FileIsWritable(FileName) then
     begin
-      ErrMsg := ERR_WRITE_ACCESS + ': ' + FileName;
+      ErrMsg := ERR_NO_WRITE_ACCESS + ': ' + FileName;
       FileName := '';
     end;
   end
@@ -124,7 +157,7 @@ begin
     ErrMsg := ERR_FILE_404 + ': ' + FileName
   else
   if not FileIsWritable(FileName) then
-    ErrMsg := ERR_READ_ACCESS + ': ' + FileName
+    ErrMsg := ERR_NO_READ_ACCESS + ': ' + FileName
   else
     Result := True;
 
@@ -167,7 +200,7 @@ begin
     if DirectoryIsWritable(DirName) then
       Result := True
     else
-      AddLogMsg(ERR_READ_ACCESS + ': ' + DirName, lmtErr);
+      AddLogMsg(ERR_NO_READ_ACCESS + ': ' + DirName, lmtErr);
   end
   else
     AddLogMsg(ERR_DIR_404 + ': ' + DirName, lmtErr);
@@ -192,7 +225,7 @@ begin
   IntSize := FileSize(FileName);
 
   if IntSize < 1024 then
-    Result := IntToStr(IntSize) + ' ' + MSG_BYTE
+    Result := IntToStr(IntSize) + ' ' + TEXT_BYTE
   else
   if (IntSize div 1024) >= 1024 then
     Result := IntToStr((IntSize div 1024) div 1024) + ' MB'
@@ -231,7 +264,7 @@ begin
         IsProcessRunning := True;
         if IsProcTerminate then
           if P.Terminate(0) then
-            AddLogMsg(MSG_PROC + ' (PID: ' + IntToStr(P.ProcessID) + ') ' + MSG_PCOMPLETED);
+            AddLogMsg(TEXT_PROC + ' (PID: ' + IntToStr(P.ProcessID) + ') ' + TEXT_COMPLETED);
         Sleep(1);
       end;
 
@@ -325,7 +358,7 @@ begin
           Img.LoadFromFile(FileName);
           ImgList.Add(Img, nil);
         except
-          AddLogMsg(ERR_OPEN_PNG + ': ' + FileName, lmtErr);
+          AddLogMsg(ERR_FAILED_OPEN_FILE_AS_PNG + ': ' + FileName, lmtErr);
         end;
       end;
     end;

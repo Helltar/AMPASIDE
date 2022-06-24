@@ -7,7 +7,7 @@ object FileManagerFrame: TFileManagerFrame
   ClientWidth = 498
   ParentFont = False
   TabOrder = 0
-  DesignLeft = 718
+  DesignLeft = 663
   DesignTop = 251
   object tvFileList: TTreeView
     AnchorSideLeft.Control = Owner

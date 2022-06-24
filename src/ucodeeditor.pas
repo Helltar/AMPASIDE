@@ -72,6 +72,10 @@ type
 var
   CodeEditor: TCodeEditor;
 
+resourcestring
+  ST_BAR_MODIFIED = 'Modified';
+  ST_BAR_NO_OPEN_FILES = 'no open file';
+
 implementation
 
 uses
@@ -223,7 +227,7 @@ end;
 
 function TCodeEditor.GetActiveFileName: string;
 begin
-  Result := MSG_NO_OPEN_FILES;
+  Result := ST_BAR_NO_OPEN_FILES;
   if IsEditorActive then
     Result := FileNameList[GetActiveTabTag];
 end;
@@ -364,7 +368,7 @@ begin
             AEditor.TextBetweenPoints[Point(1, 1), XY] := Text;
             AddLogMsg(P.Output);
           except
-            AddLogMsg(ERR_CODE_FORMAT, lmtErr);
+            AddLogMsg(ERR_JEDI_CF, lmtErr);
           end;
         finally
           Free;
@@ -393,4 +397,3 @@ begin
 end;
 
 end.
-

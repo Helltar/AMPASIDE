@@ -1,0 +1,16 @@
+{"version":1,"strings":[
+{"hash":261496579,"name":"tfilemanagerframe.tlbmanageractions.caption","sourcebytes":[116,108,98,77,97,110,97,103,101,114,65,99,116,105,111,110,115],"value":"tlbManagerActions"},
+{"hash":113260142,"name":"tfilemanagerframe.actopenfile.caption","sourcebytes":[79,112,101,110,32,46,46,46],"value":"Open ..."},
+{"hash":353982,"name":"tfilemanagerframe.actopenfile.hint","sourcebytes":[79,112,101,110],"value":"Open"},
+{"hash":93079605,"name":"tfilemanagerframe.actrenamefile.caption","sourcebytes":[82,101,110,97,109,101],"value":"Rename"},
+{"hash":93079605,"name":"tfilemanagerframe.actrenamefile.hint","sourcebytes":[82,101,110,97,109,101],"value":"Rename"},
+{"hash":1660201,"name":"tfilemanagerframe.actcreatedir.caption","sourcebytes":[67,114,101,97,116,101,32,68,105,114,101,99,116,111,114,121],"value":"Create Directory"},
+{"hash":105694563,"name":"tfilemanagerframe.actaddfiles.caption","sourcebytes":[65,100,100,32,70,105,108,101,115],"value":"Add Files"},
+{"hash":105694563,"name":"tfilemanagerframe.actaddfiles.hint","sourcebytes":[65,100,100,32,70,105,108,101,115],"value":"Add Files"},
+{"hash":93079237,"name":"tfilemanagerframe.actdeletefile.caption","sourcebytes":[82,101,109,111,118,101],"value":"Remove"},
+{"hash":93079237,"name":"tfilemanagerframe.actdeletefile.hint","sourcebytes":[82,101,109,111,118,101],"value":"Remove"},
+{"hash":53573292,"name":"tfilemanagerframe.actexpandcollapse.caption","sourcebytes":[67,111,108,108,97,112,115,101,32,65,108,108],"value":"Collapse All"},
+{"hash":53573292,"name":"tfilemanagerframe.actexpandcollapse.hint","sourcebytes":[67,111,108,108,97,112,115,101,32,65,108,108],"value":"Collapse All"},
+{"hash":96905381,"name":"tfilemanagerframe.actupdatefilelist.caption","sourcebytes":[85,112,100,97,116,101],"value":"Update"},
+{"hash":96905381,"name":"tfilemanagerframe.actupdatefilelist.hint","sourcebytes":[85,112,100,97,116,101],"value":"Update"}
+]}

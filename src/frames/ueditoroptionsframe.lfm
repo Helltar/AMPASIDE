@@ -1,13 +1,13 @@
 object EditorOptionsFrame: TEditorOptionsFrame
   Left = 0
-  Height = 520
+  Height = 549
   Top = 0
-  Width = 933
-  ClientHeight = 520
-  ClientWidth = 933
+  Width = 1023
+  ClientHeight = 549
+  ClientWidth = 1023
   TabOrder = 0
-  DesignLeft = 461
-  DesignTop = 296
+  DesignLeft = 384
+  DesignTop = 281
   object gbFont: TGroupBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -15,13 +15,13 @@ object EditorOptionsFrame: TEditorOptionsFrame
     Left = 6
     Height = 115
     Top = 6
-    Width = 328
+    Width = 398
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Font'
     ClientHeight = 84
-    ClientWidth = 324
+    ClientWidth = 394
     TabOrder = 0
     object sedtFontSize: TSpinEdit
       AnchorSideLeft.Control = gbFont
@@ -55,7 +55,7 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 6
       Height = 33
       Top = 6
-      Width = 312
+      Width = 382
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       ButtonCaption = '...'
@@ -76,15 +76,15 @@ object EditorOptionsFrame: TEditorOptionsFrame
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 6
-    Height = 387
+    Height = 416
     Top = 127
-    Width = 328
+    Width = 398
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Other'
-    ClientHeight = 356
-    ClientWidth = 324
+    ClientHeight = 385
+    ClientWidth = 394
     TabOrder = 1
     object cbbRightEdge: TComboBox
       AnchorSideLeft.Control = gbMix
@@ -143,16 +143,16 @@ object EditorOptionsFrame: TEditorOptionsFrame
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 351
-    Height = 508
+    Left = 421
+    Height = 537
     Top = 6
-    Width = 576
+    Width = 596
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 6
     Caption = 'Colors'
-    ClientHeight = 477
-    ClientWidth = 572
+    ClientHeight = 506
+    ClientWidth = 592
     TabOrder = 2
     object lblEditorColor: TLabel
       AnchorSideLeft.Control = clrbEditorColor
@@ -400,7 +400,7 @@ object EditorOptionsFrame: TEditorOptionsFrame
       Left = 6
       Height = 33
       Top = 357
-      Width = 560
+      Width = 580
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 6
       ButtonCaption = '...'
@@ -419,8 +419,8 @@ object EditorOptionsFrame: TEditorOptionsFrame
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 340
-    Height = 520
+    Left = 410
+    Height = 549
     Top = 0
     Width = 5
     Align = alNone

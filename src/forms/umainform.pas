@@ -27,7 +27,8 @@ interface
 
 uses
   Classes, ComCtrls, Controls, Forms, Dialogs, ExtCtrls, ActnList, FileUtil,
-  LCLIntf, Menus, SynEdit, SysUtils, LazFileUtils, uAMPASCore, Types;
+  LCLIntf, Menus, SynEdit, SysUtils, LazFileUtils, uAMPASCore,
+  LCLTranslator;
 
 type
 
@@ -159,7 +160,6 @@ type
     procedure CloseTab(ATabSheet: TTabSheet);
     procedure EnableProjUIControls;
     procedure GetSettings;
-    //procedure InitCaptions;
     procedure InitControls;
     procedure LoadControlsImages;
   type TProjBuildMode = (pbmRun, pbmCompile, pbmBuild);
@@ -201,6 +201,17 @@ var
 
 {$R *.lfm}
 
+resourcestring
+  CAPTION_CONFIRMATION = 'Confirmation';
+  CAPTION_INVALID_VALUE = 'Invalid value';
+  CAPTION_PROCESS_IS_STARTED = 'Process started';
+  TEXT_NOT_AVAILABLE_NO_OPEN_PROJECT = 'Not available, no open project';
+  MSG_FORMAT_CODE = 'Format code';
+  MSG_INTERRUPT_EXECUTION = 'Interrupt execution';
+  MSG_MODULE_NAME_MUST_LEAST = 'Module name must be at least 3 characters long';
+  MSG_MODULE_ALREADY_EXISTS = 'Module with this name already exists, overwrite it?';
+  MSG_SAVE_CHANGES = 'Save changes to file';
+
 { TfrmMain }
 
 procedure TfrmMain.FormCreate(Sender: TObject);
@@ -209,6 +220,8 @@ var
   i: integer;
 
 begin
+  SetDefaultLang('ru');
+
   Caption := APP_NAME + ' ' + GetProgramVersion;
 
   AddLogMsg(Caption);
@@ -227,7 +240,6 @@ begin
   CodeEditor := TCodeEditor.Create(pgcEditor);
   ProjManager := TProjectManager.Create;
 
-  //InitCaptions;
   InitControls;
 
   if Paramcount <> 0 then
@@ -250,7 +262,7 @@ var
 
 begin
   if IsProcRunning then
-    case MessageDlg(MSG_PROCESS_IS_STARTED,
+    case MessageDlg(CAPTION_PROCESS_IS_STARTED,
         MSG_INTERRUPT_EXECUTION + '?', mtWarning, [mbYes, mbCancel], 0) of
       mrYes: TerminateProc;
       mrCancel:
@@ -303,12 +315,12 @@ begin
       if Execute then
       begin
         if Length(ExtractFileNameOnly(FileName)) < 3 then
-          MessageDlg(MSG_INCORRECT_VALUE, MSG_MODULE_NAME_MUST_LEAST,
+          MessageDlg(CAPTION_INVALID_VALUE, MSG_MODULE_NAME_MUST_LEAST,
             mtWarning, [mbOK], 0)
         else
         begin
           if FileExists(FileName) then
-            case MessageDlg(MSG_CONFIRMATION, MSG_MODULE_ALREADY_EXISTS,
+            case MessageDlg(CAPTION_CONFIRMATION, MSG_MODULE_ALREADY_EXISTS,
                 mtWarning, [mbYes, mbNo], 0) of
               mrNo: Exit;
             end;
@@ -420,7 +432,7 @@ begin
   with CodeEditor do
   begin
     SaveCurrentFile;
-    case MessageDlg(MSG_CONFIRMATION, MSG_FORMAT_CODE + ' ' +
+    case MessageDlg(CAPTION_CONFIRMATION, MSG_FORMAT_CODE + ' ' +
         ActiveFileName + '? ', mtInformation, [mbYes, mbNo], 0) of
       mrYes: JCFormat;
     end;
@@ -567,7 +579,7 @@ begin
   try
     synedtNotes.Lines.SaveToFile(ProjManager.NotesFile);
   except
-    synedtNotes.Lines.Add(ERR_SAVE_NOTES_FILE);
+    synedtNotes.Lines.Add(ERR_FAILED_SAVE_NOTES_FILE);
   end;
 end;
 
@@ -590,7 +602,7 @@ begin
 
   if CodeEditor.IsFileModified(AEditor) then
   begin
-    case MessageDlg(MSG_CONFIRMATION,
+    case MessageDlg(CAPTION_CONFIRMATION,
         MSG_SAVE_CHANGES + ' "' +
         ExtractFileName(FileName) + '"?', mtInformation, [mbYes, mbNo, mbCancel], 0) of
       mrYes: CodeEditor.SaveFile(FileName, AEditor);
@@ -636,7 +648,7 @@ begin
   stbEditor.Panels[0].Text := CodeEditor.CaretPos;
 
   if CodeEditor.IsCurrentFileModified then
-    stbEditor.Panels[1].Text := STBAR_MODIFIED
+    stbEditor.Panels[1].Text := ST_BAR_MODIFIED
   else
     stbEditor.Panels[1].Text := '';
 
@@ -701,91 +713,6 @@ begin
   FileManagerFrame.UpdateImgPreview;
 end;
 
-{
-procedure TfrmMain.InitCaptions;
-begin
-  actBuild.Caption := CAPTION_BUILD;
-  actBuild.Hint := CAPTION_BUILD;
-  actBuildAndroid.Caption := CAPTION_BUILD_APK;
-  actBuildAndroid.Hint := CAPTION_BUILD_APK;
-  actCloseActiveTab.Caption := CAPTION_CLOSE_EDITOR_FILE;
-  actCloseActiveTab.Hint := CAPTION_CLOSE_EDITOR_FILE;
-  actCodeInsDateTime.Caption := CAPTION_DATETIME;
-  actCodeInsUserName.Caption := CAPTION_USERNAME;
-  actCompactViewMode.Caption := CAPTION_COMPACT_VIEW;
-  actCompile.Caption := CAPTION_COMPILE;
-  actCompile.Hint := CAPTION_COMPILE;
-  actCreateModule.Caption := CAPTION_CREATE_MODULE;
-  actCreateModule.Hint := CAPTION_CREATE_MODULE;
-  actExportAsHTML.Caption := CAPTION_EXPORT_HTML;
-  actExportAsHTML.Hint := CAPTION_EXPORT_HTML;
-  actFileOpen.Caption := CAPTION_OPEN + ' ...';
-  actFileOpen.Hint := CAPTION_OPEN;
-  actFileSave.Caption := CAPTION_SAVE;
-  actFileSave.Hint := CAPTION_SAVE;
-  actJCFCurrentTab.Caption := MSG_FORMAT_CODE;
-  actJCFCurrentTab.Hint := MSG_FORMAT_CODE;
-  actRun.Caption := CAPTION_RUN;
-  actRun.Hint := CAPTION_RUN;
-  actSaveAll.Caption := CAPTION_SAVE_ALL;
-  actSaveAll.Hint := CAPTION_SAVE_ALL;
-  actTerminateProc.Caption := CAPTION_KILL_PROC;
-  actTerminateProc.Hint := CAPTION_KILL_PROC;
-
-  miAbout.Caption := CAPTION_ABOUT;
-  miCloseActivePage.Caption := CAPTION_CLOSE_TAB;
-  miCloseActivePage.Hint := CAPTION_CLOSE_TAB;
-  miCloseAllOtherPages.Caption := CAPTION_CLOSE_OTHER_TABS;
-  miCode.Caption := CAPTION_CODE;
-  miCodeIns.Caption := CAPTION_INS_GENERAL;
-  miCreateProject.Caption := CAPTION_CREATE_PROJ;
-  miCreateProject.Hint := CAPTION_CREATE_PROJ;
-  miDocumentation.Caption := CAPTION_DOCS;
-  miExamples.Caption := CAPTION_EXAMPLES;
-  miExit.Caption := CAPTION_EXIT;
-  miFile.Caption := CAPTION_FILE;
-  miFileOpen.Caption := CAPTION_OPEN;
-  miFileOpen.Hint := CAPTION_OPEN;
-  miIDEMacros.Caption := CAPTION_MACROS;
-  miIDESettings.Caption := CAPTION_IDE_SETTINGS;
-  miInfo.Caption := CAPTION_HELP;
-  miJavaLibs.Caption := CAPTION_JAVA_LIBS;
-  miJCF.Caption := CAPTION_JCF;
-  miJCFCurrentTAB.Caption := CAPTION_CURRENT_TAB;
-  miSaveAll.Caption := CAPTION_SAVE_ALL;
-  miSaveAll.Hint := CAPTION_SAVE_ALL;
-  miSettings.Caption := CAPTION_OPTIONS;
-  miView.Caption := CAPTION_VIEW;
-
-  tbbBuild.Caption := CAPTION_BUILD;
-  tbbBuild.Hint := CAPTION_BUILD;
-  tbbBuildAndroid.Caption := CAPTION_BUILD_APK;
-  tbbBuildAndroid.Hint := CAPTION_BUILD_APK;
-  tbbCloseEditorTab.Caption := CAPTION_CLOSE_EDITOR_FILE;
-  tbbCloseEditorTab.Hint := CAPTION_CLOSE_EDITOR_FILE;
-  tbbCompile.Caption := CAPTION_COMPILE;
-  tbbCompile.Hint := CAPTION_COMPILE;
-  tbbCreateModule.Caption := CAPTION_CREATE_MODULE;
-  tbbCreateModule.Hint := CAPTION_CREATE_MODULE;
-  tbbOpenFile.Caption := CAPTION_OPEN + ' ...';
-  tbbOpenFile.Hint := CAPTION_OPEN;
-  tbbRun.Caption := CAPTION_RUN;
-  tbbRun.Hint := CAPTION_RUN;
-  tbbRun64.Caption := CAPTION_RUN;
-  tbbRun64.Hint := CAPTION_RUN;
-  tbbSaveAll.Caption := CAPTION_SAVE_ALL;
-  tbbSaveAll.Hint := CAPTION_SAVE_ALL;
-  tbbSaveFile.Caption := CAPTION_SAVE;
-  tbbSaveFile.Hint := CAPTION_SAVE;
-  tbbTermProc.Caption := CAPTION_KILL_PROC;
-  tbbTermProc.Hint := CAPTION_KILL_PROC;
-
-  tsLogMsg.Caption := CAPTION_MESSAGES;
-  tsNotes.Caption := CAPTION_NOTES;
-  tsProjFiles.Caption := CAPTION_FILES;
-  tsProjSettings.Caption := CAPTION_SETTINGS;
-end;
-}
 procedure TfrmMain.InitControls;
 begin
   pgcProject.ActivePage := tsProjFiles;
@@ -803,7 +730,7 @@ begin
   synedtNotes.Enabled := False;
   synedtNotes.Font.Name := EditorConfig.FontName;
   synedtNotes.Font.Size := EditorConfig.FontSize;
-  synedtNotes.Lines.Add(ERR_NOT_AVAILABLE_NO_OPEN_PROJECT);
+  synedtNotes.Lines.Add(TEXT_NOT_AVAILABLE_NO_OPEN_PROJECT);
 
   {$IFDEF MSWINDOWS}
   tbbDivider3.Visible := True;

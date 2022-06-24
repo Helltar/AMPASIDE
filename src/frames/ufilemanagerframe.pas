@@ -96,6 +96,14 @@ uses
 
 {$R *.lfm}
 
+resourcestring
+  CAPTION_HEIGHT = 'Height';
+  CAPTION_WIDTH = 'Width';
+  CAPTION_NO_FILE_SELECTED = 'No file selected';
+  HINT_COLLAPSE = 'Collapse';
+  HINT_EXPAND = 'Expand';
+  TEXT_SIZE = 'Size';
+
 { TFileManagerFrame }
 
 constructor TFileManagerFrame.Create(TheOwner: TComponent);
@@ -139,13 +147,13 @@ begin
   begin
     tvFileList.FullExpand;
     actExpandCollapse.ImageIndex := 2;
-    actExpandCollapse.Hint := MSG_MINIMIZE;
+    actExpandCollapse.Hint := HINT_COLLAPSE;
   end
   else
   begin
     tvFileList.FullCollapse;
     actExpandCollapse.ImageIndex := 3;
-    actExpandCollapse.Hint := MSG_EXPAND;
+    actExpandCollapse.Hint := HINT_EXPAND;
   end;
 end;
 
@@ -197,7 +205,7 @@ var
 begin
   if not Assigned(Node) then
   begin
-    lblFileName.Caption := CAPTION_FILE_NO_SELECTED;
+    lblFileName.Caption := CAPTION_NO_FILE_SELECTED;
     lblFileName.Hint := '';
     lblFileSize.Caption := '';
     lblImgHeight.Caption := '';
@@ -210,7 +218,7 @@ begin
 
   lblFileName.Caption := ExtractFileName(FileName);
   lblFileName.Hint := lblFileName.Caption;
-  lblFileSize.Caption := MSG_SIZE + ': ' + GetFileSize(FileName);
+  lblFileSize.Caption := TEXT_SIZE + ': ' + GetFileSize(FileName);
   lblImgHeight.Caption := '';
   lblImgWidth.Caption := '';
 
@@ -221,8 +229,8 @@ begin
     begin
       try
         imgPreview.Picture.LoadFromFile(FileName);
-        lblImgWidth.Caption := MSG_HEIGHT + ': ' + IntToStr(imgPreview.Picture.Height);
-        lblImgHeight.Caption := MSG_WIDTH + ': ' + IntToStr(imgPreview.Picture.Width);
+        lblImgWidth.Caption := CAPTION_HEIGHT + ': ' + IntToStr(imgPreview.Picture.Height);
+        lblImgHeight.Caption := CAPTION_WIDTH + ': ' + IntToStr(imgPreview.Picture.Width);
       except
         imgPreview.Picture.Clear;
       end;

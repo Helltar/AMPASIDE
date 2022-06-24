@@ -63,6 +63,19 @@ type
     property Mode: integer read FMode write FMode;
   end;
 
+resourcestring
+  LOG_INFO_ANT_COMPLETED_WORK = 'Ant has completed its work, details';
+  LOG_INFO_ARCHIVING_START = 'Starting archiving';
+  LOG_INFO_COMPILING = 'Compiling';
+  LOG_INFO_COMPLETED = 'Completed';
+  LOG_INFO_EMULATOR_STOP = 'Emulator operation completed';
+  TEXT_PLATFORM = 'Platform';
+  TEXT_SIZE = 'Size';
+  TEXT_VERSION = 'Version';
+  MSG_BUILD_SUCCESSFUL = 'Build successful';
+  TEXT_LAUCH = 'launch';
+  TEXT_PROCESS_BUSY = 'file may be busy with another process';
+
 implementation
 
 uses
@@ -296,7 +309,7 @@ begin
     end;
   end;
 
-  AddLogMsg(MSG_COMPILATION_PROGRESS + ' ' + OrigName + '...');
+  AddLogMsg(LOG_INFO_COMPILING + ' ' + OrigName + '...');
   P := ProcStart(MPCompiler, CmdParameters);
 
   if P.Completed then
@@ -305,7 +318,7 @@ begin
     CopyLib;
     if not IsErr(P.Output) then
     begin
-      AddLogMsg(DeleteCharacters(P.Output) + MSG_COMPLETED, lmtOk);
+      AddLogMsg(DeleteCharacters(P.Output) + LOG_INFO_COMPLETED, lmtOk);
       Result := True;
     end
     else
@@ -438,11 +451,11 @@ begin
     if not DeleteFile(JARFileName) then
     begin
       AddLogMsg(ERR_FAILED_DEL + ' ' + ExtractFileName(JARFileName) +
-        ' ' + MSG_BUSY_PROC, lmtErr);
+        ' ' + TEXT_PROCESS_BUSY, lmtErr);
       Exit;
     end;
 
-  AddLogMsg(MSG_ARCHIVING_START + ' ' + ExtractFileName(JARFileName) + '...' + LE);
+  AddLogMsg(LOG_INFO_ARCHIVING_START + ' ' + ExtractFileName(JARFileName) + '...' + LE);
 
   FileArchiver := GetAppPath + FILE_ARCHIVER;
   CmdParameters := 'a "' + JARFileName + '" "';
@@ -459,10 +472,10 @@ begin
       if not isAndroid then
       begin
         msg :=
-          MSG_SUCCESSFULLY_ASSEMBLED + LE +
-          MSG_VERSION + ': ' + ProjManager.MIDletVersion + LE +
-          MSG_SIZE + ': ' + GetFileSize(JARFileName) + LE +
-          MSG_PLATFORM + ': JavaME';
+          MSG_BUILD_SUCCESSFUL + LE +
+          TEXT_VERSION + ': ' + ProjManager.MIDletVersion + LE +
+          TEXT_SIZE + ': ' + GetFileSize(JARFileName) + LE +
+          TEXT_PLATFORM + ': JavaME';
       end;
 
       AddLogMsg(msg, lmtOk);
@@ -487,10 +500,10 @@ begin
   if not Build then
     Exit;
 
-  AddLogMsg('Emulator: ' + MSG_LAUCHING + ' ' + ExtractFileName(ProjManager.JarFile) + '...');
+  AddLogMsg('Emulator: ' + TEXT_LAUCH + ' ' + ExtractFileName(ProjManager.JarFile) + '...');
 
   if ProcStart(IDEConfig.MacrosReplace(IDEConfig.EmulatorCmd), False).Completed then
-    AddLogMsg(MSG_EMULATOR_STOP);
+    AddLogMsg(LOG_INFO_EMULATOR_STOP);
 end;
 
 end.

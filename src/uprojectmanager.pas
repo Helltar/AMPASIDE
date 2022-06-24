@@ -82,6 +82,9 @@ type
 var
   ProjManager: TProjectManager;
 
+resourcestring
+  TEXT_DEFAULT_NOTES = 'You can write anything here, notes, todos, etc ...';
+
 implementation
 
 uses
@@ -241,7 +244,7 @@ function TProjectManager.CreateProject(APath, AName: string): boolean;
     with TStringList.Create do
     begin
       try
-        Add(MSG_DEFAULT_NOTES);
+        Add(TEXT_DEFAULT_NOTES);
         SaveToFile(FileName + EXT_NOTES);
       finally
         Free;

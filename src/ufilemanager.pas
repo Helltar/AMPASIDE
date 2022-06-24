@@ -60,6 +60,25 @@ type
 var
   FileManager: TFileManager;
 
+resourcestring
+  CAPTION_CONFIRM_ACTION = 'Confirm the action';
+  CAPTION_CREATING_DIR = 'Creating a directory';
+  CAPTION_RENAME = 'Rename';
+  FILTER_ALL_FILES = 'All files';
+  ITEM_LIBS = 'Libraries';
+  ITEM_MODULES = 'Modules';
+  ITEM_RES = 'Resources';
+  TITLE_ADD_FILES_TO = 'Add files to';
+  TITLE_OPEN_FILE = 'Open file';
+  TITLE_SAVE_AS = 'Save As ...';
+  TITLE_SAVE_MODULE_AS = 'Save module as ...';
+  MSG_DEL_DIR = 'Remove directory';
+  MSG_DEL_FILE = 'Remove file';
+  MSG_ENTER_NAME = 'Enter name';
+  MSG_OVERWRITE_DIR = 'Overwrite directory';
+  MSG_OVERWRITE_FILE = 'Overwrite file';
+  MSG_NEW_NAME = 'New name';
+
 implementation
 
 uses
@@ -86,7 +105,7 @@ var
   procedure AddDir(DirName: string);
   begin
     if DirectoryExists(DestFileName) then
-      case MessageDlg(MSG_CONFIRM_ACTION,
+      case MessageDlg(CAPTION_CONFIRM_ACTION,
           MSG_OVERWRITE_DIR + ' "' + ExtractFileName(DestFileName) +
           '"?', mtInformation, [mbYes, mbNo], 0) of
         mrYes:
@@ -117,7 +136,7 @@ begin
   else
   begin
     if FileExists(DestFileName) then
-      case MessageDlg(MSG_CONFIRM_ACTION,
+      case MessageDlg(CAPTION_CONFIRM_ACTION,
           MSG_OVERWRITE_FILE + ' "' + ExtractFileName(DestFileName) +
           '"?', mtInformation, [mbYes, mbNo], 0) of
         mrNo: Exit;
@@ -292,15 +311,15 @@ begin
 
     BeginUpdate;
 
-    AddFilesFromDir(ProjManager.ProjDirSrc, Items.Add(nil, CAPTION_MODULES));
+    AddFilesFromDir(ProjManager.ProjDirSrc, Items.Add(nil, ITEM_MODULES));
     Items.GetLastNode.ImageIndex := 6;
     Items.GetLastNode.SelectedIndex := 6;
 
-    AddFilesFromDir(ProjManager.ProjDirRes, Items.Add(nil, CAPTION_RES));
+    AddFilesFromDir(ProjManager.ProjDirRes, Items.Add(nil, ITEM_RES));
     Items.GetLastNode.ImageIndex := 10;
     Items.GetLastNode.SelectedIndex := 10;
 
-    AddFilesFromDir(ProjManager.ProjDirLibs, Items.Add(nil, CAPTION_LIBS));
+    AddFilesFromDir(ProjManager.ProjDirLibs, Items.Add(nil, ITEM_LIBS));
     Items.GetLastNode.ImageIndex := 15;
     Items.GetLastNode.SelectedIndex := 15;
 
@@ -337,7 +356,7 @@ var
 
   procedure ShowDelDirDialog;
   begin
-    case MessageDlg(MSG_CONFIRM_ACTION,
+    case MessageDlg(CAPTION_CONFIRM_ACTION,
         MSG_DEL_DIR + ' "' + GetDirNameOnly(GetPath) + '"?',
         mtInformation, [mbYes, mbNo], 0) of
       mrYes:
@@ -355,7 +374,7 @@ begin
   if IsDirectory(FileName) then
     ShowDelDirDialog
   else
-    case MessageDlg(MSG_CONFIRM_ACTION,
+    case MessageDlg(CAPTION_CONFIRM_ACTION,
         MSG_DEL_FILE + ' "' + ExtractFileName(FileName) + '"?',
         mtInformation, [mbYes, mbNo], 0) of
       mrYes:
@@ -372,7 +391,7 @@ var
   DirName: string = '';
 
 begin
-  if InputQuery(MSG_CREATE_DIR, MSG_ENTER_NAME + ':',
+  if InputQuery(CAPTION_CREATING_DIR, MSG_ENTER_NAME + ':',
     DirName) then
   begin
     if DirName = '' then
@@ -394,7 +413,7 @@ begin
   FileName := SelectedFileName;
   NewName := ExtractFileName(FileName);
 
-  if InputQuery(MSG_RENAMING, MSG_NEW_NAME + ':', NewName) then
+  if InputQuery(CAPTION_RENAME, MSG_NEW_NAME + ':', NewName) then
   begin
     if NewName = '' then
       MessageDlg(ERR_ERR, ERR_EMPTY_VALUE, mtError, [mbOK], 0)

@@ -49,6 +49,13 @@ type
     { public declarations }
   end;
 
+resourcestring
+  CAPTION_CONFIRM_ACTION = 'Confirm the action';
+  MSG_ENTER_PROJNAME = 'Enter project name';
+  MSG_PROJ_NAME_MUST_LEAST = 'Project name must be at least 3 characters long';
+  MSG_PROJ_EXISTS = 'Project with this name already exists, overwrite it?';
+  MSG_SELECT_SAVE_DIR = 'Select a save directory';
+
 implementation
 
 uses
@@ -113,7 +120,7 @@ begin
   else
   if DirectoryExists(ProjPath) then
   begin
-    case MessageDlg(MSG_CONFIRM_ACTION, MSG_PROJ_EXIST_REWRITE + '?',
+    case MessageDlg(CAPTION_CONFIRM_ACTION, MSG_PROJ_EXISTS,
         mtWarning, [mbYes, mbNo], 0) of
       mrYes:
       begin

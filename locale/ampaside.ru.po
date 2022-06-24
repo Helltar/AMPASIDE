@@ -1,0 +1,981 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: AMPASIDE 1.1.3\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Helltar\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: tdmcodeeditor.edtcopy.caption
+msgctxt "tdmcodeeditor.edtcopy.caption"
+msgid "Copy"
+msgstr "Копировать"
+
+#: tdmcodeeditor.edtcopy.hint
+msgctxt "tdmcodeeditor.edtcopy.hint"
+msgid "Copy"
+msgstr "Копировать"
+
+#: tdmcodeeditor.edtcut.caption
+msgctxt "tdmcodeeditor.edtcut.caption"
+msgid "Cut"
+msgstr "Вырезать"
+
+#: tdmcodeeditor.edtcut.hint
+msgctxt "tdmcodeeditor.edtcut.hint"
+msgid "Cut"
+msgstr "Вырезать"
+
+#: tdmcodeeditor.edtpaste.caption
+msgctxt "tdmcodeeditor.edtpaste.caption"
+msgid "Paste"
+msgstr "Вставить"
+
+#: tdmcodeeditor.edtpaste.hint
+msgctxt "tdmcodeeditor.edtpaste.hint"
+msgid "Paste"
+msgstr "Вставить"
+
+#: tdmcodeeditor.edtselectall.caption
+msgctxt "tdmcodeeditor.edtselectall.caption"
+msgid "Select All"
+msgstr "Выбрать все"
+
+#: tdmcodeeditor.edtselectall.hint
+msgctxt "tdmcodeeditor.edtselectall.hint"
+msgid "Select All"
+msgstr "Выбрать все"
+
+#: teditoroptionsframe.cbbrightedge.text
+msgid "100"
+msgstr ""
+
+#: teditoroptionsframe.cbscrollpasteol.caption
+msgid "Allow caret to move past end of line"
+msgstr "Перемещать каретку за конец строки"
+
+#: teditoroptionsframe.edtbtnschemefile.buttoncaption
+msgctxt "teditoroptionsframe.edtbtnschemefile.buttoncaption"
+msgid "..."
+msgstr ""
+
+#: teditoroptionsframe.edtbtnselectfont.buttoncaption
+msgctxt "teditoroptionsframe.edtbtnselectfont.buttoncaption"
+msgid "..."
+msgstr ""
+
+#: teditoroptionsframe.gbcolors.caption
+msgid "Colors"
+msgstr "Цвета"
+
+#: teditoroptionsframe.gbfont.caption
+msgid "Font"
+msgstr "Шрифт"
+
+#: teditoroptionsframe.gbmix.caption
+msgctxt "teditoroptionsframe.gbmix.caption"
+msgid "Other"
+msgstr "Другое"
+
+#: teditoroptionsframe.lblcomment.caption
+msgid "Comment"
+msgstr "Комментарий"
+
+#: teditoroptionsframe.lbleditorcolor.caption
+msgctxt "teditoroptionsframe.lbleditorcolor.caption"
+msgid "Editor"
+msgstr "Редактор"
+
+#: teditoroptionsframe.lblfontsize.caption
+msgid "Font size"
+msgstr "Размер шрифта"
+
+#: teditoroptionsframe.lblidentifier.caption
+msgid "Identifier"
+msgstr "Идентификатор"
+
+#: teditoroptionsframe.lblkey.caption
+msgid "Reserved word"
+msgstr "Зарезервированное слово"
+
+#: teditoroptionsframe.lblnumber.caption
+msgid "Number"
+msgstr "Число"
+
+#: teditoroptionsframe.lblrightedge.caption
+msgctxt "teditoroptionsframe.lblrightedge.caption"
+msgid "Right margin"
+msgstr "Правая граница"
+
+#: teditoroptionsframe.lblrigthedge.caption
+msgctxt "teditoroptionsframe.lblrigthedge.caption"
+msgid "Right margin"
+msgstr "Правая граница"
+
+#: teditoroptionsframe.lblselectedcolor.caption
+msgid "Selected Area"
+msgstr "Выбранная область"
+
+#: teditoroptionsframe.lblstring.caption
+msgid "String"
+msgstr "Строка"
+
+#: teditoroptionsframe.lblsymbol.caption
+msgid "Symbol"
+msgstr "Символ"
+
+#: tfilemanagerframe.actaddfiles.caption
+msgctxt "tfilemanagerframe.actaddfiles.caption"
+msgid "Add Files"
+msgstr "Добавить файлы"
+
+#: tfilemanagerframe.actaddfiles.hint
+msgctxt "tfilemanagerframe.actaddfiles.hint"
+msgid "Add Files"
+msgstr "Добавить файлы"
+
+#: tfilemanagerframe.actcreatedir.caption
+msgid "Create Directory"
+msgstr "Создать каталог"
+
+#: tfilemanagerframe.actdeletefile.caption
+msgctxt "tfilemanagerframe.actdeletefile.caption"
+msgid "Remove"
+msgstr "Удалить"
+
+#: tfilemanagerframe.actdeletefile.hint
+msgctxt "tfilemanagerframe.actdeletefile.hint"
+msgid "Remove"
+msgstr "Удалить"
+
+#: tfilemanagerframe.actexpandcollapse.caption
+msgctxt "tfilemanagerframe.actexpandcollapse.caption"
+msgid "Collapse All"
+msgstr "Свернуть все"
+
+#: tfilemanagerframe.actexpandcollapse.hint
+msgctxt "tfilemanagerframe.actexpandcollapse.hint"
+msgid "Collapse All"
+msgstr "Свернуть"
+
+#: tfilemanagerframe.actopenfile.caption
+msgctxt "tfilemanagerframe.actopenfile.caption"
+msgid "Open ..."
+msgstr "Открыть ..."
+
+#: tfilemanagerframe.actopenfile.hint
+msgid "Open"
+msgstr "Открыть"
+
+#: tfilemanagerframe.actrenamefile.caption
+msgctxt "tfilemanagerframe.actrenamefile.caption"
+msgid "Rename"
+msgstr "Переименовать"
+
+#: tfilemanagerframe.actrenamefile.hint
+msgctxt "tfilemanagerframe.actrenamefile.hint"
+msgid "Rename"
+msgstr "Переименовать"
+
+#: tfilemanagerframe.actupdatefilelist.caption
+msgctxt "tfilemanagerframe.actupdatefilelist.caption"
+msgid "Update"
+msgstr "Обновить"
+
+#: tfilemanagerframe.actupdatefilelist.hint
+msgctxt "tfilemanagerframe.actupdatefilelist.hint"
+msgid "Update"
+msgstr "Обновить"
+
+#: tfilemanagerframe.tlbmanageractions.caption
+msgid "tlbManagerActions"
+msgstr ""
+
+#: tfrmabout.caption
+msgctxt "tfrmabout.caption"
+msgid "About"
+msgstr "О программе"
+
+#: tfrmabout.lblgithuburl.caption
+msgid "https://github.com/Helltar/AMPASIDE"
+msgstr ""
+
+#: tfrmabout.lblhomepage.caption
+msgid "https://helltar.com"
+msgstr ""
+
+#: tfrmidemacros.caption
+msgctxt "tfrmidemacros.caption"
+msgid "IDE Macros"
+msgstr "Макросы IDE"
+
+#: tfrmidemacros.micopy.caption
+msgctxt "tfrmidemacros.micopy.caption"
+msgid "Copy"
+msgstr "Копировать"
+
+#: tfrmideoptions.caption
+msgctxt "tfrmideoptions.caption"
+msgid "Settings"
+msgstr "Параметры"
+
+#: tfrmideoptions.tseditor.caption
+msgctxt "tfrmideoptions.tseditor.caption"
+msgid "Editor"
+msgstr "Редактор"
+
+#: tfrmideoptions.tsgeneral.caption
+msgid "General"
+msgstr "Общее"
+
+#: tfrmmain.actbuild.caption
+msgctxt "tfrmmain.actbuild.caption"
+msgid "Build"
+msgstr "Собрать"
+
+#: tfrmmain.actbuild.hint
+msgctxt "tfrmmain.actbuild.hint"
+msgid "Build"
+msgstr "Собрать"
+
+#: tfrmmain.actbuildandroid.caption
+msgctxt "tfrmmain.actbuildandroid.caption"
+msgid "Build APK"
+msgstr "Собрать APK"
+
+#: tfrmmain.actbuildandroid.hint
+msgctxt "tfrmmain.actbuildandroid.hint"
+msgid "Build APK"
+msgstr "Собрать APK"
+
+#: tfrmmain.actcloseactivetab.caption
+msgctxt "tfrmmain.actcloseactivetab.caption"
+msgid "Close Page"
+msgstr "Закрыть вкладку"
+
+#: tfrmmain.actcloseactivetab.hint
+msgctxt "tfrmmain.actcloseactivetab.hint"
+msgid "Close Page"
+msgstr "Закрыть вкладку"
+
+#: tfrmmain.actcodeinsdatetime.caption
+msgid "Date and Time"
+msgstr "Дата и время"
+
+#: tfrmmain.actcodeinsusername.caption
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: tfrmmain.actcompactviewmode.caption
+msgid "Compact View"
+msgstr "Компактный режим"
+
+#: tfrmmain.actcompile.caption
+msgctxt "tfrmmain.actcompile.caption"
+msgid "Compile"
+msgstr "Компилировать"
+
+#: tfrmmain.actcompile.hint
+msgctxt "tfrmmain.actcompile.hint"
+msgid "Compile"
+msgstr "Компилировать"
+
+#: tfrmmain.actcreatemodule.caption
+msgid "Create Module"
+msgstr "Создать модуль"
+
+#: tfrmmain.actcreatemodule.hint
+msgid "Create module"
+msgstr "Создать модуль"
+
+#: tfrmmain.actexportashtml.caption
+msgctxt "tfrmmain.actexportashtml.caption"
+msgid "Export as HTML"
+msgstr "Экспортировать в HTML"
+
+#: tfrmmain.actexportashtml.hint
+msgctxt "tfrmmain.actexportashtml.hint"
+msgid "Export as HTML"
+msgstr "Экспортировать в HTML"
+
+#: tfrmmain.actfileopen.caption
+msgctxt "tfrmmain.actfileopen.caption"
+msgid "Open ..."
+msgstr "Открыть ..."
+
+#: tfrmmain.actfileopen.hint
+msgctxt "tfrmmain.actfileopen.hint"
+msgid "Open ..."
+msgstr "Открыть ..."
+
+#: tfrmmain.actfilesave.caption
+msgctxt "tfrmmain.actfilesave.caption"
+msgid "Save"
+msgstr "Сохранить"
+
+#: tfrmmain.actfilesave.hint
+msgctxt "tfrmmain.actfilesave.hint"
+msgid "Save"
+msgstr "Сохранить"
+
+#: tfrmmain.actjcfcurrenttab.caption
+msgctxt "tfrmmain.actjcfcurrenttab.caption"
+msgid "JEDI Code Format"
+msgstr ""
+
+#: tfrmmain.actjcfcurrenttab.hint
+msgctxt "tfrmmain.actjcfcurrenttab.hint"
+msgid "JEDI Code Format"
+msgstr ""
+
+#: tfrmmain.actrun.caption
+msgctxt "tfrmmain.actrun.caption"
+msgid "Run"
+msgstr "Запустить"
+
+#: tfrmmain.actrun.hint
+msgctxt "tfrmmain.actrun.hint"
+msgid "Run"
+msgstr "Запустить"
+
+#: tfrmmain.actsaveall.caption
+msgctxt "tfrmmain.actsaveall.caption"
+msgid "Save All"
+msgstr "Сохранить всё"
+
+#: tfrmmain.actsaveall.hint
+msgctxt "tfrmmain.actsaveall.hint"
+msgid "Save All"
+msgstr "Сохранить всё"
+
+#: tfrmmain.actterminateproc.caption
+msgctxt "tfrmmain.actterminateproc.caption"
+msgid "Stop"
+msgstr "Остановить"
+
+#: tfrmmain.actterminateproc.hint
+msgctxt "tfrmmain.actterminateproc.hint"
+msgid "Stop"
+msgstr "Остановить"
+
+#: tfrmmain.actupdatestatusbar.caption
+msgid "actUpdateStatusBar"
+msgstr ""
+
+#: tfrmmain.caption
+msgid "AMPASIDE"
+msgstr ""
+
+#: tfrmmain.miabout.caption
+msgctxt "tfrmmain.miabout.caption"
+msgid "About"
+msgstr "О программе"
+
+#: tfrmmain.micloseallotherpages.caption
+msgid "Close All Other Pages"
+msgstr "Закрыть все другие вкладки"
+
+#: tfrmmain.micode.caption
+msgid "Source"
+msgstr "Код"
+
+#: tfrmmain.micodeins.caption
+msgid "Insert General"
+msgstr "Вставить общее"
+
+#: tfrmmain.micreateproject.caption
+msgctxt "tfrmmain.micreateproject.caption"
+msgid "Create New Project"
+msgstr "Создать новый проект"
+
+#: tfrmmain.micreateproject.hint
+msgctxt "tfrmmain.micreateproject.hint"
+msgid "Create New Project"
+msgstr "Создать новый проект"
+
+#: tfrmmain.midocumentation.caption
+msgid "Documentation"
+msgstr "Документация"
+
+#: tfrmmain.miexamples.caption
+msgid "Examples"
+msgstr "Примеры"
+
+#: tfrmmain.miexit.caption
+msgid "Quit"
+msgstr "Выход"
+
+#: tfrmmain.mifile.caption
+msgid "File"
+msgstr "Файл"
+
+#: tfrmmain.miidemacros.caption
+msgctxt "tfrmmain.miidemacros.caption"
+msgid "IDE Macros"
+msgstr "Макросы IDE"
+
+#: tfrmmain.miidesettings.caption
+msgid "Configure AMPASIDE"
+msgstr "Настроить AMPASIDE"
+
+#: tfrmmain.miinfo.caption
+msgid "Help"
+msgstr "Справка"
+
+#: tfrmmain.mijavalibs.caption
+msgid "Java Libs"
+msgstr "Java библиотеки"
+
+#: tfrmmain.mijcf.caption
+msgctxt "tfrmmain.mijcf.caption"
+msgid "JEDI Code Format"
+msgstr ""
+
+#: tfrmmain.mijcfcurrenttab.caption
+msgid "Current Editor Window"
+msgstr "Текущая вкладка редактора"
+
+#: tfrmmain.misettings.caption
+msgctxt "tfrmmain.misettings.caption"
+msgid "Settings"
+msgstr "Параметры"
+
+#: tfrmmain.miview.caption
+msgid "View"
+msgstr "Вид"
+
+#: tfrmmain.tbbdivider1.caption
+msgid "tbbDivider1"
+msgstr ""
+
+#: tfrmmain.tbbdivider2.caption
+msgid "tbbDivider2"
+msgstr ""
+
+#: tfrmmain.tbbdivider3.caption
+msgid "tbbDivider3"
+msgstr ""
+
+#: tfrmmain.tlbmain.caption
+msgid "tlbMain"
+msgstr ""
+
+#: tfrmmain.tslogmsg.caption
+msgid "Messages"
+msgstr "Сообщения"
+
+#: tfrmmain.tsnotes.caption
+msgid "Notes"
+msgstr "Заметки"
+
+#: tfrmmain.tsprojfiles.caption
+msgid "Files"
+msgstr "Файлы"
+
+#: tfrmmain.tsprojsettings.caption
+msgctxt "tfrmmain.tsprojsettings.caption"
+msgid "Settings"
+msgstr "Параметры"
+
+#: tfrmmanifestmf.caption
+msgctxt "tfrmmanifestmf.caption"
+msgid "MANIFEST.MF"
+msgstr ""
+
+#: tfrmmanifestmf.cbextraoptions.caption
+msgid "More options"
+msgstr "Другие опции"
+
+#: tfrmmanifestmf.lblmdelconfirm.caption
+msgid "MIDlet-Delete-Confirm:"
+msgstr ""
+
+#: tfrmmanifestmf.lblminfourl.caption
+msgid "MIDlet-Info-URL:"
+msgstr ""
+
+#: tfrmmanifestmf.lblminstallnotify.caption
+msgid "MIDlet-Install-Notify:"
+msgstr ""
+
+#: tfrmnewproj.caption
+msgid "New project"
+msgstr "Новый проект"
+
+#: tfrmnewproj.lblname.caption
+msgid "Name:"
+msgstr "Имя:"
+
+#: tfrmnewproj.lblpath.caption
+msgid "Path:"
+msgstr "Путь:"
+
+#: tgeneraloptionsframe.cbprevstretch.caption
+msgid "Stretch the image"
+msgstr "Растягивать изображение"
+
+#: tgeneraloptionsframe.gbeditorheaders.caption
+msgid "Headers"
+msgstr "Заголовки"
+
+#: tgeneraloptionsframe.gbemulator.caption
+msgid "Emulator"
+msgstr "Эмулятор"
+
+#: tgeneraloptionsframe.gbfilemanager.caption
+msgid "File manager (preview)"
+msgstr "Файл. менеджер (превью)"
+
+#: tgeneraloptionsframe.gbmoduleprefix.caption
+msgid "Prefix for new modules"
+msgstr "Префикс для новый модулей"
+
+#: tgeneraloptionsframe.lblcmdline.caption
+msgid "Command Line:"
+msgstr "Командная строка:"
+
+#: tgeneraloptionsframe.lblprevheight.caption
+msgctxt "tgeneraloptionsframe.lblprevheight.caption"
+msgid "Height"
+msgstr "Высота"
+
+#: tgeneraloptionsframe.lblprevwidth.caption
+msgctxt "tgeneraloptionsframe.lblprevwidth.caption"
+msgid "Width"
+msgstr "Ширина"
+
+#: tprojectoptionsframe.btnmoarmoarmoar111.caption
+msgid "More ..."
+msgstr "Больше ..."
+
+#: tprojectoptionsframe.cbautoincbuildver.caption
+msgid "Automatically increase build number"
+msgstr "Автом. наращивать номер сборки"
+
+#: tprojectoptionsframe.cbbcanvastype.text
+msgid "MIDP2.0 Fullscreen"
+msgstr ""
+
+#: tprojectoptionsframe.cbbmathtype.text
+msgid "Fixed-point"
+msgstr ""
+
+#: tprojectoptionsframe.gbconfiguration.caption
+msgid "Configuration"
+msgstr "Конфигурация"
+
+#: tprojectoptionsframe.gbmanifest.caption
+msgctxt "tprojectoptionsframe.gbmanifest.caption"
+msgid "MANIFEST.MF"
+msgstr ""
+
+#: tprojectoptionsframe.gbversions.caption
+msgid "Version numbering"
+msgstr "Номера версии"
+
+#: tprojectoptionsframe.lblandroidmanifestfile.caption
+msgid "androidmanifest"
+msgstr ""
+
+#: tprojectoptionsframe.lblmathtype.caption
+msgid "Real-numbers:"
+msgstr ""
+
+#: tprojectoptionsframe.lblmdesc.caption
+msgid "MIDlet-Description:"
+msgstr ""
+
+#: tprojectoptionsframe.lblmicon.caption
+msgid "MIDlet-Icon:"
+msgstr ""
+
+#: tprojectoptionsframe.lblmname.caption
+msgid "MIDlet-Name:"
+msgstr ""
+
+#: tprojectoptionsframe.lblmtype.caption
+msgid "MIDlet type:"
+msgstr ""
+
+#: tprojectoptionsframe.lblmvendor.caption
+msgid "MIDlet-Vendor:"
+msgstr ""
+
+#: tprojectoptionsframe.lblvbuild.caption
+msgid "Build:"
+msgstr "Сборка:"
+
+#: tprojectoptionsframe.lblvmajor.caption
+msgid "Major:"
+msgstr "Старшая:"
+
+#: tprojectoptionsframe.lblvminor.caption
+msgid "Minor:"
+msgstr "Младшая:"
+
+#: uampascore.err_bad_value
+msgctxt "uampascore.err_bad_value"
+msgid "Invalid value"
+msgstr "Недопустимое значение"
+
+#: uampascore.err_copy_dir
+msgid "Failed to copy directory"
+msgstr "Не удалось скопировать каталог"
+
+#: uampascore.err_copy_file
+msgid "Failed to copy file"
+msgstr "Не удалось скопировать файл"
+
+#: uampascore.err_create_dir
+msgid "Failed to create directory"
+msgstr "Не удалось создать каталог"
+
+#: uampascore.err_del_dir
+msgid "Error when deleting a directory"
+msgstr "Ошибка при удалении каталога"
+
+#: uampascore.err_dir_404
+msgid "Directory not found"
+msgstr "Каталог не найден"
+
+#: uampascore.err_empty_filename
+msgid "Error, empty value in filename"
+msgstr "Ошибка, пустое значение в имени файла"
+
+#: uampascore.err_empty_value
+msgid "Empty value"
+msgstr "Пустое значение"
+
+#: uampascore.err_err
+msgid "Error"
+msgstr "Ошибка"
+
+#: uampascore.err_failded_build_apk
+msgid "Failed to build APK file, details"
+msgstr "Не удалось создать APK-файл, подробности"
+
+#: uampascore.err_failed_create_module
+msgid "Failed to create module"
+msgstr "Не удалось создать модуль"
+
+#: uampascore.err_failed_del
+msgid "Failed to delete"
+msgstr "Не удалось удалить"
+
+#: uampascore.err_failed_download
+msgid "Failed to download"
+msgstr "Не удалось загрузить"
+
+#: uampascore.err_failed_find_lib
+msgid "Failed to find library/module"
+msgstr "Не удалось найти библиотеку/модуль"
+
+#: uampascore.err_failed_open
+msgid "Failed to open"
+msgstr "Не удалось открыть"
+
+#: uampascore.err_failed_open_file_as_png
+msgid "Failed to open file as PNG"
+msgstr "Не удалось открыть файл в формате PNG"
+
+#: uampascore.err_failed_rename
+msgid "Failed to rename"
+msgstr "Не удалось переименовать"
+
+#: uampascore.err_failed_save
+msgid "Failed to save"
+msgstr "Не удалось сохранить"
+
+#: uampascore.err_failed_save_notes_file
+msgid "Failed to save notes file"
+msgstr "Не удалось сохранить файл заметок"
+
+#: uampascore.err_file_404
+msgid "File not found"
+msgstr "Файл не найден"
+
+#: uampascore.err_jedi_cf
+msgid "An error occurred during code formatting"
+msgstr "Произошла ошибка при форматировании кода"
+
+#: uampascore.err_load_autocompele_file
+msgid "Failed to load the auto-complete file"
+msgstr "Не удалось загрузить файл автозаполнения"
+
+#: uampascore.err_load_img
+msgid "Failed to get image list"
+msgstr "Не удалось получить список изображений"
+
+#: uampascore.err_load_notes
+msgid "Failed to load notes file"
+msgstr "Не удалось загрузить файл заметок"
+
+#: uampascore.err_no_read_access
+msgid "No read permissions"
+msgstr "Нет прав на чтение"
+
+#: uampascore.err_no_write_access
+msgid "No write permissions"
+msgstr "Нет прав на запись"
+
+#: uampascore.err_run_proc
+msgid "Process startup error"
+msgstr "Ошибка запуска процесса"
+
+#: uampascore.err_saving
+msgid "Saving error"
+msgstr "Ошибка сохранения"
+
+#: uampascore.text_byte
+msgid "b."
+msgstr "байт"
+
+#: uampascore.text_completed
+msgid "completed"
+msgstr "завершено"
+
+#: uampascore.text_proc
+msgid "Process"
+msgstr "Процесс"
+
+#: uandroidbuilding.text_compile_project
+msgid "compile project, it takes about a minute"
+msgstr "идет сборка, это займет около минуты"
+
+#: ucodeeditor.st_bar_modified
+msgid "Modified"
+msgstr "Изменено"
+
+#: ucodeeditor.st_bar_no_open_files
+msgid "no open file"
+msgstr "нет открытого файла"
+
+#: ufilemanager.caption_confirm_action
+msgctxt "ufilemanager.caption_confirm_action"
+msgid "Confirm the action"
+msgstr "Подтвердите действие"
+
+#: ufilemanager.caption_creating_dir
+msgid "Creating a directory"
+msgstr "Создать каталог"
+
+#: ufilemanager.caption_rename
+msgctxt "ufilemanager.caption_rename"
+msgid "Rename"
+msgstr "Переименовать"
+
+#: ufilemanager.filter_all_files
+msgid "All files"
+msgstr "Все файлы"
+
+#: ufilemanager.item_libs
+msgid "Libraries"
+msgstr "Библиотеки"
+
+#: ufilemanager.item_modules
+msgid "Modules"
+msgstr "Модули"
+
+#: ufilemanager.item_res
+msgid "Resources"
+msgstr "Русурсы"
+
+#: ufilemanager.msg_del_dir
+msgid "Remove directory"
+msgstr "Удалить каталог"
+
+#: ufilemanager.msg_del_file
+msgid "Remove file"
+msgstr "Удалить файл"
+
+#: ufilemanager.msg_enter_name
+msgid "Enter name"
+msgstr "Введите имя"
+
+#: ufilemanager.msg_new_name
+msgid "New name"
+msgstr "Новое имя"
+
+#: ufilemanager.msg_overwrite_dir
+msgid "Overwrite directory"
+msgstr "Перезаписать каталог"
+
+#: ufilemanager.msg_overwrite_file
+msgid "Overwrite file"
+msgstr "Перезаписать файл"
+
+#: ufilemanager.title_add_files_to
+msgid "Add files to"
+msgstr "Добавить файлы в"
+
+#: ufilemanager.title_open_file
+msgid "Open file"
+msgstr "Открыть файл"
+
+#: ufilemanager.title_save_as
+msgid "Save As ..."
+msgstr "Сохранить как ..."
+
+#: ufilemanager.title_save_module_as
+msgid "Save module as ..."
+msgstr "Сохранить модуль  как ..."
+
+#: ufilemanagerframe.caption_height
+msgctxt "ufilemanagerframe.caption_height"
+msgid "Height"
+msgstr "Высота"
+
+#: ufilemanagerframe.caption_no_file_selected
+msgid "No file selected"
+msgstr "Файл не выбран"
+
+#: ufilemanagerframe.caption_width
+msgctxt "ufilemanagerframe.caption_width"
+msgid "Width"
+msgstr "Ширина"
+
+#: ufilemanagerframe.hint_collapse
+msgid "Collapse"
+msgstr "Свернуть"
+
+#: ufilemanagerframe.hint_expand
+msgid "Expand"
+msgstr "Развернуть"
+
+#: ufilemanagerframe.text_size
+msgctxt "ufilemanagerframe.text_size"
+msgid "Size"
+msgstr "Размер"
+
+#: uidemacrosform.text_absolute_path_to
+msgid "absolute path to"
+msgstr "абсолютный путь к"
+
+#: uidemacrosform.text_absolute_path_to_proj
+msgid "absolute path to project home directory"
+msgstr "абсолютный путь к домашнему каталогу проекта"
+
+#: uidemacrosform.text_other
+msgctxt "uidemacrosform.text_other"
+msgid "Other"
+msgstr "Другое"
+
+#: uidemacrosform.text_project
+msgid "Project"
+msgstr "Проект"
+
+#: umainform.caption_confirmation
+msgid "Confirmation"
+msgstr "Подтверждение"
+
+#: umainform.caption_invalid_value
+msgctxt "umainform.caption_invalid_value"
+msgid "Invalid value"
+msgstr "Недопустимое значение"
+
+#: umainform.caption_process_is_started
+msgid "Process started"
+msgstr "Запущен процесс"
+
+#: umainform.msg_format_code
+msgid "Format code"
+msgstr "Форматировать код"
+
+#: umainform.msg_interrupt_execution
+msgid "Interrupt execution"
+msgstr "Прервать выполнение"
+
+#: umainform.msg_module_already_exists
+msgid "Module with this name already exists, overwrite it?"
+msgstr "Модуль с таким именем уже существует, перезаписать его?"
+
+#: umainform.msg_module_name_must_least
+msgid "Module name must be at least 3 characters long"
+msgstr "Имя модуля должно содержать не менее 3 символов"
+
+#: umainform.msg_save_changes
+msgid "Save changes to file"
+msgstr "Сохранить изменения в файл"
+
+#: umainform.text_not_available_no_open_project
+msgid "Not available, no open project"
+msgstr "Недоступно, нет открытого проекта"
+
+#: unewprojform.caption_confirm_action
+msgctxt "unewprojform.caption_confirm_action"
+msgid "Confirm the action"
+msgstr "Подтвердите действие"
+
+#: unewprojform.msg_enter_projname
+msgid "Enter project name"
+msgstr "Введите название проекта"
+
+#: unewprojform.msg_proj_exists
+msgid "Project with this name already exists, overwrite it?"
+msgstr "Проект с таким именем уже существует, перезаписать его?"
+
+#: unewprojform.msg_proj_name_must_least
+msgid "Project name must be at least 3 characters long"
+msgstr "Название проекта должно содержать не менее 3 символов"
+
+#: unewprojform.msg_select_save_dir
+msgid "Select a save directory"
+msgstr "Выберите каталог сохранения"
+
+#: uprojectbuilding.log_info_ant_completed_work
+msgid "Ant has completed its work, details"
+msgstr "Ant завершил работу, подробности"
+
+#: uprojectbuilding.log_info_archiving_start
+msgid "Starting archiving"
+msgstr "Начало архивации"
+
+#: uprojectbuilding.log_info_compiling
+msgid "Compiling"
+msgstr "Компиляция"
+
+#: uprojectbuilding.log_info_completed
+msgid "Completed"
+msgstr "Завершено"
+
+#: uprojectbuilding.log_info_emulator_stop
+msgid "Emulator operation completed"
+msgstr "Работа эмулятора завершена"
+
+#: uprojectbuilding.msg_build_successful
+msgid "Build successful"
+msgstr "Сборка успешно завершена"
+
+#: uprojectbuilding.text_lauch
+msgid "launch"
+msgstr "запуск"
+
+#: uprojectbuilding.text_platform
+msgid "Platform"
+msgstr "Платформа"
+
+#: uprojectbuilding.text_process_busy
+msgid "file may be busy with another process"
+msgstr "возможно файл занят другим процессом"
+
+#: uprojectbuilding.text_size
+msgctxt "uprojectbuilding.text_size"
+msgid "Size"
+msgstr "Размер"
+
+#: uprojectbuilding.text_version
+msgid "Version"
+msgstr "Версия"
+
+#: uprojectmanager.text_default_notes
+msgid "You can write anything here, notes, todos, etc ..."
+msgstr ""
+"Здесь можно писать что угодно, используйте это для заметок и быстрых записей"

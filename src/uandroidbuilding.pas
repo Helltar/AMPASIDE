@@ -45,6 +45,9 @@ type
     property AntBuildFile: string write FAntBuildFile;
   end;
 
+resourcestring
+  TEXT_COMPILE_PROJECT = 'compile project, it takes about a minute';
+
 implementation
 
 uses
@@ -173,7 +176,7 @@ begin
   if not PreBuildAct then
     Exit;
 
-  AddLogMsg('Apache Ant, ' + MSG_GOING_ASSEMBLED + '...' + LE + ProjManager.ProjDirAndroid + ApkName);
+  AddLogMsg('Apache Ant, ' + TEXT_COMPILE_PROJECT + '...' + LE + ProjManager.ProjDirAndroid + ApkName);
 
   AntCmd := APACHE_ANT + ProjBuildFile;
 
@@ -211,7 +214,7 @@ begin
 
   if Pos('BUILD FAILED', AntOutput) = 0 then  // if Pos('BUILD SUCCESSFUL', AntOutput) > 0 then (windows output bug)
   begin
-    AddLogMsg(ERR_ANT_COMPLETED_WORK + ': .' + DIR_SEP + ANT_LOG);
+    AddLogMsg(LOG_INFO_ANT_COMPLETED_WORK + ': .' + DIR_SEP + ANT_LOG);
 
     ApkFileName := ProjManager.ProjDirPreBuild + ApkName;
 
@@ -219,9 +222,9 @@ begin
     if RenameFile(ApkFileName, ProjManager.ProjDirAndroid + ApkName) then
       ApkFileName := ProjManager.ApkFile;
 
-    AddLogMsg(MSG_SUCCESSFULLY_ASSEMBLED + LE +
-      MSG_VERSION + ': ' + ProjManager.MIDletVersion + LE + MSG_SIZE + ': ' +
-      GetFileSize(ApkFileName) + LE + MSG_PLATFORM + ': Android' + LE +
+    AddLogMsg(MSG_BUILD_SUCCESSFUL + LE +
+      TEXT_VERSION + ': ' + ProjManager.MIDletVersion + LE + TEXT_SIZE + ': ' +
+      GetFileSize(ApkFileName) + LE + TEXT_PLATFORM + ': Android' + LE +
       PROJ_DIR_BIN + DIR_SEP + PROJ_DIR_ANDROID + DIR_SEP + ApkName, lmtOk);
 
     DelTempFiles;

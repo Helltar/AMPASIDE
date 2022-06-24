@@ -1,0 +1,10 @@
+{"version":1,"strings":[
+{"hash":79859618,"name":"tgeneraloptionsframe.gbemulator.caption","sourcebytes":[69,109,117,108,97,116,111,114],"value":"Emulator"},
+{"hash":204921994,"name":"tgeneraloptionsframe.lblcmdline.caption","sourcebytes":[67,111,109,109,97,110,100,32,76,105,110,101,58],"value":"Command Line:"},
+{"hash":41904057,"name":"tgeneraloptionsframe.gbfilemanager.caption","sourcebytes":[70,105,108,101,32,109,97,110,97,103,101,114,32,40,112,114,101,118,105,101,119,41],"value":"File manager (preview)"},
+{"hash":82574836,"name":"tgeneraloptionsframe.lblprevheight.caption","sourcebytes":[72,101,105,103,104,116],"value":"Height"},
+{"hash":6159272,"name":"tgeneraloptionsframe.lblprevwidth.caption","sourcebytes":[87,105,100,116,104],"value":"Width"},
+{"hash":229701109,"name":"tgeneraloptionsframe.cbprevstretch.caption","sourcebytes":[83,116,114,101,116,99,104,32,116,104,101,32,105,109,97,103,101],"value":"Stretch the image"},
+{"hash":246918355,"name":"tgeneraloptionsframe.gbeditorheaders.caption","sourcebytes":[72,101,97,100,101,114,115],"value":"Headers"},
+{"hash":186678787,"name":"tgeneraloptionsframe.gbmoduleprefix.caption","sourcebytes":[80,114,101,102,105,120,32,102,111,114,32,110,101,119,32,109,111,100,117,108,101,115],"value":"Prefix for new modules"}
+]}
