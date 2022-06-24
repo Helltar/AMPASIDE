@@ -54,6 +54,9 @@ type
     actUpdateStatusBar: TAction;
     actlMain: TActionList;
     ilMain: TImageList;
+    miLocale: TMenuItem;
+    miLangEn: TMenuItem;
+    miLangRu: TMenuItem;
     miSaveAll: TMenuItem;
     miCloseActivePage: TMenuItem;
     miCloseAllOtherPages: TMenuItem;
@@ -151,7 +154,8 @@ type
     procedure miCreateProjectClick(Sender: TObject);
     procedure miExitClick(Sender: TObject);
     procedure miJavaLibsClick(Sender: TObject);
-    procedure pgcEditorChange(Sender: TObject);
+    procedure miLangEnClick(Sender: TObject);
+    procedure miLangRuClick(Sender: TObject);
     procedure pgcEditorCloseTabClicked(Sender: TObject);
     procedure synedtNotesChange(Sender: TObject);
   private
@@ -220,8 +224,6 @@ var
   i: integer;
 
 begin
-  SetDefaultLang('ru');
-
   Caption := APP_NAME + ' ' + GetProgramVersion;
 
   AddLogMsg(Caption);
@@ -563,9 +565,14 @@ begin
   OpenURL(URL_JAVA_LIB);
 end;
 
-procedure TfrmMain.pgcEditorChange(Sender: TObject);
+procedure TfrmMain.miLangEnClick(Sender: TObject);
 begin
+   SetDefaultLang('en');
+end;
 
+procedure TfrmMain.miLangRuClick(Sender: TObject);
+begin
+   SetDefaultLang('ru');
 end;
 
 procedure TfrmMain.pgcEditorCloseTabClicked(Sender: TObject);

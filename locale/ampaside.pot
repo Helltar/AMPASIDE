@@ -430,6 +430,18 @@ msgstr ""
 msgid "Current Editor Window"
 msgstr ""
 
+#: tfrmmain.milangen.caption
+msgid "English"
+msgstr ""
+
+#: tfrmmain.milangru.caption
+msgid "Russian"
+msgstr ""
+
+#: tfrmmain.milocale.caption
+msgid "Language"
+msgstr ""
+
 #: tfrmmain.misettings.caption
 msgctxt "tfrmmain.misettings.caption"
 msgid "Settings"

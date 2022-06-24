@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 441
+  Left = 541
   Height = 578
-  Top = 264
+  Top = 250
   Width = 911
   AllowDropFiles = True
   Caption = 'AMPASIDE'
@@ -146,7 +146,6 @@ object frmMain: TfrmMain
     BorderSpacing.Around = 6
     PopupMenu = pmEditor
     TabOrder = 1
-    OnChange = pgcEditorChange
     OnCloseTabClicked = pgcEditorCloseTabClicked
     Options = [nboShowCloseButtons]
   end
@@ -931,6 +930,17 @@ object frmMain: TfrmMain
       object miIDESettings: TMenuItem
         Caption = 'Configure AMPASIDE'
         OnClick = miIDESettingsClick
+      end
+      object miLocale: TMenuItem
+        Caption = 'Language'
+        object miLangEn: TMenuItem
+          Caption = 'English'
+          OnClick = miLangEnClick
+        end
+        object miLangRu: TMenuItem
+          Caption = 'Russian'
+          OnClick = miLangRuClick
+        end
       end
     end
     object miInfo: TMenuItem
