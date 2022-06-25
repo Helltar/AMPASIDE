@@ -1,12 +1,9 @@
 AMPASIDE
 ========
 
-Advanced MIDletPascal IDE
+Advanced [MIDletPascal](https://en.wikipedia.org/wiki/MIDletPascal) IDE
 
 - [README_ru.md](https://github.com/Helltar/AMPASIDE/blob/master/README_ru.md)
-
-Development environment using the [MIDletPascal](https://en.wikipedia.org/wiki/MIDletPascal) programming language compiler.
-
 - https://www.youtube.com/watch?v=YKPKqdwdn3I
 
 Download
