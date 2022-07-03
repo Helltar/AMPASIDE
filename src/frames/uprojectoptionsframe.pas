@@ -1,6 +1,6 @@
 {-------------------------------------------------------------------------------
 
-Copyright (C) 2015-2022 Helltar <mail@helltar.com>
+Copyright (C) 2015 Helltar <mail@helltar.com>
 
 This file is part of AMPASIDE.
 
@@ -63,7 +63,6 @@ type
     procedure edtMIconChange(Sender: TObject);
     procedure edtMNameChange(Sender: TObject);
     procedure edtMVendorChange(Sender: TObject);
-    procedure gbAndroidManifestClick(Sender: TObject);
     procedure lblAndroidManifestFileClick(Sender: TObject);
     procedure sedtVBuildChange(Sender: TObject);
     procedure sedtVMajorChange(Sender: TObject);
@@ -125,11 +124,6 @@ end;
 procedure TProjectOptionsFrame.edtMVendorChange(Sender: TObject);
 begin
   ProjConfig.MIDletVendor := edtMVendor.Text;
-end;
-
-procedure TProjectOptionsFrame.gbAndroidManifestClick(Sender: TObject);
-begin
-
 end;
 
 procedure TProjectOptionsFrame.lblAndroidManifestFileClick(Sender: TObject);
