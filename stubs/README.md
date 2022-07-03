@@ -1,1 +1,1 @@
-- https://github.com/Helltar/mps-code
+- https://gitlab.com/Helltar/mps-code
