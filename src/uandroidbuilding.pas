@@ -1,6 +1,6 @@
 {-------------------------------------------------------------------------------
 
-Copyright (C) 2015-2022 Helltar <mail@helltar.com>
+Copyright (C) 2015 Helltar <mail@helltar.com>
 
 This file is part of AMPASIDE.
 
@@ -94,40 +94,37 @@ begin
 end;
 
 function TAndroidBuildingThread.CreateBuildFile(const FileName, JadName, ApkName, Outdir: string): boolean;
-var
-  sList: TStringList;
+const
+  TAB = LE + '    ';
 
 begin
   Result := False;
-  sList := TStringList.Create;
-  try
-    sList.Add('<project name="microemu-android" default="package-apk">' + LE);
-    sList.Add('<property name="midlet.jad" value="' + JadName + '" />');
-    sList.Add('<property name="midlet.package" value="' + ApkName + '" />');
-    sList.Add('<property name="outdir" value="' + Outdir + '" />');
-    sList.Add('<property name="sdk-folder" value="' + GetAppPath + APP_DIR_ANDROID + 'sdk" />');
-    sList.Add('<property name="root-folder" value="' + GetAppPath + APP_DIR_ANDROID + '" />');
 
-    with TStringList.Create do
-      try
-        try
-          LoadFromFile(FileName);
-          sList.Add(Text);
-        except
-          AddLogMsg(ERR_FAILED_DOWNLOAD + ': ' + FileName, lmtErr);
-        end;
-      finally
-        Free;
-      end;
+  with TStringList.Create do
     try
-      sList.SaveToFile(FileName);
-      Result := True;
-    except
-      AddLogMsg(ERR_FAILED_SAVE + ': ' + FileName, lmtErr);
+      try
+        LoadFromFile(FileName);
+        Insert(1, TAB +
+          '<!--- ' + APP_NAME + ' -->' + TAB +
+          '<property name="midlet.jad" value="' + JadName + '" />' + TAB +
+          '<property name="midlet.package" value="' + ApkName + '" />' + TAB +
+          '<property name="outdir" value="' + Outdir + '" />' + TAB +
+          '<property name="sdk-folder" value="' + GetAppPath + APP_DIR_ANDROID + 'sdk" />' + TAB +
+          '<property name="root-folder" value="' + GetAppPath + APP_DIR_ANDROID + '" />' + TAB +
+          '<!--- ' + APP_NAME + ' -->');
+      except
+        AddLogMsg(ERR_FAILED_DOWNLOAD + ': ' + FileName, lmtErr);
+      end;
+
+      try
+        SaveToFile(FileName);
+        Result := True;
+      except
+        AddLogMsg(ERR_FAILED_SAVE + ': ' + FileName, lmtErr);
+      end;
+    finally
+      Free;
     end;
-  finally
-    FreeAndNil(sList);
-  end;
 end;
 
 procedure TAndroidBuildingThread.BuildAPK(const AntBuildFile: string);
