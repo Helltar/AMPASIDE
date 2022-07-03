@@ -1,6 +1,6 @@
 {-------------------------------------------------------------------------------
 
-Copyright (C) 2015-2022 Helltar <mail@helltar.com>
+Copyright (C) 2015 Helltar <mail@helltar.com>
 
 This file is part of AMPASIDE.
 
@@ -108,8 +108,8 @@ function GetProgramVersion: string;
 function IsProcRunning: boolean;
 function LoadImages(APath: string; ImgList: TImageList): boolean;
 function MakeDir(const DirName: string): boolean;
-function ProcStart(const AExecutable, AParameters: string; UsePipes: boolean = True): TProcFunc;
-function ProcStart(const AParameters: string; UsePipes: boolean = True): TProcFunc;
+function ProcStart(const AExecutable, AParameters: string): TProcFunc;
+function ProcStart(const AParameters: string): TProcFunc;
 procedure AddLogMsg(const AValue: string; MsgType: TLogMsgType = lmtText);
 procedure CheckConfig(var FileName: string);
 procedure TerminateProc;
@@ -233,7 +233,7 @@ begin
     Result := IntToStr(IntSize div 1024) + ' KB';
 end;
 
-function ProcStart(const AExecutable, AParameters: string; UsePipes: boolean): TProcFunc;
+function ProcStart(const AExecutable, AParameters: string): TProcFunc;
 var
   P: TProcess;
 
@@ -250,10 +250,10 @@ begin
   else
     P.CommandLine := AParameters;
 
-  P.Options := [poStderrToOutPut, poNoConsole];
+  P.Options := [poStderrToOutPut, poUsePipes];
 
-  if UsePipes then
-    P.Options := P.Options + [poUsePipes];
+  //if UsePipes then
+  //P.Options := P.Options + [poUsePipes];
 
   try
     try
@@ -268,14 +268,14 @@ begin
         Sleep(1);
       end;
 
-      if UsePipes then
-        with TStringList.Create do
-          try
-            LoadFromStream(P.Output);
-            Result.Output := Text;
-          finally
-            Free;
-          end;
+      // if UsePipes then
+      with TStringList.Create do
+        try
+          LoadFromStream(P.Output);
+          Result.Output := Text;
+        finally
+          Free;
+        end;
 
       Result.Completed := True;
     except
@@ -288,9 +288,9 @@ begin
   end;
 end;
 
-function ProcStart(const AParameters: string; UsePipes: boolean): TProcFunc;
+function ProcStart(const AParameters: string): TProcFunc;
 begin
-  Result := ProcStart('', AParameters, UsePipes);
+  Result := ProcStart('', AParameters);
 end;
 
 procedure TerminateProc;

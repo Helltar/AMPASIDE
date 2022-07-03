@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 374
+  Left = 630
   Height = 676
-  Top = 173
+  Top = 182
   Width = 1092
   AllowDropFiles = True
   Caption = 'AMPASIDE'
@@ -212,13 +212,13 @@ object frmMain: TfrmMain
     TabOrder = 4
     object tsLogMsg: TTabSheet
       Caption = 'Messages'
-      ClientHeight = 149
-      ClientWidth = 739
+      ClientHeight = 151
+      ClientWidth = 743
       object tvMsg: TTreeView
         Left = 6
-        Height = 137
+        Height = 139
         Top = 6
-        Width = 727
+        Width = 731
         Align = alClient
         AutoExpand = True
         BorderSpacing.Around = 6
@@ -231,13 +231,13 @@ object frmMain: TfrmMain
     end
     object tsNotes: TTabSheet
       Caption = 'Notes'
-      ClientHeight = 149
-      ClientWidth = 739
+      ClientHeight = 151
+      ClientWidth = 743
       inline synedtNotes: TSynEdit
         Left = 6
-        Height = 137
+        Height = 139
         Top = 6
-        Width = 727
+        Width = 731
         Align = alClient
         BorderSpacing.Around = 6
         Font.Height = -12

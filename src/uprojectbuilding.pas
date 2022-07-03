@@ -461,9 +461,9 @@ begin
   FileArchiver := GetAppPath + FILE_ARCHIVER;
   CmdParameters := 'a "' + JARFileName + '" "';
 
-  if ProcStart(FileArchiver, CmdParameters + ProjManager.ProjDirPreBuild + '*"', False).Completed then
+  if ProcStart(FileArchiver, CmdParameters + ProjManager.ProjDirPreBuild + '*"').Completed then
   begin
-    if ProcStart(FileArchiver, CmdParameters + ProjManager.ProjDirRes + '*"', False).Completed then
+    if ProcStart(FileArchiver, CmdParameters + ProjManager.ProjDirRes + '*"').Completed then
     begin
       CreateJad;
 
@@ -503,7 +503,7 @@ begin
 
   AddLogMsg('Emulator: ' + TEXT_LAUCH + ' ' + ExtractFileName(ProjManager.JarFile) + '...');
 
-  if ProcStart(IDEConfig.MacrosReplace(IDEConfig.EmulatorCmd), False).Completed then
+  if ProcStart(IDEConfig.MacrosReplace(IDEConfig.EmulatorCmd)).Completed then
     AddLogMsg(LOG_INFO_EMULATOR_STOP);
 end;
 

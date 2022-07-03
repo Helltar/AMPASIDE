@@ -1,6 +1,6 @@
 {-------------------------------------------------------------------------------
 
-Copyright (C) 2015-2022 Helltar <mail@helltar.com>
+Copyright (C) 2015 Helltar <mail@helltar.com>
 
 This file is part of AMPASIDE.
 

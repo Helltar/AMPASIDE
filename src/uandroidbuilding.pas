@@ -188,18 +188,14 @@ begin
 
   // ant.log
   if P.Output <> EmptyStr then
-  begin
     with TStringList.Create do
-    begin
       try
         Text := P.Output;
         AntOutput := Text;
         SaveToFile(GetAppPath + ANT_LOG);
       finally
         Free;
-      end;
-    end;
-  end
+      end
   else
     with TStringList.Create do
       try
@@ -209,7 +205,7 @@ begin
         Free;
       end;
 
-  if Pos('BUILD FAILED', AntOutput) = 0 then  // if Pos('BUILD SUCCESSFUL', AntOutput) > 0 then (windows output bug)
+  if Pos('BUILD SUCCESSFUL', AntOutput) > 0 then
   begin
     AddLogMsg(LOG_INFO_ANT_COMPLETED_WORK + ': .' + DIR_SEP + ANT_LOG);
 
