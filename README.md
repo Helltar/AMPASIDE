@@ -1,13 +1,10 @@
 AMPASIDE
 ========
 
-Advanced MIDletPascal IDE
+Advanced [MIDletPascal](https://en.wikipedia.org/wiki/MIDletPascal) IDE
 
 - [README_ru.md](https://github.com/Helltar/AMPASIDE/blob/master/README_ru.md)
-
-Development environment using the [MIDletPascal](https://en.wikipedia.org/wiki/MIDletPascal) programming language compiler.
-
-- https://www.youtube.com/watch?v=YKPKqdwdn3I
+- https://youtu.be/OYWTLv9_ghw
 
 Download
 --------
@@ -21,7 +18,7 @@ Install
 - [Linux](https://github.com/Helltar/AMPASIDE/blob/master/help/install_linux.md)
 - [Windows](https://github.com/Helltar/AMPASIDE/blob/master/help/install_windows.md)
 
-![linux_qt](https://helltar.com/projects/ampaside/screenshots/screenshot_23062022_142550.png)
+![linux_qt](https://helltar.com/projects/ampaside/screenshots/screenshot_26062022_011857.png)
 
 Build from source
 -----------------
