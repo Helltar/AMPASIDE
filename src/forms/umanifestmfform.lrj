@@ -1,7 +1,0 @@
-{"version":1,"strings":[
-{"hash":184095174,"name":"tfrmmanifestmf.caption","sourcebytes":[77,65,78,73,70,69,83,84,46,77,70],"value":"MANIFEST.MF"},
-{"hash":266773770,"name":"tfrmmanifestmf.lblminfourl.caption","sourcebytes":[77,73,68,108,101,116,45,73,110,102,111,45,85,82,76,58],"value":"MIDlet-Info-URL:"},
-{"hash":105090970,"name":"tfrmmanifestmf.lblmdelconfirm.caption","sourcebytes":[77,73,68,108,101,116,45,68,101,108,101,116,101,45,67,111,110,102,105,114,109,58],"value":"MIDlet-Delete-Confirm:"},
-{"hash":219075274,"name":"tfrmmanifestmf.lblminstallnotify.caption","sourcebytes":[77,73,68,108,101,116,45,73,110,115,116,97,108,108,45,78,111,116,105,102,121,58],"value":"MIDlet-Install-Notify:"},
-{"hash":54297379,"name":"tfrmmanifestmf.cbextraoptions.caption","sourcebytes":[77,111,114,101,32,111,112,116,105,111,110,115],"value":"More options"}
-]}
