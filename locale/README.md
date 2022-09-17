@@ -1,4 +1,4 @@
 Poedit
 ------
 
-- https://poedit.net/
+- https://poedit.net
