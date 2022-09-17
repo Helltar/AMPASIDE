@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 630
+  Left = 524
   Height = 676
-  Top = 182
+  Top = 190
   Width = 1092
   AllowDropFiles = True
   Caption = 'AMPASIDE'
@@ -936,6 +936,10 @@ object frmMain: TfrmMain
         object miLangEn: TMenuItem
           Caption = 'English'
           OnClick = miLangEnClick
+        end
+        object miLangUk: TMenuItem
+          Caption = 'Ukrainian'
+          OnClick = miLangUkClick
         end
         object miLangRu: TMenuItem
           Caption = 'Russian'

@@ -453,6 +453,10 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
+#: tfrmmain.milanguk.caption
+msgid "Ukrainian"
+msgstr ""
+
 #: tfrmmain.milocale.caption
 msgid "Language"
 msgstr ""
@@ -533,7 +537,6 @@ msgid "Path:"
 msgstr ""
 
 #: tgeneraloptionsframe.cbautoincbuildver.caption
-msgctxt "tgeneraloptionsframe.cbautoincbuildver.caption"
 msgid "Automatically increase build number"
 msgstr ""
 

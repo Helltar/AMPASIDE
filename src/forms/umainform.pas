@@ -54,6 +54,7 @@ type
     actUpdateStatusBar: TAction;
     actlMain: TActionList;
     ilMain: TImageList;
+    miLangUk: TMenuItem;
     miLocale: TMenuItem;
     miLangEn: TMenuItem;
     miLangRu: TMenuItem;
@@ -156,6 +157,7 @@ type
     procedure miJavaLibsClick(Sender: TObject);
     procedure miLangEnClick(Sender: TObject);
     procedure miLangRuClick(Sender: TObject);
+    procedure miLangUkClick(Sender: TObject);
     procedure pgcEditorCloseTabClicked(Sender: TObject);
     procedure synedtNotesChange(Sender: TObject);
   private
@@ -573,24 +575,17 @@ end;
 
 procedure TfrmMain.miLangEnClick(Sender: TObject);
 begin
-  if GetDefaultLang <> 'en' then
-  begin
-    case MessageDlg(CAPTION_CONFIRMATION, RESTART_CONFIRMATION, mtWarning, [mbOK, mbCancel], 0) of
-      mrOk: LangRestart('en');
-      mrCancel:
-    end;
-  end;
+  LangRestart('en');
 end;
 
 procedure TfrmMain.miLangRuClick(Sender: TObject);
 begin
-  if GetDefaultLang <> 'ru' then
-  begin
-    case MessageDlg(CAPTION_CONFIRMATION, RESTART_CONFIRMATION, mtWarning, [mbOK, mbCancel], 0) of
-      mrOk: LangRestart('ru');
-      mrCancel:
-    end;
-  end;
+  LangRestart('ru');
+end;
+
+procedure TfrmMain.miLangUkClick(Sender: TObject);
+begin
+  LangRestart('uk');
 end;
 
 procedure TfrmMain.pgcEditorCloseTabClicked(Sender: TObject);
@@ -802,24 +797,30 @@ end;
 
 procedure TfrmMain.LangRestart(const code: string);
 begin
-  if GetDefaultLang <> code then
-  begin
-    IDEConfig.Lang := code;
+  if GetDefaultLang = code then
+    Exit;
 
-    if CloseQuery then
+  case MessageDlg(CAPTION_CONFIRMATION, RESTART_CONFIRMATION, mtWarning, [mbOK, mbCancel], 0) of
+    mrOk:
     begin
-      with TProcess.Create(nil) do
-      begin
-        Executable := Application.ExeName;
-        try
-          Execute;
-        finally
-          Free;
-        end;
-      end;
+      IDEConfig.Lang := code;
 
-      Application.Terminate;
+      if CloseQuery then
+      begin
+        with TProcess.Create(nil) do
+        begin
+          Executable := Application.ExeName;
+          try
+            Execute;
+          finally
+            Free;
+          end;
+        end;
+
+        Application.Terminate;
+      end;
     end;
+    mrCancel:
   end;
 end;
 

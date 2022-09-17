@@ -1,58 +1,57 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: AMPASIDE 1.1.3\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
-"Language-Team: Helltar\n"
-"Language: ru\n"
+"Language-Team: \n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.1\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 
 #: tdmcodeeditor.edtcopy.caption
 msgctxt "tdmcodeeditor.edtcopy.caption"
 msgid "Copy"
-msgstr "Копировать"
+msgstr "Копіювати"
 
 #: tdmcodeeditor.edtcopy.hint
 msgctxt "tdmcodeeditor.edtcopy.hint"
 msgid "Copy"
-msgstr "Копировать"
+msgstr "Копіювати"
 
 #: tdmcodeeditor.edtcut.caption
 msgctxt "tdmcodeeditor.edtcut.caption"
 msgid "Cut"
-msgstr "Вырезать"
+msgstr "Вирізати"
 
 #: tdmcodeeditor.edtcut.hint
 msgctxt "tdmcodeeditor.edtcut.hint"
 msgid "Cut"
-msgstr "Вырезать"
+msgstr "Вирізати"
 
 #: tdmcodeeditor.edtpaste.caption
 msgctxt "tdmcodeeditor.edtpaste.caption"
 msgid "Paste"
-msgstr "Вставить"
+msgstr "Вставити"
 
 #: tdmcodeeditor.edtpaste.hint
 msgctxt "tdmcodeeditor.edtpaste.hint"
 msgid "Paste"
-msgstr "Вставить"
+msgstr "Вставити"
 
 #: tdmcodeeditor.edtselectall.caption
 msgctxt "tdmcodeeditor.edtselectall.caption"
 msgid "Select All"
-msgstr "Выбрать все"
+msgstr "Виділити все"
 
 #: tdmcodeeditor.edtselectall.hint
 msgctxt "tdmcodeeditor.edtselectall.hint"
 msgid "Select All"
-msgstr "Выбрать все"
+msgstr "Виділити все"
 
 #: teditoroptionsframe.cbbrightedge.text
 msgid "100"
@@ -60,7 +59,7 @@ msgstr ""
 
 #: teditoroptionsframe.cbscrollpasteol.caption
 msgid "Allow caret to move past end of line"
-msgstr "Перемещать каретку за конец строки"
+msgstr "Дозволити курсору переміщатися за кінець рядка"
 
 #: teditoroptionsframe.edtbtnschemefile.buttoncaption
 msgctxt "teditoroptionsframe.edtbtnschemefile.buttoncaption"
@@ -74,7 +73,7 @@ msgstr ""
 
 #: teditoroptionsframe.gbcolors.caption
 msgid "Colors"
-msgstr "Цвета"
+msgstr "Кольори"
 
 #: teditoroptionsframe.gbfont.caption
 msgid "Font"
@@ -83,11 +82,11 @@ msgstr "Шрифт"
 #: teditoroptionsframe.gbmix.caption
 msgctxt "teditoroptionsframe.gbmix.caption"
 msgid "Other"
-msgstr "Другое"
+msgstr "Інше"
 
 #: teditoroptionsframe.lblcomment.caption
 msgid "Comment"
-msgstr "Комментарий"
+msgstr "Коментар"
 
 #: teditoroptionsframe.lbleditorcolor.caption
 msgctxt "teditoroptionsframe.lbleditorcolor.caption"
@@ -96,33 +95,33 @@ msgstr "Редактор"
 
 #: teditoroptionsframe.lblfontsize.caption
 msgid "Font size"
-msgstr "Размер шрифта"
+msgstr "Розмір шрифту"
 
 #: teditoroptionsframe.lblidentifier.caption
 msgid "Identifier"
-msgstr "Идентификатор"
+msgstr "Ідентифікатор"
 
 #: teditoroptionsframe.lblkey.caption
 msgid "Reserved word"
-msgstr "Зарезервированное слово"
+msgstr "Зарезервоване слово"
 
 #: teditoroptionsframe.lblnumber.caption
 msgid "Number"
-msgstr "Число"
+msgstr "Цифри"
 
 #: teditoroptionsframe.lblrightedge.caption
 msgctxt "teditoroptionsframe.lblrightedge.caption"
 msgid "Right margin"
-msgstr "Правая граница"
+msgstr "Права границя"
 
 #: teditoroptionsframe.lblrigthedge.caption
 msgctxt "teditoroptionsframe.lblrigthedge.caption"
 msgid "Right margin"
-msgstr "Правая граница"
+msgstr "Права границя"
 
 #: teditoroptionsframe.lblselectedcolor.caption
 msgid "Selected Area"
-msgstr "Выбранная область"
+msgstr "Вибрана область"
 
 #: teditoroptionsframe.lblstring.caption
 msgid "String"
@@ -135,65 +134,65 @@ msgstr "Символ"
 #: tfilemanagerframe.actaddfiles.caption
 msgctxt "tfilemanagerframe.actaddfiles.caption"
 msgid "Add Files"
-msgstr "Добавить файлы"
+msgstr "Додати файли"
 
 #: tfilemanagerframe.actaddfiles.hint
 msgctxt "tfilemanagerframe.actaddfiles.hint"
 msgid "Add Files"
-msgstr "Добавить файлы"
+msgstr "Додати файли"
 
 #: tfilemanagerframe.actcreatedir.caption
 msgid "Create Directory"
-msgstr "Создать каталог"
+msgstr "Створити каталог"
 
 #: tfilemanagerframe.actdeletefile.caption
 msgctxt "tfilemanagerframe.actdeletefile.caption"
 msgid "Remove"
-msgstr "Удалить"
+msgstr "Видалити"
 
 #: tfilemanagerframe.actdeletefile.hint
 msgctxt "tfilemanagerframe.actdeletefile.hint"
 msgid "Remove"
-msgstr "Удалить"
+msgstr "Видалити"
 
 #: tfilemanagerframe.actexpandcollapse.caption
 msgctxt "tfilemanagerframe.actexpandcollapse.caption"
 msgid "Collapse All"
-msgstr "Свернуть все"
+msgstr "Згорнути все"
 
 #: tfilemanagerframe.actexpandcollapse.hint
 msgctxt "tfilemanagerframe.actexpandcollapse.hint"
 msgid "Collapse All"
-msgstr "Свернуть"
+msgstr "Згорнути все"
 
 #: tfilemanagerframe.actopenfile.caption
 msgctxt "tfilemanagerframe.actopenfile.caption"
 msgid "Open ..."
-msgstr "Открыть ..."
+msgstr "Відкрити ..."
 
 #: tfilemanagerframe.actopenfile.hint
 msgid "Open"
-msgstr "Открыть"
+msgstr "Відкрити"
 
 #: tfilemanagerframe.actrenamefile.caption
 msgctxt "tfilemanagerframe.actrenamefile.caption"
 msgid "Rename"
-msgstr "Переименовать"
+msgstr "Перейменувати"
 
 #: tfilemanagerframe.actrenamefile.hint
 msgctxt "tfilemanagerframe.actrenamefile.hint"
 msgid "Rename"
-msgstr "Переименовать"
+msgstr "Перейменувати"
 
 #: tfilemanagerframe.actupdatefilelist.caption
 msgctxt "tfilemanagerframe.actupdatefilelist.caption"
 msgid "Update"
-msgstr "Обновить"
+msgstr "Оновити"
 
 #: tfilemanagerframe.actupdatefilelist.hint
 msgctxt "tfilemanagerframe.actupdatefilelist.hint"
 msgid "Update"
-msgstr "Обновить"
+msgstr "Оновити"
 
 #: tfilemanagerframe.tlbmanageractions.caption
 msgid "tlbManagerActions"
@@ -202,7 +201,7 @@ msgstr ""
 #: tfrmabout.caption
 msgctxt "tfrmabout.caption"
 msgid "About"
-msgstr "О программе"
+msgstr "Про Программу"
 
 #: tfrmabout.lblgithuburl.caption
 msgid "https://github.com/Helltar/AMPASIDE"
@@ -215,17 +214,17 @@ msgstr ""
 #: tfrmidemacros.caption
 msgctxt "tfrmidemacros.caption"
 msgid "IDE Macros"
-msgstr "Макросы IDE"
+msgstr "Макроси IDE"
 
 #: tfrmidemacros.micopy.caption
 msgctxt "tfrmidemacros.micopy.caption"
 msgid "Copy"
-msgstr "Копировать"
+msgstr "Копіювати"
 
 #: tfrmideoptions.caption
 msgctxt "tfrmideoptions.caption"
 msgid "Settings"
-msgstr "Параметры"
+msgstr "Налаштування"
 
 #: tfrmideoptions.tseditor.caption
 msgctxt "tfrmideoptions.tseditor.caption"
@@ -234,97 +233,97 @@ msgstr "Редактор"
 
 #: tfrmideoptions.tsgeneral.caption
 msgid "General"
-msgstr "Общее"
+msgstr "Основне"
 
 #: tfrmmain.actbuild.caption
 msgctxt "tfrmmain.actbuild.caption"
 msgid "Build"
-msgstr "Собрать"
+msgstr "Зібрати"
 
 #: tfrmmain.actbuild.hint
 msgctxt "tfrmmain.actbuild.hint"
 msgid "Build"
-msgstr "Собрать"
+msgstr "Зібрати"
 
 #: tfrmmain.actbuildandroid.caption
 msgctxt "tfrmmain.actbuildandroid.caption"
 msgid "Build APK"
-msgstr "Собрать APK"
+msgstr "Зібрати APK"
 
 #: tfrmmain.actbuildandroid.hint
 msgctxt "tfrmmain.actbuildandroid.hint"
 msgid "Build APK"
-msgstr "Собрать APK"
+msgstr "Зібрати APK"
 
 #: tfrmmain.actcloseactivetab.caption
 msgctxt "tfrmmain.actcloseactivetab.caption"
 msgid "Close Page"
-msgstr "Закрыть вкладку"
+msgstr "Закрити сторінку"
 
 #: tfrmmain.actcloseactivetab.hint
 msgctxt "tfrmmain.actcloseactivetab.hint"
 msgid "Close Page"
-msgstr "Закрыть вкладку"
+msgstr "Закрити сторінку"
 
 #: tfrmmain.actcodeinsdatetime.caption
 msgid "Date and Time"
-msgstr "Дата и время"
+msgstr "Дата та Час"
 
 #: tfrmmain.actcodeinsusername.caption
 msgid "Username"
-msgstr "Имя пользователя"
+msgstr "Ім'я користувача"
 
 #: tfrmmain.actcompactviewmode.caption
 msgid "Compact View"
-msgstr "Компактный режим"
+msgstr "Компактний вигляд"
 
 #: tfrmmain.actcompile.caption
 msgctxt "tfrmmain.actcompile.caption"
 msgid "Compile"
-msgstr "Компилировать"
+msgstr "Компіляція"
 
 #: tfrmmain.actcompile.hint
 msgctxt "tfrmmain.actcompile.hint"
 msgid "Compile"
-msgstr "Компилировать"
+msgstr "Компіляція"
 
 #: tfrmmain.actcreatemodule.caption
 msgid "Create Module"
-msgstr "Создать модуль"
+msgstr "Створити модуль"
 
 #: tfrmmain.actcreatemodule.hint
 msgid "Create module"
-msgstr "Создать модуль"
+msgstr "Створити модуль"
 
 #: tfrmmain.actexportashtml.caption
 msgctxt "tfrmmain.actexportashtml.caption"
 msgid "Export as HTML"
-msgstr "Экспортировать в HTML"
+msgstr "Експорт у форматі HTML"
 
 #: tfrmmain.actexportashtml.hint
 msgctxt "tfrmmain.actexportashtml.hint"
 msgid "Export as HTML"
-msgstr "Экспортировать в HTML"
+msgstr "Експорт у форматі HTML"
 
 #: tfrmmain.actfileopen.caption
 msgctxt "tfrmmain.actfileopen.caption"
 msgid "Open ..."
-msgstr "Открыть ..."
+msgstr "Відкрити ..."
 
 #: tfrmmain.actfileopen.hint
 msgctxt "tfrmmain.actfileopen.hint"
 msgid "Open ..."
-msgstr "Открыть ..."
+msgstr "Відкрити ..."
 
 #: tfrmmain.actfilesave.caption
 msgctxt "tfrmmain.actfilesave.caption"
 msgid "Save"
-msgstr "Сохранить"
+msgstr "Зберегти"
 
 #: tfrmmain.actfilesave.hint
 msgctxt "tfrmmain.actfilesave.hint"
 msgid "Save"
-msgstr "Сохранить"
+msgstr "Зберегти"
 
 #: tfrmmain.actjcfcurrenttab.caption
 msgctxt "tfrmmain.actjcfcurrenttab.caption"
@@ -339,32 +338,32 @@ msgstr ""
 #: tfrmmain.actrun.caption
 msgctxt "tfrmmain.actrun.caption"
 msgid "Run"
-msgstr "Запустить"
+msgstr "Запустити"
 
 #: tfrmmain.actrun.hint
 msgctxt "tfrmmain.actrun.hint"
 msgid "Run"
-msgstr "Запустить"
+msgstr "Запустити"
 
 #: tfrmmain.actsaveall.caption
 msgctxt "tfrmmain.actsaveall.caption"
 msgid "Save All"
-msgstr "Сохранить всё"
+msgstr "Зберегти все"
 
 #: tfrmmain.actsaveall.hint
 msgctxt "tfrmmain.actsaveall.hint"
 msgid "Save All"
-msgstr "Сохранить всё"
+msgstr "Зберегти все"
 
 #: tfrmmain.actterminateproc.caption
 msgctxt "tfrmmain.actterminateproc.caption"
 msgid "Stop"
-msgstr "Остановить"
+msgstr "Зупинити"
 
 #: tfrmmain.actterminateproc.hint
 msgctxt "tfrmmain.actterminateproc.hint"
 msgid "Stop"
-msgstr "Остановить"
+msgstr "Зупинити"
 
 #: tfrmmain.actupdatestatusbar.caption
 msgid "actUpdateStatusBar"
@@ -377,11 +376,11 @@ msgstr ""
 #: tfrmmain.miabout.caption
 msgctxt "tfrmmain.miabout.caption"
 msgid "About"
-msgstr "О программе"
+msgstr "Про Программу"
 
 #: tfrmmain.micloseallotherpages.caption
 msgid "Close All Other Pages"
-msgstr "Закрыть все другие вкладки"
+msgstr "Закрити всі інші сторінки"
 
 #: tfrmmain.micode.caption
 msgid "Source"
@@ -389,30 +388,30 @@ msgstr "Код"
 
 #: tfrmmain.micodeins.caption
 msgid "Insert General"
-msgstr "Вставить общее"
+msgstr "Вставити"
 
 #: tfrmmain.micreateproject.caption
 msgctxt "tfrmmain.micreateproject.caption"
 msgid "Create New Project"
-msgstr "Создать новый проект"
+msgstr "Створити новий проєкт"
 
 #: tfrmmain.micreateproject.hint
 msgctxt "tfrmmain.micreateproject.hint"
 msgid "Create New Project"
-msgstr "Создать новый проект"
+msgstr "Створити новий проєкт"
 
 #: tfrmmain.midocumentation.caption
 msgctxt "tfrmmain.midocumentation.caption"
 msgid "Help"
-msgstr "Документация"
+msgstr "Документація"
 
 #: tfrmmain.miexamples.caption
 msgid "Examples"
-msgstr "Примеры"
+msgstr "Приклади"
 
 #: tfrmmain.miexit.caption
 msgid "Quit"
-msgstr "Выход"
+msgstr "Вийти"
 
 #: tfrmmain.mifile.caption
 msgid "File"
@@ -421,24 +420,24 @@ msgstr "Файл"
 #: tfrmmain.miidemacros.caption
 msgctxt "tfrmmain.miidemacros.caption"
 msgid "IDE Macros"
-msgstr "Макросы IDE"
+msgstr "Макроси IDE"
 
 #: tfrmmain.miidesettings.caption
 msgid "Configure AMPASIDE"
-msgstr "Настроить AMPASIDE"
+msgstr "Налаштувати AMPASIDE"
 
 #: tfrmmain.miinfo.caption
 msgctxt "tfrmmain.miinfo.caption"
 msgid "Help"
-msgstr "Справка"
+msgstr "Довідка"
 
 #: tfrmmain.mijavalibs.caption
 msgid "Java-Libraries"
-msgstr "Java библиотеки"
+msgstr "Java-бібліотеки"
 
 #: tfrmmain.mijavalibs.hint
 msgid "Open on browser"
-msgstr "Открыть в браузере"
+msgstr "Відкрити в браузері"
 
 #: tfrmmain.mijcf.caption
 msgctxt "tfrmmain.mijcf.caption"
@@ -447,28 +446,28 @@ msgstr ""
 
 #: tfrmmain.mijcfcurrenttab.caption
 msgid "Current Editor Window"
-msgstr "Текущая вкладка редактора"
+msgstr "Поточне вікно редактора"
 
 #: tfrmmain.milangen.caption
 msgid "English"
-msgstr "Английский"
+msgstr "Англійська"
 
 #: tfrmmain.milangru.caption
 msgid "Russian"
-msgstr "Русский"
+msgstr "російська"
 
 #: tfrmmain.milanguk.caption
 msgid "Ukrainian"
-msgstr "Украинский"
+msgstr "Українська"
 
 #: tfrmmain.milocale.caption
 msgid "Language"
-msgstr "Язык"
+msgstr "Мова"
 
 #: tfrmmain.misettings.caption
 msgctxt "tfrmmain.misettings.caption"
 msgid "Settings"
-msgstr "Параметры"
+msgstr "Налаштування"
 
 #: tfrmmain.miview.caption
 msgid "View"
@@ -492,20 +491,20 @@ msgstr ""
 
 #: tfrmmain.tslogmsg.caption
 msgid "Messages"
-msgstr "Сообщения"
+msgstr "Повідомлення"
 
 #: tfrmmain.tsnotes.caption
 msgid "Notes"
-msgstr "Заметки"
+msgstr "Нотатки"
 
 #: tfrmmain.tsprojfiles.caption
 msgid "Files"
-msgstr "Файлы"
+msgstr "Файли"
 
 #: tfrmmain.tsprojsettings.caption
 msgctxt "tfrmmain.tsprojsettings.caption"
 msgid "Settings"
-msgstr "Параметры"
+msgstr "Налаштування"
 
 #: tfrmmanifestmf.caption
 msgctxt "tfrmmanifestmf.caption"
@@ -514,7 +513,7 @@ msgstr ""
 
 #: tfrmmanifestmf.cbextraoptions.caption
 msgid "More options"
-msgstr "Дополнительные параметры"
+msgstr "Додаткові опції"
 
 #: tfrmmanifestmf.lblmdelconfirm.caption
 msgid "MIDlet-Delete-Confirm:"
@@ -530,23 +529,23 @@ msgstr ""
 
 #: tfrmnewproj.caption
 msgid "New project"
-msgstr "Новый проект"
+msgstr "Новий проєкт"
 
 #: tfrmnewproj.lblname.caption
 msgid "Name:"
-msgstr "Имя:"
+msgstr "Ім'я:"
 
 #: tfrmnewproj.lblpath.caption
 msgid "Path:"
-msgstr "Путь:"
+msgstr "Шлях:"
 
 #: tgeneraloptionsframe.cbautoincbuildver.caption
 msgid "Automatically increase build number"
-msgstr "Автоматически наращивать номер сборки"
+msgstr "Автоматичне збільшення номера збірки"
 
 #: tgeneraloptionsframe.cbprevstretch.caption
 msgid "Stretch the image"
-msgstr "Растягивать изображение"
+msgstr "Розтягувати зображення"
 
 #: tgeneraloptionsframe.gbeditorheaders.caption
 msgid "Headers"
@@ -554,28 +553,28 @@ msgstr "Заголовки"
 
 #: tgeneraloptionsframe.gbemulator.caption
 msgid "Emulator"
-msgstr "Эмулятор"
+msgstr "Емулятор"
 
 #: tgeneraloptionsframe.gbfilemanager.caption
 msgid "File manager (preview)"
-msgstr "Файл. менеджер (превью)"
+msgstr "Файловий менеджер (попередній перегляд)"
 
 #: tgeneraloptionsframe.gbmoduleprefix.caption
 msgid "Prefix for new modules"
-msgstr "Префикс для новый модулей"
+msgstr "Префікс для нових модулів"
 
 #: tgeneraloptionsframe.gbversions.caption
 msgid "Versions"
-msgstr "Версии"
+msgstr "Версії"
 
 #: tgeneraloptionsframe.lblcmdline.caption
 msgid "Command Line:"
-msgstr "Командная строка:"
+msgstr "Командний рядок:"
 
 #: tgeneraloptionsframe.lblprevheight.caption
 msgctxt "tgeneraloptionsframe.lblprevheight.caption"
 msgid "Height"
-msgstr "Высота"
+msgstr "Висота"
 
 #: tgeneraloptionsframe.lblprevwidth.caption
 msgctxt "tgeneraloptionsframe.lblprevwidth.caption"
@@ -584,7 +583,7 @@ msgstr "Ширина"
 
 #: tprojectoptionsframe.btnmoarmoarmoar111.caption
 msgid "More ..."
-msgstr "Больше ..."
+msgstr "Більше ..."
 
 #: tprojectoptionsframe.cbbcanvastype.text
 msgid "MIDP2.0 Fullscreen"
@@ -600,7 +599,7 @@ msgstr ""
 
 #: tprojectoptionsframe.gbconfiguration.caption
 msgid "Configuration"
-msgstr "Конфигурация"
+msgstr "Конфігурація"
 
 #: tprojectoptionsframe.gbmanifest.caption
 msgctxt "tprojectoptionsframe.gbmanifest.caption"
@@ -609,7 +608,7 @@ msgstr ""
 
 #: tprojectoptionsframe.gbversions.caption
 msgid "Version numbering"
-msgstr "Номера версии"
+msgstr "Нумерація версій"
 
 #: tprojectoptionsframe.lblandroidmanifestfile.caption
 msgid "androidmanifest"
@@ -642,128 +641,128 @@ msgstr ""
 #: tprojectoptionsframe.sedtvbuild.hint
 msgctxt "tprojectoptionsframe.sedtvbuild.hint"
 msgid "Build"
-msgstr "Сборка"
+msgstr "Зібрати"
 
 #: tprojectoptionsframe.sedtvmajor.hint
 msgid "Major"
-msgstr "Старшая"
+msgstr "Старша"
 
 #: tprojectoptionsframe.sedtvminor.hint
 msgid "Minor"
-msgstr "Младшая"
+msgstr "Молодша"
 
 #: uampascore.err_bad_value
 msgctxt "uampascore.err_bad_value"
 msgid "Invalid value"
-msgstr "Недопустимое значение"
+msgstr "Невірне значення"
 
 #: uampascore.err_copy_dir
 msgid "Failed to copy directory"
-msgstr "Не удалось скопировать каталог"
+msgstr "Не вдалося скопіювати каталог"
 
 #: uampascore.err_copy_file
 msgid "Failed to copy file"
-msgstr "Не удалось скопировать файл"
+msgstr "Не вдалося скопіювати файл"
 
 #: uampascore.err_create_dir
 msgid "Failed to create directory"
-msgstr "Не удалось создать каталог"
+msgstr "Не вдалося створити каталог"
 
 #: uampascore.err_del_dir
 msgid "Error when deleting a directory"
-msgstr "Ошибка при удалении каталога"
+msgstr "Помилка при видаленні каталогу"
 
 #: uampascore.err_dir_404
 msgid "Directory not found"
-msgstr "Каталог не найден"
+msgstr "Каталог не знайдено"
 
 #: uampascore.err_empty_filename
 msgid "Error, empty value in filename"
-msgstr "Ошибка, пустое значение в имени файла"
+msgstr "Помилка, пусте значення в імені файлу"
 
 #: uampascore.err_empty_value
 msgid "Empty value"
-msgstr "Пустое значение"
+msgstr "Пусте значення"
 
 #: uampascore.err_err
 msgid "Error"
-msgstr "Ошибка"
+msgstr "Помилка"
 
 #: uampascore.err_failded_build_apk
 msgid "Failed to build APK file, details"
-msgstr "Не удалось создать APK-файл, подробности"
+msgstr "Не вдалося створити файл APK, деталі"
 
 #: uampascore.err_failed_create_module
 msgid "Failed to create module"
-msgstr "Не удалось создать модуль"
+msgstr "Не вдалося створити модуль"
 
 #: uampascore.err_failed_del
 msgid "Failed to delete"
-msgstr "Не удалось удалить"
+msgstr "Не вдалося видалити"
 
 #: uampascore.err_failed_download
 msgid "Failed to download"
-msgstr "Не удалось загрузить"
+msgstr "Не вдалося завантажити"
 
 #: uampascore.err_failed_find_lib
 msgid "Failed to find library/module"
-msgstr "Не удалось найти библиотеку/модуль"
+msgstr "Не вдалося знайти бібліотеку/модуль"
 
 #: uampascore.err_failed_open
 msgid "Failed to open"
-msgstr "Не удалось открыть"
+msgstr "Не вдалося відкрити"
 
 #: uampascore.err_failed_open_file_as_png
 msgid "Failed to open file as PNG"
-msgstr "Не удалось открыть файл в формате PNG"
+msgstr "Не вдалося відкрити файл у форматі PNG"
 
 #: uampascore.err_failed_rename
 msgid "Failed to rename"
-msgstr "Не удалось переименовать"
+msgstr "Не вдалося перейменувати"
 
 #: uampascore.err_failed_save
 msgid "Failed to save"
-msgstr "Не удалось сохранить"
+msgstr "Не вдалося зберегти"
 
 #: uampascore.err_failed_save_notes_file
 msgid "Failed to save notes file"
-msgstr "Не удалось сохранить файл заметок"
+msgstr "Не вдалося зберегти файл нотаток"
 
 #: uampascore.err_file_404
 msgid "File not found"
-msgstr "Файл не найден"
+msgstr "Файл не знайдено"
 
 #: uampascore.err_jedi_cf
 msgid "An error occurred during code formatting"
-msgstr "Произошла ошибка при форматировании кода"
+msgstr "Виникла помилка при форматуванні коду"
 
 #: uampascore.err_load_autocompele_file
 msgid "Failed to load the auto-complete file"
-msgstr "Не удалось загрузить файл автозаполнения"
+msgstr "Не вдалося завантажити файл автозаповнення"
 
 #: uampascore.err_load_img
 msgid "Failed to get image list"
-msgstr "Не удалось получить список изображений"
+msgstr "Не вдалося отримати список зображень"
 
 #: uampascore.err_load_notes
 msgid "Failed to load notes file"
-msgstr "Не удалось загрузить файл заметок"
+msgstr "Не вдалося завантажити файл з нотатками"
 
 #: uampascore.err_no_read_access
 msgid "No read permissions"
-msgstr "Нет прав на чтение"
+msgstr "Немає прав на читання"
 
 #: uampascore.err_no_write_access
 msgid "No write permissions"
-msgstr "Нет прав на запись"
+msgstr "Немає прав на запис"
 
 #: uampascore.err_run_proc
 msgid "Process startup error"
-msgstr "Ошибка запуска процесса"
+msgstr "Помилка запуску процесу"
 
 #: uampascore.err_saving
 msgid "Saving error"
-msgstr "Ошибка сохранения"
+msgstr "Помилка збереження"
 
 #: uampascore.text_byte
 msgid "b."
@@ -775,98 +774,98 @@ msgstr "завершено"
 
 #: uampascore.text_proc
 msgid "Process"
-msgstr "Процесс"
+msgstr "Процес"
 
 #: uandroidbuilding.text_compile_project
 msgid "compile project, it takes about a minute"
-msgstr "идет сборка, это займет около минуты"
+msgstr "компіляція проєкту, це займає близько хвилини"
 
 #: ucodeeditor.st_bar_modified
 msgid "Modified"
-msgstr "Изменено"
+msgstr "Модифікований"
 
 #: ucodeeditor.st_bar_no_open_files
 msgid "no open file"
-msgstr "нет открытого файла"
+msgstr "немає відкритого файлу"
 
 #: ufilemanager.caption_confirm_action
 msgctxt "ufilemanager.caption_confirm_action"
 msgid "Confirm the action"
-msgstr "Подтвердите действие"
+msgstr "Підтвердіть дію"
 
 #: ufilemanager.caption_creating_dir
 msgid "Creating a directory"
-msgstr "Создать каталог"
+msgstr "Створення каталогу"
 
 #: ufilemanager.caption_rename
 msgctxt "ufilemanager.caption_rename"
 msgid "Rename"
-msgstr "Переименовать"
+msgstr "Перейменувати"
 
 #: ufilemanager.filter_all_files
 msgid "All files"
-msgstr "Все файлы"
+msgstr "Всі файли"
 
 #: ufilemanager.item_libs
 msgid "Libraries"
-msgstr "Библиотеки"
+msgstr "Бібліотеки"
 
 #: ufilemanager.item_modules
 msgid "Modules"
-msgstr "Модули"
+msgstr "Модулі"
 
 #: ufilemanager.item_res
 msgid "Resources"
-msgstr "Ресурсы"
+msgstr "Ресурси"
 
 #: ufilemanager.msg_del_dir
 msgid "Remove directory"
-msgstr "Удалить каталог"
+msgstr "Видалити каталог"
 
 #: ufilemanager.msg_del_file
 msgid "Remove file"
-msgstr "Удалить файл"
+msgstr "Видалити файл"
 
 #: ufilemanager.msg_enter_name
 msgid "Enter name"
-msgstr "Введите имя"
+msgstr "Введіть ім'я"
 
 #: ufilemanager.msg_new_name
 msgid "New name"
-msgstr "Новое имя"
+msgstr "Нова назва"
 
 #: ufilemanager.msg_overwrite_dir
 msgid "Overwrite directory"
-msgstr "Перезаписать каталог"
+msgstr "Перезаписати каталог"
 
 #: ufilemanager.msg_overwrite_file
 msgid "Overwrite file"
-msgstr "Перезаписать файл"
+msgstr "Перезаписати файл"
 
 #: ufilemanager.title_add_files_to
 msgid "Add files to"
-msgstr "Добавить файлы в"
+msgstr "Додати файли до"
 
 #: ufilemanager.title_open_file
 msgid "Open file"
-msgstr "Открыть файл"
+msgstr "Відкрити файл"
 
 #: ufilemanager.title_save_as
 msgid "Save As ..."
-msgstr "Сохранить как ..."
+msgstr "Зберегти як ..."
 
 #: ufilemanager.title_save_module_as
 msgid "Save module as ..."
-msgstr "Сохранить модуль  как ..."
+msgstr "Зберегти модуль як ..."
 
 #: ufilemanagerframe.caption_height
 msgctxt "ufilemanagerframe.caption_height"
 msgid "Height"
-msgstr "Высота"
+msgstr "Висота"
 
 #: ufilemanagerframe.caption_no_file_selected
 msgid "No file selected"
-msgstr "Файл не выбран"
+msgstr "Не вибрано жодного файлу"
 
 #: ufilemanagerframe.caption_width
 msgctxt "ufilemanagerframe.caption_width"
@@ -875,107 +874,107 @@ msgstr "Ширина"
 
 #: ufilemanagerframe.hint_collapse
 msgid "Collapse"
-msgstr "Свернуть"
+msgstr "Згорнути"
 
 #: ufilemanagerframe.hint_expand
 msgid "Expand"
-msgstr "Развернуть"
+msgstr "Розгорнути"
 
 #: ufilemanagerframe.text_size
 msgctxt "ufilemanagerframe.text_size"
 msgid "Size"
-msgstr "Размер"
+msgstr "Розмір"
 
 #: uidemacrosform.text_absolute_path_to
 msgid "absolute path to"
-msgstr "абсолютный путь к"
+msgstr "абсолютний шлях до"
 
 #: uidemacrosform.text_absolute_path_to_proj
 msgid "absolute path to project home directory"
-msgstr "абсолютный путь к домашнему каталогу проекта"
+msgstr "абсолютний шлях до домашнього каталогу проєкту"
 
 #: uidemacrosform.text_other
 msgctxt "uidemacrosform.text_other"
 msgid "Other"
-msgstr "Другое"
+msgstr "Інше"
 
 #: uidemacrosform.text_project
 msgid "Project"
-msgstr "Проект"
+msgstr "Проєкт"
 
 #: umainform.caption_confirmation
 msgid "Confirmation"
-msgstr "Подтверждение"
+msgstr "Підтвердження"
 
 #: umainform.caption_invalid_value
 msgctxt "umainform.caption_invalid_value"
 msgid "Invalid value"
-msgstr "Недопустимое значение"
+msgstr "Невірне значення"
 
 #: umainform.caption_process_is_started
 msgid "Process started"
-msgstr "Запущен процесс"
+msgstr "Процес запущено"
 
 #: umainform.msg_format_code
 msgid "Format code"
-msgstr "Форматировать код"
+msgstr "Форматувати код"
 
 #: umainform.msg_interrupt_execution
 msgid "Interrupt execution"
-msgstr "Прервать выполнение"
+msgstr "Перервати виконання"
 
 #: umainform.msg_module_already_exists
 msgid "Module with this name already exists, overwrite it?"
-msgstr "Модуль с таким именем уже существует, перезаписать его?"
+msgstr "Модуль з такою назвою вже існує, перезаписати його?"
 
 #: umainform.msg_module_name_must_least
 msgid "Module name must be at least 3 characters long"
-msgstr "Имя модуля должно содержать не менее 3 символов"
+msgstr "Назва модуля повинна мати довжину не менше 3 символів"
 
 #: umainform.msg_save_changes
 msgid "Save changes to file"
-msgstr "Сохранить изменения в файл"
+msgstr "Зберегти зміни у файл"
 
 #: umainform.restart_confirmation
 msgid "Changes require a restart"
-msgstr "Изменения требуют перезапуска"
+msgstr "Зміни вимагають перезавантаження"
 
 #: umainform.text_not_available_no_open_project
 msgid "Not available, no open project"
-msgstr "Недоступно, нет открытого проекта"
+msgstr "Недоступно, немає відкритого проекту"
 
 #: unewprojform.caption_confirm_action
 msgctxt "unewprojform.caption_confirm_action"
 msgid "Confirm the action"
-msgstr "Подтвердите действие"
+msgstr "Підтвердіть дію"
 
 #: unewprojform.msg_enter_projname
 msgid "Enter project name"
-msgstr "Введите название проекта"
+msgstr "Введіть назву проекту"
 
 #: unewprojform.msg_proj_exists
 msgid "Project with this name already exists, overwrite it?"
-msgstr "Проект с таким именем уже существует, перезаписать его?"
+msgstr "Проект з такою назвою вже існує, перезаписати його?"
 
 #: unewprojform.msg_proj_name_must_least
 msgid "Project name must be at least 3 characters long"
-msgstr "Название проекта должно содержать не менее 3 символов"
+msgstr "Назва проєкту повинна мати довжину не менше 3 символів"
 
 #: unewprojform.msg_select_save_dir
 msgid "Select a save directory"
-msgstr "Выберите каталог сохранения"
+msgstr "Виберіть каталог для збереження"
 
 #: uprojectbuilding.log_info_ant_completed_work
 msgid "Ant has completed its work, details"
-msgstr "Ant завершил работу, подробности"
+msgstr "Ant завершив роботу, деталі"
 
 #: uprojectbuilding.log_info_archiving_start
 msgid "Starting archiving"
-msgstr "Начало архивации"
+msgstr "Розпочато архівування"
 
 #: uprojectbuilding.log_info_compiling
 msgid "Compiling"
-msgstr "Компиляция"
+msgstr "Компіляція"
 
 #: uprojectbuilding.log_info_completed
 msgid "Completed"
@@ -983,11 +982,11 @@ msgstr "Завершено"
 
 #: uprojectbuilding.log_info_emulator_stop
 msgid "Emulator operation completed"
-msgstr "Работа эмулятора завершена"
+msgstr "Роботу емулятора завершено"
 
 #: uprojectbuilding.msg_build_successful
 msgid "Build successful"
-msgstr "Сборка успешно завершена"
+msgstr "Збірка успішно завершена"
 
 #: uprojectbuilding.text_lauch
 msgid "launch"
@@ -999,18 +998,17 @@ msgstr "Платформа"
 
 #: uprojectbuilding.text_process_busy
 msgid "file may be busy with another process"
-msgstr "возможно файл занят другим процессом"
+msgstr "можливо, файл зайнятий іншим процесом"
 
 #: uprojectbuilding.text_size
 msgctxt "uprojectbuilding.text_size"
 msgid "Size"
-msgstr "Размер"
+msgstr "Розмір"
 
 #: uprojectbuilding.text_version
 msgid "Version"
-msgstr "Версия"
+msgstr "Версія"
 
 #: uprojectmanager.text_default_notes
 msgid "You can write anything here, notes, todos, etc ..."
-msgstr ""
-"Здесь можно писать что угодно, используйте это для заметок и быстрых записей"
+msgstr "Тут можна писати все що завгодно, нотатки, todo і т.д ..."
