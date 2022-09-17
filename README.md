@@ -3,7 +3,6 @@ AMPASIDE
 
 Advanced [MIDletPascal](https://en.wikipedia.org/wiki/MIDletPascal) IDE
 
-- [README_ru.md](https://github.com/Helltar/AMPASIDE/blob/master/README_ru.md)
 - https://youtu.be/OYWTLv9_ghw
 
 Download
