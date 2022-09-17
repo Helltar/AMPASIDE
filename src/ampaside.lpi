@@ -27,7 +27,7 @@
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="2"/>
       <RevisionNr Value="6"/>
-      <BuildNr Value="86"/>
+      <BuildNr Value="88"/>
       <CharSet Value="04B0"/>
       <StringTable CompanyName="helltar.com" FileDescription="Advanced MIDletPascal IDE" LegalCopyright="2015-2022 Helltar" OriginalFilename="ampaside" ProductName="AMPASIDE" ProductVersion="1.2.6"/>
     </VersionInfo>
