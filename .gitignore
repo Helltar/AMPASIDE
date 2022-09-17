@@ -4,9 +4,6 @@ ampaside.dbg
 config/editorheaders
 config/ampaside
 
-src/*.lps
-src/*.res
-
 backup/
 src/**/lib
 
@@ -17,5 +14,9 @@ log/
 build.*.xml
 R.java
 
-locale/*.mo
+*.lps
+*.res
 *.lrj
+*.mo
+*.sh
+.directory
